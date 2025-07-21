@@ -262,33 +262,27 @@ class CVBuilder:
             
             return markdown
         else:
-            # Technical 3-column format
+            # François-style clean bullet format
             markdown = "## Skills\n\n"
-            markdown += "| **Software Engineering**      | **AI & LLMs**                              | **Data Science**                          |\n"
-            markdown += "| :---------------------------- | :----------------------------------------- | :---------------------------------------- |\n"
             
-            # Get max length for proper table formatting
-            max_rows = max(
-                len(processed_skills.get('programming_languages', [])) + len(processed_skills.get('core_technologies', [])),
-                len(processed_skills.get('domain_expertise', {}).get('skills', [])) + len(processed_skills.get('domain_expertise', {}).get('secondary_skills', [])),
-                len(processed_skills.get('tools_platforms', [])) + len(processed_skills.get('project_management', []))
-            )
-            
-            # Build the table rows
+            # Software Engineering category
             col1_items = processed_skills.get('programming_languages', []) + processed_skills.get('core_technologies', [])
-            
-            # Column 2 - Domain expertise
-            col2_items = []
-            domain_exp = processed_skills.get('domain_expertise', {})
-            if domain_exp:
-                col2_items.extend(domain_exp.get('skills', []))
-                col2_items.extend(domain_exp.get('secondary_skills', []))
-            
-            # Column 3 - Tools and project management
-            col3_items = processed_skills.get('tools_platforms', []) + processed_skills.get('project_management', [])
-            
-            # Create table rows
-            max_items = max(len(col1_items), len(col2_items), len(col3_items))
+            if col1_items:
+                markdown += "| **Software Engineering**      | **AI & LLMs**                              | **Data Science**                          |\n"
+                markdown += "| :---------------------------- | :----------------------------------------- | :---------------------------------------- |\n"
+                
+                # Domain expertise (AI & LLMs)
+                col2_items = []
+                domain_exp = processed_skills.get('domain_expertise', {})
+                if domain_exp:
+                    col2_items.extend(domain_exp.get('skills', []))
+                    col2_items.extend(domain_exp.get('secondary_skills', []))
+                
+                # Tools and platforms (Data Science)
+                col3_items = processed_skills.get('tools_platforms', []) + processed_skills.get('project_management', [])
+                
+                # Create table rows
+                max_items = max(len(col1_items), len(col2_items), len(col3_items))
             
             for i in range(max_items):
                 col1 = f"• {col1_items[i]}" if i < len(col1_items) else ""
