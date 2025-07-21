@@ -80,6 +80,80 @@ projects:
       consulting: "Technical Leadership, System Architecture, AI Safety, Enterprise Deployment, ROI Analysis, Risk Assessment, Model Optimization, Business Strategy"
       general: "PyTorch, Transformers, Model Optimization, CLIP, ViT, Safety Evaluation, Red Teaming, Technical Implementation, System Design"
 
+  # Data-Driven Analysis of DeepWeb Marketplace Dynamics - Shows in all except firmware and executive
+  - name: "Data-Driven Analysis of DeepWeb Marketplace Dynamics"
+    period: "2019"
+    links:
+      demo: "https://ada-2019.github.io/Project/"
+      demo_text: "Interactive Demo"
+      github: "https://github.com/ADA-2019/Project"
+      github_text: "EPFL ADA Course"
+    versions: ["ai", "consulting", "general"]
+    
+    # Version-specific descriptions
+    descriptions:
+      ai:
+        - "Implemented statistical modeling pipeline to reconstruct missing marketplace data, addressing data sparsity challenges in large-scale behavioral datasets"
+        - "Built scalable data processing system using PySpark and distributed databases handling 1TB+ of historical marketplace data on standard hardware"
+        - "Developed comprehensive data extraction and cleaning pipeline processing mixed HTML content using BeautifulSoup and custom parsing algorithms"
+        - "Created interactive JavaScript visualization dashboard demonstrating complex market dynamics and regulatory policy impact analysis"
+        - "Conducted rigorous statistical analysis of police intervention effects on marketplace behavior, revealing no significant long-term market disruption"
+      
+      consulting:
+        - "Analyzed regulatory policy impact on digital marketplace ecosystems, investigating law enforcement intervention effects on market dynamics"
+        - "Built scalable big data processing system handling 1TB+ datasets with distributed computing architecture on standard hardware"
+        - "Developed comprehensive data quality framework addressing complex HTML parsing and missing data reconstruction challenges"
+        - "Created interactive web-based visualization platform for stakeholder communication and policy insight presentation"
+        - "Delivered data-driven analysis demonstrating resilience of decentralized markets to regulatory intervention"
+      
+      general:
+        - "Processed 1TB+ of historical marketplace data using PySpark and distributed databases to study behavioral economics and regulatory impact"
+        - "Implemented statistical modeling pipeline for missing data reconstruction and comprehensive data cleaning from mixed HTML sources"
+        - "Built scalable data processing system achieving excellent performance on standard hardware through distributed computing optimization"
+        - "Created interactive JavaScript visualization dashboard presenting complex market dynamics and policy analysis findings"
+        - "Conducted comprehensive analysis of regulatory intervention effects achieving distinguished academic recognition (5.5/6.0)"
+    
+    # Skills tags by version
+    skills_tags:
+      ai: "Statistical Modeling, Data Reconstruction, PySpark, Distributed Computing, Big Data Processing, BeautifulSoup, Data Visualization, JavaScript, Policy Analysis, Behavioral Analytics"
+      consulting: "Big Data Analytics, Policy Impact Analysis, Distributed Systems, Data Quality Frameworks, Stakeholder Communication, Regulatory Analysis, Web Visualization"
+      general: "Big Data Processing, Statistical Analysis, PySpark, Distributed Computing, Data Visualization, JavaScript, Web Development, Policy Research"
+
+  # PriorityQueue Formal Verification - Shows in all except firmware and executive
+  - name: "PriorityQueue Formal Verification"
+    period: "2019 - 2020"
+    links:
+      github: "https://github.com/fquellec/PriorityQueue-FormalVerification"
+      github_text: "GitHub Repository"
+    versions: ["ai", "consulting", "general"]
+    
+    # Version-specific descriptions
+    descriptions:
+      ai:
+        - "Implemented formal verification of optimal purely functional priority queues using Stainless proof assistant framework"
+        - "Applied advanced algorithmic analysis and mathematical proof techniques for data structure correctness verification"
+        - "Developed functional programming approaches with formal methods ensuring algorithmic soundness and computational complexity guarantees"
+        - "Achieved perfect academic score (6.0/6.0) demonstrating expertise in theoretical computer science and algorithmic verification"
+        - "Contributed to research in verified algorithms and computational complexity theory with practical implementation"
+      
+      consulting:
+        - "Demonstrated expertise in formal verification methodologies ensuring system reliability and correctness"
+        - "Applied theoretical computer science principles to practical algorithm implementation and validation"
+        - "Contributed to research in verified algorithms with potential applications in safety-critical systems"
+        - "Achieved perfect academic score (6.0/6.0) showcasing analytical rigor and problem-solving excellence"
+      
+      general:
+        - "Proved correctness of Stainless implementation of optimal purely functional priority queues"
+        - "Applied formal verification techniques using mathematical proof methods and algorithmic analysis"
+        - "Implemented functional programming solution with theoretical computer science foundations"
+        - "Achieved perfect academic recognition (6.0/6.0) for technical excellence and mathematical rigor"
+    
+    # Skills tags by version
+    skills_tags:
+      ai: "Formal Verification, Algorithmic Analysis, Computational Complexity, Theoretical CS, Functional Programming, Mathematical Proofs, Stainless, Algorithm Verification"
+      consulting: "Formal Verification, System Reliability, Analytical Methods, Quality Assurance, Safety-Critical Systems"
+      general: "Scala, Stainless, Formal Verification, Functional Programming, Mathematical Proofs"
+
   # ASIC Medical Device - Shows in all except executive
   - name: "ASIC-Enabled Medical Device Development"
     period: "2021 - 2022"
@@ -179,7 +253,7 @@ version_config:
 # Project selection logic based on version
 project_selection:
   firmware: ["technical_documentation_rag", "asic_medical_device", "high_performance_genomic"]
-  ai: ["technical_documentation_rag", "multimodal_insight_engine", "asic_medical_device"]
-  consulting: ["technical_documentation_rag", "multimodal_insight_engine", "asic_medical_device"]
+  ai: ["technical_documentation_rag", "multimodal_insight_engine", "data_driven_analysis", "priorityqueue_formal_verification", "asic_medical_device"]
+  consulting: ["technical_documentation_rag", "multimodal_insight_engine", "data_driven_analysis", "priorityqueue_formal_verification", "asic_medical_device"]
   executive: [] # No projects in executive
-  general: ["technical_documentation_rag", "multimodal_insight_engine", "asic_medical_device", "high_performance_genomic"]
+  general: ["technical_documentation_rag", "multimodal_insight_engine", "data_driven_analysis", "priorityqueue_formal_verification", "asic_medical_device", "high_performance_genomic"]

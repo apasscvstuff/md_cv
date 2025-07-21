@@ -5,7 +5,7 @@ experiences:
   # Tandem Diabetes Care - Shows in all versions with different content
   - company: "Tandem Diabetes Care Switzerland"
     location: "Lausanne, Switzerland"
-    period: "December 2022 - June 2025"
+    period: "December 2022 - Today"
     reference: "(Ref. Patrick Segura)"
     versions: ["firmware", "ai", "consulting", "executive", "general"]
     
@@ -48,15 +48,100 @@ experiences:
         type: "businessimpact"
         
       # Priority 2 achievements (not in executive)
-      - text: "Translated clinical trial roadmap requirements into concrete technical strategies, managing multiple parallel projects under tight regulatory deadlines"
+      - text: "Coordinated cross-functional teams across multiple time zones, including collaboration with San Diego engineering team for HIL system adoption, while mentoring 3-5 team members on embedded development and system design"
+        versions: ["firmware"]
+        priority: 2
+        type: "leadmetric"
+        
+      - text: "Developed proprietary embedded software combining third-party Bluetooth stack with custom safety algorithms and real-time insulin delivery protocols"
+        versions: ["firmware"]
+        priority: 2
+        type: "techmetric"
+        
+      - text: "Implemented sensor fusion system combining accelerometer and Hall effect sensors achieving 100% detection accuracy through statistical calibration algorithms and dynamic threshold adjustment"
+        versions: ["firmware"]
+        priority: 2
+        type: "techmetric"
+        
+      - text: "Optimized embedded system performance doubling battery longevity and reducing data transmission by 80% through algorithmic optimization and power management"
+        versions: ["firmware"]
+        priority: 2
+        type: "techmetric"
+        
+      - text: "Advised R&D management on critical embedded hardware and software technology choices for next-generation pump platform evolution"
+        versions: ["firmware"]
+        priority: 2
+        type: "base"
+        
+      - text: "Established comprehensive test infrastructure for medical-grade firmware verification achieving 90%+ test coverage through HIL system development, with automated CI/CD pipeline on GitHub for branch testing and Grafana dashboards for real-time data visualization"
+        versions: ["firmware"]
+        priority: 2
+        type: "techmetric"
+        
+      - text: "Facilitated Agile ceremonies (PI Planning, stand-ups, sprint planning, retrospectives, demos) and implemented Scrum framework (SaFE) for medical device development, managing product backlogs"
+        versions: ["firmware"]
+        priority: 2
+        type: "base"
+        
+      - text: "Designed RAG system architecture using hybrid retrieval (semantic + keyword search) with local Ollama deployment for technical documentation chatbot serving 100+ MB corpus of IEC-62304 compliance materials"
+        versions: ["ai"]
+        priority: 2
+        type: "ai_focus"
+        
+      - text: "Implemented Hall effect signal modeling and data analysis pipelines using Python for simulation experiments and sensor validation in medical device applications"
+        versions: ["ai"]
+        priority: 2
+        type: "ai_focus"
+        
+      - text: "Developed statistical calibration algorithms for sensor fusion system achieving 100% detection accuracy through dynamic threshold adjustment and boot-time calibration"
+        versions: ["ai"]
+        priority: 2
+        type: "ai_focus"
+        
+      - text: "Created comprehensive Python training curriculum enabling team transition from LabView to Python-based development workflows, training 15+ engineers"
+        versions: ["ai"]
+        priority: 2
+        type: "ai_focus"
+        
+      - text: "Architected and delivered 6 proof-of-concept systems including innovative sensor solutions, achieving stakeholder adoption for production implementation"
+        versions: ["ai"]
+        priority: 2
+        type: "ai_focus"
+        
+      - text: "Established test infrastructure achieving 90%+ coverage through automated validation frameworks with CI/CD pipeline integration and Grafana dashboards for data-driven verification and real-time monitoring"
+        versions: ["ai"]
+        priority: 2
+        type: "ai_focus"
+        
+      - text: "Translated clinical trial roadmap requirements into concrete technical strategies, managing multiple parallel projects under tight regulatory deadlines while ensuring ethical technology development"
         versions: ["consulting"]
         priority: 2
         type: "consulting_focus"
         
-      - text: "while ensuring ethical technology development"
+      - text: "Advised R&D management on critical technology choices for next-generation platform evolution, providing strategic technical consultation for product roadmap decisions"
         versions: ["consulting"]
         priority: 2
         type: "consulting_focus"
+        
+      - text: "Designed and demonstrated 6 proof-of-concept systems to stakeholders, achieving production adoption and excellent feedback through systematic innovation approach"
+        versions: ["consulting"]
+        priority: 2
+        type: "consulting_focus"
+        
+      - text: "Led technical knowledge transfer initiatives training 15+ team members, successfully transitioning development workflows and improving team capabilities"
+        versions: ["consulting"]
+        priority: 2
+        type: "consulting_focus"
+        
+      - text: "Implemented comprehensive validation infrastructure delivering 90%+ test coverage through automated CI/CD workflows and real-time monitoring dashboards, ensuring regulatory compliance and quality assurance"
+        versions: ["consulting"]
+        priority: 2
+        type: "consulting_focus"
+        
+      - text: "Coordinated cross-functional teams across multiple time zones while mentoring 3-5 engineers, improving inter-team coordination and technical expertise"
+        versions: ["consulting"]
+        priority: 2
+        type: "leadmetric"
         
       - text: "Architected and delivered proof-of-concept systems — from user needs/human factor study to successful company-wide documented demos"
         versions: ["firmware", "general"]
@@ -99,28 +184,28 @@ experiences:
         priority: 3
         type: "consulting_focus"
         
-      - text: "Presented PoCs and firmware system updates to clinical and business stakeholders; adapted technical language to varied audiences"
-        versions: ["firmware", "general"]
+      - text: "Presented PoCs and firmware system updates to clinical and business stakeholders, adapting technical language to varied audiences across organizational levels"
+        versions: ["firmware"]
         priority: 3
         type: "base"
         
-      - text: "Facilitated Agile ceremonies and implemented Scrum framework for medical device development, managing product backlogs and coordinating interdisciplinary teams"
+      - text: "Presented technical concepts and system updates to clinical and business stakeholders, consistently adapting complex technical language to varied audiences across organizational levels"
         versions: ["consulting"]
         priority: 3
         type: "consulting_focus"
         
-      - text: "Established comprehensive test infrastructure ensuring regulatory compliance (ISO 13485/IEC 62304), demonstrating expertise in quality frameworks applicable to AI governance"
+      - text: "Managed technical subprojects ensuring ISO 13485/IEC 62304 compliance (DHF, risk analysis, etc.), demonstrating expertise in quality frameworks applicable to AI governance"
         versions: ["consulting"]
         priority: 3
         type: "consulting_focus"
     
     # Skills tags by version
     skills_tags:
-      firmware: "System Architecture, FreeRTOS, Safety-Critical Systems, Technical Leadership, Risk Management, Requirement Engineering, Client-facing Communication Skills"
-      ai: "Medical Device Development, Regulatory Compliance, System Architecture, Technical Leadership, Project Management, Stakeholder Communication"
-      consulting: "Technical Strategy, Cross-functional Coordination, Regulatory Compliance, Stakeholder Communication, Strategic Consulting, Ethical Technology Development, Team Leadership"
+      firmware: "Software Architecture, System Engineering, C/C++, Python, FreeRTOS, Safety-Critical Systems, Sensor Fusion, Statistical Algorithms, Technical Leadership, Cross-functional Team Coordination, CI/CD Implementation, GitHub Actions, Grafana, Real-time Monitoring, Git Version Control, Stakeholder Communication, JTAG, STM32, Nordic, HIL Testing, Power Optimization, Agile/Scrum"
+      ai: "Python, RAG Systems, Ollama, Hybrid Retrieval, Signal Processing, Statistical Modeling, Data Analysis, Technical Training, Curriculum Design, PyTorch, Pandas, NumPy, Sensor Fusion, ML Pipeline Development, CI/CD, GitHub Actions, Grafana, Data Visualization, Technical Documentation, Knowledge Transfer, Proof-of-Concept Development, System Architecture, Medical AI Applications"
+      consulting: "Technical Strategy, Cross-functional Coordination, Regulatory Compliance, Stakeholder Communication, Strategic Consulting, Proof-of-Concept Development, Technical Training, Team Development, Change Management, Innovation Leadership, Client Presentations, Ethical Technology Development"
       executive: "Strategic Technical Leadership, Cross-functional Coordination, Regulatory Compliance, $2M+ Project Impact"
-      general: "System Architecture, FreeRTOS, Safety-Critical Systems, Technical Leadership, Risk Management, Requirement Engineering, Client-facing Communication Skills"
+      general: "System Architecture, Python, Technical Leadership, Proof-of-Concept Development, Risk Management, Requirement Engineering, Team Mentoring, Cross-functional Communication, HIL Testing, Statistical Analysis"
 
   # Bleu Lézard - Only in consulting, general, firmware (not AI)
   - company: "Bleu Lézard Cultural Establishment"
@@ -268,8 +353,8 @@ experiences:
   # ADEPT - Shows in all except executive
   - company: "ADEPT Neuro SA"
     location: "Lausanne, Switzerland"
-    period: "March 2021 - March 2022"
-    reference: "(Ref. Dr. Stéphane Bernasconi)"
+    period: "September 2021 - March 2022"
+    reference: "(Ref. Dr. Jason Ruan)"
     versions: ["ai", "consulting", "general", "firmware"]
     
     position_base: "Research Project Student Intern"
@@ -280,51 +365,147 @@ experiences:
       firmware: "Research Project Student Intern"
     
     achievements:
-      - text: "Designed and developed machine learning-based seizure detection system achieving 87% accuracy with <100ms latency for real-time neural signal processing"
-        versions: ["ai"]
-        priority: 1
-        type: "ai_focus"
-        
-      - text: "Implemented hardware-software interfaces for novel deep-brain electrodes with integrated ASICs"
+      # Firmware version - detailed hardware/software integration
+      - text: "Developed and integrated software (C & Python)/hardware (VHDL) interfaces and embedded drivers for ASIC-enabled neural electrodes, managing 300+ parallel signal channels at 50-60 Hz sampling rates"
         versions: ["firmware"]
         priority: 1
         type: "firmware_focus"
         
-      - text: "for startup medical device development, achieving excellent academic recognition (5.0/6.0)"
-        versions: ["ai", "consulting"]
-        priority: 1
+      - text: "Led implementation and documentation of research-grade medical device prototypes in startup R&D environment at EPFL Innovation Park"
+        versions: ["firmware"]
+        priority: 2
         type: "base"
         
-      - text: "achieving excellent academic recognition (5.0/6.0)"
-        versions: ["general", "firmware"]
-        priority: 1
+      - text: "Collaborated with multidisciplinary R&D team while ensuring compliance with medical device Quality System requirements and regulatory standards"
+        versions: ["firmware"]
+        priority: 2
         type: "base"
         
-      - text: "Contributed to innovative medical device development within startup environment at EPFL Innovation Park"
+      # AI version - detailed machine learning and signal processing
+      - text: "Performed time series analysis on 300+ parallel neural signals at 50-60Hz for epilepsy onset detection, implementing feature extraction algorithms for medical diagnostic applications"
+        versions: ["ai"]
+        priority: 1
+        type: "ai_focus"
+        
+      - text: "Developed signal processing pipelines using Python visualization libraries for ASIC-based neural electrode data acquisition and analysis"
+        versions: ["ai"]
+        priority: 2
+        type: "ai_focus"
+        
+      - text: "Applied machine learning approaches to biomedical signal processing in regulated healthcare research environment"
+        versions: ["ai"]
+        priority: 2
+        type: "ai_focus"
+        
+      # Consulting version - business and innovation focus
+      - text: "Developed and integrated software (Python)/hardware (FPGA) interfaces for novel medical devices, ensuring compliance with Quality System requirements and demonstrating ethical technology development practices"
+        versions: ["consulting"]
+        priority: 1
+        type: "consulting_focus"
+        
+      - text: "Led implementation and comprehensive documentation of research-grade medical device prototypes, bridging complex technical concepts with regulatory compliance requirements"
         versions: ["consulting"]
         priority: 2
         type: "consulting_focus"
         
-      - text: "Project focused on medical device innovation within a startup environment at EPFL Innovation Park"
-        versions: ["general", "firmware"]
+      - text: "Collaborated with multidisciplinary R&D team while maintaining regulatory standards, demonstrating ability to work within ethical and compliance frameworks"
+        versions: ["consulting"]
+        priority: 2
+        type: "consulting_focus"
+        
+      # General version - balanced technical overview
+      - text: "Developed and integrated software (Python)/hardware (FPGA) interfaces for analog medical devices, ensuring compliance with Quality System requirements"
+        versions: ["general"]
+        priority: 1
+        type: "base"
+        
+      - text: "Led implementation and documentation of research-grade medical device prototypes"
+        versions: ["general"]
         priority: 2
         type: "base"
         
-      - text: "Combined advanced signal processing with machine learning for biomedical applications"
-        versions: ["ai"]
+      - text: "Collaborated with R&D team on medical device development projects while maintaining regulatory standards"
+        versions: ["general"]
         priority: 2
-        type: "ai_focus"
+        type: "base"
+    
+    skills_tags:
+      firmware: "Hardware-Software Integration, ASIC Integration, VHDL, C/C++, Python, Medical Device Development, Multi-channel Signal Processing, Quality Systems, R&D, Technical Documentation, Neural Interface Systems"
+      ai: "Time Series Analysis, Feature Extraction, Medical Signal Processing, Python, Data Visualization, Epilepsy Detection, Neural Signal Analysis, Healthcare AI, Biomedical Data Science, Medical Device Prototypes, Regulatory Compliance, Neuroscience Applications, ASIC Integration, Multi-channel Data Processing, Machine Learning Applications"
+      consulting: "Medical Device R&D, Regulatory Compliance, Technical Documentation, Interdisciplinary Collaboration, Ethical Technology Development"
+      general: "Medical Prototype Development, Hardware-Software Integration, Quality Systems, R&D, Technical Documentation, Signal Processing"
+
+  # ParSA Laboratory EPFL - Only shows in non-AI versions 
+  - company: "ParSA Laboratory, EPFL"
+    location: "Lausanne, Switzerland"
+    period: "December 2020 - March 2021"
+    reference: "(Ref. Pr. M.Stojilovic)"
+    versions: ["firmware", "consulting", "general"]
+    
+    position_base: "Research Project Student Assistant"
+    position_variants:
+      firmware: "Research Project Student Assistant"
+      consulting: "Research Project Student Assistant"
+      general: "Research Project Student Assistant"
+    
+    achievements:
+      # Firmware version - detailed technical implementation
+      - text: "Designed and implemented heterogeneous embedded system architecture (FPGA + CPU) for specialized research experiments, demonstrating expertise in complex, integrated platforms suitable for AI acceleration workloads"
+        versions: ["firmware"]
+        priority: 1
+        type: "firmware_focus"
         
-      - text: "Developed real-time processing algorithms for multi-channel neural data acquisition"
+      - text: "Developed and optimized UART communication system between Artix-7 FPGA platform and Linux host environment achieving 2Mbps data transfer rates for real-time processing applications"
         versions: ["firmware"]
         priority: 2
         type: "firmware_focus"
+        
+      - text: "Architected hardware-software interface enabling seamless data flow between FPGA accelerators and host CPU, establishing foundation for understanding hardware-accelerated ML inference pipelines"
+        versions: ["firmware"]
+        priority: 2
+        type: "firmware_focus"
+        
+      - text: "Created comprehensive technical documentation and deployment guides facilitating 5+ subsequent research projects and knowledge transfer"
+        versions: ["firmware"]
+        priority: 2
+        type: "base"
+        
+      # Consulting version - solution design and delivery focus
+      - text: "Designed and implemented heterogeneous system architecture for specialized research experiments, demonstrating expertise in complex technical solution design and implementation"
+        versions: ["consulting"]
+        priority: 1
+        type: "consulting_focus"
+        
+      - text: "Developed optimized communication systems and created comprehensive technical documentation to facilitate knowledge transfer and system deployment"
+        versions: ["consulting"]
+        priority: 2
+        type: "consulting_focus"
+        
+      - text: "Collaborated with academic research team while maintaining rigorous technical standards and documentation practices"
+        versions: ["consulting"]
+        priority: 2
+        type: "consulting_focus"
+        
+      # General version - balanced overview
+      - text: "Designed and implemented heterogeneous hardware-software system architecture for specialized research experiments"
+        versions: ["general"]
+        priority: 1
+        type: "base"
+        
+      - text: "Developed and optimized UART communication system between Artix-7 FPGA platform and Linux host environment"
+        versions: ["general"]
+        priority: 2
+        type: "base"
+        
+      - text: "Created detailed technical documentation to facilitate system deployment and knowledge transfer"
+        versions: ["general"]
+        priority: 2
+        type: "base"
     
     skills_tags:
-      ai: "Machine Learning, Seizure Detection, Neural Signal Analysis, Healthcare AI, Biomedical Data Science, Medical Device Prototypes, Regulatory Compliance, Neuroscience Applications, ASIC Integration, Multi-channel Data Processing, Machine Learning Applications"
-      consulting: "Medical Device Development, Startup Environment, Innovation Management, Research Methodology, Healthcare Technology, Regulatory Compliance, Technical Innovation"
-      general: "Medical Device Development, Research Methodology, Hardware-Software Integration, Signal Processing, ASIC Integration, Startup Environment"
-      firmware: "Hardware-Software Integration, ASIC Integration, Real-time Processing, Multi-channel Data, Medical Device Development, Embedded Systems, Signal Processing"
+      firmware: "FPGA Development, Hardware-Software Integration, Embedded Systems Design, UART/Serial Interfaces, Technical Documentation, Linux Kernel Integration, C/C++, Signal Processing, VHDL, System Architecture, Research Methodology"
+      consulting: "System Architecture, Technical Research, Documentation, Knowledge Transfer, Academic Collaboration"
+      general: "FPGA Development, Hardware-Software Integration, Embedded Systems, UART, Technical Documentation, Linux"
 
 # Version configuration for conditional logic
 version_config:
