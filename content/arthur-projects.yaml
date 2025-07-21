@@ -1,0 +1,185 @@
+# Arthur Passuello - Projects Configuration
+# This file preserves the exact conditional logic from the LaTeX system
+
+projects:
+  # Technical Documentation RAG System - Shows in AI, consulting, general, firmware
+  - name: "Technical Documentation RAG System"
+    period: "Jan 2025 - Present"
+    links:
+      github: "https://github.com/apassuello/technical-doc-rag/"
+      demo: "https://huggingface.co/spaces/ArthyP/technical-rag-assistant"
+    versions: ["ai", "consulting", "general", "firmware"]
+    
+    # Version-specific descriptions
+    descriptions:
+      ai:
+        - "Architected RAG platform achieving 99.5% chunk quality through novel hybrid parsing with TOC-guided navigation"
+        - "Implemented enterprise hybrid retrieval system (FAISS + BM25 + graph search)"
+        - "Built modular 6-component architecture with real-time analytics dashboard and comprehensive A/B testing framework"
+        - "Deployed multi-model answer generation (Ollama, OpenAI, HuggingFace) with adaptive prompt engineering"
+        - "Developed neural reranking pipeline and performance monitoring across 110+ automated test scenarios"
+      
+      firmware:
+        - "Designed comprehensive RISC-V documentation assistant eliminating manual research for embedded systems engineers"
+        - "Implemented hybrid retrieval architecture achieving <100ms response times for complex technical queries"
+        - "Built production system supporting RISC-V ISA specifications, implementation guides, and debugging documentation"
+        - "Deployed on AWS with Docker containerization and real-time performance monitoring"
+      
+      consulting:
+        - "Delivered enterprise RAG platform providing knowledge democratization for RISC-V ecosystem, eliminating specialist consultation costs"
+        - "Architected scalable solution supporting 10M+ documents with 1000+ QPS capability for production environments"
+        - "Implemented A/B testing framework and analytics dashboard enabling data-driven optimization and ROI measurement"
+        - "Designed modular architecture enabling seamless integration with existing enterprise technical workflows"
+      
+      general:
+        - "Built production-ready RAG system for RISC-V documentation achieving 99.5% chunk quality and <100ms response times"
+        - "Implemented hybrid retrieval combining vector similarity, keyword matching, and neural reranking for optimal relevance"
+        - "Developed 6-component modular architecture with real-time analytics dashboard and comprehensive testing framework"
+        - "Deployed on AWS with multi-LLM support (Ollama, OpenAI) and streaming response generation"
+    
+    # Skills tags by version
+    skills_tags:
+      ai: "PyTorch, FAISS, BM25, Llama 3.2, OpenAI API, Neural Reranking, Graph Analysis, Plotly Dash, A/B Testing, AWS, Production ML, System Architecture"
+      firmware: "RISC-V, Hybrid Search, FAISS, BM25, Docker, AWS, Real-time Systems, Technical Documentation, Embedded Systems, Performance Optimization"
+      consulting: "Enterprise Architecture, Scalability Design, ROI Analysis, Business Impact, Technical Strategy, Docker, AWS, Performance Optimization, A/B Testing"
+      general: "PyTorch, FAISS, BM25, Llama 3.2, Streamlit, Docker, AWS, Real-time Systems, Technical Documentation, Production Deployment"
+
+  # MultiModal Insight Engine - Shows in AI, consulting, general
+  - name: "MultiModal Insight Engine"
+    period: "Feb 2025 - Present"
+    links:
+      github: "https://github.com/apassuello/multimodal_insight_engine/"
+    versions: ["ai", "consulting", "general"]
+    
+    # Version-specific descriptions
+    descriptions:
+      ai:
+        - "Designed and implemented a full-stack training and evaluation platform for Transformer-based multimodal models"
+        - "Developed modules for mixed precision, quantization, and pruning; integrated benchmarking tools to compare performance across optimizations"
+        - "Built tokenizers and dataloaders for multilingual datasets (WMT, Europarl, IWSLT); supported joint BPE and custom preprocessing"
+        - "Integrated pretrained models (CLIP, ViT) with a unified interface for image-text tasks; implemented custom loss functions and schedulers"
+        - "Conducted safety evaluations via red teaming frameworks, adversarial generation, and prompt injection testing"
+      
+      consulting:
+        - "Architected comprehensive multimodal AI platform demonstrating technical leadership in cutting-edge model development"
+        - "Designed modular system architecture enabling rapid prototyping and evaluation of business-critical multimodal applications"
+        - "Implemented safety-first approach with red teaming frameworks, addressing enterprise concerns about AI deployment risks"
+        - "Built benchmarking infrastructure providing quantitative ROI assessment for multimodal AI investments"
+        - "Developed scalable training pipeline supporting enterprise-grade model optimization and deployment workflows"
+      
+      general:
+        - "Designed and implemented full-stack training platform for Transformer-based multimodal models"
+        - "Developed comprehensive model optimization modules including mixed precision, quantization, and pruning techniques"
+        - "Built multilingual dataset processing pipeline with custom tokenizers and preprocessing workflows"
+        - "Integrated pretrained models (CLIP, ViT) with unified interface for image-text understanding tasks"
+        - "Implemented safety evaluation framework with red teaming and adversarial testing capabilities"
+    
+    # Skills tags by version
+    skills_tags:
+      ai: "PyTorch, Transformers, NLP, Vision Models, Model Optimization, Tokenization, CLIP, ViT, Mixed Precision, Quantization, Pruning, Red Teaming, BLEU/F1/Accuracy, t-SNE, Config Management, Visualization, Logging, Safety Evaluation"
+      consulting: "Technical Leadership, System Architecture, AI Safety, Enterprise Deployment, ROI Analysis, Risk Assessment, Model Optimization, Business Strategy"
+      general: "PyTorch, Transformers, Model Optimization, CLIP, ViT, Safety Evaluation, Red Teaming, Technical Implementation, System Design"
+
+  # ASIC Medical Device - Shows in all except executive
+  - name: "ASIC-Enabled Medical Device Development"
+    period: "2021 - 2022"
+    links:
+      website: "https://adeptneuro.com"
+      website_text: "ADEPT Neuro SA"
+    versions: ["ai", "consulting", "general", "firmware"]
+    
+    # Version-specific descriptions
+    descriptions:
+      ai:
+        - "Developed machine learning-based seizure detection algorithms achieving 87% accuracy with <100ms real-time processing latency"
+        - "Implemented neural signal processing pipeline for deep-brain electrode data with integrated ASIC hardware acceleration"
+        - "Applied advanced signal processing and machine learning techniques for biomedical applications in startup environment"
+        - "Achieved excellent academic recognition (5.0/6.0) demonstrating research excellence in applied AI for healthcare"
+      
+      firmware:
+        - "Designed hardware-software interfaces for novel deep-brain electrodes with integrated ASICs"
+        - "Implemented real-time signal processing algorithms for multi-channel neural data acquisition"
+        - "Developed embedded firmware for medical device prototypes with strict real-time constraints"
+        - "Project focused on medical device innovation within startup environment at EPFL Innovation Park"
+        - "Achieved excellent academic recognition (5.0/6.0) for technical implementation excellence"
+      
+      consulting:
+        - "Led medical device development project within startup environment, demonstrating entrepreneurial technical leadership"
+        - "Developed innovative healthcare technology solution addressing critical medical needs in neurology"
+        - "Contributed to startup product development pipeline from concept to prototype validation"
+        - "Achieved excellent academic recognition (5.0/6.0) while delivering measurable business value in healthcare innovation"
+        - "Demonstrated ability to work in resource-constrained startup environment while maintaining high quality standards"
+      
+      general:
+        - "Development of hardware-software interfaces for novel deep-brain electrodes with integrated ASICs"
+        - "Implementation of machine learning-based seizure detection system with real-time processing capabilities"
+        - "Project focused on medical device innovation within startup environment at EPFL Innovation Park"
+        - "Achieved excellent academic recognition (5.0/6.0) demonstrating technical and research excellence"
+    
+    # Skills tags by version
+    skills_tags:
+      ai: "Machine Learning, Seizure Detection, Neural Signal Processing, Healthcare AI, Biomedical Data Science, ASIC Integration, Real-time Processing, Research Excellence"
+      firmware: "ASIC Integration, Hardware-Software Interfaces, Real-time Processing, Embedded Systems, Medical Device Development, Multi-channel Data, Signal Processing"
+      consulting: "Medical Device Innovation, Startup Environment, Healthcare Technology, Technical Leadership, Product Development, Innovation Management"
+      general: "Medical Device Development, Machine Learning, Hardware-Software Integration, ASIC Integration, Startup Environment, Research Excellence"
+
+  # High-Performance Genomic Processing (firmware + general only)
+  - name: "High-Performance Genomic Processing System"
+    period: "2022 - 2023"
+    links:
+      internal: "Internal Project"
+    versions: ["firmware", "general"]
+    
+    # Version-specific descriptions
+    descriptions:
+      firmware:
+        - "Designed high-throughput genomic data processing pipeline with FPGA acceleration achieving 10x performance improvement"
+        - "Implemented custom hardware accelerators using Artix-7 FPGA for parallel sequence alignment algorithms"
+        - "Developed real-time data streaming architecture handling 1GB/s genomic data throughput"
+        - "Optimized memory management and DMA controllers for sustained high-performance genomic processing"
+      
+      general:
+        - "Designed high-performance genomic data processing system with hardware acceleration"
+        - "Implemented FPGA-based parallel processing for computational genomics applications"
+        - "Developed streaming data architecture for high-throughput genomic sequence analysis"
+        - "Achieved significant performance improvements through hardware-software co-design"
+    
+    # Skills tags by version
+    skills_tags:
+      firmware: "FPGA Development, Artix-7, Hardware Acceleration, Genomic Processing, Real-time Systems, DMA, Memory Management, High-throughput Computing"
+      general: "FPGA Development, Hardware Acceleration, Genomic Processing, System Design, Performance Optimization, Computational Biology"
+
+# Version configuration for conditional logic
+version_config:
+  firmware:
+    toggles: ["firmware", "technical", "detailed"]
+    show_projects: true
+    section_spacing: "\\vspace*{-5mm}" # Consulting spacing logic
+    
+  ai:
+    toggles: ["ai", "technical", "detailed"]
+    show_projects: true
+    section_spacing: "\\vspace*{-5mm}"
+    
+  consulting:
+    toggles: ["consulting", "ai", "businessfocus", "quantified"]
+    show_projects: true
+    section_spacing: "\\vspace*{-5mm}"
+    
+  executive:
+    toggles: ["executive", "quantified", "onepage"]
+    show_projects: false  # Projects section hidden in executive
+    section_spacing: ""
+    
+  general:
+    toggles: ["firmware", "ai", "general"]
+    show_projects: true
+    section_spacing: "\\vspace*{-5mm}"
+
+# Project selection logic based on version
+project_selection:
+  firmware: ["technical_documentation_rag", "asic_medical_device", "high_performance_genomic"]
+  ai: ["technical_documentation_rag", "multimodal_insight_engine", "asic_medical_device"]
+  consulting: ["technical_documentation_rag", "multimodal_insight_engine", "asic_medical_device"]
+  executive: [] # No projects in executive
+  general: ["technical_documentation_rag", "multimodal_insight_engine", "asic_medical_device", "high_performance_genomic"]

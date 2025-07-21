@@ -1,0 +1,364 @@
+# Arthur Passuello - Experience Configuration
+# This file preserves the exact conditional logic from the LaTeX system
+
+experiences:
+  # Tandem Diabetes Care - Shows in all versions with different content
+  - company: "Tandem Diabetes Care Switzerland"
+    location: "Lausanne, Switzerland"
+    period: "December 2022 - June 2025"
+    reference: "(Ref. Patrick Segura)"
+    versions: ["firmware", "ai", "consulting", "executive", "general"]
+    
+    # Position title varies by version
+    position_base: "Embedded Software Engineer"
+    position_variants:
+      executive: "Senior Embedded Software Engineer"
+      consulting: "Embedded Software Engineer"
+      ai: "Embedded Software Engineer"
+      firmware: "Embedded Software Engineer"
+      general: "Embedded Software Engineer"
+    
+    # Achievements with conditional logic
+    achievements:
+      # Core achievement - Priority 1 (always shown)
+      - text: "Led firmware development for Sigi™ insulin pump achieving delivery of the first Firmware release with First-In-Human trial compliance"
+        versions: ["all"]
+        priority: 1
+        type: "base"
+        
+      # Version-specific achievements
+      - text: "demonstrating ability to deliver ethical technology solutions under regulatory constraints"
+        versions: ["consulting"]
+        priority: 1
+        type: "consulting_focus"
+        
+      - text: "achieving 96% test coverage through HIL system implementation"
+        versions: ["firmware"]
+        priority: 1
+        type: "techmetric"
+        
+      - text: "ensuring 99.9% uptime during clinical trials"
+        versions: ["firmware"]
+        priority: 1
+        type: "techmetric"
+        
+      - text: "enabling $2M+ clinical trial funding milestone"
+        versions: ["consulting", "executive"]
+        priority: 1
+        type: "businessimpact"
+        
+      # Priority 2 achievements (not in executive)
+      - text: "Translated clinical trial roadmap requirements into concrete technical strategies, managing multiple parallel projects under tight regulatory deadlines"
+        versions: ["consulting"]
+        priority: 2
+        type: "consulting_focus"
+        
+      - text: "while ensuring ethical technology development"
+        versions: ["consulting"]
+        priority: 2
+        type: "consulting_focus"
+        
+      - text: "Architected and delivered proof-of-concept systems — from user needs/human factor study to successful company-wide documented demos"
+        versions: ["firmware", "general"]
+        priority: 2
+        type: "base"
+        
+      - text: "Established test infrastructure for medical-grade firmware verification — e.g. led the development of a HIL system"
+        versions: ["firmware", "general"]
+        priority: 2
+        type: "base"
+        
+      - text: "Coordinated cross-functional teams across multiple time zones, including collaboration with San Diego engineering team"
+        versions: ["consulting", "executive"]
+        priority: 2
+        type: "leadmetric"
+        
+      - text: "while mentoring team members on system design and requirements engineering"
+        versions: ["consulting"]
+        priority: 2
+        type: "consulting_focus"
+        
+      - text: "Managed technical subprojects ensuring ISO 13485/IEC 62304 compliance (DHF, risk analysis, etc.)"
+        versions: ["firmware", "general"]
+        priority: 2
+        type: "base"
+        
+      - text: "Mentored team members on embedded development, system design, and system requirements"
+        versions: ["firmware", "general"]
+        priority: 2
+        type: "base"
+        
+      # Priority 3 achievements (detailed versions only)
+      - text: "Advised R&D management on critical technology choices for next-generation platform evolution, providing strategic technical consultation for product roadmap decisions"
+        versions: ["consulting"]
+        priority: 3
+        type: "consulting_focus"
+        
+      - text: "Presented technical concepts and system updates to clinical and business stakeholders, consistently adapting complex technical language to varied audiences across organizational levels"
+        versions: ["consulting"]
+        priority: 3
+        type: "consulting_focus"
+        
+      - text: "Presented PoCs and firmware system updates to clinical and business stakeholders; adapted technical language to varied audiences"
+        versions: ["firmware", "general"]
+        priority: 3
+        type: "base"
+        
+      - text: "Facilitated Agile ceremonies and implemented Scrum framework for medical device development, managing product backlogs and coordinating interdisciplinary teams"
+        versions: ["consulting"]
+        priority: 3
+        type: "consulting_focus"
+        
+      - text: "Established comprehensive test infrastructure ensuring regulatory compliance (ISO 13485/IEC 62304), demonstrating expertise in quality frameworks applicable to AI governance"
+        versions: ["consulting"]
+        priority: 3
+        type: "consulting_focus"
+    
+    # Skills tags by version
+    skills_tags:
+      firmware: "System Architecture, FreeRTOS, Safety-Critical Systems, Technical Leadership, Risk Management, Requirement Engineering, Client-facing Communication Skills"
+      ai: "Medical Device Development, Regulatory Compliance, System Architecture, Technical Leadership, Project Management, Stakeholder Communication"
+      consulting: "Technical Strategy, Cross-functional Coordination, Regulatory Compliance, Stakeholder Communication, Strategic Consulting, Ethical Technology Development, Team Leadership"
+      executive: "Strategic Technical Leadership, Cross-functional Coordination, Regulatory Compliance, $2M+ Project Impact"
+      general: "System Architecture, FreeRTOS, Safety-Critical Systems, Technical Leadership, Risk Management, Requirement Engineering, Client-facing Communication Skills"
+
+  # Bleu Lézard - Only in consulting, general, firmware (not AI)
+  - company: "Bleu Lézard Cultural Establishment"
+    location: "Lausanne, Switzerland"
+    period: "July 2022 - August 2022"
+    reference: null
+    versions: ["consulting", "general", "firmware"]
+    
+    position_base: "Technical Consultant (Freelance)"
+    position_variants:
+      consulting: "Technical Consultant (Freelance)"
+      general: "Technical Consultant (Freelance)"
+      firmware: "Technical Consultant (Freelance)"
+    
+    achievements:
+      - text: "Conducted comprehensive technical audit and client needs assessment for complete IT infrastructure modernization, demonstrating systematic consulting methodology"
+        versions: ["consulting"]
+        priority: 1
+        type: "consulting_focus"
+        
+      - text: "Led complete IT infrastructure modernization project for cultural establishment, managing client requirements, technical implementation, and knowledge transfer"
+        versions: ["general", "firmware"]
+        priority: 1
+        type: "base"
+        
+      - text: "Documented client requirements and delivered technical solution within budget and timeline constraints, ensuring transparent project management and clear deliverables"
+        versions: ["consulting"]
+        priority: 2
+        type: "consulting_focus"
+        
+      - text: "Conducted technical audit, documented requirements, and delivered solution within budget and timeline constraints"
+        versions: ["firmware"]
+        priority: 2
+        type: "base"
+        
+      - text: "Designed secure, scalable network architecture enabling multi-floor communication and seamless POS system integration, prioritizing both functionality and security"
+        versions: ["consulting"]
+        priority: 2
+        type: "consulting_focus"
+        
+      - text: "Designed secure network architecture enabling multi-floor communication and new POS system integration"
+        versions: ["firmware"]
+        priority: 2
+        type: "base"
+        
+      - text: "Provided comprehensive documentation and knowledge transfer training, ensuring client technical autonomy and sustainable solution adoption"
+        versions: ["consulting"]
+        priority: 2
+        type: "consulting_focus"
+        
+      - text: "Provided comprehensive documentation and training ensuring client technical autonomy"
+        versions: ["general", "firmware"]
+        priority: 2
+        type: "base"
+    
+    skills_tags:
+      consulting: "Technical Consulting, Client Relations, Needs Assessment, Solution Architecture, Knowledge Transfer, Project Management"
+      general: "Project Management, Client Relations, Technical Architecture, Documentation, Knowledge Transfer"
+      firmware: "Project Management, Client Relations, Technical Architecture, Documentation, Knowledge Transfer"
+
+  # IMD Business School - Different content based on version
+  - company: "IMD Business School"
+    location: "Lausanne, Switzerland"
+    period: "July 2018 - August 2021"
+    reference: "(Ref. Marc Chauvet)"
+    versions: ["ai", "consulting", "general", "firmware"]
+    
+    position_base: "Digital Week Assistant - ML Education Lead"
+    position_variants:
+      ai: "Digital Week Assistant - ML Education Lead"
+      consulting: "Digital Week Assistant - ML Education Lead"
+      general: "Student Assistant - ML Education Lead"
+      firmware: "Assistant - ML Education Lead"
+    
+    achievements:
+      # AI version - detailed ML content
+      - text: "Led technical team of seven assistants and delivered comprehensive AI/ML training to 100+ international MBA students, maintaining 4.8/5.0 satisfaction rating and achieving 95% course completion rate"
+        versions: ["ai"]
+        priority: 1
+        type: "ai_focus"
+        
+      - text: "Designed hands-on curriculum covering supervised learning, regression models, and web scraping using Python (PyTorch, TensorFlow, Pandas, NumPy) with real-world business applications"
+        versions: ["ai"]
+        priority: 2
+        type: "ai_focus"
+        
+      - text: "Implemented practical ML projects including price prediction models and Yahoo Finance ticker analysis, culminating in student presentations of ML-powered business products to executive audiences"
+        versions: ["ai"]
+        priority: 2
+        type: "ai_focus"
+        
+      - text: "Demonstrated advanced pedagogical skills in technical education, successfully translating complex ML algorithms into actionable business insights for diverse international professional backgrounds"
+        versions: ["ai"]
+        priority: 2
+        type: "ai_focus"
+        
+      # Consulting version - business focus
+      - text: "Led technical team of seven assistants and delivered comprehensive AI/ML training to 100+ international MBA students, demonstrating exceptional ability to make complex technical concepts accessible to diverse, non-technical business leaders"
+        versions: ["consulting"]
+        priority: 1
+        type: "consulting_focus"
+        
+      - text: "Designed and facilitated 40-hour educational curriculum achieving 4.8/5.0 satisfaction rating with 95% completion rate, demonstrating measurable pedagogical impact and stakeholder satisfaction"
+        versions: ["consulting"]
+        priority: 2
+        type: "consulting_focus"
+        
+      - text: "for business applications achieving 3:1 project ROI through practical machine learning implementation"
+        versions: ["consulting"]
+        priority: 2
+        type: "businessimpact"
+        
+      - text: "Coordinated international program logistics and cross-cultural team management, ensuring consistent delivery across diverse cultural contexts and learning preferences"
+        versions: ["consulting"]
+        priority: 2
+        type: "consulting_focus"
+        
+      # General/Firmware versions - simpler content
+      - text: "Led technical team of seven assistants and delivered comprehensive AI/ML training to 100+ international MBA students"
+        versions: ["general", "firmware"]
+        priority: 1
+        type: "base"
+        
+      - text: "achieving 4.8/5.0 satisfaction rating with 95% completion rate"
+        versions: ["general", "firmware"]
+        priority: 2
+        type: "base"
+        
+      - text: "Designed practical curriculum covering machine learning fundamentals, Python programming, and business applications"
+        versions: ["general", "firmware"]
+        priority: 2
+        type: "base"
+        
+      - text: "Coordinated international program logistics and cross-cultural team management"
+        versions: ["general", "firmware"]
+        priority: 2
+        type: "base"
+    
+    skills_tags:
+      ai: "Machine Learning Education, Python/PyTorch/TensorFlow, Curriculum Development, Technical Training, Cross-cultural Communication, Team Leadership, Business Applications"
+      consulting: "Technical Training Design, Stakeholder Communication, Cross-cultural Management, Educational Content Creation, Team Leadership, Business Impact Analysis"
+      general: "Technical Training, Team Leadership, Cross-cultural Communication, Python Programming, Educational Content Creation"
+      firmware: "Technical Training, Team Leadership, Cross-cultural Communication, Python Programming, Educational Content Creation"
+
+  # ADEPT - Shows in all except executive
+  - company: "ADEPT Neuro SA"
+    location: "Lausanne, Switzerland"
+    period: "March 2021 - March 2022"
+    reference: "(Ref. Dr. Stéphane Bernasconi)"
+    versions: ["ai", "consulting", "general", "firmware"]
+    
+    position_base: "Research Project Student Intern"
+    position_variants:
+      ai: "Research Project Student Intern"
+      consulting: "Research Project Student Intern"
+      general: "Research Project Student Intern"
+      firmware: "Research Project Student Intern"
+    
+    achievements:
+      - text: "Designed and developed machine learning-based seizure detection system achieving 87% accuracy with <100ms latency for real-time neural signal processing"
+        versions: ["ai"]
+        priority: 1
+        type: "ai_focus"
+        
+      - text: "Implemented hardware-software interfaces for novel deep-brain electrodes with integrated ASICs"
+        versions: ["firmware"]
+        priority: 1
+        type: "firmware_focus"
+        
+      - text: "for startup medical device development, achieving excellent academic recognition (5.0/6.0)"
+        versions: ["ai", "consulting"]
+        priority: 1
+        type: "base"
+        
+      - text: "achieving excellent academic recognition (5.0/6.0)"
+        versions: ["general", "firmware"]
+        priority: 1
+        type: "base"
+        
+      - text: "Contributed to innovative medical device development within startup environment at EPFL Innovation Park"
+        versions: ["consulting"]
+        priority: 2
+        type: "consulting_focus"
+        
+      - text: "Project focused on medical device innovation within a startup environment at EPFL Innovation Park"
+        versions: ["general", "firmware"]
+        priority: 2
+        type: "base"
+        
+      - text: "Combined advanced signal processing with machine learning for biomedical applications"
+        versions: ["ai"]
+        priority: 2
+        type: "ai_focus"
+        
+      - text: "Developed real-time processing algorithms for multi-channel neural data acquisition"
+        versions: ["firmware"]
+        priority: 2
+        type: "firmware_focus"
+    
+    skills_tags:
+      ai: "Machine Learning, Seizure Detection, Neural Signal Analysis, Healthcare AI, Biomedical Data Science, Medical Device Prototypes, Regulatory Compliance, Neuroscience Applications, ASIC Integration, Multi-channel Data Processing, Machine Learning Applications"
+      consulting: "Medical Device Development, Startup Environment, Innovation Management, Research Methodology, Healthcare Technology, Regulatory Compliance, Technical Innovation"
+      general: "Medical Device Development, Research Methodology, Hardware-Software Integration, Signal Processing, ASIC Integration, Startup Environment"
+      firmware: "Hardware-Software Integration, ASIC Integration, Real-time Processing, Multi-channel Data, Medical Device Development, Embedded Systems, Signal Processing"
+
+# Version configuration for conditional logic
+version_config:
+  firmware:
+    toggles: ["firmware", "technical", "detailed"]
+    max_priority: 3
+    show_metrics: true
+    show_business_impact: false
+    executive_summary: false
+    
+  ai:
+    toggles: ["ai", "technical", "detailed"]
+    max_priority: 3
+    show_metrics: true
+    show_business_impact: false
+    executive_summary: false
+    
+  consulting:
+    toggles: ["consulting", "ai", "businessfocus", "quantified"]
+    max_priority: 3
+    show_metrics: true
+    show_business_impact: true
+    executive_summary: false
+    
+  executive:
+    toggles: ["executive", "quantified", "onepage"]
+    max_priority: 1
+    show_metrics: true
+    show_business_impact: true
+    executive_summary: true
+    
+  general:
+    toggles: ["firmware", "ai", "general"]
+    max_priority: 2
+    show_metrics: false
+    show_business_impact: false
+    executive_summary: false

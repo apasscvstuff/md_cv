@@ -1,0 +1,220 @@
+# Arthur Passuello - Skills Configuration
+# This file preserves the exact conditional logic from the LaTeX system
+
+# Executive Version - Streamlined for Impact
+executive:
+  leadership_impact:
+    - skill: "Technical Team Leadership"
+      metric: "7+ Direct Reports"
+      type: "leadmetric"
+    - skill: "Cross-functional Coordination"
+      metric: "12+ Stakeholders"
+      type: "metric"
+    - skill: "Strategic Technical Decisions"
+      metric: "$2M+ Clinical Trial Impact"
+      type: "businessimpact"
+  
+  technical_domains:
+    - skill: "Medical Device Innovation"
+      metric: "ISO-13485/IEC-62304"
+      type: "techmetric"
+    - skill: "Embedded Systems Architecture"
+      metric: null
+      type: "base"
+    - skill: "AI/ML Implementation"
+      metric: "Production Ready"
+      type: "metric"
+  
+  delivery_excellence:
+    - skill: "Agile/Scrum Implementation"
+      metric: "100% On-Time Delivery"
+      type: "leadmetric"
+    - skill: "Regulatory Compliance"
+      metric: null
+      type: "base"
+    - skill: "Quality Systems"
+      metric: "Risk Management"
+      type: "businessimpact"
+
+# Technical Versions - 3-column layout
+technical:
+  # Column 1: Programming Languages
+  programming_languages:
+    firmware:
+      - "C/C++ (Expert)"
+      - "Python (Expert)"
+      - "VHDL"
+      - "Assembly"
+      - "Shell Scripting"
+    ai:
+      - "Python (Expert)"
+      - "C/C++"
+      - "JavaScript"
+      - "SQL"
+      - "R"
+    consulting:
+      - "Python (Expert)"
+      - "JavaScript"
+      - "SQL"
+      - "R"
+    general:
+      - "Python (Expert)"
+      - "C/C++"
+      - "JavaScript"
+      - "Scala"
+  
+  # Column 1: Core Technologies
+  core_technologies:
+    firmware:
+      - "FreeRTOS"
+      - "STM32"
+      - "FPGA Development"
+      - "Embedded Systems"
+      - "Real-time Design"
+    ai:
+      - "PyTorch"
+      - "TensorFlow"
+      - "Computer Vision"
+      - "NLP"
+      - "Model Optimization"
+    consulting:
+      - "FastAPI"
+      - "Streamlit"
+      - "Docker"
+      - "Git/CI-CD"
+      - "Technical Architecture"
+    general:
+      - "Git"
+      - "Docker"
+      - "PyTorch"
+      - "TensorFlow"
+      - "NumPy/Pandas"
+  
+  # Column 2: Domain Expertise (version-specific)
+  domain_expertise:
+    firmware:
+      category: "Embedded Systems Expertise"
+      skills:
+        - "Safety-Critical Systems"
+        - "Hardware-Software Integration"
+        - "Communication Protocols (SPI/I2C/UART/BLE)"
+        - "JTAG Debugging"
+        - "Performance Optimization"
+    
+    ai:
+      category: "AI & ML Expertise"
+      skills:
+        - "OpenAI/Anthropic APIs"
+        - "RAG Systems"
+        - "Vector Databases (FAISS)"
+        - "Prompt Engineering"
+        - "Computer Vision (CLIP/ViT)"
+        - "Model Optimization"
+      secondary_category: "Technical Education"
+      secondary_skills:
+        - "AI/ML Training Design (100+ Students)"
+        - "Cross-cultural Communication"
+        - "Pedagogical Innovation"
+        - "Curriculum Development"
+    
+    consulting:
+      category: "Technical Consulting"
+      skills:
+        - "Strategic AI Consulting"
+        - "Cross-cultural Communication"
+        - "Stakeholder Management"
+        - "Business Impact Analysis"
+        - "Technical Training (100+ Executives)"
+      secondary_category: "Project Leadership"
+      secondary_skills:
+        - "Technical Team Leadership"
+        - "Process Improvement"
+        - "Cost Optimization"
+        - "Client Relations"
+    
+    general:
+      category: "System Architecture"
+      skills:
+        - "Requirements Engineering"
+        - "Technical Documentation"
+        - "Project Leadership"
+        - "V-Model & Agile"
+        - "Performance Profiling"
+  
+  # Medical Device Development (for technical roles, not consulting)
+  medical_device:
+    exclude_versions: ["consulting"]
+    category: "Medical Device Development"
+    skills:
+      - "ISO-13485/IEC-62304 Compliance"
+      - "Quality Systems"
+      - "Risk Management"
+      - "Design Controls & V&V"
+      - "Safety-Critical Design"
+  
+  # Column 3: Tools & Platforms
+  tools_platforms:
+    firmware:
+      - "JIRA"
+      - "Git Version Control"
+      - "CI/CD Implementation"
+      - "Docker"
+      - "Performance Profiling"
+    ai:
+      - "HuggingFace"
+      - "Streamlit"
+      - "MPS Acceleration"
+      - "pytest"
+      - "Production Deployment"
+    consulting:
+      - "Docker"
+      - "pytest"
+      - "CI-CD"
+      - "Process Improvement Tools"
+      - "Technical Training Platforms"
+    general:
+      - "JIRA"
+      - "Performance Profiling"
+      - "Agile Tools"
+      - "CI/CD"
+  
+  # Column 3: Project Management & Communication
+  project_management:
+    firmware:
+      - "Agile/Scrum (SaFE)"
+      - "Cross-functional Team Coordination"
+      - "Technical Documentation"
+      - "Stakeholder Communication"
+    ai:
+      - "Technical Documentation"
+      - "Cross-cultural Communication"
+      - "Educational Content Creation"
+      - "Research Methodology"
+    consulting:
+      - "Agile/Scrum Implementation"
+      - "Project ROI Analysis"
+      - "Client Relations"
+      - "Strategic Planning"
+    general:
+      - "Team Leadership"
+      - "Collaborative Communication"
+      - "Client-facing Communication"
+      - "Documentation"
+
+# Version mapping for conditional logic
+version_mapping:
+  firmware:
+    toggles: ["firmware", "technical", "detailed"]
+    layout: "technical"
+  ai:
+    toggles: ["ai", "technical", "detailed"]
+    layout: "technical"
+  consulting:
+    toggles: ["consulting", "ai", "businessfocus", "quantified"]
+    layout: "technical"
+  executive:
+    toggles: ["executive", "quantified", "onepage"]
+    layout: "executive"
+  general:
+    toggles: ["firmware", "ai", "general"]
+    layout: "technical"
