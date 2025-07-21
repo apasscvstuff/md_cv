@@ -1,0 +1,10 @@
+# Core dependencies for CV system
+pyyaml>=6.0
+
+# PDF generation (optional but recommended)
+weasyprint>=62.0
+
+# Alternative dependencies for different PDF methods
+# Uncomment if needed:
+# html2pdf>=0.1
+# pdfkit>=1.0.0
