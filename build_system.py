@@ -67,18 +67,8 @@ class CVBuilder:
             }
         }
         
-        # Personal information (would be loaded from arthur-personal.yaml)
-        self.personal = {
-            'name': 'Arthur PASSUELLO',
-            'phone': '+(41) 79 176 24 84',
-            'email': 'apassuello@protonmail.com',
-            'address': 'Chemin du Parc-de-Valency 1, 1004 Lausanne, Suisse',
-            'github': 'apassuello',
-            'linkedin': 'arthur-passuello',
-            'linkedin_name': 'Arthur Passuello',
-            'languages': 'French (native) • English (Professional) • German (B1)',
-            'profile_photo': 'assets/profile.jpeg'
-        }
+        # Personal information loaded from YAML
+        self.personal = None  # Will be loaded when needed
     
     def load_yaml_file(self, filename: str) -> Dict[str, Any]:
         """Load YAML file with error handling"""
@@ -92,6 +82,36 @@ class CVBuilder:
         except yaml.YAMLError as e:
             print(f"Error parsing {filename}: {e}")
             return {}
+    
+    def load_personal_data(self, target_version: str) -> Dict[str, Any]:
+        """Load and process personal information with version-specific content"""
+        if self.personal is None:
+            personal_data = self.load_yaml_file('arthur-personal.yaml')
+            personal_info = personal_data.get('personal', {})
+            
+            # Process contact information
+            contact = personal_info.get('contact', {})
+            
+            # Format languages
+            languages = personal_info.get('languages', [])
+            languages_formatted = ' • '.join([f"{lang['language']} ({lang['proficiency']})" for lang in languages])
+            
+            self.personal = {
+                'name': personal_info.get('name', {}).get('full', 'Arthur PASSUELLO'),
+                'phone': contact.get('phone', '+(41) 79 176 24 84'),
+                'email': contact.get('email', 'apassuello@protonmail.com'),
+                'address': contact.get('formatted', 'Chemin du Parc-de-Valency 1, 1004 Lausanne, Switzerland'),
+                'github': contact.get('github', 'apassuello'),
+                'linkedin': contact.get('linkedin', 'arthur-passuello'),
+                'linkedin_name': personal_info.get('name', {}).get('full', 'Arthur Passuello'),
+                'languages': languages_formatted,
+                'profile_photo': 'assets/profile.jpeg',
+                'taglines': personal_info.get('taglines', {}),
+                'certifications': personal_info.get('certifications', []),
+                'interests': personal_info.get('interests', {})
+            }
+        
+        return self.personal
     
     def check_version_condition(self, item_versions: List[str], target_version: str) -> bool:
         """Check if item should be included for target version"""
@@ -338,6 +358,85 @@ class CVBuilder:
         
         return markdown
     
+    def process_education_section(self, education_data: Dict, target_version: str) -> List[Dict]:
+        """Process education section with version-specific filtering"""
+        if 'education' not in education_data:
+            return []
+        
+        education_items = education_data['education']
+        filtered_education = []
+        
+        for education in education_items:
+            # Process version-specific content
+            processed_education = {
+                'institution': education.get('institution', ''),
+                'institution_full': education.get('institution_full', ''),
+                'degree': education.get('degree', ''),
+                'field_of_study': education.get('field_of_study', ''),
+                'major': education.get('major', ''),
+                'start_date': education.get('start_date', ''),
+                'end_date': education.get('end_date', ''),
+                'location': education.get('location', ''),
+                'focus_area': education.get('focus_areas', {}).get(target_version, ''),
+                'relevant_coursework': education.get('relevant_coursework', {}).get(target_version, []),
+                'achievements': []
+            }
+            
+            # Filter achievements by version
+            for achievement in education.get('notable_achievements', []):
+                achievement_versions = achievement.get('versions', [])
+                if self.check_version_condition(achievement_versions, target_version):
+                    processed_education['achievements'].append(achievement['achievement'])
+            
+            filtered_education.append(processed_education)
+        
+        return filtered_education
+    
+    def generate_education_markdown(self, education_data: Dict, target_version: str) -> str:
+        """Generate education section markdown"""
+        processed_education = self.process_education_section(education_data, target_version)
+        
+        if not processed_education:
+            return ""
+        
+        markdown = "## Education\n\n"
+        
+        for education in processed_education:
+            # Institution and degree
+            if education['institution_full']:
+                markdown += f"### {education['institution_full']}\n"
+            else:
+                markdown += f"### {education['institution']}\n"
+            
+            markdown += f"->_{education['location']}_<br>\n"
+            
+            # Date range
+            if education['start_date'] and education['end_date']:
+                markdown += f"_{education['start_date']} - {education['end_date']}_\n\n"
+            
+            # Degree information
+            markdown += f"**{education['degree']}**"
+            if education['major']:
+                markdown += f", Major in {education['major']}"
+            markdown += "\n\n"
+            
+            # Focus area (version-specific)
+            if education['focus_area']:
+                markdown += f"*Focus: {education['focus_area']}*\n\n"
+            
+            # Relevant coursework (version-specific)
+            if education['relevant_coursework']:
+                markdown += "**Key Coursework:** "
+                markdown += " • ".join(education['relevant_coursework']) + "\n\n"
+            
+            # Achievements (version-specific)
+            if education['achievements']:
+                for achievement in education['achievements']:
+                    markdown += f"* {achievement}\n"
+                markdown += "\n"
+        
+        return markdown
+    
     def build_version(self, target_version: str) -> None:
         """Build a specific CV version"""
         print(f"Building {target_version} version...")
@@ -346,32 +445,39 @@ class CVBuilder:
         skills_data = self.load_yaml_file('arthur-skills.yaml')
         experience_data = self.load_yaml_file('arthur-experience.yaml')
         projects_data = self.load_yaml_file('arthur-projects.yaml')
+        education_data = self.load_yaml_file('arthur-education.yaml')
         
-        # Get version configuration
+        # Load personal data with version-specific content
+        personal_info = self.load_personal_data(target_version)
+        
+        # Get version configuration and tagline
         version_config = self.versions[target_version]
+        tagline = personal_info.get('taglines', {}).get(target_version, version_config['tagline'])
         
         # Build markdown content
-        markdown_content = f"""<img src="{self.personal['profile_photo']}" alt="{self.personal['name']}" class="profile-pic" />
+        markdown_content = f"""<img src="{personal_info['profile_photo']}" alt="{personal_info['name']}" class="profile-pic" />
 
-# **{self.personal['name']}**
-### {version_config['tagline']}
+# **{personal_info['name']}**
+### {tagline}
 
-_{self.personal['address']}_
+_{personal_info['address']}_
 
 <p class="inline-contact">
-  <img src="assets/icons/phone.png" class="icon" alt="Phone" /> {self.personal['phone']} | 
-  <img src="assets/icons/email.png" class="icon" alt="Email" /> <a href="mailto:{self.personal['email']}">{self.personal['email']}</a> | 
-  <img src="assets/icons/github.png" class="icon" alt="GitHub" /> <a href="https://github.com/{self.personal['github']}">{self.personal['github']}</a> | 
-  <img src="assets/icons/linkedin.png" class="icon" alt="LinkedIn" /> <a href="https://linkedin.com/in/{self.personal['linkedin']}">{self.personal['linkedin_name']}</a>
+  <img src="assets/icons/phone.png" class="icon" alt="Phone" /> {personal_info['phone']} | 
+  <img src="assets/icons/email.png" class="icon" alt="Email" /> <a href="mailto:{personal_info['email']}">{personal_info['email']}</a> | 
+  <img src="assets/icons/github.png" class="icon" alt="GitHub" /> <a href="https://github.com/{personal_info['github']}">{personal_info['github']}</a> | 
+  <img src="assets/icons/linkedin.png" class="icon" alt="LinkedIn" /> <a href="https://linkedin.com/in/{personal_info['linkedin']}">{personal_info['linkedin_name']}</a>
 </p>
 
-**{self.personal['languages']}**
+**{personal_info['languages']}**
 
 {self.generate_skills_markdown(skills_data, target_version)}
 
 {self.generate_experience_markdown(experience_data, target_version)}
 
 {self.generate_projects_markdown(projects_data, target_version)}
+
+{self.generate_education_markdown(education_data, target_version)}
 """
         
         # Save markdown file
@@ -401,6 +507,13 @@ _{self.personal['address']}_
         skills_data = self.load_yaml_file('arthur-skills.yaml')
         experience_data = self.load_yaml_file('arthur-experience.yaml')
         projects_data = self.load_yaml_file('arthur-projects.yaml')
+        education_data = self.load_yaml_file('arthur-education.yaml')
+        
+        # Test personal data loading
+        personal_info = self.load_personal_data(target_version)
+        print(f"Personal data loaded: {personal_info['name']}")
+        tagline = personal_info.get('taglines', {}).get(target_version, 'No version-specific tagline')
+        print(f"Version tagline: {tagline[:50]}..." if len(tagline) > 50 else f"Version tagline: {tagline}")
         
         # Test skills processing
         processed_skills = self.process_skills_section(skills_data, target_version)
@@ -413,6 +526,10 @@ _{self.personal['address']}_
         # Test projects processing
         processed_projects = self.process_projects_section(projects_data, target_version)
         print(f"Projects: {len(processed_projects)}")
+        
+        # Test education processing
+        processed_education = self.process_education_section(education_data, target_version)
+        print(f"Education items: {len(processed_education)}")
         
         print(f"✅ {target_version} version tested successfully")
     

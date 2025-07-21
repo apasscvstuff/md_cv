@@ -4,7 +4,7 @@
 education:
   # Master's degree - EPFL (2019-2022)
   - institution: "EPFL"
-    institution_full: "École Polytechnique Fédérale de Lausanne"
+    institution_full: "Ã‰cole Polytechnique FÃ©dÃ©rale de Lausanne"
     degree: "Master's in Computer Science and Engineering"
     field_of_study: "Computer Science and Engineering"
     start_date: "2019"
@@ -78,7 +78,7 @@ education:
   
   # Bachelor's degree - HEIG-VD (2016-2018)
   - institution: "HEIG-VD"
-    institution_full: "Haute École d'Ingénierie et de Gestion du Canton de Vaud"
+    institution_full: "Haute Ã‰cole d'IngÃ©nierie et de Gestion du Canton de Vaud"
     degree: "Bachelor's in Computer Science, Major in Embedded Systems"
     field_of_study: "Computer Science" 
     major: "Embedded Systems"
