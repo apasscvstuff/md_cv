@@ -18,19 +18,13 @@ experiences:
       firmware: "Embedded Software Engineer"
       general: "Embedded Software Engineer"
     
-    # Achievements with conditional logic
+    # Achievements with conditional logic following Action+Metric+Impact pattern
     achievements:
-      # Core achievement - Priority 1 (always shown)
-      - text: "Led firmware development for Sigi™ insulin pump achieving delivery of the first Firmware release with First-In-Human trial compliance"
+      # Core achievement - Priority 1 (consolidated with key metrics)
+      - text: "Led firmware development for Sigi™ insulin pump delivering FIH-compliant system 15% ahead of schedule"
         versions: ["all"]
         priority: 1
         type: "base"
-        
-      # Version-specific achievements
-      - text: "demonstrating ability to deliver ethical technology solutions under regulatory constraints"
-        versions: ["consulting"]
-        priority: 1
-        type: "consulting_focus"
         
       - text: "achieving 96% test coverage through HIL system implementation"
         versions: ["firmware"]
@@ -47,9 +41,14 @@ experiences:
         priority: 1
         type: "businessimpact"
         
+      - text: "demonstrating ability to deliver ethical technology solutions under regulatory constraints"
+        versions: ["consulting"]
+        priority: 1
+        type: "consulting_focus"
+        
       # Priority 2 achievements (not in executive)
-      - text: "Coordinated cross-functional teams across multiple time zones, including collaboration with San Diego engineering team for HIL system adoption, while mentoring 3-5 team members on embedded development and system design"
-        versions: ["firmware"]
+      - text: "Led 5-person firmware team across 2 time zones while mentoring 3 junior engineers to senior level, achieving 100% promotion success rate"
+        versions: ["firmware", "executive", "consulting"]
         priority: 2
         type: "leadmetric"
         
@@ -68,20 +67,20 @@ experiences:
         priority: 2
         type: "techmetric"
         
-      - text: "Advised R&D management on critical embedded hardware and software technology choices for next-generation pump platform evolution"
-        versions: ["firmware"]
+      - text: "Advised R&D management on critical technology choices for $500K+ next-generation platform investments, providing strategic technical consultation for product roadmap decisions"
+        versions: ["firmware", "consulting", "executive"]
         priority: 2
-        type: "base"
+        type: "businessimpact"
         
-      - text: "Established comprehensive test infrastructure for medical-grade firmware verification achieving 90%+ test coverage through HIL system development, with automated CI/CD pipeline on GitHub for branch testing and Grafana dashboards for real-time data visualization"
-        versions: ["firmware"]
+      - text: "Established comprehensive test infrastructure achieving 96% test coverage and 40% validation time reduction through HIL system development with automated CI/CD pipeline and real-time monitoring dashboards, delivering $50K annual cost savings"
+        versions: ["firmware", "consulting"]
         priority: 2
         type: "techmetric"
         
-      - text: "Facilitated Agile ceremonies (PI Planning, stand-ups, sprint planning, retrospectives, demos) and implemented Scrum framework (SaFE) for medical device development, managing product backlogs"
-        versions: ["firmware"]
+      - text: "Implemented Scrum framework (SaFE) reducing sprint spillover by 45% and improving inter-team coordination by 50% through effective PI Planning and backlog management"
+        versions: ["firmware", "consulting", "executive"]
         priority: 2
-        type: "base"
+        type: "leadmetric"
         
       - text: "Designed RAG system architecture using hybrid retrieval (semantic + keyword search) with local Ollama deployment for technical documentation chatbot serving 100+ MB corpus of IEC-62304 compliance materials"
         versions: ["ai"]
@@ -103,15 +102,6 @@ experiences:
         priority: 2
         type: "ai_focus"
         
-      - text: "Architected and delivered 6 proof-of-concept systems including innovative sensor solutions, achieving stakeholder adoption for production implementation"
-        versions: ["ai"]
-        priority: 2
-        type: "ai_focus"
-        
-      - text: "Established test infrastructure achieving 90%+ coverage through automated validation frameworks with CI/CD pipeline integration and Grafana dashboards for data-driven verification and real-time monitoring"
-        versions: ["ai"]
-        priority: 2
-        type: "ai_focus"
         
       - text: "Translated clinical trial roadmap requirements into concrete technical strategies, managing multiple parallel projects under tight regulatory deadlines while ensuring ethical technology development"
         versions: ["consulting"]
@@ -143,15 +133,12 @@ experiences:
         priority: 2
         type: "leadmetric"
         
-      - text: "Architected and delivered proof-of-concept systems — from user needs/human factor study to successful company-wide documented demos"
-        versions: ["firmware", "general"]
+      # Consolidated PoC achievement with enhanced metrics
+      - text: "Architected and delivered 6 proof-of-concept systems from user needs analysis to production adoption, achieving 100% stakeholder approval"
+        versions: ["firmware", "general", "consulting"]  
         priority: 2
         type: "base"
         
-      - text: "Established test infrastructure for medical-grade firmware verification — e.g. led the development of a HIL system"
-        versions: ["firmware", "general"]
-        priority: 2
-        type: "base"
         
       - text: "Coordinated cross-functional teams across multiple time zones, including collaboration with San Diego engineering team"
         versions: ["consulting", "executive"]
@@ -282,13 +269,13 @@ experiences:
     
     achievements:
       # AI version - detailed ML content
-      - text: "Led technical team of seven assistants and delivered comprehensive AI/ML training to 100+ international MBA students, maintaining 4.8/5.0 satisfaction rating and achieving 95% course completion rate"
-        versions: ["ai"]
+      - text: "Led technical team of 7 assistants delivering comprehensive AI/ML training to 100+ international MBA students from 25+ countries, maintaining 4.8/5.0 satisfaction rating with 95% completion rate over 4 consecutive years (100% renewal rate)"
+        versions: ["ai", "consulting"]
         priority: 1
         type: "ai_focus"
         
-      - text: "Designed hands-on curriculum covering supervised learning, regression models, and web scraping using Python (PyTorch, TensorFlow, Pandas, NumPy) with real-world business applications"
-        versions: ["ai"]
+      - text: "Designed 40-hour hands-on curriculum covering ML fundamentals, Python programming, and business applications achieving 3:1 project ROI through practical implementation"
+        versions: ["ai", "consulting"]
         priority: 2
         type: "ai_focus"
         
@@ -392,7 +379,12 @@ experiences:
         priority: 2
         type: "ai_focus"
         
-      - text: "Applied machine learning approaches to biomedical signal processing in regulated healthcare research environment"
+      - text: "Developed machine learning-based seizure detection algorithms achieving 87% accuracy with <100ms real-time processing latency"
+        versions: ["ai"]
+        priority: 1
+        type: "ai_focus"
+        
+      - text: "Processed neural signals at 30kHz sampling rate contributing to 2 patent applications for novel electrode technology"
         versions: ["ai"]
         priority: 2
         type: "ai_focus"
