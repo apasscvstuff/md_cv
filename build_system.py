@@ -307,8 +307,7 @@ class CVBuilder:
         
         for exp in experiences:
             markdown += f"### {exp['company']}  \n"
-            markdown += f"->_{exp['location']}_<br>\n"
-            markdown += f"_{exp['period']}_\n\n"
+            markdown += f"<div class=\"date-location\">_{exp['period']}_ <span class=\"location\">_{exp['location']}_</span></div>\n\n"
             
             markdown += f"**{exp['position']}**"
             if exp['reference']:
@@ -318,6 +317,10 @@ class CVBuilder:
             # Add achievements
             for achievement in exp['achievements']:
                 markdown += f"* {achievement['text']}\n"
+            
+            # Add skills tags if available
+            if exp['skills_tags']:
+                markdown += f"\n<div class=\"skills-tags\">{exp['skills_tags']}</div>\n"
             
             markdown += "\n"
         
@@ -334,7 +337,7 @@ class CVBuilder:
         
         for project in projects:
             markdown += f"### {project['name']}\n"
-            markdown += f"->_{project['period']}_\n\n"
+            markdown += f"<div class=\"date-location\">_{project['period']}_</div>\n\n"
             
             # Add links
             if project['links']:
@@ -353,6 +356,10 @@ class CVBuilder:
             # Add descriptions
             for desc in project['descriptions']:
                 markdown += f"- {desc}\n"
+            
+            # Add skills tags if available
+            if project['skills_tags']:
+                markdown += f"\n<div class=\"skills-tags\">{project['skills_tags']}</div>\n"
             
             markdown += "\n"
         
@@ -408,11 +415,10 @@ class CVBuilder:
             else:
                 markdown += f"### {education['institution']}\n"
             
-            markdown += f"->_{education['location']}_<br>\n"
-            
-            # Date range
+            # Date range and location
             if education['start_date'] and education['end_date']:
-                markdown += f"_{education['start_date']} - {education['end_date']}_\n\n"
+                period = f"{education['start_date']} - {education['end_date']}"
+                markdown += f"<div class=\"date-location\">_{period}_ <span class=\"location\">_{education['location']}_</span></div>\n\n"
             
             # Degree information
             markdown += f"**{education['degree']}**"
