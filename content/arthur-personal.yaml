@@ -1,0 +1,145 @@
+# Arthur Passuello - Personal Information
+# Migrated from LaTeX content with enhanced version-specific taglines
+
+personal:
+  name:
+    first: "Arthur"
+    last: "PASSUELLO"
+    full: "Arthur PASSUELLO"
+  
+  # Version-specific taglines from LaTeX sections/section_headline.tex and archived headlines
+  taglines:
+    firmware: "Senior Firmware Engineer and Software Architect with proven expertise in designing and delivering complex, deeply integrated embedded platforms from concept to production deployment. Combines advanced firmware development experience with cross-functional technical leadership across geographically distributed teams using Agile methodologies, spanning real-time systems, hardware-software integration, and emerging AI-enabled embedded applications. Demonstrated ability to translate product roadmaps into actionable technology strategies while maintaining exceptional quality standards in fast-paced, multiple-project environments."
+    
+    ai: "Senior Embedded Systems Engineer with proven expertise in safety-critical system development and solid foundation in AI/ML implementation. Combines EPFL Data Science specialization with hands-on experience developing transformer-based multimodal models and LLM-integrated applications. Successfully delivered technical AI/ML education to 100+ international business leaders. Currently building production-ready multimodal AI systems and developing LLM-based service architectures. Brings rigorous engineering methodology and regulatory compliance expertise to ethical AI consulting and responsible technology development."
+    
+    consulting: "Senior Embedded Systems Engineer with proven expertise in safety-critical system development and solid foundation in AI/ML implementation. Combines EPFL Data Science specialization with hands-on experience developing transformer-based multimodal models and LLM-integrated applications. Successfully delivered technical AI/ML education to 100+ international business leaders. Currently building multimodal AI systems and developing LLM-based service architectures. Brings rigorous engineering methodology and regulatory compliance expertise to ethical development and responsible technology implementation."
+    
+    executive: "Senior Technical Leader with proven expertise in architecting and delivering complex embedded platforms from concept to production deployment. Combines deep firmware development experience with cross-functional technical leadership, spanning real-time systems, hardware-software integration, and emerging AI-enabled embedded applications. Demonstrated ability to drive innovation in resource-constrained environments while maintaining exceptional quality standards. Based in Lausanne with strong collaborative approach to distributed team leadership and technology partner relationships."
+    
+    general: "Senior Embedded Systems Engineer with proven expertise in safety-critical system development and solid foundation in AI/ML implementation. Combines EPFL Data Science specialization with hands-on experience developing transformer-based multimodal models and LLM-integrated applications. Successfully delivered technical AI/ML education to 100+ international business leaders. Currently building production-ready multimodal AI systems and developing LLM-based service architectures. Brings rigorous engineering methodology and regulatory compliance expertise to ethical AI consulting and responsible technology development."
+  
+  # Contact information from LaTeX cv_original.tex
+  contact:
+    address:
+      street: "Chemin du Parc-de-Valency 1"
+      city: "Lausanne"
+      postal_code: "1004"
+      country: "Switzerland"
+      formatted: "Chemin du Parc-de-Valency 1, 1004 Lausanne, Switzerland"
+    
+    phone: "+41 79 176 24 84"
+    email: "apassuello@protonmail.com"
+    
+    # Social/Professional profiles
+    linkedin: "arthur-passuello/"
+    github: "apassuello"
+    linkedin_url: "https://www.linkedin.com/in/arthur-passuello/"
+    github_url: "https://github.com/apassuello"
+  
+  # Languages and basic information from section_languages.tex
+  languages:
+    - language: "French"
+      proficiency: "Native"
+      level: 5
+    - language: "English" 
+      proficiency: "Fluent"
+      level: 4
+    - language: "German"
+      proficiency: "Basics"
+      level: 2
+  
+  # Programming languages from section_languages.tex
+  programming_languages:
+    - language: "C/C++"
+      proficiency: "Fluent"
+      level: 4
+    - language: "Python"
+      proficiency: "Fluent"
+      level: 4
+    - language: "Scala"
+      proficiency: "Intermediate" 
+      level: 3
+    - language: "Java"
+      proficiency: "Intermediate"
+      level: 3
+    - language: "JavaScript"
+      proficiency: "Basics"
+      level: 2
+    - language: "Rust"
+      proficiency: "Basics"
+      level: 2
+  
+  # Certifications and Training from section_languages.tex
+  certifications:
+    - name: "ISAQB Software Architect"
+      type: "professional"
+      year: null
+    - name: "Medical Device Software Development"
+      type: "domain_specific"
+      year: null
+    - name: "Quality System Management"
+      type: "management"
+      year: null
+    - name: "System Engineering"
+      type: "technical"
+      year: null
+    - name: "Requirement Engineering"
+      type: "technical"
+      year: null
+    - name: "Cross-functional Team Leadership"
+      type: "leadership"
+      year: null
+  
+  # Personal interests from section_languages.tex
+  interests:
+    training_mentoring:
+      - "Teaching and tutoring"
+      - "Educational content creation"
+      - "Cross-cultural communication"
+    
+    hospitality_service:
+      - "10+ years customer service roles"
+      - "Bartender, cook, promoter experience"
+      - "Client-facing communication skills"
+    
+    technology:
+      - "Large Language Models (LLMs)"
+      - "Quantum Computing"
+      - "Emerging technologies exploration"
+      - "AI/ML research and implementation"
+    
+    sports_outdoor:
+      - "Yoga"
+      - "Climbing" 
+      - "Hiking"
+      - "Cycling"
+      - "Rugby"
+      - "General outdoor activities"
+
+# Version configuration for conditional content
+version_config:
+  firmware:
+    show_technical_interests: true
+    show_hospitality_background: false
+    emphasis: "technical_leadership"
+    
+  ai:
+    show_technical_interests: true
+    show_hospitality_background: false
+    emphasis: "education_and_research"
+    
+  consulting:
+    show_technical_interests: true
+    show_hospitality_background: true
+    emphasis: "cross_cultural_communication"
+    
+  executive:
+    show_technical_interests: false
+    show_hospitality_background: false
+    emphasis: "leadership_impact"
+    
+  general:
+    show_technical_interests: true
+    show_hospitality_background: true
+    emphasis: "balanced_profile"

@@ -1,0 +1,204 @@
+# Arthur Passuello - Education Configuration
+# Migrated from LaTeX section_education.tex with comprehensive details
+
+education:
+  # Master's degree - EPFL (2019-2022)
+  - institution: "EPFL"
+    institution_full: "École Polytechnique Fédérale de Lausanne"
+    degree: "Master's in Computer Science and Engineering"
+    field_of_study: "Computer Science and Engineering"
+    start_date: "2019"
+    end_date: "2022"
+    graduation_date: "2022"
+    location: "Lausanne, Switzerland"
+    
+    # Specializations from LaTeX content
+    specializations:
+      - "Data Science"
+      - "Hardware and System Design" 
+      - "Machine Learning"
+      - "Applied Data Analysis"
+      - "Computer Systems"
+      - "Information Security"
+    
+    # Key focus areas for version targeting
+    focus_areas:
+      ai: "Data Science specialization with strong focus on Machine Learning and Applied Data Analysis"
+      firmware: "Hardware and System Design with emphasis on Computer Systems architecture"
+      consulting: "Data Science and Machine Learning with business applications focus"
+      executive: "Advanced computer science degree with technical leadership preparation"
+      general: "Comprehensive computer science education with Data Science and Systems Design specialization"
+    
+    # Academic achievements and projects
+    notable_achievements:
+      - achievement: "Specialized in Data Science track with Machine Learning focus"
+        versions: ["ai", "consulting", "general"]
+        type: "academic"
+      - achievement: "Hardware and System Design concentration for embedded systems expertise" 
+        versions: ["firmware", "general"]
+        type: "technical"
+      - achievement: "Information Security coursework providing cybersecurity foundation"
+        versions: ["consulting", "firmware"]
+        type: "technical"
+      - achievement: "Applied Data Analysis projects with real-world business applications"
+        versions: ["ai", "consulting"]
+        type: "practical"
+    
+    # Relevant coursework by version
+    relevant_coursework:
+      ai:
+        - "Machine Learning"
+        - "Applied Data Analysis" 
+        - "Computer Vision"
+        - "Natural Language Processing"
+        - "Statistical Learning Theory"
+      firmware:
+        - "Hardware and System Design"
+        - "Computer Systems"
+        - "Embedded Systems Architecture"
+        - "Real-time Systems"
+        - "Information Security"
+      consulting:
+        - "Data Science"
+        - "Applied Data Analysis"
+        - "Machine Learning"
+        - "Information Systems"
+        - "Project Management"
+      executive:
+        - "Advanced Computer Science"
+        - "System Architecture"
+        - "Technology Management"
+        - "Information Security"
+      general:
+        - "Data Science"
+        - "Machine Learning"
+        - "Hardware and System Design"
+        - "Applied Data Analysis"
+        - "Computer Systems"
+  
+  # Bachelor's degree - HEIG-VD (2016-2018)
+  - institution: "HEIG-VD"
+    institution_full: "Haute École d'Ingénierie et de Gestion du Canton de Vaud"
+    degree: "Bachelor's in Computer Science, Major in Embedded Systems"
+    field_of_study: "Computer Science" 
+    major: "Embedded Systems"
+    start_date: "2016"
+    end_date: "2018"
+    graduation_date: "2018"
+    location: "Yverdon-les-Bains, Switzerland"
+    
+    # Specializations from LaTeX content
+    specializations:
+      - "FPGA/SoC design"
+      - "High-performance computing"
+      - "System programming"
+      - "Linux kernel module development"
+      - "FPGA-based accelerator design"
+    
+    # Focus areas for version targeting
+    focus_areas:
+      firmware: "Embedded Systems major with FPGA/SoC design and Linux kernel development"
+      ai: "High-performance computing foundation with hardware acceleration expertise"
+      consulting: "Technical computer science background with system programming skills"
+      executive: "Engineering degree with embedded systems specialization"
+      general: "Computer science with embedded systems focus and hardware design experience"
+    
+    # Hands-on experience and projects
+    practical_experience:
+      - experience: "FPGA/SoC design projects with hardware-software integration"
+        versions: ["firmware", "general"]
+        type: "hands_on"
+      - experience: "Linux kernel module development for embedded systems"
+        versions: ["firmware", "ai"]
+        type: "hands_on"
+      - experience: "FPGA-based accelerator design for high-performance computing"
+        versions: ["firmware", "ai", "general"]
+        type: "hands_on"
+      - experience: "System programming with real-time constraints"
+        versions: ["firmware", "general"]
+        type: "hands_on"
+      - experience: "High-performance computing applications and optimization"
+        versions: ["ai", "consulting"]
+        type: "hands_on"
+    
+    # Technical skills developed
+    technical_skills:
+      firmware:
+        - "FPGA Development (VHDL/Verilog)"
+        - "Embedded C/C++ Programming"
+        - "Linux Kernel Development"
+        - "Real-time System Design"
+        - "Hardware-Software Co-design"
+      ai:
+        - "High-performance Computing"
+        - "Hardware Acceleration"
+        - "Parallel Processing"
+        - "System Optimization"
+        - "Algorithm Implementation"
+      consulting:
+        - "System Programming"
+        - "Technical Architecture"
+        - "Performance Optimization"
+        - "Hardware-Software Integration"
+        - "Technology Assessment"
+      general:
+        - "Embedded Systems Design"
+        - "FPGA Development"
+        - "System Programming"
+        - "Hardware Acceleration"
+        - "Linux Development"
+
+# Academic performance and recognition
+academic_achievements:
+  - achievement: "High-Performance Genomic Processing project scored 5.5/6.0 (exceptional)"
+    degree: "Bachelor's"
+    course: "Hardware Design Project"
+    versions: ["firmware", "ai", "general"]
+    type: "project_excellence"
+  
+  - achievement: "ASIC Medical Device project scored 5.0/6.0 (excellent)"
+    degree: "Master's"
+    course: "Research Project"
+    versions: ["ai", "firmware", "consulting"]
+    type: "research_excellence"
+  
+  - achievement: "PriorityQueue Formal Verification scored 6.0/6.0 (perfect)"
+    degree: "Master's"
+    course: "Formal Methods"
+    versions: ["ai", "firmware", "consulting"]
+    type: "academic_excellence"
+
+# Version-specific education emphasis
+version_config:
+  firmware:
+    emphasize: "embedded_systems_hardware"
+    show_technical_projects: true
+    highlight_skills: ["FPGA", "embedded_systems", "real_time", "linux_kernel"]
+    
+  ai:
+    emphasize: "data_science_ml"
+    show_technical_projects: true
+    highlight_skills: ["machine_learning", "data_science", "high_performance_computing", "research"]
+    
+  consulting:
+    emphasize: "technical_foundation_business"
+    show_technical_projects: false
+    highlight_skills: ["data_science", "system_architecture", "technical_leadership"]
+    
+  executive:
+    emphasize: "leadership_preparation"
+    show_technical_projects: false
+    highlight_skills: ["advanced_degree", "technical_management", "system_thinking"]
+    
+  general:
+    emphasize: "comprehensive_technical"
+    show_technical_projects: true
+    highlight_skills: ["data_science", "embedded_systems", "versatile_technical_background"]
+
+# Education formatting preferences
+formatting:
+  show_gpa: false  # Not typically shown in European CVs
+  show_coursework: true  # For technical roles
+  show_projects: true   # For technical roles
+  date_format: "YYYY"   # Year only format
+  include_location: true
