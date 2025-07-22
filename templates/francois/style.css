@@ -68,10 +68,9 @@
      Sophisticated colors that work great for creative and tech professionals
      ========================================================================== */
 
-  /* 🔥 SIGNATURE VIBRANT RED - The François trademark color */
-  --color-accent: #e53e3e;
-  /* Vibrant red (try: #3498db blue, #27ae60 green, #9b59b6 purple) */
-  /* Changed to blue for demonstration (original: #e53e3e) */
+  /* 🌿 SIGNATURE VIBRANT GREEN - The François trademark color */
+  --color-accent: #27ae60;
+  /* Vibrant green for modern, fresh look (was: #e53e3e red) */
 
   /* 📖 TEXT COLORS - Modern gray scale for excellent readability */
   --color-primary: #1a202c;
@@ -164,28 +163,74 @@ body {
   background-color: var(--color-bg);
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: var(--margin-page);
+  padding: 10mm var(--margin-page) var(--margin-page) var(--margin-page);
+  /* Minimal top padding to eliminate head spacing */
   letter-spacing: -0.015em;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Profile Picture - Larger size to match reference */
-.profile-pic {
-  width: 120px;
-  /* Increased from 100px */
-  height: 120px;
-  /* Increased from 100px */
-  border-radius: 50%;
-  float: right;
-  margin: -10px 0 20px 20px;
-  border: 2px solid var(--color-border);
-  object-fit: cover;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+/* =============================================================================
+   📐 CLEAN TWO-COLUMN HEADER LAYOUT
+   Simple, effective approach using CSS positioning for true column separation
+   ============================================================================= */
+
+/* Header Area - Create proper two-column layout */
+body>p:first-child,
+body>h1:first-of-type,
+body>h3:first-of-type,
+body>p:nth-of-type(2),
+body>div:first-of-type,
+body>p:nth-of-type(3) {
+  position: relative;
+  /* Enable positioning context */
 }
 
-/* Name Styling - Exact from reference */
+/* Create left content column */
+body>h1:first-of-type,
+body>h3:first-of-type,
+body>p:nth-of-type(2),
+body>div:first-of-type,
+body>p:nth-of-type(3) {
+  width: calc(100% - 170px);
+  /* Left column width (total - 150px photo - 20px gap) */
+  float: left;
+  clear: left;
+  /* Stack elements in left column */
+}
+
+/* Right photo column */
+body>p:first-child {
+  width: 150px;
+  float: right;
+  margin: 0;
+  position: relative;
+  top: 0;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid var(--color-border);
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: block;
+}
+
+/* Clear float after header */
+body>p:nth-of-type(3) {
+  margin-bottom: var(--space-section);
+}
+
+body>p:nth-of-type(3)::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Name Styling - Left aligned in header */
 h1 {
   font-family: var(--font-primary);
   font-size: var(--size-name);
@@ -193,14 +238,16 @@ h1 {
   color: var(--color-primary);
   line-height: 1.1;
   letter-spacing: -0.025em;
-  margin-bottom: 2px;
+  margin-bottom: 6px;
+  /* Increased spacing between name and job title */
+  margin-top: 0;
 }
 
 h1 strong {
   font-weight: 700;
 }
 
-/* Tagline/Subtitle - Exact styling */
+/* Tagline/Subtitle - Left aligned */
 h1+h3 {
   font-family: var(--font-secondary);
   font-size: var(--size-tagline);
@@ -212,13 +259,13 @@ h1+h3 {
 }
 
 /* Address line - Italic style */
-h1+h3+p {
+/* h1+h3+p {
   font-size: var(--size-small);
   font-style: italic;
   color: var(--color-text-muted);
   margin-bottom: var(--space-small);
   letter-spacing: normal;
-}
+} */
 
 /* Contact info - Inline with icons */
 .inline-contact {
@@ -226,10 +273,6 @@ h1+h3+p {
   line-height: 1.6;
   margin-bottom: var(--space-item);
   color: var(--color-text-light);
-  clear: both;
-  /* Clear any floats from other sections */
-  overflow: hidden;
-  /* Ensure proper containment */
 }
 
 .inline-contact .icon {
@@ -321,8 +364,8 @@ h3 {
   /* Clear any previous floats */
 }
 
-/* Date/Location - Float to right, hide arrows */
-h3+p {
+/* Date/Location - Float to right, hide arrows - ONLY in experience sections */
+.cv-experience-item h3+p {
   font-size: var(--size-small);
   color: var(--color-text-muted);
   margin-bottom: 4px;
@@ -339,19 +382,19 @@ h3+p {
   /* Clear right floats */
 }
 
-h3+p em {
+.cv-experience-item h3+p em {
   font-style: italic;
 }
 
-/* Position Title - Bold after company */
-h3+p+p strong {
+/* Position Title - Bold after company - ONLY in experience sections */
+.cv-experience-item h3+p+p strong {
   font-weight: 600;
   color: var(--color-secondary);
   font-size: var(--size-body);
 }
 
-/* Clear floats after position title */
-h3+p+p {
+/* Clear floats after position title - ONLY in experience sections */
+.cv-experience-item h3+p+p {
   clear: both;
   /* Clear both left and right floats */
   margin-top: 4px;
@@ -416,9 +459,9 @@ li::before {
 
 /* Hover effect for skill tags */
 .skill-tag:hover {
-  background: #e9ecef;
+  background: var(--color-accent);
+  color: white;
   border-color: var(--color-accent);
-  transform: translateY(-1px);
 }
 
 /* Links in content */
@@ -434,8 +477,9 @@ a:hover {
   color: #d63031;
 }
 
-/* Education & Projects formatting */
-h3+p+p {
+/* Education & Projects formatting - ONLY in education/project sections */
+.cv-education-item h3+p+p,
+.cv-project-item h3+p+p {
   margin-bottom: var(--space-small);
 }
 
@@ -475,9 +519,24 @@ h3+p a {
     line-height: 1.4;
   }
 
+  /* Adjust header layout for print */
+  body>p:first-child {
+    width: 100px;
+    float: right;
+  }
+
+  body>h1:first-of-type,
+  body>h3:first-of-type,
+  body>p:nth-of-type(2),
+  body>div:first-of-type,
+  body>p:nth-of-type(3) {
+    width: calc(100% - 120px);
+    /* Adjusted for smaller picture and margins */
+  }
+
   .profile-pic {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
   }
 
   h2 {
@@ -547,6 +606,36 @@ h3+p a {
   }
 }
 
+/* Mobile responsiveness for header */
+@media screen and (max-width: 768px) {
+
+  /* Reset column layout for mobile */
+  body>p:first-child,
+  body>h1:first-of-type,
+  body>h3:first-of-type,
+  body>p:nth-of-type(2),
+  body>div:first-of-type,
+  body>p:nth-of-type(3) {
+    float: none;
+    width: 100%;
+    clear: both;
+    text-align: center;
+  }
+
+  /* Center picture on mobile */
+  body>p:first-child {
+    margin: 0 auto 20px auto;
+    width: auto;
+    text-align: center;
+  }
+
+  .profile-pic {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+  }
+}
+
 /* =============================================================================
    🏷️ SEMANTIC CV ELEMENT CLASSES - François Template Enhancement
    New semantic classes for reliable, maintainable styling - ENHANCED VERSION
@@ -590,7 +679,9 @@ h3+p a {
   color: var(--color-primary);
   line-height: 1.1;
   letter-spacing: -0.025em;
-  margin-bottom: 2px;
+  margin-bottom: 6px;
+  /* Increased spacing between name and job title */
+  margin-top: 0;
 }
 
 .cv-tagline {
@@ -612,16 +703,16 @@ h3+p a {
   color: var(--color-text-muted);
   margin-bottom: var(--space-small);
   letter-spacing: normal;
-  text-align: left;
+  display: block;
+  /* Ensure block-level behavior */
 }
+
 
 .cv-contact {
   font-size: var(--size-small);
   line-height: 1.6;
   margin-bottom: var(--space-item);
   color: var(--color-text-light);
-  clear: both;
-  overflow: hidden;
 }
 
 .cv-contact-icon {
@@ -633,12 +724,12 @@ h3+p a {
 }
 
 .cv-languages {
-  font-size: var(--size-small);
+  font-size: var(--size-body);
   font-weight: 600;
   margin-bottom: var(--space-section);
   color: var(--color-secondary);
   letter-spacing: 0.02em;
-  text-align: center;
+  text-align: left;
 }
 
 /* 📚 Section Headers - Professional section styling */
@@ -892,8 +983,18 @@ h3+p a {
 
 /* 🏷️ Skills Tags - Enhanced with semantic classes */
 .cv-skills-tags {
-  margin-top: var(--space-small);
+  font-size: var(--size-tiny);
+  color: var(--color-text-muted);
+  margin: 8px 0 var(--space-item) 0;
   line-height: 1.6;
+  padding-left: 0;
+  /* Remove old padding */
+  border-left: none;
+  /* Remove old border */
+  margin-left: 0;
+  /* Remove old margin */
+  font-style: normal;
+  /* Remove italic */
 }
 
 .cv-skill-tag {

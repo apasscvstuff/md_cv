@@ -274,22 +274,22 @@ class CVBuilder:
     def format_skill_tags(self, skills_tags_text: str) -> str:
         """
         Convert comma-separated skill tags to individual HTML elements with dual CSS classes.
-        
+
         SEMANTIC CSS ENHANCEMENT:
         This method was enhanced to include both semantic CSS classes (cv-skill-tag) and
         legacy classes (skill-tag) for backward compatibility with existing templates.
-        
+
         Each skill tag now has:
         - cv-skill-tag: Semantic class for consistent styling across templates
         - skill-tag: Legacy class for backward compatibility
-        
+
         Args:
             skills_tags_text: Comma-separated string of skill tags
-            
+
         Returns:
-            HTML string with <span> elements for each tag, including both semantic 
+            HTML string with <span> elements for each tag, including both semantic
             and legacy CSS classes for maximum template compatibility
-            
+
         Example:
             Input: "Python, Docker, AWS"
             Output: '<span class="cv-skill-tag skill-tag">Python</span><span class="cv-skill-tag skill-tag">Docker</span><span class="cv-skill-tag skill-tag">AWS</span>'
@@ -300,7 +300,9 @@ class CVBuilder:
         # Split by comma and create individual span elements with dual CSS classes
         # for semantic styling (cv-skill-tag) and backward compatibility (skill-tag)
         tags = [tag.strip() for tag in skills_tags_text.split(",") if tag.strip()]
-        tag_elements = [f'<span class="cv-skill-tag skill-tag">{tag}</span>' for tag in tags]
+        tag_elements = [
+            f'<span class="cv-skill-tag skill-tag">{tag}</span>' for tag in tags
+        ]
 
         return "".join(tag_elements)
 
@@ -481,14 +483,16 @@ class CVBuilder:
             if col1_items:
                 markdown += '<div class="cv-skills-table-container">\n'
                 markdown += '<table class="cv-skills-table">\n'
-                markdown += '<thead>\n'
-                markdown += '<tr>\n'
-                markdown += '<th class="cv-skills-header">**Software Engineering**</th>\n'
+                markdown += "<thead>\n"
+                markdown += "<tr>\n"
+                markdown += (
+                    '<th class="cv-skills-header">**Software Engineering**</th>\n'
+                )
                 markdown += '<th class="cv-skills-header">**AI & LLMs**</th>\n'
                 markdown += '<th class="cv-skills-header">**Data Science**</th>\n'
-                markdown += '</tr>\n'
-                markdown += '</thead>\n'
-                markdown += '<tbody>\n'
+                markdown += "</tr>\n"
+                markdown += "</thead>\n"
+                markdown += "<tbody>\n"
 
                 # Domain expertise (AI & LLMs)
                 col2_items = []
@@ -514,11 +518,11 @@ class CVBuilder:
                     markdown += f'<td class="cv-skill-item">{col1}</td>\n'
                     markdown += f'<td class="cv-skill-item">{col2}</td>\n'
                     markdown += f'<td class="cv-skill-item">{col3}</td>\n'
-                    markdown += '</tr>\n'
+                    markdown += "</tr>\n"
 
-                markdown += '</tbody>\n'
-                markdown += '</table>\n'
-                markdown += '</div>\n\n'
+                markdown += "</tbody>\n"
+                markdown += "</table>\n"
+                markdown += "</div>\n\n"
 
             return markdown
 
@@ -527,7 +531,7 @@ class CVBuilder:
     ) -> str:
         """
         Generate experience section markdown with semantic HTML structure.
-        
+
         SEMANTIC CSS ENHANCEMENT:
         This method was enhanced to generate HTML with semantic CSS classes:
         - cv-section-header: Section title with unique ID
@@ -538,11 +542,11 @@ class CVBuilder:
         - cv-reference: Reference contact information
         - cv-achievements/cv-achievement: Achievement list items
         - cv-skills-tags: Container for skill tags
-        
+
         Args:
             experience_data: Raw experience data from YAML
             target_version: CV version being built (affects content filtering)
-            
+
         Returns:
             Markdown string with embedded semantic HTML classes
         """
@@ -554,26 +558,32 @@ class CVBuilder:
             markdown += f'<div class="cv-experience-item" id="cv-exp-{exp["company"].lower().replace(" ", "-")}">\n'
             markdown += f'<h3 class="cv-company-name">{exp["company"]}</h3>\n'
             markdown += f'<p class="cv-company-location">_{exp["location"]}_<br>\n'
-            markdown += f'<span class="cv-company-period">_{exp["period"]}_</span></p>\n\n'
+            markdown += (
+                f'<span class="cv-company-period">_{exp["period"]}_</span></p>\n\n'
+            )
 
             markdown += f'<p class="cv-position-title">**{exp["position"]}**'
             if exp["reference"]:
                 markdown += f' <span class="cv-reference">{exp["reference"]}</span>'
-            markdown += '</p>\n\n'
+            markdown += "</p>\n\n"
 
             # Add achievements
             if exp["achievements"]:
                 markdown += '<ul class="cv-achievements">\n'
                 for achievement in exp["achievements"]:
-                    markdown += f'<li class="cv-achievement">{achievement["text"]}</li>\n'
-                markdown += '</ul>\n\n'
+                    markdown += (
+                        f'<li class="cv-achievement">{achievement["text"]}</li>\n'
+                    )
+                markdown += "</ul>\n\n"
 
             # Add skills tags if available
             if exp["skills_tags"]:
                 formatted_tags = self.format_skill_tags(exp["skills_tags"])
-                markdown += f'<div class="cv-skills-tags skills-tags">{formatted_tags}</div>\n'
+                markdown += (
+                    f'<div class="cv-skills-tags skills-tags">{formatted_tags}</div>\n'
+                )
 
-            markdown += '</div>\n\n'
+            markdown += "</div>\n\n"
 
         return markdown
 
@@ -582,7 +592,7 @@ class CVBuilder:
     ) -> str:
         """
         Generate projects section markdown with semantic HTML structure.
-        
+
         SEMANTIC CSS ENHANCEMENT:
         This method generates HTML with semantic CSS classes for project elements:
         - cv-project-item: Container for each project with unique ID
@@ -591,11 +601,11 @@ class CVBuilder:
         - cv-project-links: Container for project links (GitHub, Demo, etc.)
         - cv-project-link: Individual link styling with semantic classes
         - cv-project-descriptions/cv-project-description: Project description lists
-        
+
         Args:
             projects_data: Raw projects data from YAML
             target_version: CV version being built (affects content filtering)
-            
+
         Returns:
             Markdown string with embedded semantic HTML classes, or empty string if no projects
         """
@@ -607,8 +617,16 @@ class CVBuilder:
         markdown = '<h2 class="cv-section-header" id="projects">Projects</h2>\n\n'
 
         for project in projects:
-            safe_project_id = project['name'].lower().replace(" ", "-").replace("'", "").replace('"', '')
-            markdown += f'<div class="cv-project-item" id="cv-proj-{safe_project_id}">\n'
+            safe_project_id = (
+                project["name"]
+                .lower()
+                .replace(" ", "-")
+                .replace("'", "")
+                .replace('"', "")
+            )
+            markdown += (
+                f'<div class="cv-project-item" id="cv-proj-{safe_project_id}">\n'
+            )
             markdown += f'<h3 class="cv-project-name">{project["name"]}</h3>\n'
             markdown += f'<p class="cv-project-period">_{project["period"]}_</p>\n\n'
 
@@ -617,28 +635,38 @@ class CVBuilder:
                 link_parts = []
                 for link_type, url in project["links"].items():
                     if link_type == "github":
-                        link_parts.append(f'<a href="{url}" class="cv-project-link cv-github-link">Github</a>')
+                        link_parts.append(
+                            f'<a href="{url}" class="cv-project-link cv-github-link">Github</a>'
+                        )
                     elif link_type == "demo":
-                        link_parts.append(f'<a href="{url}" class="cv-project-link cv-demo-link">Demo</a>')
+                        link_parts.append(
+                            f'<a href="{url}" class="cv-project-link cv-demo-link">Demo</a>'
+                        )
                     elif link_type == "website":
-                        link_parts.append(f'<a href="{url}" class="cv-project-link cv-website-link">Website</a>')
+                        link_parts.append(
+                            f'<a href="{url}" class="cv-project-link cv-website-link">Website</a>'
+                        )
 
                 if link_parts:
-                    markdown += f'<p class="cv-project-links">{" | ".join(link_parts)}</p>\n\n'
+                    markdown += (
+                        f'<p class="cv-project-links">{" | ".join(link_parts)}</p>\n\n'
+                    )
 
             # Add descriptions
             if project["descriptions"]:
                 markdown += '<ul class="cv-project-descriptions">\n'
                 for desc in project["descriptions"]:
                     markdown += f'<li class="cv-project-description">{desc}</li>\n'
-                markdown += '</ul>\n\n'
+                markdown += "</ul>\n\n"
 
             # Add skills tags if available
             if project["skills_tags"]:
                 formatted_tags = self.format_skill_tags(project["skills_tags"])
-                markdown += f'<div class="cv-skills-tags skills-tags">{formatted_tags}</div>\n'
+                markdown += (
+                    f'<div class="cv-skills-tags skills-tags">{formatted_tags}</div>\n'
+                )
 
-            markdown += '</div>\n\n'
+            markdown += "</div>\n\n"
 
         return markdown
 
@@ -696,22 +724,37 @@ class CVBuilder:
         markdown = '<h2 class="cv-section-header" id="education">Education</h2>\n\n'
 
         for education in processed_education:
-            # Institution and degree  
-            institution_name = education["institution_full"] if education["institution_full"] else education["institution"]
-            safe_institution_id = institution_name.lower().replace(" ", "-").replace("'", "").replace("é", "e")
-            markdown += f'<div class="cv-education-item" id="cv-edu-{safe_institution_id}">\n'
+            # Institution and degree
+            institution_name = (
+                education["institution_full"]
+                if education["institution_full"]
+                else education["institution"]
+            )
+            safe_institution_id = (
+                institution_name.lower()
+                .replace(" ", "-")
+                .replace("'", "")
+                .replace("é", "e")
+            )
+            markdown += (
+                f'<div class="cv-education-item" id="cv-edu-{safe_institution_id}">\n'
+            )
             markdown += f'<h3 class="cv-institution-name">{institution_name}</h3>\n'
 
             # Date range and location
-            markdown += f'<p class="cv-education-location">_{education["location"]}_<br>\n'
+            markdown += (
+                f'<p class="cv-education-location">_{education["location"]}_<br>\n'
+            )
             if education["start_date"] and education["end_date"]:
                 markdown += f'<span class="cv-education-period">_{education["start_date"]} - {education["end_date"]}_</span></p>\n\n'
 
             # Degree information
             markdown += f'<p class="cv-degree-title">**{education["degree"]}**'
             if education["major"]:
-                markdown += f', <span class="cv-major">Major in {education["major"]}</span>'
-            markdown += '</p>\n\n'
+                markdown += (
+                    f', <span class="cv-major">Major in {education["major"]}</span>'
+                )
+            markdown += "</p>\n\n"
 
             # Focus area (version-specific)
             if education["focus_area"]:
@@ -726,10 +769,12 @@ class CVBuilder:
             if education["achievements"]:
                 markdown += '<ul class="cv-education-achievements">\n'
                 for achievement in education["achievements"]:
-                    markdown += f'<li class="cv-education-achievement">{achievement}</li>\n'
-                markdown += '</ul>\n\n'
-            
-            markdown += '</div>\n\n'
+                    markdown += (
+                        f'<li class="cv-education-achievement">{achievement}</li>\n'
+                    )
+                markdown += "</ul>\n\n"
+
+            markdown += "</div>\n\n"
 
         return markdown
 
@@ -754,20 +799,20 @@ class CVBuilder:
 
         # =====================================================================
         # SEMANTIC HTML GENERATION - Enhanced CV Structure
-        # 
+        #
         # This section generates HTML with semantic CSS classes for reliable,
         # maintainable styling across all templates. Each CV element now has:
         # 1. Semantic class (cv-*) for reliable targeting
-        # 2. Legacy class for backward compatibility  
+        # 2. Legacy class for backward compatibility
         # 3. Semantic ID for unique element identification
-        # 
+        #
         # Benefits:
         # - Eliminates fragile CSS selectors like h1+h3+p
         # - Enables consistent styling across templates
         # - Maintains backward compatibility with existing CSS
         # - Provides semantic structure for accessibility
         # =====================================================================
-        
+
         # Build markdown content with dual CSS class system (semantic + legacy)
         markdown_content = f"""<img src="{personal_info['profile_photo']}" alt="{personal_info['name']}" class="cv-profile-pic profile-pic" />
 
