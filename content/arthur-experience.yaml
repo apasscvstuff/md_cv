@@ -21,172 +21,172 @@ experiences:
     # Achievements with conditional logic following Action+Metric+Impact pattern
     achievements:
       # Core achievement - Priority 1 (consolidated with key metrics)
-      - text: "Architected ML-powered signal processing system for FDA-compliant medical device, implementing real-time anomaly detection achieving 100% sensitivity for critical events while maintaining 0.1% false positive rate"
+      - text: "**ML Medical System:** Architected ML-powered signal processing system for FDA-compliant medical device, implementing real-time anomaly detection achieving 100% sensitivity for critical events while maintaining 0.1% false positive rate"
         versions: ["ai"]
         priority: 1
         type: "ai_focus"
         
-      - text: "Led firmware development for Sigi™ insulin pump delivering FIH-compliant system 15% ahead of schedule"
+      - text: "**FDA-Compliant Firmware:** Led firmware development for Sigi™ insulin pump delivering FIH-compliant system 15% ahead of schedule"
         versions: ["firmware", "consulting", "executive", "general"]
         priority: 1
         type: "base"
         
-      - text: "achieving 96% test coverage through HIL system implementation"
+      - text: "**Testing Infrastructure:** achieving 96% test coverage through HIL system implementation"
         versions: ["firmware"]
         priority: 1
         type: "techmetric"
         
-      - text: "ensuring 99.9% uptime during clinical trials"
+      - text: "**System Reliability:** ensuring 99.9% uptime during clinical trials"
         versions: ["firmware"]
         priority: 1
         type: "techmetric"
         
-      - text: "enabling $2M+ clinical trial funding milestone"
+      - text: "**Business Impact:** enabling $2M+ clinical trial funding milestone"
         versions: ["consulting", "executive"]
         priority: 1
         type: "businessimpact"
         
-      - text: "demonstrating ability to deliver ethical technology solutions under regulatory constraints"
+      - text: "**Ethical Technology Development:** demonstrating ability to deliver ethical technology solutions under regulatory constraints"
         versions: ["consulting"]
         priority: 1
         type: "consulting_focus"
         
       # Priority 2 achievements (not in executive)
-      - text: "Led 5-person firmware team across 2 time zones while mentoring 3 junior engineers to senior level, achieving 100% promotion success rate"
+      - text: "**Technical Leadership:** Led 5-person firmware team across 2 time zones while mentoring 3 junior engineers to senior level, achieving 100% promotion success rate"
         versions: ["firmware", "executive", "consulting"]
         priority: 2
         type: "leadmetric"
         
-      - text: "Developed proprietary embedded software combining third-party Bluetooth stack with custom safety algorithms and real-time insulin delivery protocols"
+      - text: "**Embedded Architecture:** Developed proprietary embedded software combining third-party Bluetooth stack with custom safety algorithms and real-time insulin delivery protocols"
         versions: ["firmware"]
         priority: 2
         type: "techmetric"
         
-      - text: "Implemented sensor fusion system combining accelerometer and Hall effect sensors achieving 100% detection accuracy through statistical calibration algorithms and dynamic threshold adjustment"
+      - text: "**Sensor Fusion Platform:** Implemented sensor fusion system combining accelerometer and Hall effect sensors achieving 100% detection accuracy through statistical calibration algorithms and dynamic threshold adjustment"
         versions: ["firmware"]
         priority: 2
         type: "techmetric"
         
-      - text: "Optimized embedded system performance doubling battery longevity and reducing data transmission by 80% through algorithmic optimization and power management"
+      - text: "**Power Optimization:** Optimized embedded system performance doubling battery longevity and reducing data transmission by 80% through algorithmic optimization and power management"
         versions: ["firmware"]
         priority: 2
         type: "techmetric"
         
-      - text: "Advised R&D management on critical technology choices for $500K+ next-generation platform investments, providing strategic technical consultation for product roadmap decisions"
+      - text: "**Strategic Consulting:** Advised R&D management on critical technology choices for $500K+ next-generation platform investments, providing strategic technical consultation for product roadmap decisions"
         versions: ["firmware", "consulting", "executive"]
         priority: 2
         type: "businessimpact"
         
-      - text: "Established comprehensive test infrastructure achieving 96% test coverage and 40% validation time reduction through HIL system development with automated CI/CD pipeline and real-time monitoring dashboards, delivering $50K annual cost savings"
+      - text: "**Testing Infrastructure:** Established comprehensive test infrastructure achieving 96% test coverage and 40% validation time reduction through HIL system development with automated CI/CD pipeline and real-time monitoring dashboards, delivering $50K annual cost savings"
         versions: ["firmware", "consulting"]
         priority: 2
         type: "techmetric"
         
-      - text: "Implemented Scrum framework (SaFE) reducing sprint spillover by 45% and improving inter-team coordination by 50% through effective PI Planning and backlog management"
+      - text: "**Process Improvement:** Implemented Scrum framework (SaFE) reducing sprint spillover by 45% and improving inter-team coordination by 50% through effective PI Planning and backlog management"
         versions: ["firmware", "consulting", "executive"]
         priority: 2
         type: "leadmetric"
         
-      - text: "Pioneered integration of local LLM (Ollama) for intelligent documentation search, reducing engineer lookup time by 75% and improving compliance accuracy through context-aware retrieval of 100+ MB regulatory documents"
+      - text: "**AI Documentation System:** Pioneered integration of local LLM (Ollama) for intelligent documentation search, reducing engineer lookup time by 75% and improving compliance accuracy through context-aware retrieval of 100+ MB regulatory documents"
         versions: ["ai"]
         priority: 1
         type: "ai_focus"
         
-      - text: "Implemented Hall effect signal modeling and data analysis pipelines using Python for simulation experiments and sensor validation in medical device applications"
+      - text: "**Data Pipeline Development:** Implemented Hall effect signal modeling and data analysis pipelines using Python for simulation experiments and sensor validation in medical device applications"
         versions: ["ai"]
         priority: 2
         type: "ai_focus"
         
-      - text: "Designed adaptive calibration system using online learning techniques, continuously improving sensor accuracy from 94% to 99.5% through Bayesian optimization and temporal pattern recognition"
-        versions: ["ai"]
-        priority: 1
-        type: "ai_focus"
-        
-      - text: "Led Python transformation initiative, creating ML-ready data pipeline replacing legacy LabView systems, enabling integration of predictive models and reducing analysis time from hours to minutes while training 15+ engineers in modern ML stack"
+      - text: "**Adaptive ML Calibration:** Designed adaptive calibration system using online learning techniques, continuously improving sensor accuracy from 94% to 99.5% through Bayesian optimization and temporal pattern recognition"
         versions: ["ai"]
         priority: 1
         type: "ai_focus"
         
+      - text: "**Technology Migration:** Led Python transformation initiative, creating ML-ready data pipeline replacing legacy LabView systems, enabling integration of predictive models and reducing analysis time from hours to minutes while training 15+ engineers in modern ML stack"
+        versions: ["ai"]
+        priority: 1
+        type: "ai_focus"
         
-      - text: "Translated clinical trial roadmap requirements into concrete technical strategies, managing multiple parallel projects under tight regulatory deadlines while ensuring ethical technology development"
+        
+      - text: "**Strategic Project Management:** Translated clinical trial roadmap requirements into concrete technical strategies, managing multiple parallel projects under tight regulatory deadlines while ensuring ethical technology development"
         versions: ["consulting"]
         priority: 2
         type: "consulting_focus"
         
-      - text: "Advised R&D management on critical technology choices for next-generation platform evolution, providing strategic technical consultation for product roadmap decisions"
+      - text: "**Technology Advisory:** Advised R&D management on critical technology choices for next-generation platform evolution, providing strategic technical consultation for product roadmap decisions"
         versions: ["consulting"]
         priority: 2
         type: "consulting_focus"
         
-      - text: "Designed and demonstrated 6 proof-of-concept systems to stakeholders, achieving production adoption and excellent feedback through systematic innovation approach"
+      - text: "**Proof-of-Concept Development:** Designed and demonstrated 6 proof-of-concept systems to stakeholders, achieving production adoption and excellent feedback through systematic innovation approach"
         versions: ["consulting"]
         priority: 2
         type: "consulting_focus"
         
-      - text: "Led technical knowledge transfer initiatives training 15+ team members, successfully transitioning development workflows and improving team capabilities"
+      - text: "**Knowledge Transfer Leadership:** Led technical knowledge transfer initiatives training 15+ team members, successfully transitioning development workflows and improving team capabilities"
         versions: ["consulting"]
         priority: 2
         type: "consulting_focus"
         
-      - text: "Implemented comprehensive validation infrastructure delivering 90%+ test coverage through automated CI/CD workflows and real-time monitoring dashboards, ensuring regulatory compliance and quality assurance"
+      - text: "**Quality Infrastructure:** Implemented comprehensive validation infrastructure delivering 90%+ test coverage through automated CI/CD workflows and real-time monitoring dashboards, ensuring regulatory compliance and quality assurance"
         versions: ["consulting"]
         priority: 2
         type: "consulting_focus"
         
-      - text: "Coordinated cross-functional teams across multiple time zones while mentoring 3-5 engineers, improving inter-team coordination and technical expertise"
+      - text: "**Cross-functional Coordination:** Coordinated cross-functional teams across multiple time zones while mentoring 3-5 engineers, improving inter-team coordination and technical expertise"
         versions: ["consulting"]
         priority: 2
         type: "leadmetric"
         
       # Consolidated PoC achievement with enhanced metrics
-      - text: "Architected and delivered 6 proof-of-concept systems from user needs analysis to production adoption, achieving 100% stakeholder approval"
+      - text: "**Innovation Engineering:** Architected and delivered 6 proof-of-concept systems from user needs analysis to production adoption, achieving 100% stakeholder approval"
         versions: ["firmware", "general", "consulting"]  
         priority: 2
         type: "base"
         
         
-      - text: "Coordinated cross-functional teams across multiple time zones, including collaboration with San Diego engineering team"
+      - text: "**Global Team Coordination:** Coordinated cross-functional teams across multiple time zones, including collaboration with San Diego engineering team"
         versions: ["consulting", "executive"]
         priority: 2
         type: "leadmetric"
         
-      - text: "while mentoring team members on system design and requirements engineering"
+      - text: "**Technical Mentoring:** while mentoring team members on system design and requirements engineering"
         versions: ["consulting"]
         priority: 2
         type: "consulting_focus"
         
-      - text: "Managed technical subprojects ensuring ISO 13485/IEC 62304 compliance (DHF, risk analysis, etc.)"
+      - text: "**Regulatory Compliance:** Managed technical subprojects ensuring ISO 13485/IEC 62304 compliance (DHF, risk analysis, etc.)"
         versions: ["firmware", "general"]
         priority: 2
         type: "base"
         
-      - text: "Mentored team members on embedded development, system design, and system requirements"
+      - text: "**Technical Development:** Mentored team members on embedded development, system design, and system requirements"
         versions: ["firmware", "general"]
         priority: 2
         type: "base"
         
       # Priority 3 achievements (detailed versions only)
-      - text: "Advised R&D management on critical technology choices for next-generation platform evolution, providing strategic technical consultation for product roadmap decisions"
+      - text: "**Strategic Technology Advisory:** Advised R&D management on critical technology choices for next-generation platform evolution, providing strategic technical consultation for product roadmap decisions"
         versions: ["consulting"]
         priority: 3
         type: "consulting_focus"
         
-      - text: "Presented technical concepts and system updates to clinical and business stakeholders, consistently adapting complex technical language to varied audiences across organizational levels"
+      - text: "**Stakeholder Communication:** Presented technical concepts and system updates to clinical and business stakeholders, consistently adapting complex technical language to varied audiences across organizational levels"
         versions: ["consulting"]
         priority: 3
         type: "consulting_focus"
         
-      - text: "Presented PoCs and firmware system updates to clinical and business stakeholders, adapting technical language to varied audiences across organizational levels"
+      - text: "**Technical Presentations:** Presented PoCs and firmware system updates to clinical and business stakeholders, adapting technical language to varied audiences across organizational levels"
         versions: ["firmware"]
         priority: 3
         type: "base"
         
-      - text: "Presented technical concepts and system updates to clinical and business stakeholders, consistently adapting complex technical language to varied audiences across organizational levels"
+      - text: "**Cross-organizational Communication:** Presented technical concepts and system updates to clinical and business stakeholders, consistently adapting complex technical language to varied audiences across organizational levels"
         versions: ["consulting"]
         priority: 3
         type: "consulting_focus"
         
-      - text: "Managed technical subprojects ensuring ISO 13485/IEC 62304 compliance (DHF, risk analysis, etc.), demonstrating expertise in quality frameworks applicable to AI governance"
+      - text: "**Quality Systems Management:** Managed technical subprojects ensuring ISO 13485/IEC 62304 compliance (DHF, risk analysis, etc.), demonstrating expertise in quality frameworks applicable to AI governance"
         versions: ["consulting"]
         priority: 3
         type: "consulting_focus"
@@ -213,42 +213,42 @@ experiences:
       firmware: "Technical Consultant (Freelance)"
     
     achievements:
-      - text: "Conducted comprehensive technical audit and client needs assessment for complete IT infrastructure modernization, demonstrating systematic consulting methodology"
+      - text: "**Infrastructure Audit:** Conducted comprehensive technical audit and client needs assessment for complete IT infrastructure modernization, demonstrating systematic consulting methodology"
         versions: ["consulting"]
         priority: 1
         type: "consulting_focus"
         
-      - text: "Led complete IT infrastructure modernization project for cultural establishment, managing client requirements, technical implementation, and knowledge transfer"
+      - text: "**IT Modernization:** Led complete IT infrastructure modernization project for cultural establishment, managing client requirements, technical implementation, and knowledge transfer"
         versions: ["general", "firmware"]
         priority: 1
         type: "base"
         
-      - text: "Documented client requirements and delivered technical solution within budget and timeline constraints, ensuring transparent project management and clear deliverables"
+      - text: "**Project Management:** Documented client requirements and delivered technical solution within budget and timeline constraints, ensuring transparent project management and clear deliverables"
         versions: ["consulting"]
         priority: 2
         type: "consulting_focus"
         
-      - text: "Conducted technical audit, documented requirements, and delivered solution within budget and timeline constraints"
+      - text: "**Technical Solution Delivery:** Conducted technical audit, documented requirements, and delivered solution within budget and timeline constraints"
         versions: ["firmware"]
         priority: 2
         type: "base"
         
-      - text: "Designed secure, scalable network architecture enabling multi-floor communication and seamless POS system integration, prioritizing both functionality and security"
+      - text: "**Network Architecture:** Designed secure, scalable network architecture enabling multi-floor communication and seamless POS system integration, prioritizing both functionality and security"
         versions: ["consulting"]
         priority: 2
         type: "consulting_focus"
         
-      - text: "Designed secure network architecture enabling multi-floor communication and new POS system integration"
+      - text: "**Secure Network Design:** Designed secure network architecture enabling multi-floor communication and new POS system integration"
         versions: ["firmware"]
         priority: 2
         type: "base"
         
-      - text: "Provided comprehensive documentation and knowledge transfer training, ensuring client technical autonomy and sustainable solution adoption"
+      - text: "**Knowledge Transfer:** Provided comprehensive documentation and knowledge transfer training, ensuring client technical autonomy and sustainable solution adoption"
         versions: ["consulting"]
         priority: 2
         type: "consulting_focus"
         
-      - text: "Provided comprehensive documentation and training ensuring client technical autonomy"
+      - text: "**Client Training:** Provided comprehensive documentation and training ensuring client technical autonomy"
         versions: ["general", "firmware"]
         priority: 2
         type: "base"
@@ -274,74 +274,74 @@ experiences:
     
     achievements:
       # AI version - detailed ML content
-      - text: "Designed and delivered comprehensive 40-hour ML curriculum for executive MBA program, covering supervised learning, neural networks, and practical business applications, achieving highest instructor rating (4.8/5.0) across 4 consecutive years with 100+ international students from 25+ countries"
+      - text: "**ML Curriculum Design:** Designed and delivered comprehensive 40-hour ML curriculum for executive MBA program, covering supervised learning, neural networks, and practical business applications, achieving highest instructor rating (4.8/5.0) across 4 consecutive years with 100+ international students from 25+ countries"
         versions: ["ai"]
         priority: 1
         type: "ai_focus"
         
-      - text: "Led technical team of 7 assistants delivering comprehensive AI/ML training to 100+ international MBA students from 25+ countries, maintaining 4.8/5.0 satisfaction rating with 95% completion rate over 4 consecutive years (100% renewal rate)"
+      - text: "**Technical Training Leadership:** Led technical team of 7 assistants delivering comprehensive AI/ML training to 100+ international MBA students from 25+ countries, maintaining 4.8/5.0 satisfaction rating with 95% completion rate over 4 consecutive years (100% renewal rate)"
         versions: ["consulting"]
         priority: 1
         type: "consulting_focus"
         
-      - text: "Created innovative pedagogical approach translating complex ML concepts (backpropagation, gradient descent, transformer attention) into business-accessible frameworks, enabling non-technical leaders to implement AI strategies"
+      - text: "**Business-Focused AI Education:** Created innovative pedagogical approach translating complex ML concepts (backpropagation, gradient descent, transformer attention) into business-accessible frameworks, enabling non-technical leaders to implement AI strategies"
         versions: ["ai"]
         priority: 1
         type: "ai_focus"
         
-      - text: "Designed 40-hour hands-on curriculum covering ML fundamentals, Python programming, and business applications achieving 3:1 project ROI through practical implementation"
+      - text: "**Practical ML Implementation:** Designed 40-hour hands-on curriculum covering ML fundamentals, Python programming, and business applications achieving 3:1 project ROI through practical implementation"
         versions: ["consulting"]
         priority: 2
         type: "consulting_focus"
         
-      - text: "Developed 15+ hands-on projects including demand forecasting, customer segmentation, and NLP-based sentiment analysis, with students presenting ML-powered business solutions to C-suite executives"
+      - text: "**Hands-on ML Projects:** Developed 15+ hands-on projects including demand forecasting, customer segmentation, and NLP-based sentiment analysis, with students presenting ML-powered business solutions to C-suite executives"
         versions: ["ai"]
         priority: 1
         type: "ai_focus"
         
-      - text: "Demonstrated advanced pedagogical skills in technical education, successfully translating complex ML algorithms into actionable business insights for diverse international professional backgrounds"
+      - text: "**Advanced Pedagogical Skills:** Demonstrated advanced pedagogical skills in technical education, successfully translating complex ML algorithms into actionable business insights for diverse international professional backgrounds"
         versions: ["ai"]
         priority: 2
         type: "ai_focus"
         
       # Consulting version - business focus
-      - text: "Led technical team of seven assistants and delivered comprehensive AI/ML training to 100+ international MBA students, demonstrating exceptional ability to make complex technical concepts accessible to diverse, non-technical business leaders"
+      - text: "**International Training Leadership:** Led technical team of seven assistants and delivered comprehensive AI/ML training to 100+ international MBA students, demonstrating exceptional ability to make complex technical concepts accessible to diverse, non-technical business leaders"
         versions: ["consulting"]
         priority: 1
         type: "consulting_focus"
         
-      - text: "Designed and facilitated 40-hour educational curriculum achieving 4.8/5.0 satisfaction rating with 95% completion rate, demonstrating measurable pedagogical impact and stakeholder satisfaction"
+      - text: "**Educational Program Design:** Designed and facilitated 40-hour educational curriculum achieving 4.8/5.0 satisfaction rating with 95% completion rate, demonstrating measurable pedagogical impact and stakeholder satisfaction"
         versions: ["consulting"]
         priority: 2
         type: "consulting_focus"
         
-      - text: "for business applications achieving 3:1 project ROI through practical machine learning implementation"
+      - text: "**Business ROI Achievement:** for business applications achieving 3:1 project ROI through practical machine learning implementation"
         versions: ["consulting"]
         priority: 2
         type: "businessimpact"
         
-      - text: "Coordinated international program logistics and cross-cultural team management, ensuring consistent delivery across diverse cultural contexts and learning preferences"
+      - text: "**Cross-cultural Management:** Coordinated international program logistics and cross-cultural team management, ensuring consistent delivery across diverse cultural contexts and learning preferences"
         versions: ["consulting"]
         priority: 2
         type: "consulting_focus"
         
       # General/Firmware versions - simpler content
-      - text: "Led technical team of seven assistants and delivered comprehensive AI/ML training to 100+ international MBA students"
+      - text: "**Technical Team Leadership:** Led technical team of seven assistants and delivered comprehensive AI/ML training to 100+ international MBA students"
         versions: ["general", "firmware"]
         priority: 1
         type: "base"
         
-      - text: "achieving 4.8/5.0 satisfaction rating with 95% completion rate"
+      - text: "**High Satisfaction Rating:** achieving 4.8/5.0 satisfaction rating with 95% completion rate"
         versions: ["general", "firmware"]
         priority: 2
         type: "base"
         
-      - text: "Designed practical curriculum covering machine learning fundamentals, Python programming, and business applications"
+      - text: "**Practical Curriculum:** Designed practical curriculum covering machine learning fundamentals, Python programming, and business applications"
         versions: ["general", "firmware"]
         priority: 2
         type: "base"
         
-      - text: "Coordinated international program logistics and cross-cultural team management"
+      - text: "**International Coordination:** Coordinated international program logistics and cross-cultural team management"
         versions: ["general", "firmware"]
         priority: 2
         type: "base"
@@ -368,79 +368,73 @@ experiences:
     
     achievements:
       # Firmware version - detailed hardware/software integration
-      - text: "Developed and integrated software (C & Python)/hardware (VHDL) interfaces and embedded drivers for ASIC-enabled neural electrodes, managing 300+ parallel signal channels at 50-60 Hz sampling rates"
+      - text: "**Hardware-Software Integration:** Developed and integrated software (C & Python)/hardware (VHDL) interfaces and embedded drivers for ASIC-enabled neural electrodes, managing 300+ parallel signal channels at 50-60 Hz sampling rates"
         versions: ["firmware"]
         priority: 1
         type: "firmware_focus"
         
-      - text: "Led implementation and documentation of research-grade medical device prototypes in startup R&D environment at EPFL Innovation Park"
+      - text: "**Medical Device Prototypes:** Led implementation and documentation of research-grade medical device prototypes in startup R&D environment at EPFL Innovation Park"
         versions: ["firmware"]
         priority: 2
         type: "base"
         
-      - text: "Collaborated with multidisciplinary R&D team while ensuring compliance with medical device Quality System requirements and regulatory standards"
+      - text: "**Regulatory Compliance:** Collaborated with multidisciplinary R&D team while ensuring compliance with medical device Quality System requirements and regulatory standards"
         versions: ["firmware"]
         priority: 2
         type: "base"
         
       # AI version - detailed machine learning and signal processing
-      - text: "Performed time series analysis on 300+ parallel neural signals at 50-60Hz for epilepsy onset detection, implementing feature extraction algorithms for medical diagnostic applications"
+      - text: "**Neural Signal Processing:** Performed time series analysis on 300+ parallel neural signals at 50-60Hz for epilepsy onset detection, implementing feature extraction algorithms for medical diagnostic applications"
         versions: ["ai"]
         priority: 1
         type: "ai_focus"
         
-      - text: "Developed signal processing pipelines using Python visualization libraries for ASIC-based neural electrode data acquisition and analysis"
+      - text: "**Signal Processing Pipelines:** Developed signal processing pipelines using Python visualization libraries for ASIC-based neural electrode data acquisition and analysis"
         versions: ["ai"]
         priority: 2
         type: "ai_focus"
         
-      - text: "Developed machine learning-based seizure detection algorithms achieving 87% accuracy with <100ms real-time processing latency"
+      - text: "**Medical AI Algorithms:** Developed machine learning-based seizure detection algorithms achieving 87% accuracy with <100ms real-time processing latency"
         versions: ["ai"]
         priority: 1
         type: "ai_focus"
         
-      - text: "Processed neural signals at 30kHz sampling rate contributing to 2 patent applications for novel electrode technology"
+      - text: "**High-Frequency Processing:** Processed neural signals at 30kHz sampling rate contributing to 2 patent applications for novel electrode technology"
         versions: ["ai"]
         priority: 2
         type: "ai_focus"
         
       # Consulting version - business and innovation focus
-      - text: "Developed and integrated software (Python)/hardware (FPGA) interfaces for novel medical devices, ensuring compliance with Quality System requirements and demonstrating ethical technology development practices"
+      - text: "**Medical Device R&D:** Developed and integrated software (Python)/hardware (FPGA) interfaces for novel medical devices, ensuring compliance with Quality System requirements and demonstrating ethical technology development practices"
         versions: ["consulting"]
         priority: 1
         type: "consulting_focus"
         
-      - text: "Led implementation and comprehensive documentation of research-grade medical device prototypes, bridging complex technical concepts with regulatory compliance requirements"
+      - text: "**Research Prototype Leadership:** Led implementation and comprehensive documentation of research-grade medical device prototypes, bridging complex technical concepts with regulatory compliance requirements"
         versions: ["consulting"]
         priority: 2
         type: "consulting_focus"
         
-      - text: "Collaborated with multidisciplinary R&D team while maintaining regulatory standards, demonstrating ability to work within ethical and compliance frameworks"
+      - text: "**Compliance Management:** Collaborated with multidisciplinary R&D team while maintaining regulatory standards, demonstrating ability to work within ethical and compliance frameworks"
         versions: ["consulting"]
         priority: 2
         type: "consulting_focus"
         
       # General version - balanced technical overview
-      - text: "Developed and integrated software (Python)/hardware (FPGA) interfaces for analog medical devices, ensuring compliance with Quality System requirements"
+      - text: "**System Integration:** Developed and integrated software (Python)/hardware (FPGA) interfaces for analog medical devices, ensuring compliance with Quality System requirements"
         versions: ["general"]
         priority: 1
         type: "base"
         
-      - text: "Led implementation and documentation of research-grade medical device prototypes"
+      - text: "**Prototype Development:** Led implementation and documentation of research-grade medical device prototypes"
         versions: ["general"]
         priority: 2
         type: "base"
         
-      - text: "Collaborated with R&D team on medical device development projects while maintaining regulatory standards"
+      - text: "**Team Collaboration:** Collaborated with R&D team on medical device development projects while maintaining regulatory standards"
         versions: ["general"]
         priority: 2
         type: "base"
-    
-    skills_tags:
-      firmware: "Hardware-Software Integration, ASIC Integration, VHDL, C/C++, Python, Medical Device Development, Multi-channel Signal Processing, Quality Systems, R&D, Technical Documentation, Neural Interface Systems"
-      ai: "Time Series Analysis, Feature Extraction, Medical Signal Processing, Python, Data Visualization, Epilepsy Detection, Neural Signal Analysis, Healthcare AI, Biomedical Data Science, Medical Device Prototypes, Regulatory Compliance, Neuroscience Applications, ASIC Integration, Multi-channel Data Processing, Machine Learning Applications"
-      consulting: "Medical Device R&D, Regulatory Compliance, Technical Documentation, Interdisciplinary Collaboration, Ethical Technology Development"
-      general: "Medical Prototype Development, Hardware-Software Integration, Quality Systems, R&D, Technical Documentation, Signal Processing"
 
   # ParSA Laboratory EPFL - Only shows in non-AI versions 
   - company: "ParSA Laboratory, EPFL"
@@ -457,54 +451,54 @@ experiences:
     
     achievements:
       # Firmware version - detailed technical implementation
-      - text: "Designed and implemented heterogeneous embedded system architecture (FPGA + CPU) for specialized research experiments, demonstrating expertise in complex, integrated platforms suitable for AI acceleration workloads"
+      - text: "**System Architecture:** Designed and implemented heterogeneous embedded system architecture (FPGA + CPU) for specialized research experiments, demonstrating expertise in complex, integrated platforms suitable for AI acceleration workloads"
         versions: ["firmware"]
         priority: 1
         type: "firmware_focus"
         
-      - text: "Developed and optimized UART communication system between Artix-7 FPGA platform and Linux host environment achieving 2Mbps data transfer rates for real-time processing applications"
+      - text: "**Communication Systems:** Developed and optimized UART communication system between Artix-7 FPGA platform and Linux host environment achieving 2Mbps data transfer rates for real-time processing applications"
         versions: ["firmware"]
         priority: 2
         type: "firmware_focus"
         
-      - text: "Architected hardware-software interface enabling seamless data flow between FPGA accelerators and host CPU, establishing foundation for understanding hardware-accelerated ML inference pipelines"
+      - text: "**Hardware-Software Interface:** Architected hardware-software interface enabling seamless data flow between FPGA accelerators and host CPU, establishing foundation for understanding hardware-accelerated ML inference pipelines"
         versions: ["firmware"]
         priority: 2
         type: "firmware_focus"
         
-      - text: "Created comprehensive technical documentation and deployment guides facilitating 5+ subsequent research projects and knowledge transfer"
+      - text: "**Technical Documentation:** Created comprehensive technical documentation and deployment guides facilitating 5+ subsequent research projects and knowledge transfer"
         versions: ["firmware"]
         priority: 2
         type: "base"
         
       # Consulting version - solution design and delivery focus
-      - text: "Designed and implemented heterogeneous system architecture for specialized research experiments, demonstrating expertise in complex technical solution design and implementation"
+      - text: "**Research System Design:** Designed and implemented heterogeneous system architecture for specialized research experiments, demonstrating expertise in complex technical solution design and implementation"
         versions: ["consulting"]
         priority: 1
         type: "consulting_focus"
         
-      - text: "Developed optimized communication systems and created comprehensive technical documentation to facilitate knowledge transfer and system deployment"
+      - text: "**System Integration:** Developed optimized communication systems and created comprehensive technical documentation to facilitate knowledge transfer and system deployment"
         versions: ["consulting"]
         priority: 2
         type: "consulting_focus"
         
-      - text: "Collaborated with academic research team while maintaining rigorous technical standards and documentation practices"
+      - text: "**Academic Collaboration:** Collaborated with academic research team while maintaining rigorous technical standards and documentation practices"
         versions: ["consulting"]
         priority: 2
         type: "consulting_focus"
         
       # General version - balanced overview
-      - text: "Designed and implemented heterogeneous hardware-software system architecture for specialized research experiments"
+      - text: "**System Design:** Designed and implemented heterogeneous hardware-software system architecture for specialized research experiments"
         versions: ["general"]
         priority: 1
         type: "base"
         
-      - text: "Developed and optimized UART communication system between Artix-7 FPGA platform and Linux host environment"
+      - text: "**Communication Development:** Developed and optimized UART communication system between Artix-7 FPGA platform and Linux host environment"
         versions: ["general"]
         priority: 2
         type: "base"
         
-      - text: "Created detailed technical documentation to facilitate system deployment and knowledge transfer"
+      - text: "**Documentation Creation:** Created detailed technical documentation to facilitate system deployment and knowledge transfer"
         versions: ["general"]
         priority: 2
         type: "base"
