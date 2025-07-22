@@ -627,8 +627,7 @@ class CVBuilder:
             markdown += (
                 f'<div class="cv-project-item" id="cv-proj-{safe_project_id}">\n'
             )
-            markdown += f'<h3 class="cv-project-name">{project["name"]}</h3>\n'
-            markdown += f'<p class="cv-project-period">_{project["period"]}_</p>\n\n'
+            markdown += f'<h3 class="cv-project-name">{project["name"]} <span class="cv-project-period">_{project["period"]}_</span></h3>\n\n'
 
             # Add links
             if project["links"]:
@@ -741,7 +740,7 @@ class CVBuilder:
             )
             markdown += f'<h3 class="cv-institution-name">{institution_name}</h3>\n'
 
-            # Date range and location
+            # Date range and location - match experience format exactly
             markdown += (
                 f'<p class="cv-education-location">_{education["location"]}_<br>\n'
             )

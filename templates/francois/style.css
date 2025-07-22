@@ -881,6 +881,16 @@ h3+p a {
   margin-bottom: 4px;
 }
 
+.cv-project-name .cv-project-period {
+  /* Style period when it's inline with project title */
+  font-family: var(--font-secondary);
+  font-size: var(--size-small);
+  font-weight: 400;
+  color: var(--color-text-light);
+  font-style: italic;
+  float: right;
+}
+
 .cv-project-period {
   font-size: var(--size-small);
   color: var(--color-text-muted);
@@ -938,6 +948,33 @@ h3+p a {
   font-weight: 600;
   color: var(--color-primary);
   margin-bottom: 4px;
+}
+
+/* Date/Location - Float to right to match experience sections */
+.cv-education-item h3+p {
+  font-size: var(--size-small);
+  color: var(--color-text-muted);
+  margin-bottom: 4px;
+  line-height: 1.3;
+  float: right;
+  /* Float the dates to the right */
+  text-align: right;
+  /* Right-align the text */
+  margin-top: -22px;
+  /* Pull up to align with institution name */
+  width: 200px;
+  /* Fixed width for dates */
+  clear: right;
+  /* Clear right floats */
+  font-style: italic;
+}
+
+/* Clear floats after date/location - ONLY in education sections */
+.cv-education-item h3+p+p {
+  clear: both;
+  /* Clear both left and right floats */
+  margin-top: 4px;
+  /* Add some space after the floated dates */
 }
 
 .cv-education-location {
