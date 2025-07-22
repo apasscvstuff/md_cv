@@ -1,0 +1,73 @@
+/* Local Font Declarations for WeasyPrint PDF Generation */
+
+@font-face {
+    font-family: 'Roboto';
+    src: local('Roboto-Regular'),
+         url('file:///Users/apa/Documents/md_cv/fonts/Roboto-Regular.ttf') format('truetype'),
+         url('./fonts/Roboto-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: local('Roboto-Medium'),
+         url('file:///Users/apa/Documents/md_cv/fonts/Roboto-Medium.ttf') format('truetype'),
+         url('./fonts/Roboto-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: local('Roboto-Bold'),
+         url('file:///Users/apa/Documents/md_cv/fonts/Roboto-Bold.ttf') format('truetype'),
+         url('./fonts/Roboto-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: local('Roboto-Black'),
+         url('file:///Users/apa/Documents/md_cv/fonts/Roboto-Black.ttf') format('truetype'),
+         url('./fonts/Roboto-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: local('SourceSans3-Regular'),
+         url('file:///Users/apa/Documents/md_cv/fonts/SourceSans3-Regular.ttf') format('truetype'),
+         url('./fonts/SourceSans3-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: local('SourceSans3-Medium'),
+         url('file:///Users/apa/Documents/md_cv/fonts/SourceSans3-Medium.ttf') format('truetype'),
+         url('./fonts/SourceSans3-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: local('SourceSans3-Semibold'),
+         url('file:///Users/apa/Documents/md_cv/fonts/SourceSans3-Semibold.ttf') format('truetype'),
+         url('./fonts/SourceSans3-Semibold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: local('SourceSans3-Bold'),
+         url('file:///Users/apa/Documents/md_cv/fonts/SourceSans3-Bold.ttf') format('truetype'),
+         url('./fonts/SourceSans3-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
