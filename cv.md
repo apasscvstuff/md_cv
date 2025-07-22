@@ -28,7 +28,7 @@ _1003 Lausanne, Vaud, Switzerland_
 ## Work Experience
 
 ### Hestia.ai  
-->_Lausanne, Switzerland_<br>
+_Lausanne, Switzerland_<br>
 _Sept. 2021 - Present_
 
 **Full Stack & AI Engineer**
@@ -49,7 +49,7 @@ _Sept. 2021 - Present_
   Deployed and maintained internal services on Azure Kubernetes, implemented CI/CD pipelines with GitHub Actions, and managed secrets/configuration for multitenant environments.
 
 ### Heidi.news  
-->_Chêne-Bourg, Switzerland_<br>
+_Chêne-Bourg, Switzerland_<br>
 _Feb. 2021 - Aug. 2021_
 
 **Data Science & Visualization Intern**
@@ -59,7 +59,7 @@ _Feb. 2021 - Aug. 2021_
 * Produced interactive data stories integrating journalism and data science.
 
 ### EPFL — Distributed Information Systems Lab  
-->_Ecublens, Switzerland_<br>
+_Ecublens, Switzerland_<br>
 _Jun. 2020 - Aug. 2020_
 
 **Research Assistant**  
@@ -72,14 +72,14 @@ _Jun. 2020 - Aug. 2020_
 ## Education
 
 ### EPFL — École Polytechnique Fédérale de Lausanne  
-->_Lausanne, Switzerland_<br>
+_Lausanne, Switzerland_<br>
 _Sept. 2018 - Sept. 2021_     
 
 **Master in Computer Science and Engineering** <br>
 Minor in Data Science (180 ECTS)
 
 ### HEIG-VD — Haute École d’Ingénierie et de Gestion du Canton de Vaud  
-->_Sept. 2015 ‑ Sept. 2018_ <br>
+_Sept. 2015 ‑ Sept. 2018_ <br>
 _Yverdon-les-Bains, Switzerland_
 
 **Bachelor in Computer Science and Engineering** <br>
@@ -88,20 +88,20 @@ Minor in Software Engineering (180 ECTS)
 ## Other Projects
 
 ### Topics Classification and Recommendation System  
-->_EPFL<br>
+_EPFL<br>
 Sept. 2020 - Jan. 2021_
 
 - Developed a content recommendation system using sentence embedding similarity.
 
 ### Twitter Debate Analysis Platform  
-->_EPFL<br>
+_EPFL<br>
 Feb. 2020 - Jun. 2020_
 
 - Created a visualization tool using networkx and Twitter API.  
 - Implemented discourse polarization detection algorithms.
 
 ### Covid-19 Infodemic Visualization  
-->_EPFL & LeTemps.ch<br>
+_EPFL & LeTemps.ch<br>
 Feb. 2020 - Jun. 2020_
 
 - Designed interactive visualization about Covid-19 misinformation.  

@@ -262,4 +262,138 @@ table {
    which are fully documented and more flexible.
 */
 
-/*# sourceMappingURL=style.css.map */
+/* =============================================================================
+   🖼️ CV SYSTEM COMPATIBILITY - Profile Picture & Contact Icons
+   Added support for standardized CV elements while preserving Awesome-CV aesthetic
+   ============================================================================= */
+
+/* 👤 PROFILE PICTURE - Modern circular styling consistent with Awesome-CV design */
+.profile-pic {
+    width: 120px;                        /* Profile picture size (100px=smaller, 140px=larger) */
+    height: 120px;                       /* Keep equal to width for perfect circle */
+    border-radius: 50%;                  /* Makes it circular */
+    float: right;                        /* Position on right side */
+    margin-left: 25px;                   /* Space from text content */
+    margin-bottom: 20px;                 /* Space below image */
+    border: 3px solid #DD3D2A;           /* Awesome-CV red border */
+    object-fit: cover;                   /* Ensure image scales properly */
+    box-shadow: 0 4px 12px rgba(221, 61, 42, 0.2); /* Modern shadow with brand color */
+}
+
+/* 📞 CONTACT INFORMATION - Inline contact layout with modern styling */
+.inline-contact {
+    font-family: 'Source Sans Pro', sans-serif; /* Consistent with Awesome-CV typography */
+    font-size: 0.9rem;                   /* Contact text size (0.8rem=smaller, 1rem=larger) */
+    margin-bottom: 1.5rem;               /* Space below contact section */
+    line-height: 1.4;                    /* Comfortable line spacing */
+    color: #333333;                      /* Dark gray for contact info */
+    clear: both;                         /* Clear any floated elements */
+    text-align: center;                  /* Center align for modern look */
+}
+
+.inline-contact .icon {
+    width: 14px;                         /* Contact icon size */
+    height: 14px;                        /* Keep square for icons */
+    margin-right: 6px;                   /* Space between icon and text */
+    vertical-align: middle;              /* Align with text baseline */
+    display: inline-block;               /* Proper inline display */
+    filter: grayscale(0.3);              /* Subtle desaturation for sophistication */
+}
+
+.inline-contact a {
+    color: #DD3D2A;                      /* Awesome-CV brand red for links */
+    text-decoration: none;               /* Remove underlines */
+    font-weight: 500;                    /* Medium weight for links */
+    transition: color 0.3s ease;        /* Smooth color transition */
+}
+
+.inline-contact a:hover {
+    color: #b8331f;                      /* Darker red on hover */
+    text-decoration: none;               /* Keep clean on hover */
+}
+
+/* 🏷️ SKILLS TAGS - Modern boxed skill tags matching Awesome-CV aesthetic */
+.skills-tags {
+    margin-top: 1rem;                    /* Space above skills tags */
+    margin-bottom: 1.5rem;               /* Space below skills tags */
+    line-height: 1.8;                    /* Comfortable line height for wrapped tags */
+    text-align: left;                    /* Left align for professional look */
+}
+
+.skill-tag {
+    display: inline-block;               /* Allow tags to wrap */
+    background-color: #f8f9fa;           /* Very light gray background */
+    color: #5D5D5D;                      /* Medium gray text matching Awesome-CV */
+    padding: 6px 12px;                   /* Internal padding (5px 10px=smaller, 8px 15px=larger) */
+    margin: 3px 4px 3px 0;               /* Spacing between tags */
+    border: 1px solid #e9ecef;           /* Very subtle border */
+    border-radius: 6px;                  /* Rounded corners for modern look */
+    font-size: 0.8rem;                   /* Smaller font for tags */
+    font-weight: 500;                    /* Medium weight */
+    font-family: 'Source Sans Pro', sans-serif; /* Consistent typography */
+    white-space: nowrap;                 /* Prevent text wrapping within tags */
+    transition: all 0.3s ease;          /* Smooth transitions */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Subtle shadow */
+}
+
+.skill-tag:hover {
+    background-color: #DD3D2A;           /* Awesome-CV red background on hover */
+    color: white;                        /* White text on hover */
+    border-color: #DD3D2A;               /* Red border on hover */
+    transform: translateY(-1px);         /* Subtle lift effect */
+    box-shadow: 0 2px 6px rgba(221, 61, 42, 0.3); /* Enhanced shadow on hover */
+}
+
+/* 📋 TABLE SUPPORT - Enhanced table styling for skills sections */
+table {
+    width: 100%;                         /* Full width tables */
+    border-collapse: collapse;           /* Clean borders */
+    margin-bottom: 1.5rem;               /* Space below tables */
+    font-family: 'Source Sans Pro', sans-serif; /* Consistent typography */
+}
+
+table th {
+    font-weight: 600;                    /* Semi-bold headers */
+    color: #DD3D2A;                      /* Brand color for headers */
+    border-bottom: 2px solid #e9ecef;    /* Subtle bottom border */
+    padding: 0.75rem 0.5rem;             /* Comfortable padding */
+    text-align: left;                    /* Left align headers */
+    font-size: 0.95rem;                  /* Slightly larger for headers */
+}
+
+table td {
+    padding: 0.5rem 0.5rem;              /* Cell padding */
+    border-bottom: 1px solid #f8f9fa;    /* Very subtle row separators */
+    color: #333333;                      /* Dark gray text */
+    font-size: 0.9rem;                   /* Standard cell text size */
+    vertical-align: top;                 /* Align to top for multi-line content */
+}
+
+/* =============================================================================
+   📱 RESPONSIVE ADJUSTMENTS - Mobile and tablet optimizations
+   ============================================================================= */
+
+@media screen and (max-width: 768px) {
+    .profile-pic {
+        width: 100px;                    /* Smaller profile pic on mobile */
+        height: 100px;                   /* Keep proportional */
+        float: none;                     /* Remove float on mobile */
+        display: block;                  /* Block display */
+        margin: 0 auto 1rem auto;        /* Center on mobile */
+    }
+    
+    .inline-contact {
+        font-size: 0.8rem;               /* Smaller contact text on mobile */
+        text-align: center;              /* Center contact info */
+    }
+    
+    .skill-tag {
+        font-size: 0.75rem;              /* Smaller skill tags on mobile */
+        padding: 4px 8px;                /* Tighter padding */
+        margin: 2px 2px 2px 0;           /* Tighter margins */
+    }
+    
+    table {
+        font-size: 0.8rem;               /* Smaller table text on mobile */
+    }
+}

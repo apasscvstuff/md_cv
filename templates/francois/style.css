@@ -226,6 +226,10 @@ h1+h3+p {
   line-height: 1.6;
   margin-bottom: var(--space-item);
   color: var(--color-text-light);
+  clear: both;
+  /* Clear any floats from other sections */
+  overflow: hidden;
+  /* Ensure proper containment */
 }
 
 .inline-contact .icon {
@@ -317,7 +321,7 @@ h3 {
   /* Clear any previous floats */
 }
 
-/* Date/Location - Float to right */
+/* Date/Location - Float to right, hide arrows */
 h3+p {
   font-size: var(--size-small);
   color: var(--color-text-muted);
@@ -383,12 +387,38 @@ li::before {
 .skills-tags {
   font-size: var(--size-tiny);
   color: var(--color-text-muted);
-  margin: 6px 0 var(--space-item) 0;
-  font-style: italic;
-  line-height: 1.4;
-  padding-left: 4px;
-  border-left: 2px solid var(--color-border);
-  margin-left: 2px;
+  margin: 8px 0 var(--space-item) 0;
+  line-height: 1.6;
+  padding-left: 0;
+  /* Remove old padding */
+  border-left: none;
+  /* Remove old border */
+  margin-left: 0;
+  /* Remove old margin */
+  font-style: normal;
+  /* Remove italic */
+}
+
+/* Individual Skill Tag Boxes - Modern styling */
+.skill-tag {
+  display: inline-block;
+  background: #f8f9fa;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 4px 8px;
+  margin: 2px 4px 2px 0;
+  font-size: var(--size-tiny);
+  color: var(--color-text);
+  font-weight: 500;
+  font-style: normal;
+  transition: all 0.2s ease;
+}
+
+/* Hover effect for skill tags */
+.skill-tag:hover {
+  background: #e9ecef;
+  border-color: var(--color-accent);
+  transform: translateY(-1px);
 }
 
 /* Links in content */

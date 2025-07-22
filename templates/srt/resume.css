@@ -229,3 +229,122 @@ a#pdf:hover { background: #222; }
    ❌ PROBLEM: Two-column layout not working
    ✅ SOLUTION: This template requires specific HTML structure - check your content format
 */
+
+/* =============================================================================
+   🖼️ PROFILE PICTURE & CONTACT STYLING - SRT Enhanced Compatibility
+   Added support for CV system profile picture and contact elements
+   ============================================================================= */
+
+/* 👤 PROFILE PICTURE - Circular, classic styling consistent with SRT design */
+.profile-pic {
+    width: 100px;                        /* Profile picture size (80px=smaller, 120px=larger) */
+    height: 100px;                       /* Keep equal to width for perfect circle */
+    border-radius: 50%;                  /* Makes it circular */
+    float: right;                        /* Position on right side */
+    margin-left: 20px;                   /* Space from text content */
+    margin-bottom: 15px;                 /* Space below image */
+    border: 3px solid #990003;           /* Professional red border matching SRT accent */
+    object-fit: cover;                   /* Ensure image scales properly */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* Subtle shadow for depth */
+}
+
+/* 📞 CONTACT INFORMATION - Inline contact layout with icons */
+.inline-contact {
+    font-size: 11pt;                     /* Contact text size (10pt=smaller, 12pt=larger) */
+    margin-bottom: 15px;                 /* Space below contact section */
+    line-height: 1.4;                    /* Comfortable line spacing */
+    color: #666;                         /* Medium gray for contact info */
+    clear: both;                         /* Clear any floated elements */
+}
+
+.inline-contact .icon {
+    width: 12px;                         /* Contact icon size */
+    height: 12px;                        /* Keep square for icons */
+    margin-right: 5px;                   /* Space between icon and text */
+    vertical-align: middle;              /* Align with text baseline */
+    display: inline-block;               /* Proper inline display */
+}
+
+.inline-contact a {
+    color: #990003;                      /* SRT red for contact links */
+    text-decoration: none;               /* Remove underlines */
+    font-weight: 500;                    /* Medium weight for links */
+}
+
+.inline-contact a:hover {
+    text-decoration: underline;          /* Add underline on hover */
+    color: #cc0004;                      /* Slightly brighter red on hover */
+}
+
+/* 🏷️ SKILLS TAGS - Boxed skill tags matching SRT aesthetic */
+.skills-tags {
+    margin-top: 10px;                    /* Space above skills tags */
+    margin-bottom: 15px;                 /* Space below skills tags */
+    line-height: 1.6;                    /* Comfortable line height for wrapped tags */
+}
+
+.skill-tag {
+    display: inline-block;               /* Allow tags to wrap */
+    background-color: #f8f8f8;           /* Light gray background */
+    color: #333;                         /* Dark gray text */
+    padding: 4px 8px;                    /* Internal padding (3px 6px=smaller, 5px 10px=larger) */
+    margin: 2px 3px 2px 0;               /* Spacing between tags */
+    border: 1px solid #ddd;              /* Subtle border */
+    border-radius: 3px;                  /* Slightly rounded corners */
+    font-size: 9pt;                      /* Smaller font for tags (8pt=tiny, 10pt=larger) */
+    font-weight: 500;                    /* Medium weight */
+    white-space: nowrap;                 /* Prevent text wrapping within tags */
+}
+
+.skill-tag:hover {
+    background-color: #990003;           /* SRT red background on hover */
+    color: white;                        /* White text on hover */
+    border-color: #990003;               /* Red border on hover */
+}
+
+/* =============================================================================
+   📱 RESPONSIVE ADJUSTMENTS - Ensure compatibility across devices
+   ============================================================================= */
+
+@media screen and (max-width: 768px) {
+    .profile-pic {
+        width: 80px;                     /* Smaller profile pic on mobile */
+        height: 80px;                    /* Keep proportional */
+        float: none;                     /* Remove float on mobile */
+        display: block;                  /* Block display */
+        margin: 0 auto 15px auto;        /* Center on mobile */
+    }
+    
+    .inline-contact {
+        font-size: 10pt;                 /* Smaller contact text on mobile */
+        text-align: center;              /* Center contact info */
+    }
+    
+    .skill-tag {
+        font-size: 8pt;                  /* Smaller skill tags on mobile */
+        padding: 3px 6px;                /* Tighter padding */
+    }
+}
+
+/* =============================================================================
+   🖨️ PRINT OPTIMIZATIONS - PDF/Print specific adjustments
+   ============================================================================= */
+
+@media print {
+    .profile-pic {
+        width: 90px;                     /* Slightly smaller for print */
+        height: 90px;                    /* Keep proportional */
+        border-width: 2px;               /* Thinner border for print */
+        box-shadow: none;                /* Remove shadow for print */
+    }
+    
+    .inline-contact .icon {
+        width: 10px;                     /* Smaller icons for print */
+        height: 10px;                    /* Keep proportional */
+    }
+    
+    .skill-tag {
+        border: 1px solid #999;          /* Darker border for print visibility */
+        background-color: #f0f0f0;       /* Ensure background prints */
+    }
+}
