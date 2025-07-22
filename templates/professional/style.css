@@ -120,9 +120,10 @@ h1 + h3 {
   margin-top: 7px;                  /* SRT contact spacing */
 }
 
-.contact-info .icon {
-  width: 10px;
-  height: 10px;
+.contact-info .icon,
+.inline-contact .icon {
+  width: 8px;
+  height: 8px;
   margin-right: 3px;
   vertical-align: middle;
   opacity: 0.7;
@@ -216,12 +217,6 @@ h2 {
   font-weight: 400;
 }
 
-.skill-tag::before {
-  content: "✓ ";
-  color: var(--color-accent);
-  font-weight: 700;
-  margin-right: 2px;
-}
 
 /* Skills Table (for technical versions) */
 table {
@@ -311,17 +306,23 @@ li::before {
   font-weight: 700;
 }
 
-/* Skills Tags Container */
+/* Skills Tags Container - Cinode Style Individual Boxes */
 .skills-tags {
+  margin: 8px 0 var(--space-item) 0;
+  line-height: 1.6;
+}
+
+.skills-tags .skill-tag {
+  display: inline-block;
+  background: #f8f9fa;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 3px 8px;
+  margin: 2px 3px 2px 0;
   font-size: var(--size-tiny);
-  color: var(--color-text-light);
-  margin: 6px 0 var(--space-item) 0;
-  font-style: italic;
-  line-height: 1.4;
-  padding: 4px 8px;
-  background: var(--color-bg);
-  border-left: 3px solid var(--color-accent);
-  border-radius: 0 3px 3px 0;
+  color: var(--color-text);
+  font-weight: 500;
+  font-style: normal;
 }
 
 /* Links */

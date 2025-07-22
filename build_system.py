@@ -70,6 +70,43 @@ class CVBuilder:
         # Personal information loaded from YAML
         self.personal = None  # Will be loaded when needed
     
+    def discover_templates(self) -> Dict[str, str]:
+        """Discover available templates by scanning templates directory"""
+        templates_dir = Path("templates")
+        template_map = {}
+        
+        if not templates_dir.exists():
+            # Fallback to old system if templates directory doesn't exist
+            return {
+                'professional': 'css_styling.css',
+                'francois': 'css_styling_v2.css', 
+                'original': 'css_styling_original.css'
+            }
+        
+        for template_dir in templates_dir.iterdir():
+            if template_dir.is_dir():
+                template_name = template_dir.name
+                # Look for common CSS filenames
+                css_candidates = ['style.css', 'resume.css', 'main.css', 'theme.css']
+                
+                for css_file in css_candidates:
+                    css_path = template_dir / css_file
+                    if css_path.exists():
+                        template_map[template_name] = str(css_path)
+                        break
+                else:
+                    # Special handling for awesome-cv with nested structure
+                    if template_name == 'awesome-cv':
+                        awesome_css = template_dir / 'src' / 'style.css'
+                        if awesome_css.exists():
+                            template_map[template_name] = str(awesome_css)
+        
+        return template_map
+    
+    def get_available_templates(self) -> List[str]:
+        """Get list of available template names"""
+        return list(self.discover_templates().keys())
+    
     def check_dependencies(self) -> Dict[str, bool]:
         """Check availability of PDF generation dependencies"""
         deps = {
@@ -208,6 +245,17 @@ class CVBuilder:
         if "all" in item_versions:
             return True
         return target_version in item_versions
+    
+    def format_skill_tags(self, skills_tags_text: str) -> str:
+        """Convert comma-separated skill tags to individual boxed HTML elements"""
+        if not skills_tags_text:
+            return ""
+        
+        # Split by comma and create individual span elements
+        tags = [tag.strip() for tag in skills_tags_text.split(',') if tag.strip()]
+        tag_elements = [f'<span class="skill-tag">{tag}</span>' for tag in tags]
+        
+        return ''.join(tag_elements)
     
     def check_toggle_condition(self, toggles: List[str], target_version: str) -> bool:
         """Check if toggles are active for target version"""
@@ -403,7 +451,8 @@ class CVBuilder:
             
             # Add skills tags if available
             if exp['skills_tags']:
-                markdown += f"\n<div class=\"skills-tags\">{exp['skills_tags']}</div>\n"
+                formatted_tags = self.format_skill_tags(exp['skills_tags'])
+                markdown += f"\n<div class=\"skills-tags\">{formatted_tags}</div>\n"
             
             markdown += "\n"
         
@@ -442,7 +491,8 @@ class CVBuilder:
             
             # Add skills tags if available
             if project['skills_tags']:
-                markdown += f"\n<div class=\"skills-tags\">{project['skills_tags']}</div>\n"
+                formatted_tags = self.format_skill_tags(project['skills_tags'])
+                markdown += f"\n<div class=\"skills-tags\">{formatted_tags}</div>\n"
             
             markdown += "\n"
         
@@ -622,7 +672,7 @@ _{personal_info['address']}_
         
         print(f"✅ {target_version} version tested successfully")
     
-    def _copy_assets(self, target_version: str) -> None:
+    def _copy_assets(self, target_version: str, template: str = 'professional') -> None:
         """Copy assets to output directory for proper PDF generation"""
         import shutil
         
@@ -643,26 +693,49 @@ _{personal_info['address']}_
             if icon_src.exists():
                 shutil.copy2(icon_src, icons_dir / icon)
         
-        # Copy CSS files
-        css_dest = self.output_dir / target_version / "css_styling.css"
-        css_print_dest = self.output_dir / target_version / "css_styling_print.css"
-        css_fonts_dest = self.output_dir / target_version / "css_fonts.css"
+        # Copy CSS files - use template discovery system
+        template_map = self.discover_templates()
         
-        shutil.copy2("css_styling.css", css_dest)
+        css_source = template_map.get(template)
+        css_dest = self.output_dir / target_version / "css_styling.css"
+        fonts_dest = self.output_dir / target_version / "css_fonts.css"
+        
+        # Copy main CSS - use selected template
+        if css_source and Path(css_source).exists():
+            shutil.copy2(css_source, css_dest)
+            print(f"Using CSS template: {css_source}")
+        else:
+            # Fallback to old system
+            fallback_files = ['css_styling.css', 'css_styling_v2.css', 'css_styling_original.css']
+            fallback_used = False
+            for fallback in fallback_files:
+                if Path(fallback).exists():
+                    shutil.copy2(fallback, css_dest)
+                    print(f"Warning: Template '{template}' not found, using fallback: {fallback}")
+                    fallback_used = True
+                    break
+            
+            if not fallback_used:
+                print(f"Error: No CSS template found for '{template}' and no fallback available")
+        
+        # Copy print CSS if exists
         if Path("css_styling_print.css").exists():
+            css_print_dest = self.output_dir / target_version / "css_styling_print.css"
             shutil.copy2("css_styling_print.css", css_print_dest)
+        
+        # Copy fonts CSS
         if Path("css_fonts.css").exists():
-            shutil.copy2("css_fonts.css", css_fonts_dest)
+            shutil.copy2("css_fonts.css", fonts_dest)
         
         # Copy fonts directory
         fonts_src = Path("fonts")
         if fonts_src.exists():
-            fonts_dest = self.output_dir / target_version / "fonts"
-            if fonts_dest.exists():
-                shutil.rmtree(fonts_dest)
-            shutil.copytree(fonts_src, fonts_dest)
+            fonts_output_dest = self.output_dir / target_version / "fonts"
+            if fonts_output_dest.exists():
+                shutil.rmtree(fonts_output_dest)
+            shutil.copytree(fonts_src, fonts_output_dest)
 
-    def build_html(self, target_version: str) -> None:
+    def build_html(self, target_version: str, template: str = 'professional') -> None:
         """Build HTML version of CV from markdown"""
         print(f"Building HTML for {target_version} version...")
         
@@ -670,7 +743,7 @@ _{personal_info['address']}_
         self.build_version(target_version)
         
         # Copy assets for proper PDF generation
-        self._copy_assets(target_version)
+        self._copy_assets(target_version, template)
         
         # Convert markdown to HTML using pandoc
         md_path = self.output_dir / target_version / f"arthur-{target_version}.md"
@@ -693,14 +766,14 @@ _{personal_info['address']}_
         except FileNotFoundError:
             print("❌ pandoc not found. Please install pandoc first.")
     
-    def build_pdf(self, target_version: str) -> None:
+    def build_pdf(self, target_version: str, template: str = 'professional') -> None:
         """Attempt to build PDF version of CV"""
         print(f"Building PDF for {target_version} version...")
         
         # First ensure HTML exists
         html_path = self.output_dir / target_version / f"arthur-{target_version}.html"
         if not html_path.exists():
-            self.build_html(target_version)
+            self.build_html(target_version, template)
         
         pdf_path = self.output_dir / target_version / f"arthur-{target_version}.pdf"
         
@@ -745,6 +818,8 @@ _{personal_info['address']}_
                     '--disable-backgrounding-occluded-windows',
                     '--print-to-pdf=' + str(pdf_path),
                     '--print-to-pdf-no-header',  # Remove headers/footers
+                    '--no-pdf-header-footer',    # Additional header/footer suppression
+                    '--hide-scrollbars',         # Clean appearance
                     '--run-all-compositor-stages-before-draw',
                     'file://' + str(html_path.absolute())
                 ]
@@ -906,15 +981,23 @@ You can also use browser extensions or online converters.
         """)
         return True
     
-    def build_all_formats(self, target_version: str) -> None:
+    def build_all_formats(self, target_version: str, template: str = 'professional') -> None:
         """Build all formats (markdown, HTML, PDF) for a version"""
         print(f"Building all formats for {target_version} version...")
         self.build_version(target_version)  # Markdown
-        self.build_html(target_version)     # HTML
-        self.build_pdf(target_version)      # PDF
+        self.build_html(target_version, template)     # HTML
+        self.build_pdf(target_version, template)      # PDF
+    
 
 
 def main():
+    # Create a temporary builder to discover templates for argparse choices
+    temp_builder = CVBuilder()
+    available_templates = temp_builder.get_available_templates()
+    default_template = 'professional' if 'professional' in available_templates else (
+        available_templates[0] if available_templates else 'professional'
+    )
+    
     parser = argparse.ArgumentParser(description='Build Arthur Passuello CV versions')
     parser.add_argument('version', nargs='?', choices=['firmware', 'ai', 'consulting', 'executive', 'general', 'all'], 
                        default='all', help='Version to build (default: all)')
@@ -925,11 +1008,15 @@ def main():
     parser.add_argument('--check-deps', action='store_true', help='Check PDF generation dependencies')
     parser.add_argument('--content-dir', default='content', help='Content directory path')
     parser.add_argument('--output-dir', default='output', help='Output directory path')
+    parser.add_argument('--template', choices=available_templates, 
+                       default=default_template, 
+                       help=f'CSS template to use. Available: {", ".join(available_templates)}')
     
     args = parser.parse_args()
     
     builder = CVBuilder(args.content_dir, args.output_dir)
     
+    # Standard build commands
     if args.check_deps:
         builder.print_dependency_status()
         return
@@ -943,21 +1030,21 @@ def main():
     elif args.all_formats:
         if args.version == 'all':
             for version in builder.versions.keys():
-                builder.build_all_formats(version)
+                builder.build_all_formats(version, template=args.template)
         else:
-            builder.build_all_formats(args.version)
+            builder.build_all_formats(args.version, template=args.template)
     elif args.html:
         if args.version == 'all':
             for version in builder.versions.keys():
-                builder.build_html(version)
+                builder.build_html(version, template=args.template)
         else:
-            builder.build_html(args.version)
+            builder.build_html(args.version, template=args.template)
     elif args.pdf:
         if args.version == 'all':
             for version in builder.versions.keys():
-                builder.build_pdf(version)
+                builder.build_pdf(version, template=args.template)
         else:
-            builder.build_pdf(args.version)
+            builder.build_pdf(args.version, template=args.template)
     else:
         # Default: build markdown only
         if args.version == 'all':

@@ -25,7 +25,7 @@ personal:
       formatted: "Chemin du Parc-de-Valency 1, 1004 Lausanne, Switzerland"
     
     phone: "+41 79 176 24 84"
-    email: "apassuello@protonmail.com"
+    email: "apassuello@proton.me"
     
     # Social/Professional profiles
     linkedin: "arthur-passuello/"
@@ -70,7 +70,7 @@ personal:
   certifications:
     - name: "ISAQB Software Architect"
       type: "professional"
-      year: null
+      year: 2025
     - name: "Medical Device Software Development"
       type: "domain_specific"
       year: null
