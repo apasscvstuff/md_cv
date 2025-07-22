@@ -1,4 +1,29 @@
-/* Arthur Passuello CV - WeasyPrint Optimized CSS */
+/* =============================================================================
+   PRINT-SPECIFIC CSS - Tutorial for PDF Optimization
+   Specialized styles for PDF generation and printing
+   ============================================================================= 
+
+   🎯 PURPOSE:
+   This file contains CSS optimized specifically for PDF generation and printing.
+   It complements the main template styles with print-specific adjustments.
+
+   💡 WHEN IT'S USED:
+   - Automatically included when generating PDFs
+   - Provides print-specific page setup and typography
+   - Overrides screen-optimized styles for better print results
+
+   🔧 CUSTOMIZATION TIPS:
+   - @page rules control PDF page setup (margins, size)
+   - Font sizes are smaller for print readability
+   - Colors and spacing optimized for paper output
+   - Usually works well as-is, but can be adjusted if needed
+
+   ⚠️  IMPORTANT:
+   - This file is shared across all templates
+   - Changes affect PDF output for all templates
+   - Test PDF generation after modifications
+
+============================================================================= */
 
 /* Page setup for PDF */
 @page {

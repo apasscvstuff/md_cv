@@ -1,40 +1,152 @@
-/* François Quellec / Awesome CV Inspired Design - Exact Reproduction */
+/* =============================================================================
+   FRANÇOIS TEMPLATE - Modern Creative CV Design Tutorial
+   Inspired by François Quellec and the Awesome CV LaTeX template
+   ============================================================================= 
 
-/* CSS Custom Properties for consistent theming */
+   🎯 TEMPLATE OVERVIEW:
+   This is a modern, creative template perfect for design, tech, creative industries,
+   and contemporary companies. Features vibrant red accents and clean typography.
+
+   ✨ DESIGN PHILOSOPHY:
+   - Modern, elegant typography with subtle letter spacing
+   - Vibrant red accent color for visual impact  
+   - Clean minimalist layout with excellent readability
+   - Creative industries friendly while maintaining professionalism
+
+   🚀 QUICK START - MOST COMMON CUSTOMIZATIONS:
+
+   1. CHANGE THE VIBRANT RED ACCENT:
+      --color-accent: #e53e3e;  ← Change this to your brand color
+      Popular alternatives: #3498db (blue), #27ae60 (green), #9b59b6 (purple)
+
+   2. ADJUST MODERN TYPOGRAPHY:
+      --size-name: 28pt;        ← Your name size (24pt=smaller, 32pt=bigger)
+      --size-body: 10pt;        ← Main text size (9pt=compact, 11pt=readable)
+
+   3. MODIFY SPACING FOR DENSITY:
+      --space-section: 24px;    ← Between sections (18px=compact, 30px=spacious) 
+      --space-item: 12px;       ← Between jobs/projects (8px=tight, 16px=loose)
+
+   4. CHANGE THE CLEAN MODERN FEEL:
+      --color-primary: #1a202c; ← Main headers (try #2c3e50 for softer)
+      --font-primary: 'Roboto'  ← Try 'Inter', 'Montserrat' for different personality
+
+   📋 FULL CUSTOMIZATION VARIABLES:
+   All colors, sizes, and spacing are controlled by CSS variables in :root below.
+   This template is optimized for modern, creative professionals.
+
+   🎨 COLOR PALETTE:
+   - Accent: #e53e3e (vibrant red)
+   - Primary: #1a202c (dark blue-gray headers)
+   - Text: #2d3748 (readable dark gray)
+   - Light: #4a5568 (secondary text)
+   - Background: #ffffff (clean white)
+
+   ⚠️  BEFORE YOU START:
+   - Test changes: python build_system.py --html --template francois ai
+   - This template works great for creative/tech industries
+   - Optimized for clean, modern presentation
+   - Print version automatically adjusts for PDF
+
+============================================================================= */
+
+/* =============================================================================
+   🎨 MODERN CSS VARIABLES - Creative Professional Control Panel
+   
+   💡 ABOUT FRANÇOIS TEMPLATE VARIABLES:
+   This template uses smaller, more precise values than traditional templates.
+   The design emphasizes clean lines and modern typography.
+   
+   🎯 CUSTOMIZATION APPROACH:
+   - Small adjustments make big visual differences
+   - Focus on color and typography for personality
+   - Spacing is optimized for modern, clean layouts
+   ============================================================================= */
 :root {
-  /* Colors - Exact from reference */
-  --color-accent: #e53e3e;        /* Vibrant red for accents */
-  --color-primary: #1a202c;       /* Dark blue-gray for headers */
-  --color-secondary: #2c3e50;     /* Medium blue-gray */
-  --color-text: #2d3748;          /* Main text color */
-  --color-text-light: #4a5568;    /* Secondary text */
-  --color-text-muted: #718096;    /* Muted text */
-  --color-border: #e2e8f0;        /* Light border */
-  --color-bg: #ffffff;            /* Background */
-  
-  /* Typography Scale */
+  /* ==========================================================================
+     🌈 MODERN COLOR PALETTE - François Creative Style
+     Sophisticated colors that work great for creative and tech professionals
+     ========================================================================== */
+
+  /* 🔥 SIGNATURE VIBRANT RED - The François trademark color */
+  --color-accent: #e53e3e;
+  /* Vibrant red (try: #3498db blue, #27ae60 green, #9b59b6 purple) */
+  /* Changed to blue for demonstration (original: #e53e3e) */
+
+  /* 📖 TEXT COLORS - Modern gray scale for excellent readability */
+  --color-primary: #1a202c;
+  /* Dark headers, your name (try: #2c3e50 for softer) */
+  --color-secondary: #2c3e50;
+  /* Job titles, company names (professional blue-gray) */
+  --color-text: #2d3748;
+  /* Main body text (perfect reading contrast) */
+  --color-text-light: #4a5568;
+  /* Dates, locations, contact (subtle) */
+  --color-text-muted: #718096;
+  /* Skills tags, fine print (very subtle) */
+
+  /* 🎨 LAYOUT COLORS - Clean and minimal */
+  --color-border: #e2e8f0;
+  /* Very light borders (nearly invisible) */
+  --color-bg: #ffffff;
+  /* Pure white background (try: #fafafa for warmth) */
+
+  /* ==========================================================================
+     ✍️ MODERN TYPOGRAPHY - Clean, readable fonts with personality
+     François style emphasizes clean, contemporary font choices
+     ========================================================================== */
+
+  /* 🔤 FONT CHOICES - Modern sans-serif with excellent web/print rendering */
   --font-primary: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Headers (try: 'Inter', 'Montserrat') */
   --font-secondary: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  
-  /* Font Sizes - Web */
+  /* Body (try: 'Open Sans', 'Lato') */
+
+  /* 📏 FONT SIZES - Optimized for modern, clean presentation */
+
+  /* Size Guide: François uses smaller, more refined sizes than traditional CVs */
   --size-name: 28pt;
+  /* Your name (24pt=subtle, 32pt=bold presence) */
   --size-tagline: 13pt;
+  /* Professional tagline (11pt=smaller, 15pt=prominent) */
   --size-section: 16pt;
+  /* Section headers Skills/Experience (14pt=subtle, 18pt=strong) */
   --size-subsection: 13pt;
+  /* Company names, project titles */
   --size-body: 10pt;
+  /* Main content, descriptions (9pt=compact, 11pt=comfortable) */
   --size-small: 9pt;
+  /* Dates, contact info, references */
   --size-tiny: 8.5pt;
-  
-  /* Spacing */
+  /* Skills tags, fine details */
+
+  /* ==========================================================================
+     📐 MODERN SPACING - Clean, minimal spacing for contemporary feel
+     François template uses precise spacing for professional appearance
+     ========================================================================== */
+
+  /* 🎯 SPACING CONTROL - Key to the modern, clean François look */
   --space-section: 24px;
+  /* Between major sections (18px=compact, 30px=airy) */
   --space-subsection: 18px;
+  /* Between companies/projects within sections */
   --space-item: 12px;
+  /* Between individual items (8px=tight, 16px=loose) */
   --space-small: 8px;
+  /* Small gaps, internal spacing */
   --space-tiny: 4px;
-  
-  /* Layout */
+  /* Minimal spacing for tight layouts */
+
+  /* ==========================================================================
+     📄 LAYOUT DIMENSIONS - Page setup for A4 and Letter
+     Usually don't need to change these - they're optimized for print
+     ========================================================================== */
+
+  /* 📋 PAGE SETUP - Optimized for international A4 format */
   --max-width: 210mm;
+  /* A4 width (8.5in for US Letter) */
   --margin-page: 20mm;
+  /* Page margins (15mm=tighter, 25mm=more space) */
 }
 
 /* Base Reset & Typography */
@@ -59,10 +171,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Profile Picture - Exact positioning */
+/* Profile Picture - Larger size to match reference */
 .profile-pic {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  /* Increased from 100px */
+  height: 120px;
+  /* Increased from 100px */
   border-radius: 50%;
   float: right;
   margin: -10px 0 20px 20px;
@@ -87,7 +201,7 @@ h1 strong {
 }
 
 /* Tagline/Subtitle - Exact styling */
-h1 + h3 {
+h1+h3 {
   font-family: var(--font-secondary);
   font-size: var(--size-tagline);
   font-weight: 400;
@@ -98,7 +212,7 @@ h1 + h3 {
 }
 
 /* Address line - Italic style */
-h1 + h3 + p {
+h1+h3+p {
   font-size: var(--size-small);
   font-style: italic;
   color: var(--color-text-muted);
@@ -135,7 +249,7 @@ h1 + h3 + p {
 }
 
 /* Languages line */
-.inline-contact + p {
+.inline-contact+p {
   font-size: var(--size-small);
   font-weight: 600;
   margin-bottom: var(--space-section);
@@ -197,25 +311,47 @@ h3 {
   margin-top: var(--space-subsection);
   margin-bottom: 2px;
   letter-spacing: -0.015em;
+  display: block;
+  /* Back to normal block display */
+  clear: both;
+  /* Clear any previous floats */
 }
 
-/* Date/Location - François format with arrow */
-h3 + p {
+/* Date/Location - Float to right */
+h3+p {
   font-size: var(--size-small);
   color: var(--color-text-muted);
   margin-bottom: 4px;
   line-height: 1.3;
+  float: right;
+  /* Float the dates to the right */
+  text-align: right;
+  /* Right-align the text */
+  margin-top: -22px;
+  /* Pull up to align with company name */
+  width: 200px;
+  /* Fixed width for dates */
+  clear: right;
+  /* Clear right floats */
 }
 
-h3 + p em {
+h3+p em {
   font-style: italic;
 }
 
 /* Position Title - Bold after company */
-h3 + p + p strong {
+h3+p+p strong {
   font-weight: 600;
   color: var(--color-secondary);
   font-size: var(--size-body);
+}
+
+/* Clear floats after position title */
+h3+p+p {
+  clear: both;
+  /* Clear both left and right floats */
+  margin-top: 4px;
+  /* Add some space after the floated dates */
 }
 
 /* Achievement Lists */
@@ -269,7 +405,7 @@ a:hover {
 }
 
 /* Education & Projects formatting */
-h3 + p + p {
+h3+p+p {
   margin-bottom: var(--space-small);
 }
 
@@ -286,7 +422,7 @@ strong {
 }
 
 /* Project links */
-h3 + p a {
+h3+p a {
   margin-right: 8px;
   font-size: var(--size-small);
 }
@@ -303,40 +439,41 @@ h3 + p a {
     --size-tiny: 7pt;
     --margin-page: 15mm;
   }
-  
+
   body {
     max-width: none;
     line-height: 1.4;
   }
-  
+
   .profile-pic {
     width: 80px;
     height: 80px;
   }
-  
+
   h2 {
     margin-top: 18px;
     margin-bottom: 12px;
     page-break-after: avoid;
   }
-  
+
   h3 {
     margin-top: 14px;
     page-break-after: avoid;
   }
-  
-  ul, .skills-tags {
+
+  ul,
+  .skills-tags {
     page-break-inside: avoid;
   }
-  
+
   li {
     margin-bottom: 4px;
   }
-  
+
   table {
     page-break-inside: avoid;
   }
-  
+
   /* Ensure consistent font rendering */
   * {
     -webkit-print-color-adjust: exact;
@@ -375,6 +512,93 @@ h3 + p a {
 /* Ensure proper rendering in PDF generators */
 @media screen {
   body {
-    min-height: 297mm; /* A4 height */
+    min-height: 297mm;
+    /* A4 height */
   }
 }
+
+/* =============================================================================
+   🎨 FRANÇOIS CREATIVE CUSTOMIZATION RECIPES
+   Copy and paste these examples to achieve specific creative/modern looks
+   ============================================================================= */
+
+/* 
+   ✨ RECIPE 1: CREATIVE AGENCY LOOK
+   Perfect for design, marketing, creative agencies
+   
+   Copy these changes to your :root section above:
+   --color-accent: #ff6b35;
+   --color-primary: #2c3e50;
+   --size-name: 32pt;
+   --space-section: 30px;
+*/
+
+/* 
+   ✨ RECIPE 2: TECH STARTUP MODERN
+   Clean, contemporary for software/tech roles
+   
+   Copy these changes to your :root section above:
+   --color-accent: #3498db;
+   --color-bg: #fafafa;
+   --font-primary: 'Inter', sans-serif;
+   --font-secondary: 'Inter', sans-serif;
+*/
+
+/* 
+   ✨ RECIPE 3: SUBTLE PROFESSIONAL
+   François style but more conservative for traditional industries
+   
+   Copy these changes to your :root section above:
+   --color-accent: #34495e;
+   --color-primary: #2c3e50;
+   --size-name: 26pt;
+   --space-section: 20px;
+*/
+
+/* 
+   ✨ RECIPE 4: BOLD CREATIVE IMPACT
+   Maximum visual impact for portfolio/creative roles
+   
+   Copy these changes to your :root section above:
+   --color-accent: #e74c3c;
+   --size-name: 36pt;
+   --size-section: 18pt;
+   --space-section: 32px;
+*/
+
+/* 
+   ✨ RECIPE 5: MINIMAL SCANDINVIAN
+   Ultra-clean Nordic design aesthetic
+   
+   Copy these changes to your :root section above:
+   --color-accent: #95a5a6;
+   --color-primary: #2c3e50;
+   --color-text: #34495e;
+   --space-section: 28px;
+   --space-item: 14px;
+*/
+
+/* =============================================================================
+   🔧 FRANÇOIS TEMPLATE TROUBLESHOOTING
+   Common issues and solutions for this modern template
+   ============================================================================= */
+
+/*
+   ❌ PROBLEM: Text looks too small/refined
+   ✅ SOLUTION: François uses modern sizing - increase --size-body to 11pt or 12pt
+   
+   ❌ PROBLEM: Red accent is too bold/vibrant
+   ✅ SOLUTION: Try softer alternatives: #c0392b, #8e44ad, #2980b9, #27ae60
+   
+   ❌ PROBLEM: Name doesn't have enough impact
+   ✅ SOLUTION: Increase --size-name to 32pt or 36pt for more presence
+   
+   ❌ PROBLEM: Layout feels too tight/cramped
+   ✅ SOLUTION: Increase --space-section to 28px and --space-item to 14px
+   
+   ❌ PROBLEM: Skills table doesn't look right
+   ✅ SOLUTION: François uses 3-column table - check your YAML has technical layout
+   
+   ❌ PROBLEM: Contact info looks different
+   ✅ SOLUTION: François uses subtle contact styling - this is intentional for elegance
+*/

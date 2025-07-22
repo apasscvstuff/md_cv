@@ -1,109 +1,224 @@
-/* PDF-Optimized Professional CV - Enhanced with SRT-v0.9 and Cinode Best Practices */
+/* =============================================================================
+   PROFESSIONAL CV TEMPLATE - Tutorial & Customization Guide
+   PDF-Optimized Design Enhanced with SRT-v0.9 and Cinode Best Practices
+   ============================================================================= 
 
-/* CSS Custom Properties for PDF Generation */
+   🎯 TEMPLATE OVERVIEW:
+   This is a professional, conservative template perfect for corporate 
+   environments, traditional industries, and formal applications.
+
+   ✨ DESIGN PHILOSOPHY:
+   - Clean, readable typography optimized for PDF generation
+   - Professional color scheme with subtle accent color
+   - SRT-inspired layout with excellent print compatibility
+   - Conservative styling suitable for all industries
+
+   🚀 QUICK START - MOST COMMON CUSTOMIZATIONS:
+
+   1. CHANGE ACCENT COLOR (affects headers, bullets, links):
+      --color-accent: #990003;  ← Change this red to your preferred color
+      Popular options: #0066cc (blue), #2d6e3e (green), #8b4513 (brown)
+
+   2. ADJUST OVERALL SIZE/DENSITY:
+      --size-body: 12pt;        ← Main text size (10pt=compact, 14pt=large)
+      --space-section: 2em;     ← Space between sections (1.5em=compact, 3em=spacious)
+
+   3. CHANGE FONTS:
+      --font-primary: 'Roboto'  ← Headers and emphasis (try 'Arial', 'Times')
+      --font-secondary: 'Source Sans Pro' ← Body text
+
+   4. PROFILE PICTURE SIZE:
+      .profile-pic { width: 90px; height: 90px; } ← Adjust both values equally
+
+   📋 FULL CUSTOMIZATION VARIABLES:
+   All customizable values are defined in the :root section below.
+   Look for --variable-name entries - these control colors, sizes, and spacing.
+
+   🎨 COLOR PALETTE:
+   - Primary: #333333 (dark text)
+   - Accent: #990003 (red highlights)  
+   - Secondary: #666666 (medium gray)
+   - Light: #777777 (dates, contact)
+   - Background: #f5f5f5 (page background)
+
+   ⚠️  BEFORE YOU START:
+   - Test changes by rebuilding: python build_system.py --html --template professional ai
+   - PDF generation preserves colors and fonts
+   - This template works best with 1-2 page layouts
+   - Print-specific optimizations are included below
+
+============================================================================= */
+
+/* =============================================================================
+   CSS CUSTOM PROPERTIES - Your Customization Control Panel
+   
+   💡 WHAT ARE CSS VARIABLES?
+   These --variable-name entries let you change colors, sizes, and spacing
+   throughout the entire template by modifying just one value.
+   
+   🎯 HOW TO USE:
+   1. Find the variable you want to change (e.g., --color-accent)
+   2. Replace the value with your preferred option
+   3. Rebuild your CV to see the changes
+   ============================================================================= */
 :root {
-  /* Professional Print Colors */
-  --color-accent: #990003;          /* Professional red from SRT */
-  --color-primary: #333333;         /* Dark text for excellent PDF contrast */
-  --color-secondary: #666666;       /* Medium gray for subtitles */
-  --color-text: #444444;            /* Body text with perfect PDF readability */
-  --color-text-light: #777777;      /* Light text for dates/locations */
-  --color-border: #cccccc;          /* Subtle borders */
-  --color-bg: #f5f5f5;             /* Professional background from SRT */
-  --color-bg-white: #ffffff;       /* Clean sections */
+  /* ==========================================================================
+     🎨 COLOR CUSTOMIZATION
+     Change these colors to match your personal brand or company colors
+     ========================================================================== */
   
-  /* Typography Scale - PDF Optimized */
-  --font-primary: 'Roboto', Georgia, serif;     /* Primary font with serif fallback */
-  --font-secondary: 'Source Sans Pro', Georgia, serif;
+  /* 🔴 MAIN ACCENT COLOR - Changes: section headers, bullets, links */
+  --color-accent: #990003;          /* Professional red (try: #0066cc blue, #2d6e3e green) */
   
-  /* Font Sizes - Print Perfect */
-  --size-name: 36pt;               /* Large professional title */
-  --size-tagline: 14pt;            /* Subtitle size from SRT */
-  --size-section: 18pt;            /* Section headers (152% of 12pt) */
-  --size-subsection: 14pt;         /* Job titles */
-  --size-body: 12pt;               /* Standard body text */
-  --size-small: 10pt;              /* Contact info, dates */
-  --size-tiny: 9pt;                /* Skill tags */
+  /* 📝 TEXT COLORS - Controls readability and hierarchy */
+  --color-primary: #333333;         /* Main headers, your name (darker = more formal) */
+  --color-secondary: #666666;       /* Job titles, company names (medium emphasis) */
+  --color-text: #444444;            /* Main body text (perfect PDF contrast) */
+  --color-text-light: #777777;      /* Dates, locations, contact info */
   
-  /* Spacing - PDF Layout */
-  --space-section: 2em;            /* Section margins */
-  --space-item: 1em;               /* Item spacing */
-  --space-small: 0.75em;           /* Small spacing */
-  --space-tiny: 0.5em;             /* Minimal spacing */
+  /* 🎨 BACKGROUND & BORDERS - Affects overall feel */
+  --color-border: #cccccc;          /* Subtle borders and dividers */
+  --color-bg: #f5f5f5;             /* Page background (pure white: #ffffff) */
+  --color-bg-white: #ffffff;       /* Content section backgrounds */
   
-  /* Layout - Fixed for PDF */
-  --max-width: 8.5in;              /* US Letter width */
-  --margin-page: 0.5in;            /* Professional margins */
-  --sidebar-width: 12.3%;          /* SRT sidebar proportion */
-  --content-width: 80.2%;          /* SRT content proportion */
+  /* ==========================================================================
+     🔤 TYPOGRAPHY CUSTOMIZATION  
+     Font choices affect personality: Roboto=modern, Times=traditional, Arial=neutral
+     ========================================================================== */
+  
+  /* 📖 FONT FAMILIES - Change the entire feel of your CV */
+  --font-primary: 'Roboto', Georgia, serif;     /* Headers, emphasis (try: 'Arial', 'Times New Roman') */
+  --font-secondary: 'Source Sans Pro', Georgia, serif; /* Body text (try: 'Helvetica', 'Calibri') */
+  
+  /* 📏 FONT SIZES - Adjust for 1-page vs 2-page layouts */
+  
+  /* Quick Size Guide: 10pt=very compact, 12pt=standard, 14pt=large, 16pt+=presentation */
+  --size-name: 36pt;               /* YOUR NAME (32pt=smaller, 42pt=bigger impact) */
+  --size-tagline: 14pt;            /* Subtitle under name (12pt=subtle, 16pt=prominent) */
+  --size-section: 18pt;            /* Skills, Experience headers (16pt=smaller, 20pt=bigger) */
+  --size-subsection: 14pt;         /* Company names, job titles */
+  --size-body: 12pt;               /* Main description text (11pt=compact, 13pt=readable) */
+  --size-small: 10pt;              /* Contact info, dates, references */
+  --size-tiny: 9pt;                /* Skill tags, fine print */
+  
+  /* ==========================================================================
+     📐 SPACING CUSTOMIZATION
+     Control density: smaller values = more content per page, larger = more breathing room
+     ========================================================================== */
+  
+  /* 📏 SPACING SCALE - The key to 1-page vs 2-page layouts */
+  --space-section: 2em;            /* Between major sections (1.5em=compact, 2.5em=spacious) */
+  --space-item: 1em;               /* Between jobs, projects (0.75em=tight, 1.5em=loose) */
+  --space-small: 0.75em;           /* Small gaps within sections */
+  --space-tiny: 0.5em;             /* Minimal spacing for tight layouts */
+  
+  /* ==========================================================================
+     📄 LAYOUT DIMENSIONS
+     Control page layout and proportions - advanced customization
+     ========================================================================== */
+  
+  /* 📐 PAGE LAYOUT - Usually don't need to change these */
+  --max-width: 8.5in;              /* Page width (8.5in=US Letter, 210mm=A4) */
+  --margin-page: 0.5in;            /* Page margins (0.75in=safer for printing) */
+  --sidebar-width: 12.3%;          /* Left column in two-column sections */
+  --content-width: 80.2%;          /* Right column in two-column sections */
 }
 
-/* Base Reset & Typography */
+/* =============================================================================
+   🏗️ BASE LAYOUT & TYPOGRAPHY SETUP
+   Foundation styles - usually don't need to change these
+   ============================================================================= */
+
+/* CSS Reset - Ensures consistent styling across browsers */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  box-sizing: border-box;          /* Makes padding/borders stay within element width */
+  margin: 0;                       /* Removes default margins */
+  padding: 0;                      /* Removes default padding */
 }
 
+/* 📄 PAGE SETUP - Controls overall document appearance */
 body {
-  font-family: var(--font-primary);
-  font-size: var(--size-body);
-  line-height: 1.4;                /* Tight for PDF */
-  color: var(--color-text);
-  background-color: var(--color-bg);
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: var(--margin-page);
+  font-family: var(--font-primary);    /* Uses your chosen primary font */
+  font-size: var(--size-body);         /* Base text size (affects everything) */
+  line-height: 1.4;                    /* Line spacing (1.4 = tight for PDF) */
+  color: var(--color-text);            /* Default text color */
+  background-color: var(--color-bg);   /* Page background color */
+  max-width: var(--max-width);         /* Page width limit */
+  margin: 0 auto;                      /* Centers content on page */
+  padding: var(--margin-page);         /* Page margins */
 }
 
-/* Container for main content */
+/* 📦 MAIN CONTENT CONTAINER - SRT-inspired design */
 #inner {
-  background: var(--color-bg-white);
-  border: solid var(--color-secondary);
-  border-width: 8px 0 2px 0;       /* SRT-style top border */
-  padding: 40px 60px;
-  margin: 0 auto;
+  background: var(--color-bg-white);       /* White content background */
+  border: solid var(--color-secondary);    /* Top border for style */
+  border-width: 8px 0 2px 0;               /* SRT-style: thick top, thin bottom */
+  padding: 40px 60px;                      /* Interior spacing */
+  margin: 0 auto;                          /* Center on page */
 }
 
-/* Header Section - SRT Inspired */
+/* 🏷️ HEADER SECTION - Contains name, contact, profile picture */
 #header {
-  margin-bottom: var(--space-section);
-  padding-bottom: 1.5em;
-  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--space-section);     /* Space below header */
+  padding-bottom: 1.5em;                   /* Internal padding */
+  border-bottom: 1px solid var(--color-border); /* Separator line */
 }
 
-/* Profile Picture - Optimized positioning */
+/* =============================================================================
+   📸 PROFILE PICTURE CUSTOMIZATION
+   
+   💡 COMMON ADJUSTMENTS:
+   - Size: Change width and height equally (60px=small, 120px=large)
+   - Position: Change 'float: right' to 'float: left' 
+   - Remove: Set display: none
+   - Shape: Change border-radius (0=square, 10px=rounded, 50%=circle)
+   ============================================================================= */
 .profile-pic {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  float: right;
-  margin: -10px 0 20px 20px;
-  border: 2px solid var(--color-border);
-  object-fit: cover;
+  /* 📐 SIZE AND SHAPE */
+  width: 90px;                            /* Width (try: 60px=small, 120px=large) */
+  height: 90px;                           /* Height (keep same as width) */
+  border-radius: 50%;                     /* Makes it circular (0=square, 10px=rounded) */
+  
+  /* 📍 POSITIONING */  
+  float: right;                           /* Position (try: left, or remove for centered) */
+  margin: -10px 0 20px 20px;              /* Spacing around picture */
+  
+  /* 🎨 STYLING */
+  border: 2px solid var(--color-border);  /* Border around picture (0=no border) */
+  object-fit: cover;                      /* Crops image to fit nicely */
 }
 
-/* Name Styling - Professional Impact */
+/* =============================================================================
+   👤 NAME & TAGLINE STYLING
+   
+   💡 QUICK CUSTOMIZATIONS:
+   - Make name smaller: Change --size-name to 32pt or 28pt
+   - Remove uppercase: Delete 'text-transform: uppercase'  
+   - Reduce letter spacing: Change letter-spacing to 1px or 0
+   - Change name color: Modify --color-primary variable above
+   ============================================================================= */
+
+/* 🏆 YOUR NAME - The most important element */
 h1 {
-  font-family: var(--font-primary);
-  font-size: var(--size-name);
-  font-weight: 700;
-  color: var(--color-primary);
-  text-transform: uppercase;
-  letter-spacing: 2px;              /* SRT-style letter spacing */
-  line-height: 1.1;
-  margin-bottom: 4px;
+  font-family: var(--font-primary);        /* Uses primary font (usually Roboto) */
+  font-size: var(--size-name);             /* Size (36pt default, try 32pt=smaller, 42pt=bigger) */
+  font-weight: 700;                        /* Bold (400=normal, 700=bold, 900=extra bold) */
+  color: var(--color-primary);             /* Color (controlled by variable above) */
+  text-transform: uppercase;               /* ALL CAPS (remove this line for normal case) */
+  letter-spacing: 2px;                     /* Spread out letters (1px=subtle, 3px=dramatic) */
+  line-height: 1.1;                        /* Tight line spacing for impact */
+  margin-bottom: 4px;                      /* Small gap below name */
 }
 
-/* Tagline/Subtitle */
+/* 💼 TAGLINE/SUBTITLE - Your professional summary */
 h1 + h3 {
-  font-family: var(--font-primary);
-  font-size: var(--size-tagline);
-  font-weight: 400;
-  color: var(--color-secondary);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: var(--space-small);
+  font-family: var(--font-primary);        /* Matches name font */
+  font-size: var(--size-tagline);          /* Smaller than name (14pt default) */
+  font-weight: 400;                        /* Normal weight (not bold) */
+  color: var(--color-secondary);           /* Lighter color than name */
+  text-transform: uppercase;               /* MATCHES NAME STYLE */
+  letter-spacing: 2px;                     /* Consistent with name */
+  margin-bottom: var(--space-small);       /* Space before contact info */
 }
 
 /* Address and Contact Info */
@@ -443,3 +558,90 @@ strong {
 .no-break {
   page-break-inside: avoid;
 }
+
+/* =============================================================================
+   🎯 QUICK CUSTOMIZATION RECIPES
+   Copy and paste these examples to achieve common looks quickly
+   ============================================================================= */
+
+/* 
+   📝 RECIPE 1: COMPACT ONE-PAGE LAYOUT
+   Use this when you have lots of content and need everything on one page
+   
+   Copy these changes to your :root section above:
+   --size-body: 11pt;
+   --size-small: 9pt;  
+   --space-section: 1.5em;
+   --space-item: 0.75em;
+*/
+
+/* 
+   📝 RECIPE 2: MODERN BLUE THEME
+   Professional but less traditional than red
+   
+   Copy these changes to your :root section above:
+   --color-accent: #0066cc;
+   --color-primary: #2c3e50;
+   --color-secondary: #34495e;
+*/
+
+/* 
+   📝 RECIPE 3: CONSERVATIVE FINANCE/LAW THEME
+   Very traditional and formal
+   
+   Copy these changes to your :root section above:
+   --color-accent: #8b4513;
+   --font-primary: 'Times New Roman', serif;
+   --font-secondary: 'Times New Roman', serif;
+   
+   AND remove these lines from h1 and h1 + h3 sections:
+   text-transform: uppercase;
+   letter-spacing: 2px;
+*/
+
+/* 
+   📝 RECIPE 4: TECH/STARTUP MODERN LOOK
+   Clean and contemporary
+   
+   Copy these changes to your :root section above:
+   --color-accent: #2d6e3e;
+   --color-bg: #ffffff;
+   --font-primary: 'Arial', sans-serif;
+   --font-secondary: 'Helvetica', sans-serif;
+*/
+
+/* 
+   📝 RECIPE 5: LARGE TEXT FOR READABILITY
+   Better for senior professionals or easier reading
+   
+   Copy these changes to your :root section above:
+   --size-name: 42pt;
+   --size-tagline: 16pt;
+   --size-section: 20pt;
+   --size-body: 13pt;
+   --size-small: 11pt;
+*/
+
+/* =============================================================================
+   🔧 TROUBLESHOOTING COMMON ISSUES
+   ============================================================================= */
+
+/*
+   ❌ PROBLEM: Text is too small in PDF
+   ✅ SOLUTION: Increase --size-body to 13pt or 14pt
+   
+   ❌ PROBLEM: Everything is too cramped
+   ✅ SOLUTION: Increase --space-section and --space-item
+   
+   ❌ PROBLEM: Name is too big/overwhelming  
+   ✅ SOLUTION: Reduce --size-name to 32pt or remove text-transform: uppercase
+   
+   ❌ PROBLEM: Colors don't show in PDF
+   ✅ SOLUTION: Colors work fine - make sure you're viewing the PDF, not HTML
+   
+   ❌ PROBLEM: Two columns are misaligned
+   ✅ SOLUTION: This template uses simple layout - check experience section formatting
+   
+   ❌ PROBLEM: Profile picture is too big/small
+   ✅ SOLUTION: Change both width and height in .profile-pic to the same value
+*/

@@ -1,52 +1,148 @@
-/* Arthur Passuello CV - François Quellec / Awesome CV Style CSS */
-/* Local font declarations - loaded separately for WeasyPrint compatibility */
+/* =============================================================================
+   ORIGINAL TEMPLATE - Classic François Quellec Style Tutorial
+   Traditional elegance with timeless professional appeal
+   ============================================================================= 
 
-/* Base styling matching François Quellec design and Awesome CV principles */
+   🎯 TEMPLATE OVERVIEW:
+   This is the classic, original François Quellec design - elegant, traditional, 
+   and professionally refined. Perfect for established professionals, academic 
+   roles, and industries that value timeless, sophisticated presentation.
+
+   ✨ DESIGN PHILOSOPHY:
+   - Timeless typography with excellent readability
+   - Classic proportions and elegant spacing
+   - Sophisticated color scheme with subtle accents
+   - Traditional professional layout with modern touches
+
+   🚀 QUICK START - MOST COMMON CUSTOMIZATIONS:
+
+   1. ADJUST THE ELEGANT PROPORTIONS:
+      body { max-width: 210mm; }    ← Page width (try 190mm=narrower, 230mm=wider)
+      body { padding: 20mm; }       ← Page margins (15mm=tighter, 25mm=more space)
+
+   2. MODIFY CLASSIC TYPOGRAPHY:
+      h1 { font-size: 24pt; }       ← Your name size (20pt=smaller, 28pt=bigger)
+      body { font-size: 11pt; }     ← Main text size (10pt=compact, 12pt=readable)
+
+   3. CHANGE THE SOPHISTICATED COLORS:
+      h1 { color: #2c3e50; }        ← Name color (try #34495e, #1a1a1a)
+      h2 { color: #e53e3e; }        ← Section headers (try #3498db, #27ae60)
+
+   4. ADJUST PROFILE PICTURE:
+      .profile-pic { width: 120px; height: 120px; } ← Size (100px=smaller, 140px=larger)
+
+   📋 CLASSIC DESIGN ELEMENTS:
+   - Larger profile picture (120px) for traditional impact
+   - Generous spacing and elegant proportions
+   - Sophisticated color palette with timeless appeal
+   - Clean typography optimized for professional presentation
+
+   🎨 COLOR PALETTE:
+   - Headers: #2c3e50 (sophisticated blue-gray)
+   - Accents: #e53e3e (classic red)
+   - Text: #333333 (rich black)
+   - Background: #ffffff (pure white)
+
+   ⚠️  BEFORE YOU START:
+   - Test changes: python build_system.py --html --template original general
+   - This template emphasizes elegance and sophistication  
+   - Perfect for senior professionals and traditional industries
+   - Clean, readable design that prints beautifully
+
+============================================================================= */
+
+/* =============================================================================
+   🏛️ CLASSIC FOUNDATION STYLES
+   Traditional base setup following François Quellec's elegant principles
+   ============================================================================= */
+/* 🧹 CSS RESET - Clean slate for consistent styling */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    box-sizing: border-box;        /* Includes padding in width calculations */
+    margin: 0;                     /* Removes browser default margins */
+    padding: 0;                    /* Removes browser default padding */
 }
 
+/* =============================================================================
+   📄 CLASSIC PAGE LAYOUT - Elegant proportions and traditional styling
+   
+   💡 CUSTOMIZATION TIPS:
+   - max-width: Controls page width (190mm=narrow, 210mm=standard, 230mm=wide)
+   - padding: Page margins (15mm=tight, 20mm=standard, 25mm=spacious) 
+   - font-size: Base text size affects everything (10pt=small, 11pt=standard, 12pt=large)
+   - line-height: Text spacing (1.4=tight, 1.6=standard, 1.8=loose)
+   ============================================================================= */
 body {
+    /* 🔤 TYPOGRAPHY - Classic, readable font stack */
     font-family: 'Roboto', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    line-height: 1.6;
-    color: #333333;
-    background-color: #ffffff;
-    max-width: 210mm;
-    margin: 0 auto;
-    padding: 20mm;
-    font-size: 11pt;
-    font-weight: 400;
-    letter-spacing: -0.005em;
+    
+    /* 📏 TEXT SETTINGS - Optimized for elegance and readability */
+    font-size: 11pt;               /* Base text size (10pt=compact, 12pt=comfortable) */
+    line-height: 1.6;              /* Generous line spacing for elegance */
+    font-weight: 400;              /* Normal weight for body text */
+    letter-spacing: -0.005em;      /* Subtle letter tightening for refinement */
+    
+    /* 🎨 COLORS - Sophisticated and timeless */
+    color: #333333;                /* Rich black for excellent readability */
+    background-color: #ffffff;     /* Pure white background */
+    
+    /* 📐 PAGE LAYOUT - A4 format with elegant margins */
+    max-width: 210mm;              /* A4 width (8.5in for US Letter) */
+    margin: 0 auto;                /* Center content on page */
+    padding: 20mm;                 /* Generous margins for elegant feel */
 }
 
-/* Header styling */
+/* =============================================================================
+   📸 CLASSIC PROFILE PICTURE - Traditional elegance with substantial presence
+   
+   💡 CUSTOMIZATION OPTIONS:
+   - Size: Adjust width and height together (100px=modest, 140px=prominent)
+   - Position: Change float to 'left' or remove entirely for center
+   - Shape: border-radius 50%=circle, 10px=rounded, 0=square
+   - Border: Adjust border width (0=none, 3px=thicker, change color)
+   ============================================================================= */
 .profile-pic {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    float: right;
-    margin-left: 20px;
-    margin-bottom: 20px;
-    border: 2px solid #cccccc;
-    object-fit: cover;
+    /* 📐 SIZE - Generous traditional size for professional impact */
+    width: 120px;                  /* Width (100px=smaller, 140px=larger presence) */
+    height: 120px;                 /* Height (keep equal to width) */
+    
+    /* 🎨 SHAPE AND STYLING */
+    border-radius: 50%;            /* Perfect circle (0=square, 10px=rounded) */
+    border: 2px solid #cccccc;     /* Subtle border (0=none, 3px=bolder) */
+    object-fit: cover;             /* Crops image nicely */
+    
+    /* 📍 POSITIONING - Traditional right-side placement */
+    float: right;                  /* Right side (try 'left' or remove for center) */
+    margin-left: 20px;             /* Space from text */
+    margin-bottom: 20px;           /* Space below picture */
 }
 
+/* =============================================================================
+   👑 YOUR NAME - Sophisticated typography with classic elegance
+   
+   💡 QUICK ADJUSTMENTS:
+   - Size: Change font-size (20pt=modest, 28pt=bold, 32pt=dramatic)
+   - Color: Try #1a1a1a (darker), #34495e (blue-gray), #2c3e50 (current)
+   - Weight: font-weight 600=medium, 700=bold, 800=extra bold
+   ============================================================================= */
 h1 {
-    font-size: 24pt;
-    font-weight: 700;
-    color: #2c3e50;
-    margin-bottom: 8px;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-    font-family: 'Roboto', sans-serif;
+    /* 🔤 TYPOGRAPHY - Classic and sophisticated */
+    font-family: 'Roboto', sans-serif;   /* Clean, professional font */
+    font-size: 24pt;                     /* Elegant size (20pt=smaller, 28pt=bigger) */
+    font-weight: 700;                     /* Bold for authority */
+    line-height: 1.2;                    /* Tight for impact */
+    letter-spacing: -0.01em;              /* Subtle refinement */
+    
+    /* 🎨 STYLING - Timeless and professional */
+    color: #2c3e50;                       /* Sophisticated blue-gray */
+    margin-bottom: 8px;                   /* Space before tagline */
 }
 
+/* Ensure bold text in name stays bold */
 h1 strong {
-    font-weight: 700;
+    font-weight: 700;                     /* Maintains bold weight */
 }
 
+/* 💼 PROFESSIONAL TAGLINE - Elegant subtitle styling */
 h1 + h3 {
     font-size: 14pt;
     font-weight: 400;
@@ -555,12 +651,100 @@ code {
     margin: 20px 0;
 }
 
-/* Footer styling */
+/* 📝 FOOTER STYLING - Elegant document closure */
 .cv-footer {
-    margin-top: 40px;
-    text-align: center;
-    font-size: 9pt;
-    color: #666;
-    border-top: 1px solid #e9ecef;
-    padding-top: 10px;
+    margin-top: 40px;                      /* Generous space above footer */
+    text-align: center;                    /* Centered alignment */
+    font-size: 9pt;                       /* Small, unobtrusive text */
+    color: #666;                           /* Muted color */
+    border-top: 1px solid #e9ecef;        /* Subtle separator line */
+    padding-top: 10px;                     /* Space above text */
 }
+
+/* =============================================================================
+   🏛️ ORIGINAL TEMPLATE CUSTOMIZATION RECIPES
+   Classic, elegant transformations for traditional professionals
+   ============================================================================= */
+
+/* 
+   📜 RECIPE 1: ACADEMIC EXCELLENCE
+   Perfect for professors, researchers, academic positions
+   
+   Replace these values in the corresponding sections above:
+   h1 { color: #1a1a1a; font-size: 26pt; }
+   h2 { color: #2c3e50; }
+   body { max-width: 190mm; padding: 25mm; }
+   .profile-pic { width: 100px; height: 100px; }
+*/
+
+/* 
+   📜 RECIPE 2: EXECUTIVE PRESENCE
+   Distinguished look for senior leadership positions
+   
+   Replace these values in the corresponding sections above:
+   h1 { font-size: 28pt; color: #1a202c; }
+   h2 { color: #8b4513; }
+   body { padding: 25mm; line-height: 1.7; }
+   .profile-pic { width: 140px; height: 140px; }
+*/
+
+/* 
+   📜 RECIPE 3: LEGAL/FINANCE CONSERVATIVE
+   Ultra-traditional for law firms, financial institutions
+   
+   Replace these values in the corresponding sections above:
+   h1 { color: #1a1a1a; font-size: 22pt; }
+   h2 { color: #8b4513; }
+   body { font-family: 'Times New Roman', serif; }
+   body { max-width: 200mm; }
+*/
+
+/* 
+   📜 RECIPE 4: CONSULTING ELEGANCE
+   Sophisticated for management consulting, advisory roles
+   
+   Replace these values in the corresponding sections above:
+   h1 { color: #2c3e50; font-size: 26pt; }
+   h2 { color: #3498db; }
+   body { padding: 22mm; font-size: 11.5pt; }
+   .profile-pic { width: 110px; height: 110px; }
+*/
+
+/* 
+   📜 RECIPE 5: INTERNATIONAL APPEAL
+   Clean, universal design for global organizations
+   
+   Replace these values in the corresponding sections above:
+   h1 { color: #34495e; }
+   h2 { color: #27ae60; }
+   body { max-width: 200mm; padding: 18mm; }
+   body { font-size: 10.5pt; line-height: 1.5; }
+*/
+
+/* =============================================================================
+   🔧 ORIGINAL TEMPLATE TROUBLESHOOTING
+   Solutions for common issues with this classic template
+   ============================================================================= */
+
+/*
+   ❌ PROBLEM: Text looks too large/overwhelming
+   ✅ SOLUTION: Original uses generous sizing - reduce body font-size to 10pt
+   
+   ❌ PROBLEM: Profile picture dominates the layout
+   ✅ SOLUTION: Reduce .profile-pic width/height to 100px or 110px
+   
+   ❌ PROBLEM: Too much white space/margins
+   ✅ SOLUTION: Reduce body padding to 15mm or 18mm
+   
+   ❌ PROBLEM: Colors are too muted/subtle
+   ✅ SOLUTION: Use bolder colors: #1a1a1a for text, #e74c3c for accents
+   
+   ❌ PROBLEM: Layout breaks on narrow screens
+   ✅ SOLUTION: This template is optimized for print - use François for web
+   
+   ❌ PROBLEM: Name doesn't stand out enough
+   ✅ SOLUTION: Increase h1 font-size to 28pt or 32pt, or darken color to #1a1a1a
+   
+   ❌ PROBLEM: Sections blend together
+   ✅ SOLUTION: Original uses subtle styling - try adding borders or background colors
+*/

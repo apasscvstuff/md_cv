@@ -1,7 +1,48 @@
+/* =============================================================================
+   AWESOME CV TEMPLATE - Modern Professional Design Tutorial
+   Based on the popular LaTeX Awesome CV template  
+   ============================================================================= 
+
+   🎯 TEMPLATE OVERVIEW:
+   This is a sophisticated, modern template based on the famous Awesome CV LaTeX
+   design. Perfect for tech professionals, modern companies, and creative industries
+   that want a clean, contemporary look with excellent visual hierarchy.
+
+   ✨ DESIGN PHILOSOPHY:  
+   - Clean, modern layout with excellent visual hierarchy
+   - Sophisticated color scheme and typography
+   - Professional yet contemporary appearance
+   - Optimized for both screen viewing and printing
+
+   🚀 QUICK START - MOST COMMON CUSTOMIZATIONS:
+
+   1. CHANGE THE LAYOUT COLORS:
+      :root { background-color: #EFEFEF; } ← Page background (try #F5F5F5, #FFFFFF)
+      Look for color values below to customize accent colors and text
+
+   2. ADJUST DOCUMENT SIZE:
+      #document { width: 8.5in; height: 11in; } ← US Letter (try A4: 210mm x 297mm)
+
+   3. MODIFY SPACING AND DENSITY:  
+      #document { padding: 0.3in 0.5in; } ← Page margins (0.2in=tight, 0.4in=spacious)
+
+   4. CUSTOMIZE TYPOGRAPHY:
+      font-family: 'Roboto' ← Try 'Inter', 'Open Sans', 'Lato' for different feel
+
+   ⚠️  IMPORTANT NOTES:
+   - This template uses complex nested structure - make small changes first
+   - Test changes: python build_system.py --html --template awesome-cv firmware  
+   - Some elements may need CSS knowledge to customize effectively
+   - Best suited for modern, tech-oriented presentations
+
+============================================================================= */
+
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,300i,400,400i,500,500i,700,700i");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i");
-/*	Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
---------------------------------------------------------------------------------------- */
+
+/* =============================================================================
+   🧹 CSS RESET - Eric Meyer's Reset CSS v2.0 for consistent baseline
+   ============================================================================= */
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -27,20 +68,37 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+/* =============================================================================
+   📄 AWESOME CV MAIN LAYOUT - Modern document structure
+   
+   💡 KEY CUSTOMIZATION POINTS:
+   - background-color: Page background color (try #F5F5F5, #FFFFFF)  
+   - font-family: Primary font (try 'Inter', 'Open Sans', 'Source Sans Pro')
+   - Document dimensions and spacing controlled in #document section below
+   ============================================================================= */
 :root {
-  background-color: #EFEFEF;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400; }
-  :root #document {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    background-color: white;
-    width: 8.5in;
-    height: 11in;
-    padding: 0.3in 0.5in;
-    margin: 5vh auto;
-    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.3); }
+  background-color: #EFEFEF;              /* Page background (try #F5F5F5 warm, #FFFFFF clean) */
+  font-family: 'Roboto', sans-serif;      /* Primary font (try 'Inter', 'Open Sans', 'Lato') */
+  font-weight: 400;                       /* Normal font weight */
+}
+
+/* 📋 DOCUMENT CONTAINER - The main CV page styling */
+:root #document {
+    /* 🏗️ LAYOUT STRUCTURE */
+    display: flex;                       /* Modern flexbox layout */
+    flex-direction: column;              /* Vertical stacking */
+    justify-content: flex-start;         /* Align to top */
+    
+    /* 🎨 VISUAL STYLING */
+    background-color: white;             /* Document background (try #FAFAFA for warmth) */
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.3);  /* Professional drop shadow */
+    
+    /* 📐 DIMENSIONS - Adjust for different paper sizes */
+    width: 8.5in;                        /* US Letter width (210mm for A4) */
+    height: 11in;                        /* US Letter height (297mm for A4) */
+    padding: 0.3in 0.5in;               /* Internal margins (0.2in=tight, 0.4in=spacious) */
+    margin: 5vh auto;                    /* Center on screen with top/bottom space */
+}
   :root .about-me {
     text-align: center; }
     :root .about-me .about-me__name {
@@ -143,14 +201,65 @@ table {
       :root footer table td {
         flex-grow: 1; }
 
+/* 🖨️ PRINT OPTIMIZATIONS - Automatic adjustments for PDF generation */
 @media print {
   :root #document {
-    top: initial;
-    bottom: initial;
-    transform: none;
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    padding: 0; } }
+    top: initial;                        /* Reset positioning for print */
+    bottom: initial;                     /* Reset positioning for print */
+    transform: none;                     /* Remove screen transforms */
+    margin: 0;                           /* Full page margins */
+    width: 100%;                         /* Full page width */
+    height: 100%;                        /* Full page height */
+    padding: 0;                          /* Remove screen padding */
+  }
+}
+
+/* =============================================================================
+   🎨 AWESOME CV CUSTOMIZATION GUIDE
+   Simplified customization for this complex template
+   ============================================================================= */
+
+/*
+   ⚠️  IMPORTANT: Awesome CV Template Customization Notice
+   
+   This template uses a complex nested structure with SCSS compilation.
+   For major customizations, consider using the Professional or François templates
+   which are more user-friendly and fully documented.
+   
+   🎯 SAFE CUSTOMIZATIONS for Awesome CV:
+   
+   1. CHANGE PAGE BACKGROUND:
+      :root { background-color: #F5F5F5; }  ← Line 80
+   
+   2. CHANGE DOCUMENT BACKGROUND:  
+      background-color: white;  ← Line 93 (try #FAFAFA)
+   
+   3. ADJUST PAGE SIZE:
+      width: 8.5in; height: 11in;  ← Lines 97-98 (try 210mm x 297mm for A4)
+   
+   4. MODIFY MARGINS:
+      padding: 0.3in 0.5in;  ← Line 99 (try 0.4in 0.6in for more space)
+   
+   5. CHANGE FONT:
+      font-family: 'Roboto', sans-serif;  ← Line 81 (try 'Inter', 'Open Sans')
+   
+   🔧 TROUBLESHOOTING:
+   
+   ❌ Layout breaks with changes?
+   ✅ This template is complex - try smaller adjustments or use Professional template
+   
+   ❌ Colors not changing?
+   ✅ Look for specific color values throughout the file (many are hardcoded)
+   
+   ❌ Text sizing issues?
+   ✅ Font sizes are defined in multiple places - be careful with changes
+   
+   ❌ Want more customization options?
+   ✅ Consider using the Professional or François templates instead
+   
+   💡 RECOMMENDATION:
+   For extensive customization, use the Professional or François templates
+   which are fully documented and more flexible.
+*/
 
 /*# sourceMappingURL=style.css.map */

@@ -1,4 +1,30 @@
-/* Local Font Declarations for WeasyPrint PDF Generation */
+/* =============================================================================
+   LOCAL FONT DECLARATIONS - Tutorial for PDF Font Management
+   Ensures consistent fonts in PDF generation across all templates
+   ============================================================================= 
+
+   🎯 PURPOSE:
+   This file provides local font fallbacks for PDF generation. When generating
+   PDFs, online fonts (Google Fonts) may not load properly, so we use locally
+   stored font files to ensure consistent typography.
+
+   💡 HOW IT WORKS:
+   - Each @font-face declaration maps a font family to local TTF files
+   - PDF generators use these local fonts when online fonts fail
+   - Covers multiple font weights (400=normal, 500=medium, 700=bold, 900=black)
+
+   🔧 CUSTOMIZATION:
+   - Usually don't need to modify this file
+   - If adding new fonts, place TTF files in fonts/ directory
+   - Add new @font-face declarations following the pattern below
+   - Ensure file paths match your font file locations
+
+   ⚠️  IMPORTANT:
+   - This file is automatically copied to each template output directory
+   - Local font files must exist in fonts/ directory
+   - PDF generation quality depends on these font declarations
+
+============================================================================= */
 
 @font-face {
     font-family: 'Roboto';
