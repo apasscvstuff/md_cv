@@ -163,8 +163,8 @@ body {
   background-color: var(--color-bg);
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 10mm var(--margin-page) var(--margin-page) var(--margin-page);
-  /* Minimal top padding to eliminate head spacing */
+  padding: 5mm var(--margin-page) var(--margin-page) var(--margin-page);
+  /* Further reduced top padding for minimal white space */
   letter-spacing: -0.015em;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
@@ -205,6 +205,7 @@ body>p:first-child {
   width: 150px;
   float: right;
   margin: 0;
+  padding: 0;
   position: relative;
   top: 0;
 }
@@ -249,6 +250,8 @@ h1 {
   margin-bottom: 6px;
   /* Increased spacing between name and job title */
   margin-top: 0;
+  padding-top: 0;
+  /* Ensure no padding contributes to top spacing */
 }
 
 h1 strong {
@@ -521,7 +524,8 @@ h3+p a {
     --size-body: 9pt;
     --size-small: 8pt;
     --size-tiny: 7pt;
-    --margin-page: 15mm;
+    --margin-page: 10mm;
+    /* Reduced print margins for minimal spacing */
   }
 
   body {
@@ -583,7 +587,8 @@ h3+p a {
 /* Page setup for PDF */
 @page {
   size: A4;
-  margin: 15mm;
+  margin: 10mm 15mm 15mm 15mm;
+  /* Reduced top margin: 10mm top, 15mm sides and bottom */
 }
 
 /* Utility classes */
@@ -692,6 +697,8 @@ h3+p a {
   margin-bottom: 6px;
   /* Increased spacing between name and job title */
   margin-top: 0;
+  padding-top: 0;
+  /* Ensure no padding contributes to top spacing */
 }
 
 .cv-tagline {
@@ -878,6 +885,7 @@ h3+p a {
   font-size: var(--size-small);
   color: var(--color-text-muted);
   font-style: italic;
+  text-align: right;
   margin-bottom: 8px;
 }
 
