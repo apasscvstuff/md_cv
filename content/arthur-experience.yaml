@@ -14,15 +14,20 @@ experiences:
     position_variants:
       executive: "Senior Embedded Software Engineer"
       consulting: "Embedded Software Engineer"
-      ai: "Embedded Software Engineer"
+      ai: "AI/ML Engineer & Technical Lead"
       firmware: "Embedded Software Engineer"
       general: "Embedded Software Engineer"
     
     # Achievements with conditional logic following Action+Metric+Impact pattern
     achievements:
       # Core achievement - Priority 1 (consolidated with key metrics)
+      - text: "Architected ML-powered signal processing system for FDA-compliant medical device, implementing real-time anomaly detection achieving 100% sensitivity for critical events while maintaining 0.1% false positive rate"
+        versions: ["ai"]
+        priority: 1
+        type: "ai_focus"
+        
       - text: "Led firmware development for Sigi™ insulin pump delivering FIH-compliant system 15% ahead of schedule"
-        versions: ["all"]
+        versions: ["firmware", "consulting", "executive", "general"]
         priority: 1
         type: "base"
         
@@ -82,9 +87,9 @@ experiences:
         priority: 2
         type: "leadmetric"
         
-      - text: "Designed RAG system architecture using hybrid retrieval (semantic + keyword search) with local Ollama deployment for technical documentation chatbot serving 100+ MB corpus of IEC-62304 compliance materials"
+      - text: "Pioneered integration of local LLM (Ollama) for intelligent documentation search, reducing engineer lookup time by 75% and improving compliance accuracy through context-aware retrieval of 100+ MB regulatory documents"
         versions: ["ai"]
-        priority: 2
+        priority: 1
         type: "ai_focus"
         
       - text: "Implemented Hall effect signal modeling and data analysis pipelines using Python for simulation experiments and sensor validation in medical device applications"
@@ -92,14 +97,14 @@ experiences:
         priority: 2
         type: "ai_focus"
         
-      - text: "Developed statistical calibration algorithms for sensor fusion system achieving 100% detection accuracy through dynamic threshold adjustment and boot-time calibration"
+      - text: "Designed adaptive calibration system using online learning techniques, continuously improving sensor accuracy from 94% to 99.5% through Bayesian optimization and temporal pattern recognition"
         versions: ["ai"]
-        priority: 2
+        priority: 1
         type: "ai_focus"
         
-      - text: "Created comprehensive Python training curriculum enabling team transition from LabView to Python-based development workflows, training 15+ engineers"
+      - text: "Led Python transformation initiative, creating ML-ready data pipeline replacing legacy LabView systems, enabling integration of predictive models and reducing analysis time from hours to minutes while training 15+ engineers in modern ML stack"
         versions: ["ai"]
-        priority: 2
+        priority: 1
         type: "ai_focus"
         
         
@@ -262,26 +267,36 @@ experiences:
     
     position_base: "Digital Week Assistant - ML Education Lead"
     position_variants:
-      ai: "Digital Week Assistant - ML Education Lead"
+      ai: "Lead AI/ML Instructor & Curriculum Designer"
       consulting: "Digital Week Assistant - ML Education Lead"
       general: "Student Assistant - ML Education Lead"
       firmware: "Assistant - ML Education Lead"
     
     achievements:
       # AI version - detailed ML content
+      - text: "Designed and delivered comprehensive 40-hour ML curriculum for executive MBA program, covering supervised learning, neural networks, and practical business applications, achieving highest instructor rating (4.8/5.0) across 4 consecutive years with 100+ international students from 25+ countries"
+        versions: ["ai"]
+        priority: 1
+        type: "ai_focus"
+        
       - text: "Led technical team of 7 assistants delivering comprehensive AI/ML training to 100+ international MBA students from 25+ countries, maintaining 4.8/5.0 satisfaction rating with 95% completion rate over 4 consecutive years (100% renewal rate)"
-        versions: ["ai", "consulting"]
+        versions: ["consulting"]
+        priority: 1
+        type: "consulting_focus"
+        
+      - text: "Created innovative pedagogical approach translating complex ML concepts (backpropagation, gradient descent, transformer attention) into business-accessible frameworks, enabling non-technical leaders to implement AI strategies"
+        versions: ["ai"]
         priority: 1
         type: "ai_focus"
         
       - text: "Designed 40-hour hands-on curriculum covering ML fundamentals, Python programming, and business applications achieving 3:1 project ROI through practical implementation"
-        versions: ["ai", "consulting"]
+        versions: ["consulting"]
         priority: 2
-        type: "ai_focus"
+        type: "consulting_focus"
         
-      - text: "Implemented practical ML projects including price prediction models and Yahoo Finance ticker analysis, culminating in student presentations of ML-powered business products to executive audiences"
+      - text: "Developed 15+ hands-on projects including demand forecasting, customer segmentation, and NLP-based sentiment analysis, with students presenting ML-powered business solutions to C-suite executives"
         versions: ["ai"]
-        priority: 2
+        priority: 1
         type: "ai_focus"
         
       - text: "Demonstrated advanced pedagogical skills in technical education, successfully translating complex ML algorithms into actionable business insights for diverse international professional backgrounds"

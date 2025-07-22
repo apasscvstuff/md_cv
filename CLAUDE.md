@@ -65,11 +65,41 @@ output/
 
 ## Key Files
 
-- `build_system.py` - Main build script and CVBuilder class
+- `build_system.py` - Main build script and CVBuilder class with multi-engine PDF generation
 - `content/arthur-*.yaml` - Content source files (personal, skills, experience, projects, education)
-- `styles/cv-*.css` - François Quellec inspired styling
+- `css_styling.css` - François Quellec exact design implementation with CSS custom properties
+- `css_fonts.css` - Local font declarations (@font-face) for PDF compatibility
+- `fonts/` - Local font files (Roboto and Source Sans Pro families)
 - `cv.md` - Example François CV showing target format
+- `docs/francois-reference.pdf` - Design reference for exact layout reproduction
 - `system_readme.md` - Comprehensive documentation
+
+### Font and Asset Structure
+```
+fonts/                           # Local font files for PDF generation
+├── Roboto-Regular.ttf          # Primary font family
+├── Roboto-Medium.ttf
+├── Roboto-Bold.ttf
+├── Roboto-Black.ttf
+├── SourceSans3-Regular.ttf     # Secondary font family
+├── SourceSans3-Medium.ttf
+├── SourceSans3-Semibold.ttf
+└── SourceSans3-Bold.ttf
+
+output/{version}/               # Generated output per version
+├── arthur-{version}.md         # Markdown source
+├── arthur-{version}.html       # HTML with embedded CSS
+├── arthur-{version}.pdf        # Final PDF output
+├── css_fonts.css               # Copied font declarations
+├── css_styling.css             # Copied main styling
+├── fonts/                      # Copied font directory
+└── assets/                     # Profile image and icons
+    ├── profile.jpeg
+    └── icons/
+        ├── phone.png, email.png
+        ├── github.png, linkedin.png
+        └── ...
+```
 
 ## Content Structure
 
