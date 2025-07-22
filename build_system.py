@@ -70,6 +70,94 @@ class CVBuilder:
         # Personal information loaded from YAML
         self.personal = None  # Will be loaded when needed
     
+    def check_dependencies(self) -> Dict[str, bool]:
+        """Check availability of PDF generation dependencies"""
+        deps = {
+            'pandoc': False,
+            'chrome': False,
+            'weasyprint_cmd': False,
+            'weasyprint_python': False
+        }
+        
+        # Check pandoc
+        try:
+            subprocess.run(['pandoc', '--version'], capture_output=True, check=True)
+            deps['pandoc'] = True
+        except (subprocess.CalledProcessError, FileNotFoundError):
+            pass
+        
+        # Check Chrome/Chromium
+        chrome_commands = [
+            '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+            'google-chrome', 'chromium', 'google-chrome-stable'
+        ]
+        for chrome_cmd in chrome_commands:
+            try:
+                if chrome_cmd.startswith('/'):
+                    if Path(chrome_cmd).exists():
+                        deps['chrome'] = True
+                        break
+                else:
+                    subprocess.run([chrome_cmd, '--version'], capture_output=True, check=True)
+                    deps['chrome'] = True
+                    break
+            except (subprocess.CalledProcessError, FileNotFoundError):
+                continue
+        
+        # Check WeasyPrint command line
+        try:
+            env = subprocess.os.environ.copy()
+            env['PKG_CONFIG_PATH'] = "/opt/homebrew/lib/pkgconfig:/opt/homebrew/opt/libffi/lib/pkgconfig"
+            env['DYLD_LIBRARY_PATH'] = "/opt/homebrew/lib:/opt/homebrew/Cellar/glib/2.84.3/lib"
+            subprocess.run(['weasyprint', '--help'], capture_output=True, check=True, env=env)
+            deps['weasyprint_cmd'] = True
+        except (subprocess.CalledProcessError, FileNotFoundError):
+            pass
+        
+        # Check WeasyPrint Python module
+        try:
+            import os
+            old_env = {}
+            env_vars = {
+                'PKG_CONFIG_PATH': '/opt/homebrew/lib/pkgconfig:/opt/homebrew/opt/libffi/lib/pkgconfig',
+                'DYLD_LIBRARY_PATH': '/opt/homebrew/lib:/opt/homebrew/Cellar/glib/2.84.3/lib'
+            }
+            for key, value in env_vars.items():
+                old_env[key] = os.environ.get(key)
+                os.environ[key] = value
+            
+            try:
+                import weasyprint
+                deps['weasyprint_python'] = True
+            finally:
+                for key, old_value in old_env.items():
+                    if old_value is None:
+                        os.environ.pop(key, None)
+                    else:
+                        os.environ[key] = old_value
+        except ImportError:
+            pass
+        
+        return deps
+    
+    def print_dependency_status(self) -> None:
+        """Print status of all dependencies"""
+        deps = self.check_dependencies()
+        
+        print("📋 PDF Generation Dependencies Status:")
+        print(f"  Pandoc: {'✅' if deps['pandoc'] else '❌'}")
+        print(f"  Chrome/Chromium: {'✅' if deps['chrome'] else '❌'}")
+        print(f"  WeasyPrint (command): {'✅' if deps['weasyprint_cmd'] else '❌'}")
+        print(f"  WeasyPrint (Python): {'✅' if deps['weasyprint_python'] else '❌'}")
+        
+        if not any(deps.values()):
+            print("\n⚠️  No PDF generation tools available!")
+            print("   Install at least one: Chrome, WeasyPrint, or Pandoc")
+        elif not deps['chrome'] and not deps['weasyprint_cmd'] and not deps['weasyprint_python']:
+            print("\n⚠️  Only pandoc available - may have limited CSS support")
+        else:
+            print(f"\n✅ PDF generation available")
+    
     def load_yaml_file(self, filename: str) -> Dict[str, Any]:
         """Load YAML file with error handling"""
         file_path = self.content_dir / filename
@@ -285,9 +373,9 @@ class CVBuilder:
                 max_items = max(len(col1_items), len(col2_items), len(col3_items))
             
             for i in range(max_items):
-                col1 = f"• {col1_items[i]}" if i < len(col1_items) else ""
-                col2 = f"• {col2_items[i]}" if i < len(col2_items) else ""
-                col3 = f"• {col3_items[i]}" if i < len(col3_items) else ""
+                col1 = f"✓ {col1_items[i]}" if i < len(col1_items) else ""
+                col2 = f"✓ {col2_items[i]}" if i < len(col2_items) else ""
+                col3 = f"✓ {col3_items[i]}" if i < len(col3_items) else ""
                 
                 markdown += f"| {col1:<28} | {col2:<42} | {col3:<40} |\n"
             
@@ -301,7 +389,8 @@ class CVBuilder:
         
         for exp in experiences:
             markdown += f"### {exp['company']}  \n"
-            markdown += f"<div class=\"date-location\">_{exp['period']}_ <span class=\"location\">_{exp['location']}_</span></div>\n\n"
+            markdown += f"->_{exp['location']}_<br>\n"
+            markdown += f"_{exp['period']}_\n\n"
             
             markdown += f"**{exp['position']}**"
             if exp['reference']:
@@ -331,7 +420,7 @@ class CVBuilder:
         
         for project in projects:
             markdown += f"### {project['name']}\n"
-            markdown += f"<div class=\"date-location\">_{project['period']}_</div>\n\n"
+            markdown += f"->_{project['period']}_\n\n"
             
             # Add links
             if project['links']:
@@ -409,10 +498,10 @@ class CVBuilder:
             else:
                 markdown += f"### {education['institution']}\n"
             
-            # Date range and location
+            # Date range and location  
+            markdown += f"->_{education['location']}_<br>\n"
             if education['start_date'] and education['end_date']:
-                period = f"{education['start_date']} - {education['end_date']}"
-                markdown += f"<div class=\"date-location\">_{period}_ <span class=\"location\">_{education['location']}_</span></div>\n\n"
+                markdown += f"_{education['start_date']} - {education['end_date']}_\n\n"
             
             # Degree information
             markdown += f"**{education['degree']}**"
@@ -557,8 +646,21 @@ _{personal_info['address']}_
         # Copy CSS files
         css_dest = self.output_dir / target_version / "css_styling.css"
         css_print_dest = self.output_dir / target_version / "css_styling_print.css"
+        css_fonts_dest = self.output_dir / target_version / "css_fonts.css"
+        
         shutil.copy2("css_styling.css", css_dest)
-        shutil.copy2("css_styling_print.css", css_print_dest)
+        if Path("css_styling_print.css").exists():
+            shutil.copy2("css_styling_print.css", css_print_dest)
+        if Path("css_fonts.css").exists():
+            shutil.copy2("css_fonts.css", css_fonts_dest)
+        
+        # Copy fonts directory
+        fonts_src = Path("fonts")
+        if fonts_src.exists():
+            fonts_dest = self.output_dir / target_version / "fonts"
+            if fonts_dest.exists():
+                shutil.rmtree(fonts_dest)
+            shutil.copytree(fonts_src, fonts_dest)
 
     def build_html(self, target_version: str) -> None:
         """Build HTML version of CV from markdown"""
@@ -579,7 +681,8 @@ _{personal_info['address']}_
                 'pandoc', str(md_path),
                 '-f', 'markdown',
                 '-t', 'html',
-                '--css', './css_styling.css',  # Local CSS for better WeasyPrint support
+                '--css', './css_fonts.css',  # Local fonts first
+                '--css', './css_styling.css',  # Main styling second
                 '--standalone',
                 '-o', str(html_path)
             ]
@@ -616,69 +719,164 @@ _{personal_info['address']}_
     def _try_chrome_headless_pdf(self, html_path: Path, pdf_path: Path, target_version: str) -> bool:
         """Try generating PDF using Chrome headless mode"""
         chrome_commands = [
+            '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
             'google-chrome',
             'chromium',
             'google-chrome-stable',
-            '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+            '/opt/homebrew/bin/chromium',
+            '/usr/local/bin/google-chrome'
         ]
         
         for chrome_cmd in chrome_commands:
             try:
+                # Check if the command exists
+                if chrome_cmd.startswith('/'):
+                    if not Path(chrome_cmd).exists():
+                        continue
+                
                 cmd = [
                     chrome_cmd,
-                    '--headless',
+                    '--headless=new',  # Use new headless mode
                     '--disable-gpu',
+                    '--disable-dev-shm-usage',  # Overcome limited resource problems
+                    '--no-sandbox',  # Bypass OS security model
+                    '--disable-background-timer-throttling',
+                    '--disable-renderer-backgrounding',
+                    '--disable-backgrounding-occluded-windows',
                     '--print-to-pdf=' + str(pdf_path),
+                    '--print-to-pdf-no-header',  # Remove headers/footers
+                    '--run-all-compositor-stages-before-draw',
                     'file://' + str(html_path.absolute())
                 ]
-                result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+                
+                result = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
                 if result.returncode == 0 and pdf_path.exists():
                     print(f"✅ PDF generated with Chrome headless: {pdf_path}")
                     return True
-            except Exception:
+                else:
+                    print(f"Chrome failed with {chrome_cmd}: {result.stderr}")
+                    
+            except FileNotFoundError:
+                continue
+            except Exception as e:
+                print(f"Chrome error with {chrome_cmd}: {e}")
                 continue
         
         print("Chrome headless not available")
         return False
     
     def _try_weasyprint_pdf(self, html_path: Path, pdf_path: Path, target_version: str) -> bool:
-        """Try generating PDF using weasyprint with print-optimized CSS"""
+        """Try generating PDF using weasyprint with local fonts and print-optimized CSS"""
+        try:
+            # Set up environment for WeasyPrint
+            import os
+            old_env = {}
+            
+            # Set required environment variables
+            env_vars = {
+                'PKG_CONFIG_PATH': '/opt/homebrew/lib/pkgconfig:/opt/homebrew/opt/libffi/lib/pkgconfig',
+                'DYLD_LIBRARY_PATH': '/opt/homebrew/lib:/opt/homebrew/Cellar/glib/2.84.3/lib'
+            }
+            
+            for key, value in env_vars.items():
+                old_env[key] = os.environ.get(key)
+                os.environ[key] = value
+            
+            try:
+                from weasyprint import HTML, CSS
+                from weasyprint.text.fonts import FontConfiguration
+                
+                # Create font configuration with local fonts
+                font_config = FontConfiguration()
+                
+                # Use the HTML file directly with print CSS
+                css_print_path = html_path.parent / 'css_styling_print.css'
+                if not css_print_path.exists():
+                    css_print_path = html_path.parent / 'css_styling.css'
+                
+                # Load CSS files
+                css_files = []
+                if css_print_path.exists():
+                    css_files.append(CSS(filename=str(css_print_path), font_config=font_config))
+                
+                # Generate PDF with font configuration
+                html_doc = HTML(filename=str(html_path))
+                html_doc.write_pdf(
+                    str(pdf_path),
+                    stylesheets=css_files,
+                    font_config=font_config
+                )
+                
+                print(f"✅ PDF generated with weasyprint: {pdf_path}")
+                return True
+                
+            finally:
+                # Restore environment variables
+                for key, old_value in old_env.items():
+                    if old_value is None:
+                        os.environ.pop(key, None)
+                    else:
+                        os.environ[key] = old_value
+            
+        except ImportError:
+            print("WeasyPrint Python library not available, falling back to command line")
+            return self._try_weasyprint_command_line(html_path, pdf_path, target_version)
+        except Exception as e:
+            print(f"WeasyPrint Python API failed: {e}")
+            return self._try_weasyprint_command_line(html_path, pdf_path, target_version)
+    
+    def _try_weasyprint_command_line(self, html_path: Path, pdf_path: Path, target_version: str) -> bool:
+        """Fallback to WeasyPrint command line"""
         try:
             # Set up environment for WeasyPrint
             env = subprocess.os.environ.copy()
             env['PKG_CONFIG_PATH'] = "/opt/homebrew/lib/pkgconfig:/opt/homebrew/opt/libffi/lib/pkgconfig"
-            env['DYLD_LIBRARY_PATH'] = "/opt/homebrew/lib:" + env.get('DYLD_LIBRARY_PATH', '')
+            env['DYLD_LIBRARY_PATH'] = "/opt/homebrew/lib:/opt/homebrew/Cellar/glib/2.84.3/lib:" + env.get('DYLD_LIBRARY_PATH', '')
             
-            # Create a temporary HTML file with print-optimized CSS
-            temp_html = html_path.parent / f"temp_{html_path.name}"
-            
-            with open(html_path, 'r', encoding='utf-8') as f:
-                html_content = f.read()
-            
-            # Replace CSS reference with print-optimized version
-            html_content = html_content.replace('./css_styling.css', './css_styling_print.css')
-            
-            with open(temp_html, 'w', encoding='utf-8') as f:
-                f.write(html_content)
-            
-            cmd = ['weasyprint', str(temp_html), str(pdf_path)]
+            cmd = ['weasyprint', str(html_path), str(pdf_path)]
             result = subprocess.run(cmd, capture_output=True, text=True, timeout=60, env=env)
             
-            # Clean up temp file
-            temp_html.unlink(missing_ok=True)
-            
             if result.returncode == 0:
-                print(f"✅ PDF generated with weasyprint: {pdf_path}")
+                print(f"✅ PDF generated with weasyprint command line: {pdf_path}")
                 return True
             else:
-                print(f"WeasyPrint failed: {result.stderr}")
+                print(f"WeasyPrint command line failed: {result.stderr}")
                 return False
         except Exception as e:
-            print(f"WeasyPrint failed: {e}")
+            print(f"WeasyPrint command line failed: {e}")
             return False
     
     def _try_pandoc_pdf(self, html_path: Path, pdf_path: Path, target_version: str) -> bool:
-        """Try generating PDF using pandoc"""
+        """Try generating PDF using pandoc with HTML-native engines"""
+        
+        # Try different PDF engines that preserve HTML/CSS
+        pdf_engines = ['weasyprint', 'wkhtmltopdf', 'prince', 'pagedjs-cli']
+        
+        for engine in pdf_engines:
+            try:
+                cmd = [
+                    'pandoc', str(html_path),
+                    '-f', 'html',
+                    '-t', 'pdf',
+                    '--pdf-engine', engine,
+                    '-o', str(pdf_path)
+                ]
+                result = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
+                
+                if result.returncode == 0:
+                    print(f"✅ PDF generated with pandoc using {engine}: {pdf_path}")
+                    return True
+                else:
+                    print(f"Pandoc with {engine} failed: {result.stderr}")
+                    
+            except FileNotFoundError:
+                print(f"PDF engine {engine} not found")
+                continue
+            except Exception as e:
+                print(f"Pandoc with {engine} failed: {e}")
+                continue
+        
+        # Fallback to default LaTeX engine
         try:
             cmd = [
                 'pandoc', str(html_path),
@@ -687,10 +885,10 @@ _{personal_info['address']}_
                 '-o', str(pdf_path)
             ]
             subprocess.run(cmd, check=True)
-            print(f"✅ PDF generated with pandoc: {pdf_path}")
+            print(f"✅ PDF generated with pandoc (LaTeX fallback): {pdf_path}")
             return True
         except Exception as e:
-            print(f"Pandoc PDF failed: {e}")
+            print(f"Pandoc LaTeX fallback failed: {e}")
             return False
     
     def _provide_manual_instructions(self, html_path: Path, pdf_path: Path, target_version: str) -> bool:
@@ -724,12 +922,17 @@ def main():
     parser.add_argument('--html', action='store_true', help='Generate HTML output')
     parser.add_argument('--pdf', action='store_true', help='Generate PDF output (requires HTML)')
     parser.add_argument('--all-formats', action='store_true', help='Generate all formats (markdown, HTML, PDF)')
+    parser.add_argument('--check-deps', action='store_true', help='Check PDF generation dependencies')
     parser.add_argument('--content-dir', default='content', help='Content directory path')
     parser.add_argument('--output-dir', default='output', help='Output directory path')
     
     args = parser.parse_args()
     
     builder = CVBuilder(args.content_dir, args.output_dir)
+    
+    if args.check_deps:
+        builder.print_dependency_status()
+        return
     
     if args.test:
         if args.version == 'all':

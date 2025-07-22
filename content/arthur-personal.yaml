@@ -7,17 +7,13 @@ personal:
     last: "PASSUELLO"
     full: "Arthur PASSUELLO"
   
-  # Version-specific taglines from LaTeX sections/section_headline.tex and archived headlines
+  # Version-specific taglines - François-style simple job titles
   taglines:
-    firmware: "Senior Firmware Engineer and Software Architect with proven expertise in designing and delivering complex, deeply integrated embedded platforms from concept to production deployment. Combines advanced firmware development experience with cross-functional technical leadership across geographically distributed teams using Agile methodologies, spanning real-time systems, hardware-software integration, and emerging AI-enabled embedded applications. Demonstrated ability to translate product roadmaps into actionable technology strategies while maintaining exceptional quality standards in fast-paced, multiple-project environments."
-    
-    ai: "Senior Embedded Systems Engineer with proven expertise in safety-critical system development and solid foundation in AI/ML implementation. Combines EPFL Data Science specialization with hands-on experience developing transformer-based multimodal models and LLM-integrated applications. Successfully delivered technical AI/ML education to 100+ international business leaders. Currently building production-ready multimodal AI systems and developing LLM-based service architectures. Brings rigorous engineering methodology and regulatory compliance expertise to ethical AI consulting and responsible technology development."
-    
-    consulting: "Senior Embedded Systems Engineer with proven expertise in safety-critical system development and solid foundation in AI/ML implementation. Combines EPFL Data Science specialization with hands-on experience developing transformer-based multimodal models and LLM-integrated applications. Successfully delivered technical AI/ML education to 100+ international business leaders. Currently building multimodal AI systems and developing LLM-based service architectures. Brings rigorous engineering methodology and regulatory compliance expertise to ethical development and responsible technology implementation."
-    
-    executive: "Senior Technical Leader with proven expertise in architecting and delivering complex embedded platforms from concept to production deployment. Combines deep firmware development experience with cross-functional technical leadership, spanning real-time systems, hardware-software integration, and emerging AI-enabled embedded applications. Demonstrated ability to drive innovation in resource-constrained environments while maintaining exceptional quality standards. Based in Lausanne with strong collaborative approach to distributed team leadership and technology partner relationships."
-    
-    general: "Senior Embedded Systems Engineer with proven expertise in safety-critical system development and solid foundation in AI/ML implementation. Combines EPFL Data Science specialization with hands-on experience developing transformer-based multimodal models and LLM-integrated applications. Successfully delivered technical AI/ML education to 100+ international business leaders. Currently building production-ready multimodal AI systems and developing LLM-based service architectures. Brings rigorous engineering methodology and regulatory compliance expertise to ethical AI consulting and responsible technology development."
+    firmware: "Senior Firmware Engineer"
+    ai: "AI/ML Engineer & Data Scientist"  
+    consulting: "Technical Consultant & AI Specialist"
+    executive: "Senior Technical Leader"
+    general: "Embedded Systems & AI Engineer"
   
   # Contact information from LaTeX cv_original.tex
   contact:
