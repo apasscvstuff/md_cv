@@ -13,29 +13,29 @@ projects:
     # Version-specific descriptions
     descriptions:
       ai:
-        - "Architected production RAG system processing 10,000+ technical documents with 99.5% chunk quality score through novel TOC-guided hierarchical parsing"
-        - "Implemented hybrid retrieval combining dense (FAISS) and sparse (BM25) methods with neural reranking, achieving 94% relevance on custom evaluation set"
-        - "Designed auto-scaling architecture handling 1,000+ QPS with p99 latency under 100ms using async processing and intelligent caching"
-        - "Built comprehensive A/B testing framework comparing 8 different retrieval strategies, improving user satisfaction by 35% through data-driven optimization"
-        - "Deployed multi-model answer generation supporting Ollama (local), OpenAI, and HuggingFace endpoints with automatic failover and load balancing"
+        - "**RAG Architecture:** Architected production RAG system processing 10,000+ technical documents with 99.5% chunk quality score through novel TOC-guided hierarchical parsing"
+        - "**Hybrid Retrieval:** Implemented hybrid retrieval combining dense (FAISS) and sparse (BM25) methods with neural reranking, achieving 94% relevance on custom evaluation set"
+        - "**Auto-scaling Design:** Designed auto-scaling architecture handling 1,000+ QPS with p99 latency under 100ms using async processing and intelligent caching"
+        - "**A/B Testing Framework:** Built comprehensive A/B testing framework comparing 8 different retrieval strategies, improving user satisfaction by 35% through data-driven optimization"
+        - "**Multi-model Deployment:** Deployed multi-model answer generation supporting Ollama (local), OpenAI, and HuggingFace endpoints with automatic failover and load balancing"
       
       firmware:
-        - "Designed comprehensive RISC-V documentation assistant eliminating manual research for embedded systems engineers"
-        - "Implemented hybrid retrieval architecture achieving <100ms response times for complex technical queries"
-        - "Built production system supporting RISC-V ISA specifications, implementation guides, and debugging documentation"
-        - "Deployed on AWS with Docker containerization and real-time performance monitoring"
+        - "**RISC-V Documentation Assistant:** Designed comprehensive RISC-V documentation assistant eliminating manual research for embedded systems engineers"
+        - "**Hybrid Retrieval Architecture:** Implemented hybrid retrieval architecture achieving <100ms response times for complex technical queries"
+        - "**Production System:** Built production system supporting RISC-V ISA specifications, implementation guides, and debugging documentation"
+        - "**Cloud Deployment:** Deployed on AWS with Docker containerization and real-time performance monitoring"
       
       consulting:
-        - "Delivered enterprise RAG platform providing knowledge democratization for RISC-V ecosystem, eliminating specialist consultation costs"
-        - "Architected scalable solution supporting 10M+ documents with 1000+ QPS capability for production environments"
-        - "Implemented A/B testing framework and analytics dashboard enabling data-driven optimization and ROI measurement"
-        - "Designed modular architecture enabling seamless integration with existing enterprise technical workflows"
+        - "**Enterprise RAG Platform:** Delivered enterprise RAG platform providing knowledge democratization for RISC-V ecosystem, eliminating specialist consultation costs"
+        - "**Scalable Architecture:** Architected scalable solution supporting 10M+ documents with 1000+ QPS capability for production environments"
+        - "**Analytics Framework:** Implemented A/B testing framework and analytics dashboard enabling data-driven optimization and ROI measurement"
+        - "**Modular Integration:** Designed modular architecture enabling seamless integration with existing enterprise technical workflows"
       
       general:
-        - "Built production-ready RAG system for RISC-V documentation achieving 99.5% chunk quality and <100ms response times"
-        - "Implemented hybrid retrieval combining vector similarity, keyword matching, and neural reranking for optimal relevance"
-        - "Developed 6-component modular architecture with real-time analytics dashboard and comprehensive testing framework"
-        - "Deployed on AWS with multi-LLM support (Ollama, OpenAI) and streaming response generation"
+        - "**Production RAG System:** Built production-ready RAG system for RISC-V documentation achieving 99.5% chunk quality and <100ms response times"
+        - "**Hybrid Retrieval Implementation:** Implemented hybrid retrieval combining vector similarity, keyword matching, and neural reranking for optimal relevance"
+        - "**Modular Architecture:** Developed 6-component modular architecture with real-time analytics dashboard and comprehensive testing framework"
+        - "**Multi-LLM Deployment:** Deployed on AWS with multi-LLM support (Ollama, OpenAI) and streaming response generation"
     
     # Skills tags by version
     skills_tags:
@@ -54,25 +54,25 @@ projects:
     # Version-specific descriptions
     descriptions:
       ai:
-        - "Implemented complete transformer architecture from scratch based on Vaswani et al., achieving 95% of GPT-2 performance on equivalent tasks while using 40% less memory through custom optimization"
-        - "Developed multimodal fusion system integrating CLIP and ViT architectures, enabling cross-modal search with 89% accuracy on custom benchmark dataset"
-        - "Built comprehensive safety evaluation framework implementing Anthropic's Constitutional AI principles, including automated red-teaming suite testing 500+ adversarial prompts"
-        - "Created distributed training pipeline supporting multi-GPU execution with gradient accumulation, mixed precision training, and automatic checkpoint management"
-        - "Achieved 6x speedup on Apple Silicon through custom MPS kernels and memory-efficient attention implementation"
+        - "**Transformer Implementation:** Implemented complete transformer architecture from scratch based on Vaswani et al., achieving 95% of GPT-2 performance on equivalent tasks while using 40% less memory through custom optimization"
+        - "**Multimodal Fusion:** Developed multimodal fusion system integrating CLIP and ViT architectures, enabling cross-modal search with 89% accuracy on custom benchmark dataset"
+        - "**Safety Framework:** Built comprehensive safety evaluation framework implementing Anthropic's Constitutional AI principles, including automated red-teaming suite testing 500+ adversarial prompts"
+        - "**Distributed Training:** Created distributed training pipeline supporting multi-GPU execution with gradient accumulation, mixed precision training, and automatic checkpoint management"
+        - "**Performance Optimization:** Achieved 6x speedup on Apple Silicon through custom MPS kernels and memory-efficient attention implementation"
       
       consulting:
-        - "Architected comprehensive multimodal AI platform demonstrating technical leadership in cutting-edge model development"
-        - "Designed modular system architecture enabling rapid prototyping and evaluation of business-critical multimodal applications"
-        - "Implemented safety-first approach with red teaming frameworks, addressing enterprise concerns about AI deployment risks"
-        - "Built benchmarking infrastructure providing quantitative ROI assessment for multimodal AI investments"
-        - "Developed scalable training pipeline supporting enterprise-grade model optimization and deployment workflows"
+        - "**Multimodal AI Platform:** Architected comprehensive multimodal AI platform demonstrating technical leadership in cutting-edge model development"
+        - "**Modular System Design:** Designed modular system architecture enabling rapid prototyping and evaluation of business-critical multimodal applications"
+        - "**Safety-First Approach:** Implemented safety-first approach with red teaming frameworks, addressing enterprise concerns about AI deployment risks"
+        - "**Benchmarking Infrastructure:** Built benchmarking infrastructure providing quantitative ROI assessment for multimodal AI investments"
+        - "**Enterprise Training Pipeline:** Developed scalable training pipeline supporting enterprise-grade model optimization and deployment workflows"
       
       general:
-        - "Designed and implemented full-stack training platform for Transformer-based multimodal models"
-        - "Developed comprehensive model optimization modules including mixed precision, quantization, and pruning techniques"
-        - "Built multilingual dataset processing pipeline with custom tokenizers and preprocessing workflows"
-        - "Integrated pretrained models (CLIP, ViT) with unified interface for image-text understanding tasks"
-        - "Implemented safety evaluation framework with red teaming and adversarial testing capabilities"
+        - "**Training Platform:** Designed and implemented full-stack training platform for Transformer-based multimodal models"
+        - "**Model Optimization:** Developed comprehensive model optimization modules including mixed precision, quantization, and pruning techniques"
+        - "**Dataset Processing:** Built multilingual dataset processing pipeline with custom tokenizers and preprocessing workflows"
+        - "**Model Integration:** Integrated pretrained models (CLIP, ViT) with unified interface for image-text understanding tasks"
+        - "**Safety Evaluation:** Implemented safety evaluation framework with red teaming and adversarial testing capabilities"
     
     # Skills tags by version
     skills_tags:
@@ -93,25 +93,25 @@ projects:
     # Version-specific descriptions
     descriptions:
       ai:
-        - "Implemented statistical modeling pipeline to reconstruct missing marketplace data, addressing data sparsity challenges in large-scale behavioral datasets"
-        - "Built scalable data processing system using PySpark and distributed databases handling 1TB+ of historical marketplace data on standard hardware"
-        - "Developed comprehensive data extraction and cleaning pipeline processing mixed HTML content using BeautifulSoup and custom parsing algorithms"
-        - "Created interactive JavaScript visualization dashboard demonstrating complex market dynamics and regulatory policy impact analysis"
-        - "Conducted rigorous statistical analysis of police intervention effects on marketplace behavior, revealing no significant long-term market disruption"
+        - "**Statistical Modeling:** Implemented statistical modeling pipeline to reconstruct missing marketplace data, addressing data sparsity challenges in large-scale behavioral datasets"
+        - "**Big Data Processing:** Built scalable data processing system using PySpark and distributed databases handling 1TB+ of historical marketplace data on standard hardware"
+        - "**Data Extraction Pipeline:** Developed comprehensive data extraction and cleaning pipeline processing mixed HTML content using BeautifulSoup and custom parsing algorithms"
+        - "**Interactive Visualization:** Created interactive JavaScript visualization dashboard demonstrating complex market dynamics and regulatory policy impact analysis"
+        - "**Statistical Analysis:** Conducted rigorous statistical analysis of police intervention effects on marketplace behavior, revealing no significant long-term market disruption"
       
       consulting:
-        - "Analyzed regulatory policy impact on digital marketplace ecosystems, investigating law enforcement intervention effects on market dynamics"
-        - "Built scalable big data processing system handling 1TB+ datasets with distributed computing architecture on standard hardware"
-        - "Developed comprehensive data quality framework addressing complex HTML parsing and missing data reconstruction challenges"
-        - "Created interactive web-based visualization platform for stakeholder communication and policy insight presentation"
-        - "Delivered data-driven analysis demonstrating resilience of decentralized markets to regulatory intervention"
+        - "**Policy Impact Analysis:** Analyzed regulatory policy impact on digital marketplace ecosystems, investigating law enforcement intervention effects on market dynamics"
+        - "**Big Data Architecture:** Built scalable big data processing system handling 1TB+ datasets with distributed computing architecture on standard hardware"
+        - "**Data Quality Framework:** Developed comprehensive data quality framework addressing complex HTML parsing and missing data reconstruction challenges"
+        - "**Visualization Platform:** Created interactive web-based visualization platform for stakeholder communication and policy insight presentation"
+        - "**Regulatory Analysis:** Delivered data-driven analysis demonstrating resilience of decentralized markets to regulatory intervention"
       
       general:
-        - "Processed 1TB+ of historical marketplace data using PySpark and distributed databases to study behavioral economics and regulatory impact"
-        - "Implemented statistical modeling pipeline for missing data reconstruction and comprehensive data cleaning from mixed HTML sources"
-        - "Built scalable data processing system achieving excellent performance on standard hardware through distributed computing optimization"
-        - "Created interactive JavaScript visualization dashboard presenting complex market dynamics and policy analysis findings"
-        - "Conducted comprehensive analysis of regulatory intervention effects achieving distinguished academic recognition (5.5/6.0)"
+        - "**Big Data Processing:** Processed 1TB+ of historical marketplace data using PySpark and distributed databases to study behavioral economics and regulatory impact"
+        - "**Statistical Pipeline:** Implemented statistical modeling pipeline for missing data reconstruction and comprehensive data cleaning from mixed HTML sources"
+        - "**Distributed Computing:** Built scalable data processing system achieving excellent performance on standard hardware through distributed computing optimization"
+        - "**Interactive Dashboard:** Created interactive JavaScript visualization dashboard presenting complex market dynamics and policy analysis findings"
+        - "**Academic Recognition:** Conducted comprehensive analysis of regulatory intervention effects achieving distinguished academic recognition (5.5/6.0)"
     
     # Skills tags by version
     skills_tags:
@@ -130,23 +130,23 @@ projects:
     # Version-specific descriptions
     descriptions:
       ai:
-        - "Implemented formal verification of optimal purely functional priority queues using Stainless proof assistant framework"
-        - "Applied advanced algorithmic analysis and mathematical proof techniques for data structure correctness verification"
-        - "Developed functional programming approaches with formal methods ensuring algorithmic soundness and computational complexity guarantees"
-        - "Achieved perfect academic score (6.0/6.0) demonstrating expertise in theoretical computer science and algorithmic verification"
-        - "Contributed to research in verified algorithms and computational complexity theory with practical implementation"
+        - "**Formal Verification:** Implemented formal verification of optimal purely functional priority queues using Stainless proof assistant framework"
+        - "**Algorithmic Analysis:** Applied advanced algorithmic analysis and mathematical proof techniques for data structure correctness verification"
+        - "**Functional Programming:** Developed functional programming approaches with formal methods ensuring algorithmic soundness and computational complexity guarantees"
+        - "**Academic Excellence:** Achieved perfect academic score (6.0/6.0) demonstrating expertise in theoretical computer science and algorithmic verification"
+        - "**Research Contribution:** Contributed to research in verified algorithms and computational complexity theory with practical implementation"
       
       consulting:
-        - "Demonstrated expertise in formal verification methodologies ensuring system reliability and correctness"
-        - "Applied theoretical computer science principles to practical algorithm implementation and validation"
-        - "Contributed to research in verified algorithms with potential applications in safety-critical systems"
-        - "Achieved perfect academic score (6.0/6.0) showcasing analytical rigor and problem-solving excellence"
+        - "**Verification Methodology:** Demonstrated expertise in formal verification methodologies ensuring system reliability and correctness"
+        - "**Theoretical Application:** Applied theoretical computer science principles to practical algorithm implementation and validation"
+        - "**Research Excellence:** Contributed to research in verified algorithms with potential applications in safety-critical systems"
+        - "**Perfect Score Achievement:** Achieved perfect academic score (6.0/6.0) showcasing analytical rigor and problem-solving excellence"
       
       general:
-        - "Proved correctness of Stainless implementation of optimal purely functional priority queues"
-        - "Applied formal verification techniques using mathematical proof methods and algorithmic analysis"
-        - "Implemented functional programming solution with theoretical computer science foundations"
-        - "Achieved perfect academic recognition (6.0/6.0) for technical excellence and mathematical rigor"
+        - "**Correctness Proof:** Proved correctness of Stainless implementation of optimal purely functional priority queues"
+        - "**Formal Methods:** Applied formal verification techniques using mathematical proof methods and algorithmic analysis"
+        - "**Functional Implementation:** Implemented functional programming solution with theoretical computer science foundations"
+        - "**Academic Recognition:** Achieved perfect academic recognition (6.0/6.0) for technical excellence and mathematical rigor"
     
     # Skills tags by version
     skills_tags:
@@ -165,31 +165,31 @@ projects:
     # Version-specific descriptions
     descriptions:
       ai:
-        - "Developed real-time seizure detection system processing 300+ parallel neural channels at 50Hz, achieving 87% sensitivity and 92% specificity on clinical dataset"
-        - "Implemented custom feature extraction pipeline combining time-frequency analysis with learned representations, reducing false positives by 65%"
-        - "Optimized inference pipeline to meet <100ms latency requirement on embedded hardware through model quantization and architecture search"
-        - "Created data augmentation strategy addressing class imbalance (1:200 seizure ratio), improving model robustness across patient populations"
-        - "Contributed to 2 patent applications for novel biomarker detection methods"
+        - "**Seizure Detection System:** Developed real-time seizure detection system processing 300+ parallel neural channels at 50Hz, achieving 87% sensitivity and 92% specificity on clinical dataset"
+        - "**Feature Extraction:** Implemented custom feature extraction pipeline combining time-frequency analysis with learned representations, reducing false positives by 65%"
+        - "**Inference Optimization:** Optimized inference pipeline to meet <100ms latency requirement on embedded hardware through model quantization and architecture search"
+        - "**Data Augmentation:** Created data augmentation strategy addressing class imbalance (1:200 seizure ratio), improving model robustness across patient populations"
+        - "**Patent Contributions:** Contributed to 2 patent applications for novel biomarker detection methods"
       
       firmware:
-        - "Designed hardware-software interfaces for novel deep-brain electrodes with integrated ASICs"
-        - "Implemented real-time signal processing algorithms for multi-channel neural data acquisition"
-        - "Developed embedded firmware for medical device prototypes with strict real-time constraints"
-        - "Project focused on medical device innovation within startup environment at EPFL Innovation Park"
-        - "Achieved excellent academic recognition (5.0/6.0) for technical implementation excellence"
+        - "**Hardware-Software Interface:** Designed hardware-software interfaces for novel deep-brain electrodes with integrated ASICs"
+        - "**Real-time Processing:** Implemented real-time signal processing algorithms for multi-channel neural data acquisition"
+        - "**Embedded Firmware:** Developed embedded firmware for medical device prototypes with strict real-time constraints"
+        - "**Startup Innovation:** Project focused on medical device innovation within startup environment at EPFL Innovation Park"
+        - "**Academic Excellence:** Achieved excellent academic recognition (5.0/6.0) for technical implementation excellence"
       
       consulting:
-        - "Led medical device development project within startup environment, demonstrating entrepreneurial technical leadership"
-        - "Developed innovative healthcare technology solution addressing critical medical needs in neurology"
-        - "Contributed to startup product development pipeline from concept to prototype validation"
-        - "Achieved excellent academic recognition (5.0/6.0) while delivering measurable business value in healthcare innovation"
-        - "Demonstrated ability to work in resource-constrained startup environment while maintaining high quality standards"
+        - "**Medical Device Leadership:** Led medical device development project within startup environment, demonstrating entrepreneurial technical leadership"
+        - "**Healthcare Innovation:** Developed innovative healthcare technology solution addressing critical medical needs in neurology"
+        - "**Product Development:** Contributed to startup product development pipeline from concept to prototype validation"
+        - "**Business Value Delivery:** Achieved excellent academic recognition (5.0/6.0) while delivering measurable business value in healthcare innovation"
+        - "**Startup Excellence:** Demonstrated ability to work in resource-constrained startup environment while maintaining high quality standards"
       
       general:
-        - "Development of hardware-software interfaces for novel deep-brain electrodes with integrated ASICs"
-        - "Implementation of machine learning-based seizure detection system with real-time processing capabilities"
-        - "Project focused on medical device innovation within startup environment at EPFL Innovation Park"
-        - "Achieved excellent academic recognition (5.0/6.0) demonstrating technical and research excellence"
+        - "**System Integration:** Development of hardware-software interfaces for novel deep-brain electrodes with integrated ASICs"
+        - "**ML-Based Detection:** Implementation of machine learning-based seizure detection system with real-time processing capabilities"
+        - "**Innovation Environment:** Project focused on medical device innovation within startup environment at EPFL Innovation Park"
+        - "**Research Excellence:** Achieved excellent academic recognition (5.0/6.0) demonstrating technical and research excellence"
     
     # Skills tags by version
     skills_tags:
@@ -208,16 +208,16 @@ projects:
     # Version-specific descriptions
     descriptions:
       firmware:
-        - "Designed high-throughput genomic data processing pipeline with FPGA acceleration achieving 10x performance improvement"
-        - "Implemented custom hardware accelerators using Artix-7 FPGA for parallel sequence alignment algorithms"
-        - "Developed real-time data streaming architecture handling 1GB/s genomic data throughput"
-        - "Optimized memory management and DMA controllers for sustained high-performance genomic processing"
+        - "**FPGA Acceleration:** Designed high-throughput genomic data processing pipeline with FPGA acceleration achieving 10x performance improvement"
+        - "**Hardware Accelerators:** Implemented custom hardware accelerators using Artix-7 FPGA for parallel sequence alignment algorithms"
+        - "**Real-time Streaming:** Developed real-time data streaming architecture handling 1GB/s genomic data throughput"
+        - "**Memory Optimization:** Optimized memory management and DMA controllers for sustained high-performance genomic processing"
       
       general:
-        - "Designed high-performance genomic data processing system with hardware acceleration"
-        - "Implemented FPGA-based parallel processing for computational genomics applications"
-        - "Developed streaming data architecture for high-throughput genomic sequence analysis"
-        - "Achieved significant performance improvements through hardware-software co-design"
+        - "**High-Performance System:** Designed high-performance genomic data processing system with hardware acceleration"
+        - "**Parallel Processing:** Implemented FPGA-based parallel processing for computational genomics applications"
+        - "**Streaming Architecture:** Developed streaming data architecture for high-throughput genomic sequence analysis"
+        - "**Performance Improvement:** Achieved significant performance improvements through hardware-software co-design"
     
     # Skills tags by version
     skills_tags:

@@ -29,6 +29,7 @@
 @page {
     size: A4;
     margin: 15mm;
+
     @bottom-right {
         content: counter(page) " of " counter(pages);
         font-size: 8pt;
@@ -78,7 +79,7 @@ h1 strong {
     font-weight: 700;
 }
 
-h1 + h3 {
+h1+h3 {
     font-size: 13pt;
     font-weight: 500;
     color: #4a5568;
@@ -89,7 +90,7 @@ h1 + h3 {
 }
 
 /* Address styling */
-h1 + h3 + p {
+h1+h3+p {
     font-style: italic;
     color: #718096;
     margin-bottom: 14px;
@@ -118,7 +119,7 @@ h1 + h3 + p {
 }
 
 /* Languages line */
-.inline-contact + p {
+.inline-contact+p {
     font-weight: 700;
     margin-bottom: 18px;
     color: #2d3748;
@@ -145,7 +146,8 @@ table {
     font-size: 9pt;
 }
 
-th, td {
+th,
+td {
     text-align: left;
     vertical-align: top;
     padding: 5px 10px 5px 0;
@@ -189,7 +191,7 @@ p em {
 }
 
 /* Position titles */
-h3 + p + p {
+h3+p+p {
     font-weight: 700;
     margin-bottom: 10px;
     margin-top: 5px;
@@ -248,31 +250,33 @@ h3 a {
     body {
         font-size: 9pt;
     }
-    
+
     .profile-pic {
         width: 90px;
         height: 90px;
     }
-    
+
     h1 {
         font-size: 22pt;
     }
-    
+
     h2 {
         font-size: 13pt;
     }
-    
+
     table {
         font-size: 8pt;
     }
 }
 
 /* Avoid widows and orphans */
-h2, h3 {
+h2,
+h3 {
     page-break-after: avoid;
 }
 
-p, li {
+p,
+li {
     page-break-inside: avoid;
     orphans: 2;
     widows: 2;
