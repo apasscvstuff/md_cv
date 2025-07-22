@@ -230,6 +230,14 @@ body>p:nth-of-type(3)::after {
   clear: both;
 }
 
+/* Ensure skills section starts cleanly below header */
+body>h2:first-of-type {
+  clear: both;
+  /* Force skills section below floated header elements */
+  margin-top: var(--space-section);
+  /* Proper spacing from header */
+}
+
 /* Name Styling - Left aligned in header */
 h1 {
   font-family: var(--font-primary);
@@ -316,6 +324,8 @@ h2 {
   border-bottom: 2px solid var(--color-accent);
   letter-spacing: -0.02em;
   text-transform: uppercase;
+  clear: both;
+  /* Ensure section headers appear below floated header elements */
 }
 
 /* Skills Section - Three Column Table */
@@ -744,6 +754,8 @@ h3+p a {
   border-bottom: 2px solid var(--color-accent);
   letter-spacing: -0.02em;
   text-transform: uppercase;
+  clear: both;
+  /* Ensure section headers appear below floated header elements */
 }
 
 /* 💼 Skills Section Elements */
