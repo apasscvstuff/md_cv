@@ -348,3 +348,318 @@ a#pdf:hover { background: #222; }
         background-color: #f0f0f0;       /* Ensure background prints */
     }
 }
+
+/* =============================================================================
+   🏷️ SEMANTIC CV ELEMENT CLASSES - SRT Template Enhancement
+   New semantic classes for reliable, maintainable styling
+   ============================================================================= */
+
+/* 🎯 Header Elements - Clean, semantic selectors */
+.cv-name {
+    font-size: 48px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #333;
+    font-family: Georgia;
+    margin-bottom: 8px;
+}
+
+.cv-tagline {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: Georgia;
+}
+
+.cv-address {
+    font-size: 11pt;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.cv-contact {
+    font-size: 11pt;
+    margin-bottom: 15px;
+    line-height: 1.4;
+    color: #666;
+    clear: both;
+}
+
+.cv-contact-icon {
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.cv-languages {
+    font-size: 11pt;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* 📚 Section Headers - Professional section styling */
+.cv-section-header {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ccc;
+}
+
+/* 💼 Skills Section Elements */
+.cv-skills-table-container {
+    margin-bottom: 20px;
+}
+
+.cv-skills-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11pt;
+    font-family: Georgia;
+}
+
+.cv-skills-header {
+    font-weight: 600;
+    color: #333;
+    text-align: left;
+    padding: 8px 4px 6px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.cv-skill-item {
+    padding: 6px 4px 6px 0;
+    vertical-align: top;
+    color: #444;
+    line-height: 1.4;
+}
+
+.cv-skill-category {
+    margin-bottom: 16px;
+}
+
+.cv-executive-skills {
+    display: inline-block;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+/* 🏢 Experience Section Elements */
+.cv-experience-item {
+    position: relative;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #ccc;
+}
+
+.cv-company-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 4px;
+    font-family: Georgia;
+}
+
+.cv-company-location {
+    font-size: 11pt;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 8px;
+}
+
+.cv-company-period {
+    position: absolute;
+    top: 0.35em;
+    right: 0;
+    font-size: 11pt;
+    color: #666;
+    font-style: italic;
+}
+
+.cv-position-title {
+    font-size: 12pt;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    font-family: Georgia;
+}
+
+.cv-reference {
+    font-size: 10pt;
+    color: #666;
+    font-weight: 400;
+}
+
+.cv-achievements {
+    margin-left: 20px;
+    margin-bottom: 16px;
+    list-style: disc;
+}
+
+.cv-achievement {
+    line-height: 24px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 6px;
+    color: #444;
+    font-family: Georgia;
+}
+
+/* 🎯 Projects Section Elements */
+.cv-project-item {
+    position: relative;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #ccc;
+}
+
+.cv-project-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 4px;
+    font-family: Georgia;
+}
+
+.cv-project-period {
+    position: absolute;
+    top: 0.35em;
+    right: 0;
+    font-size: 11pt;
+    color: #666;
+    font-style: italic;
+}
+
+.cv-project-links {
+    margin-bottom: 8px;
+}
+
+.cv-project-link {
+    color: #990003;
+    margin-right: 12px;
+    font-size: 11pt;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.cv-project-link:hover {
+    text-decoration: underline;
+    color: #cc0004;
+}
+
+.cv-project-descriptions {
+    margin-left: 20px;
+    margin-bottom: 16px;
+    list-style: disc;
+}
+
+.cv-project-description {
+    line-height: 24px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 6px;
+    color: #444;
+    font-family: Georgia;
+}
+
+/* 🎓 Education Section Elements */
+.cv-education-item {
+    position: relative;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #ccc;
+}
+
+.cv-institution-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 4px;
+    font-family: Georgia;
+}
+
+.cv-education-location {
+    font-size: 11pt;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 8px;
+}
+
+.cv-education-period {
+    position: absolute;
+    top: 0.35em;
+    right: 0;
+    font-size: 11pt;
+    color: #666;
+    font-style: italic;
+}
+
+.cv-degree-title {
+    font-size: 12pt;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    font-family: Georgia;
+}
+
+.cv-major {
+    font-weight: 400;
+    color: #444;
+}
+
+.cv-focus-area {
+    font-size: 11pt;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 8px;
+}
+
+.cv-coursework {
+    font-size: 11pt;
+    color: #444;
+    margin-bottom: 8px;
+}
+
+.cv-education-achievements {
+    margin-left: 20px;
+    margin-bottom: 16px;
+    list-style: disc;
+}
+
+.cv-education-achievement {
+    line-height: 24px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 6px;
+    color: #444;
+    font-family: Georgia;
+}
+
+/* 🏷️ Skills Tags - Enhanced with semantic classes */
+.cv-skills-tags {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.cv-skill-tag {
+    display: inline-block;
+    background-color: #f8f8f8;
+    color: #333;
+    padding: 4px 8px;
+    margin: 2px 3px 2px 0;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 9pt;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.cv-skill-tag:hover {
+    background-color: #990003;
+    color: white;
+    border-color: #990003;
+}

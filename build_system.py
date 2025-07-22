@@ -272,13 +272,35 @@ class CVBuilder:
         return target_version in item_versions
 
     def format_skill_tags(self, skills_tags_text: str) -> str:
-        """Convert comma-separated skill tags to individual boxed HTML elements"""
+        """
+        Convert comma-separated skill tags to individual HTML elements with dual CSS classes.
+        
+        SEMANTIC CSS ENHANCEMENT:
+        This method was enhanced to include both semantic CSS classes (cv-skill-tag) and
+        legacy classes (skill-tag) for backward compatibility with existing templates.
+        
+        Each skill tag now has:
+        - cv-skill-tag: Semantic class for consistent styling across templates
+        - skill-tag: Legacy class for backward compatibility
+        
+        Args:
+            skills_tags_text: Comma-separated string of skill tags
+            
+        Returns:
+            HTML string with <span> elements for each tag, including both semantic 
+            and legacy CSS classes for maximum template compatibility
+            
+        Example:
+            Input: "Python, Docker, AWS"
+            Output: '<span class="cv-skill-tag skill-tag">Python</span><span class="cv-skill-tag skill-tag">Docker</span><span class="cv-skill-tag skill-tag">AWS</span>'
+        """
         if not skills_tags_text:
             return ""
 
-        # Split by comma and create individual span elements
+        # Split by comma and create individual span elements with dual CSS classes
+        # for semantic styling (cv-skill-tag) and backward compatibility (skill-tag)
         tags = [tag.strip() for tag in skills_tags_text.split(",") if tag.strip()]
-        tag_elements = [f'<span class="skill-tag">{tag}</span>' for tag in tags]
+        tag_elements = [f'<span class="cv-skill-tag skill-tag">{tag}</span>' for tag in tags]
 
         return "".join(tag_elements)
 
@@ -432,11 +454,11 @@ class CVBuilder:
         processed_skills = self.process_skills_section(skills_data, target_version)
 
         if processed_skills["layout"] == "executive":
-            # Executive format - 3 streamlined categories
-            markdown = "## Skills\n\n"
+            # Executive format - 3 streamlined categories with semantic classes
+            markdown = '<h2 class="cv-section-header" id="skills">Skills</h2>\n\n'
             for category, skills in processed_skills["categories"].items():
                 formatted_category = category.replace("_", " ").title()
-                markdown += f"**{formatted_category}**: "
+                markdown += f'<div class="cv-skill-category cv-executive-skills"><p class="cv-skill-category-header">**{formatted_category}**: '
 
                 skill_items = []
                 for skill in skills:
@@ -445,20 +467,28 @@ class CVBuilder:
                         skill_text += f" ({skill['metric']})"
                     skill_items.append(skill_text)
 
-                markdown += " • ".join(skill_items) + "\n\n"
+                markdown += " • ".join(skill_items) + "</p></div>\n\n"
 
             return markdown
         else:
-            # François-style clean bullet format
-            markdown = "## Skills\n\n"
+            # Technical format - 3-column skills table with semantic classes
+            markdown = '<h2 class="cv-section-header" id="skills">Skills</h2>\n\n'
 
             # Software Engineering category
             col1_items = processed_skills.get(
                 "programming_languages", []
             ) + processed_skills.get("core_technologies", [])
             if col1_items:
-                markdown += "| **Software Engineering**      | **AI & LLMs**                              | **Data Science**                          |\n"
-                markdown += "| :---------------------------- | :----------------------------------------- | :---------------------------------------- |\n"
+                markdown += '<div class="cv-skills-table-container">\n'
+                markdown += '<table class="cv-skills-table">\n'
+                markdown += '<thead>\n'
+                markdown += '<tr>\n'
+                markdown += '<th class="cv-skills-header">**Software Engineering**</th>\n'
+                markdown += '<th class="cv-skills-header">**AI & LLMs**</th>\n'
+                markdown += '<th class="cv-skills-header">**Data Science**</th>\n'
+                markdown += '</tr>\n'
+                markdown += '</thead>\n'
+                markdown += '<tbody>\n'
 
                 # Domain expertise (AI & LLMs)
                 col2_items = []
@@ -475,85 +505,140 @@ class CVBuilder:
                 # Create table rows
                 max_items = max(len(col1_items), len(col2_items), len(col3_items))
 
-            for i in range(max_items):
-                col1 = f"✓ {col1_items[i]}" if i < len(col1_items) else ""
-                col2 = f"✓ {col2_items[i]}" if i < len(col2_items) else ""
-                col3 = f"✓ {col3_items[i]}" if i < len(col3_items) else ""
+                for i in range(max_items):
+                    col1 = f"✓ {col1_items[i]}" if i < len(col1_items) else ""
+                    col2 = f"✓ {col2_items[i]}" if i < len(col2_items) else ""
+                    col3 = f"✓ {col3_items[i]}" if i < len(col3_items) else ""
 
-                markdown += f"| {col1:<28} | {col2:<42} | {col3:<40} |\n"
+                    markdown += '<tr class="cv-skills-row">\n'
+                    markdown += f'<td class="cv-skill-item">{col1}</td>\n'
+                    markdown += f'<td class="cv-skill-item">{col2}</td>\n'
+                    markdown += f'<td class="cv-skill-item">{col3}</td>\n'
+                    markdown += '</tr>\n'
+
+                markdown += '</tbody>\n'
+                markdown += '</table>\n'
+                markdown += '</div>\n\n'
 
             return markdown
 
     def generate_experience_markdown(
         self, experience_data: Dict, target_version: str
     ) -> str:
-        """Generate experience section markdown"""
+        """
+        Generate experience section markdown with semantic HTML structure.
+        
+        SEMANTIC CSS ENHANCEMENT:
+        This method was enhanced to generate HTML with semantic CSS classes:
+        - cv-section-header: Section title with unique ID
+        - cv-experience-item: Container for each work experience
+        - cv-company-name: Company name styling
+        - cv-company-location/cv-company-period: Location and date info
+        - cv-position-title: Job title with emphasis
+        - cv-reference: Reference contact information
+        - cv-achievements/cv-achievement: Achievement list items
+        - cv-skills-tags: Container for skill tags
+        
+        Args:
+            experience_data: Raw experience data from YAML
+            target_version: CV version being built (affects content filtering)
+            
+        Returns:
+            Markdown string with embedded semantic HTML classes
+        """
         experiences = self.process_experience_section(experience_data, target_version)
 
-        markdown = "## Work Experience\n\n"
+        markdown = '<h2 class="cv-section-header" id="work-experience">Work Experience</h2>\n\n'
 
         for exp in experiences:
-            markdown += f"### {exp['company']}  \n"
-            markdown += f"_{exp['location']}_<br>\n"
-            markdown += f"_{exp['period']}_\n\n"
+            markdown += f'<div class="cv-experience-item" id="cv-exp-{exp["company"].lower().replace(" ", "-")}">\n'
+            markdown += f'<h3 class="cv-company-name">{exp["company"]}</h3>\n'
+            markdown += f'<p class="cv-company-location">_{exp["location"]}_<br>\n'
+            markdown += f'<span class="cv-company-period">_{exp["period"]}_</span></p>\n\n'
 
-            markdown += f"**{exp['position']}**"
+            markdown += f'<p class="cv-position-title">**{exp["position"]}**'
             if exp["reference"]:
-                markdown += f" {exp['reference']}"
-            markdown += "\n\n"
+                markdown += f' <span class="cv-reference">{exp["reference"]}</span>'
+            markdown += '</p>\n\n'
 
             # Add achievements
-            for achievement in exp["achievements"]:
-                markdown += f"* {achievement['text']}\n"
+            if exp["achievements"]:
+                markdown += '<ul class="cv-achievements">\n'
+                for achievement in exp["achievements"]:
+                    markdown += f'<li class="cv-achievement">{achievement["text"]}</li>\n'
+                markdown += '</ul>\n\n'
 
             # Add skills tags if available
             if exp["skills_tags"]:
                 formatted_tags = self.format_skill_tags(exp["skills_tags"])
-                markdown += f'\n<div class="skills-tags">{formatted_tags}</div>\n'
+                markdown += f'<div class="cv-skills-tags skills-tags">{formatted_tags}</div>\n'
 
-            markdown += "\n"
+            markdown += '</div>\n\n'
 
         return markdown
 
     def generate_projects_markdown(
         self, projects_data: Dict, target_version: str
     ) -> str:
-        """Generate projects section markdown"""
+        """
+        Generate projects section markdown with semantic HTML structure.
+        
+        SEMANTIC CSS ENHANCEMENT:
+        This method generates HTML with semantic CSS classes for project elements:
+        - cv-project-item: Container for each project with unique ID
+        - cv-project-name: Project title styling
+        - cv-project-period: Project timeline
+        - cv-project-links: Container for project links (GitHub, Demo, etc.)
+        - cv-project-link: Individual link styling with semantic classes
+        - cv-project-descriptions/cv-project-description: Project description lists
+        
+        Args:
+            projects_data: Raw projects data from YAML
+            target_version: CV version being built (affects content filtering)
+            
+        Returns:
+            Markdown string with embedded semantic HTML classes, or empty string if no projects
+        """
         projects = self.process_projects_section(projects_data, target_version)
 
         if not projects:
             return ""
 
-        markdown = "## Projects\n\n"
+        markdown = '<h2 class="cv-section-header" id="projects">Projects</h2>\n\n'
 
         for project in projects:
-            markdown += f"### {project['name']}\n"
-            markdown += f"_{project['period']}_\n\n"
+            safe_project_id = project['name'].lower().replace(" ", "-").replace("'", "").replace('"', '')
+            markdown += f'<div class="cv-project-item" id="cv-proj-{safe_project_id}">\n'
+            markdown += f'<h3 class="cv-project-name">{project["name"]}</h3>\n'
+            markdown += f'<p class="cv-project-period">_{project["period"]}_</p>\n\n'
 
             # Add links
             if project["links"]:
                 link_parts = []
                 for link_type, url in project["links"].items():
                     if link_type == "github":
-                        link_parts.append(f"[Github]({url})")
+                        link_parts.append(f'<a href="{url}" class="cv-project-link cv-github-link">Github</a>')
                     elif link_type == "demo":
-                        link_parts.append(f"[Demo]({url})")
+                        link_parts.append(f'<a href="{url}" class="cv-project-link cv-demo-link">Demo</a>')
                     elif link_type == "website":
-                        link_parts.append(f"[Website]({url})")
+                        link_parts.append(f'<a href="{url}" class="cv-project-link cv-website-link">Website</a>')
 
                 if link_parts:
-                    markdown += " | ".join(link_parts) + "\n\n"
+                    markdown += f'<p class="cv-project-links">{" | ".join(link_parts)}</p>\n\n'
 
             # Add descriptions
-            for desc in project["descriptions"]:
-                markdown += f"- {desc}\n"
+            if project["descriptions"]:
+                markdown += '<ul class="cv-project-descriptions">\n'
+                for desc in project["descriptions"]:
+                    markdown += f'<li class="cv-project-description">{desc}</li>\n'
+                markdown += '</ul>\n\n'
 
             # Add skills tags if available
             if project["skills_tags"]:
                 formatted_tags = self.format_skill_tags(project["skills_tags"])
-                markdown += f'\n<div class="skills-tags">{formatted_tags}</div>\n'
+                markdown += f'<div class="cv-skills-tags skills-tags">{formatted_tags}</div>\n'
 
-            markdown += "\n"
+            markdown += '</div>\n\n'
 
         return markdown
 
@@ -608,40 +693,43 @@ class CVBuilder:
         if not processed_education:
             return ""
 
-        markdown = "## Education\n\n"
+        markdown = '<h2 class="cv-section-header" id="education">Education</h2>\n\n'
 
         for education in processed_education:
-            # Institution and degree
-            if education["institution_full"]:
-                markdown += f"### {education['institution_full']}\n"
-            else:
-                markdown += f"### {education['institution']}\n"
+            # Institution and degree  
+            institution_name = education["institution_full"] if education["institution_full"] else education["institution"]
+            safe_institution_id = institution_name.lower().replace(" ", "-").replace("'", "").replace("é", "e")
+            markdown += f'<div class="cv-education-item" id="cv-edu-{safe_institution_id}">\n'
+            markdown += f'<h3 class="cv-institution-name">{institution_name}</h3>\n'
 
             # Date range and location
-            markdown += f"_{education['location']}_<br>\n"
+            markdown += f'<p class="cv-education-location">_{education["location"]}_<br>\n'
             if education["start_date"] and education["end_date"]:
-                markdown += f"_{education['start_date']} - {education['end_date']}_\n\n"
+                markdown += f'<span class="cv-education-period">_{education["start_date"]} - {education["end_date"]}_</span></p>\n\n'
 
             # Degree information
-            markdown += f"**{education['degree']}**"
+            markdown += f'<p class="cv-degree-title">**{education["degree"]}**'
             if education["major"]:
-                markdown += f", Major in {education['major']}"
-            markdown += "\n\n"
+                markdown += f', <span class="cv-major">Major in {education["major"]}</span>'
+            markdown += '</p>\n\n'
 
             # Focus area (version-specific)
             if education["focus_area"]:
-                markdown += f"*Focus: {education['focus_area']}*\n\n"
+                markdown += f'<p class="cv-focus-area">*Focus: {education["focus_area"]}*</p>\n\n'
 
             # Relevant coursework (version-specific)
             if education["relevant_coursework"]:
-                markdown += "**Key Coursework:** "
-                markdown += " • ".join(education["relevant_coursework"]) + "\n\n"
+                markdown += '<p class="cv-coursework">**Key Coursework:** '
+                markdown += " • ".join(education["relevant_coursework"]) + "</p>\n\n"
 
             # Achievements (version-specific)
             if education["achievements"]:
+                markdown += '<ul class="cv-education-achievements">\n'
                 for achievement in education["achievements"]:
-                    markdown += f"* {achievement}\n"
-                markdown += "\n"
+                    markdown += f'<li class="cv-education-achievement">{achievement}</li>\n'
+                markdown += '</ul>\n\n'
+            
+            markdown += '</div>\n\n'
 
         return markdown
 
@@ -664,22 +752,38 @@ class CVBuilder:
             target_version, version_config["tagline"]
         )
 
-        # Build markdown content
-        markdown_content = f"""<img src="{personal_info['profile_photo']}" alt="{personal_info['name']}" class="profile-pic" />
+        # =====================================================================
+        # SEMANTIC HTML GENERATION - Enhanced CV Structure
+        # 
+        # This section generates HTML with semantic CSS classes for reliable,
+        # maintainable styling across all templates. Each CV element now has:
+        # 1. Semantic class (cv-*) for reliable targeting
+        # 2. Legacy class for backward compatibility  
+        # 3. Semantic ID for unique element identification
+        # 
+        # Benefits:
+        # - Eliminates fragile CSS selectors like h1+h3+p
+        # - Enables consistent styling across templates
+        # - Maintains backward compatibility with existing CSS
+        # - Provides semantic structure for accessibility
+        # =====================================================================
+        
+        # Build markdown content with dual CSS class system (semantic + legacy)
+        markdown_content = f"""<img src="{personal_info['profile_photo']}" alt="{personal_info['name']}" class="cv-profile-pic profile-pic" />
 
-# **{personal_info['name']}**
-### {tagline}
+<h1 class="cv-name" id="cv-name">**{personal_info['name']}**</h1>
+<h3 class="cv-tagline" id="cv-tagline">{tagline}</h3>
 
-_{personal_info['address']}_
+<p class="cv-address" id="cv-address">_{personal_info['address']}_</p>
 
-<p class="inline-contact">
-  <img src="assets/icons/phone.png" class="icon" alt="Phone" /> {personal_info['phone']} | 
-  <img src="assets/icons/email.png" class="icon" alt="Email" /> <a href="mailto:{personal_info['email']}">{personal_info['email']}</a> | 
-  <img src="assets/icons/github.png" class="icon" alt="GitHub" /> <a href="https://github.com/{personal_info['github']}">{personal_info['github']}</a> | 
-  <img src="assets/icons/linkedin.png" class="icon" alt="LinkedIn" /> <a href="https://linkedin.com/in/{personal_info['linkedin']}">{personal_info['linkedin_name']}</a>
-</p>
+<div class="cv-contact inline-contact" id="cv-contact">
+  <img src="assets/icons/phone.png" class="cv-contact-icon icon" alt="Phone" /> {personal_info['phone']} | 
+  <img src="assets/icons/email.png" class="cv-contact-icon icon" alt="Email" /> <a href="mailto:{personal_info['email']}">{personal_info['email']}</a> | 
+  <img src="assets/icons/github.png" class="cv-contact-icon icon" alt="GitHub" /> <a href="https://github.com/{personal_info['github']}">{personal_info['github']}</a> | 
+  <img src="assets/icons/linkedin.png" class="cv-contact-icon icon" alt="LinkedIn" /> <a href="https://linkedin.com/in/{personal_info['linkedin']}">{personal_info['linkedin_name']}</a>
+</div>
 
-**{personal_info['languages']}**
+<p class="cv-languages" id="cv-languages">**{personal_info['languages']}**</p>
 
 {self.generate_skills_markdown(skills_data, target_version)}
 

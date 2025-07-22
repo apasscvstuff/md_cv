@@ -645,3 +645,334 @@ strong {
    ❌ PROBLEM: Profile picture is too big/small
    ✅ SOLUTION: Change both width and height in .profile-pic to the same value
 */
+
+/* =============================================================================
+   🏷️ SEMANTIC CV ELEMENT CLASSES - Professional Template Enhancement
+   New semantic classes for reliable, maintainable styling
+   ============================================================================= */
+
+/* 🎯 Header Elements - Clean, semantic selectors */
+.cv-name {
+  font-family: var(--font-primary);
+  font-size: var(--size-name);
+  font-weight: 700;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.cv-tagline {
+  font-family: var(--font-primary);
+  font-size: var(--size-tagline);
+  font-weight: 400;
+  color: var(--color-secondary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: var(--space-small);
+}
+
+.cv-address {
+  font-size: var(--size-small);
+  font-style: italic;
+  color: var(--color-text-light);
+  margin-bottom: var(--space-small);
+}
+
+.cv-contact {
+  font-size: var(--size-small);
+  margin-bottom: var(--space-item);
+  margin-top: 7px;
+  color: var(--color-text-light);
+}
+
+.cv-contact-icon {
+  width: 8px;
+  height: 8px;
+  margin-right: 3px;
+  vertical-align: middle;
+  opacity: 0.7;
+}
+
+.cv-languages {
+  font-size: var(--size-small);
+  font-weight: 600;
+  margin-bottom: var(--space-section);
+  color: var(--color-secondary);
+}
+
+/* 📚 Section Headers - Professional section styling */
+.cv-section-header {
+  font-family: var(--font-primary);
+  font-size: var(--size-section);
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-top: var(--space-section);
+  margin-bottom: var(--space-item);
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--color-accent);
+  page-break-after: avoid;
+}
+
+/* 💼 Skills Section Elements */
+.cv-skills-table-container {
+  margin-bottom: var(--space-section);
+}
+
+.cv-skills-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--size-small);
+}
+
+.cv-skills-header {
+  font-weight: 600;
+  color: var(--color-secondary);
+  text-align: left;
+  padding: 8px 8px 6px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.cv-skill-item {
+  padding: 5px 8px 5px 0;
+  vertical-align: top;
+  color: var(--color-text);
+  line-height: 1.4;
+}
+
+.cv-skill-category {
+  margin-bottom: var(--space-item);
+  width: 32%;
+  float: left;
+}
+
+.cv-executive-skills {
+  display: inline-block;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+
+/* 🏢 Experience Section Elements */
+.cv-experience-item {
+  position: relative;
+  margin-bottom: var(--space-item);
+  padding-bottom: var(--space-item);
+  border-bottom: 1px solid var(--color-border);
+  page-break-inside: avoid;
+}
+
+.cv-company-name {
+  font-family: var(--font-primary);
+  font-size: var(--size-subsection);
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 2px;
+}
+
+.cv-company-location {
+  font-size: var(--size-small);
+  color: var(--color-text-light);
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.cv-company-period {
+  position: absolute;
+  top: 0.35em;
+  right: 0;
+  font-size: var(--size-small);
+  color: var(--color-text-light);
+  font-style: italic;
+}
+
+.cv-position-title {
+  font-size: var(--size-body);
+  font-weight: 600;
+  color: var(--color-secondary);
+  margin-bottom: var(--space-tiny);
+}
+
+.cv-reference {
+  font-size: var(--size-small);
+  color: var(--color-text-light);
+  font-weight: 400;
+}
+
+.cv-achievements {
+  list-style: none;
+  margin-left: 20px;
+  margin-bottom: var(--space-item);
+}
+
+.cv-achievement {
+  position: relative;
+  margin-bottom: 6px;
+  line-height: 1.4;
+  color: var(--color-text);
+  font-size: var(--size-small);
+  padding-left: 8px;
+}
+
+.cv-achievement:before {
+  content: "•";
+  position: absolute;
+  left: -12px;
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+/* 🎯 Projects Section Elements */
+.cv-project-item {
+  margin-bottom: var(--space-item);
+  padding-bottom: var(--space-small);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.cv-project-name {
+  font-family: var(--font-primary);
+  font-size: var(--size-subsection);
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 2px;
+}
+
+.cv-project-period {
+  font-size: var(--size-small);
+  color: var(--color-text-light);
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.cv-project-links {
+  margin-bottom: 8px;
+}
+
+.cv-project-link {
+  color: var(--color-accent);
+  margin-right: 8px;
+  font-size: var(--size-small);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.cv-project-link:hover {
+  text-decoration: underline;
+}
+
+.cv-project-descriptions {
+  list-style: none;
+  margin-left: 20px;
+  margin-bottom: var(--space-item);
+}
+
+.cv-project-description {
+  position: relative;
+  margin-bottom: 6px;
+  line-height: 1.4;
+  color: var(--color-text);
+  font-size: var(--size-small);
+  padding-left: 8px;
+}
+
+.cv-project-description:before {
+  content: "•";
+  position: absolute;
+  left: -12px;
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+/* 🎓 Education Section Elements */
+.cv-education-item {
+  margin-bottom: var(--space-item);
+  page-break-inside: avoid;
+}
+
+.cv-institution-name {
+  font-family: var(--font-primary);
+  font-size: var(--size-subsection);
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 2px;
+}
+
+.cv-education-location {
+  font-size: var(--size-small);
+  color: var(--color-text-light);
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.cv-education-period {
+  font-size: var(--size-small);
+  color: var(--color-text-light);
+  font-style: italic;
+}
+
+.cv-degree-title {
+  font-size: var(--size-body);
+  font-weight: 600;
+  color: var(--color-secondary);
+  margin-bottom: var(--space-tiny);
+}
+
+.cv-major {
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+.cv-focus-area {
+  font-size: var(--size-small);
+  color: var(--color-text-light);
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.cv-coursework {
+  font-size: var(--size-small);
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.cv-education-achievements {
+  list-style: none;
+  margin-left: 20px;
+  margin-bottom: var(--space-item);
+}
+
+.cv-education-achievement {
+  position: relative;
+  margin-bottom: 6px;
+  line-height: 1.4;
+  color: var(--color-text);
+  font-size: var(--size-small);
+  padding-left: 8px;
+}
+
+.cv-education-achievement:before {
+  content: "•";
+  position: absolute;
+  left: -12px;
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+/* 🏷️ Skills Tags - Enhanced with semantic classes */
+.cv-skills-tags {
+  margin: 8px 0 var(--space-item) 0;
+  line-height: 1.6;
+}
+
+.cv-skill-tag {
+  display: inline-block;
+  background: #f8f9fa;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 3px 8px;
+  margin: 2px 3px 2px 0;
+  font-size: var(--size-tiny);
+  color: var(--color-text);
+  font-weight: 500;
+  font-style: normal;
+}
