@@ -3,7 +3,7 @@
 
 projects:
   # Enterprise RAG System for Technical Documentation - Shows in AI, consulting, general
-  - name: "Enterprise RAG System for Technical Documentation"
+  - name: "Enterprise RAG System (Personal Portfolio Project)"
     period: "June 2025 - Present"
     links:
       github: "https://github.com/apassuello/technical-doc-rag/"
@@ -14,31 +14,31 @@ projects:
     # Version-specific descriptions
     descriptions:
       ai:
-        - "**RAG Architecture:** Architected production RAG processing 10,000+ documents with hierarchical parsing and multi-stage query processing"
+        - "**Personal Portfolio Project:** Architected production RAG processing 10,000+ documents with hierarchical parsing and multi-stage query processing"
         - "**Hybrid Retrieval:** Implemented hybrid retrieval: FAISS vector search + BM25 + neural reranking, achieving 94% relevance and <100ms latency"
         - "**Auto-scaling Infrastructure:** Built auto-scaling infrastructure handling 1,000+ QPS with A/B testing framework improving satisfaction 35%"
         - "**Enterprise Deployment:** Deployed enterprise solution with Weaviate integration and comprehensive LLM integration pipeline"
       
       consulting:
-        - "**Enterprise RAG Platform:** Architected production RAG processing 10,000+ documents with hierarchical parsing and multi-stage query processing"
+        - "**Personal Portfolio Project:** Architected production RAG processing 10,000+ documents with hierarchical parsing and multi-stage query processing"
         - "**Scalable Architecture:** Implemented hybrid retrieval: FAISS vector search + BM25 + neural reranking, achieving 94% relevance and <100ms latency"
         - "**Business Impact:** Built auto-scaling infrastructure handling 1,000+ QPS with A/B testing framework improving satisfaction 35%"
         - "**Enterprise Integration:** Deployed enterprise solution with Weaviate integration and comprehensive LLM integration pipeline"
       
       general:
-        - "**Production RAG System:** Architected production RAG processing 10,000+ documents with hierarchical parsing and multi-stage query processing"
+        - "**Personal Portfolio Project:** Architected production RAG processing 10,000+ documents with hierarchical parsing and multi-stage query processing"
         - "**Hybrid Retrieval Implementation:** Implemented hybrid retrieval: FAISS vector search + BM25 + neural reranking, achieving 94% relevance and <100ms latency"
         - "**Scalable Infrastructure:** Built auto-scaling infrastructure handling 1,000+ QPS with A/B testing framework improving satisfaction 35%"
         - "**Enterprise Deployment:** Deployed enterprise solution with Weaviate integration and comprehensive LLM integration pipeline"
     
     # Skills tags by version
     skills_tags:
-      ai: "RAG • FAISS • Vector Search • Neural Reranking • Production ML • NLP • LangChain • A/B Testing • Weaviate • Deployment • Query Processing • LLM Integration"
-      consulting: "RAG • FAISS • Vector Search • Neural Reranking • Production ML • NLP • LangChain • A/B Testing • Weaviate • Deployment • Query Processing • LLM Integration"
-      general: "RAG • FAISS • Vector Search • Neural Reranking • Production ML • NLP • LangChain • A/B Testing • Weaviate • Deployment • Query Processing • LLM Integration"
+      ai: "RAG, FAISS, Vector Search, Neural Reranking, Production ML, NLP, LangChain, A/B Testing, Weaviate, Deployment, Query Processing, LLM Integration"
+      consulting: "RAG, FAISS, Vector Search, Neural Reranking, Production ML, NLP, LangChain, A/B Testing, Weaviate, Deployment, Query Processing, LLM Integration"
+      general: "RAG, FAISS, Vector Search, Neural Reranking, Production ML, NLP, LangChain, A/B Testing, Weaviate, Deployment, Query Processing, LLM Integration"
 
   # MultiModal AI Research Implementation - Shows in AI, consulting, general
-  - name: "MultiModal AI Research Implementation"
+  - name: "MultiModal AI Research Implementation (Personal Project)"
     period: "Feb 2025 - May 2025"
     links:
       github: "https://github.com/apassuello/multimodal_insight_engine/"
@@ -67,9 +67,9 @@ projects:
     
     # Skills tags by version
     skills_tags:
-      ai: "Transformers • CLIP • ViT • Multimodal AI • PyTorch • Constitutional AI • Research Implementation • Multi-stage Training • Progressive Training • Model Optimization"
-      consulting: "Transformers • CLIP • ViT • Multimodal AI • PyTorch • Constitutional AI • Research Implementation • Multi-stage Training • Progressive Training • Model Optimization"
-      general: "Transformers • CLIP • ViT • Multimodal AI • PyTorch • Constitutional AI • Research Implementation • Multi-stage Training • Progressive Training • Model Optimization"
+      ai: "Transformers, CLIP, ViT, Multimodal AI, PyTorch, Constitutional AI, Research Implementation, Multi-stage Training, Progressive Training, Model Optimization"
+      consulting: "Transformers, CLIP, ViT, Multimodal AI, PyTorch, Constitutional AI, Research Implementation, Multi-stage Training, Progressive Training, Model Optimization"
+      general: "Transformers, CLIP, ViT, Multimodal AI, PyTorch, Constitutional AI, Research Implementation, Multi-stage Training, Progressive Training, Model Optimization"
 
   # Data-Driven Analysis of DeepWeb Marketplace Dynamics - Shows in all except firmware and executive
   - name: "Data-Driven Analysis of DeepWeb Marketplace Dynamics"
@@ -106,7 +106,7 @@ projects:
     
     # Skills tags by version
     skills_tags:
-      ai: "Statistical Modeling • Data Engineering • PySpark • Distributed Computing • Big Data Analytics • ETL Pipelines • Data Quality • Exploratory Data Analysis • Time Series Analysis • A/B Testing • Data Visualization • D3.js • Behavioral Analytics • Causal Inference"
+      ai: "Statistical Modeling, Data Engineering, PySpark, Distributed Computing, Big Data Analytics, ETL Pipelines, Data Quality, Exploratory Data Analysis, Time Series Analysis, A/B Testing, Data Visualization, D3.js, Behavioral Analytics, Causal Inference"
       consulting: "Big Data Analytics, Policy Impact Analysis, Distributed Systems, Data Quality Frameworks, Stakeholder Communication, Regulatory Analysis, Web Visualization"
       general: "Big Data Processing, Statistical Analysis, PySpark, Distributed Computing, Data Visualization, JavaScript, Web Development, Policy Research"
 

@@ -47,10 +47,10 @@ technical:
       - "Assembly"
       - "Shell Scripting"
     ai:
-      - "Python • C++"
-      - "FastAPI • REST"
+      - "Python, C++"
+      - "FastAPI, REST"
       - "Git Version Control"
-      - "Docker • CI/CD"
+      - "Docker, CI/CD"
       - "Technical Leadership"
     consulting:
       - "Python (Expert)"
@@ -74,6 +74,8 @@ technical:
     ai:
       - "System Architecture"
       - "Technical Documentation"
+      - "Hardware-Software Integration"
+      - "Real-time Systems"
       - "Hardware Optimization"
     consulting:
       - "FastAPI"
@@ -103,12 +105,12 @@ technical:
     ai:
       category: "AI/ML Systems & Architecture"
       skills:
-        - "PyTorch • TensorFlow"
-        - "Transformers • LLMs"
-        - "RAG • Vector Search"
+        - "PyTorch, TensorFlow"
+        - "Transformers, LLMs"
+        - "RAG, Vector Search"
         - "Multimodal AI"
         - "Constitutional AI"
-        - "Neural Networks • Deep Learning"
+        - "Neural Networks, Deep Learning"
         - "Model Optimization"
         - "Production ML"
     
@@ -156,9 +158,9 @@ technical:
       - "Docker"
       - "Performance Profiling"
     ai:
-      - "NumPy • Pandas"
-      - "Matplotlib • Seaborn"
-      - "Jupyter • Data Analysis"
+      - "NumPy, Pandas"
+      - "Matplotlib, Seaborn"
+      - "Jupyter, Data Analysis"
       - "Gradio & Streamlit"
       - "Statistical Analysis"
       - "Data Engineering"

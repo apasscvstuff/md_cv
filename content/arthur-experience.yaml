@@ -5,7 +5,7 @@ experiences:
   # Tandem Diabetes Care - Shows in all versions with different content
   - company: "Tandem Diabetes Care Switzerland"
     location: "Lausanne, Switzerland"
-    period: "December 2022 - Today"
+    period: "December 2022 - June 2025"
     reference: "(Ref. Patrick Segura)"
     versions: ["firmware", "ai", "consulting", "executive", "general"]
     
@@ -14,14 +14,14 @@ experiences:
     position_variants:
       executive: "Senior Embedded Software Engineer"
       consulting: "Embedded Software Engineer"
-      ai: "AI/ML Engineer & Technical Lead"
+      ai: "Embedded Software Engineer & Technical Lead"
       firmware: "Embedded Software Engineer"
       general: "Embedded Software Engineer"
     
     # Achievements with conditional logic following Action+Metric+Impact pattern
     achievements:
       # Core achievement - Priority 1 (consolidated with key metrics)
-      - text: "**ML Signal Processing:** Developed real-time anomaly detection system for medical device using statistical learning, achieving 100% critical event detection with 0.1% false positive rate"
+      - text: "**Clinical Trial Leadership:** Led firmware development for Sigi™ insulin pump delivering FDA-compliant system for First In Human clinical trial, ensuring ISO-13485/IEC-62304 compliance with comprehensive regulatory documentation"
         versions: ["ai"]
         priority: 1
         type: "ai_focus"
@@ -87,7 +87,7 @@ experiences:
         priority: 2
         type: "leadmetric"
         
-      - text: "**LLM Integration:** Deployed local Llama 3.2 model for intelligent documentation search, implementing RAG system over 100MB technical docs, reducing lookup time by 75%"
+      - text: "**Technical Documentation System:** Designed and prototyped RAG-based technical documentation search system for complex medical device specifications, implementing intelligent document retrieval to improve engineering team efficiency"
         versions: ["ai"]
         priority: 1
         type: "ai_focus"
@@ -102,11 +102,20 @@ experiences:
         priority: 1
         type: "ai_focus"
         
-      - text: "**Python Migration:** Led transition from LabView to Python/ML stack, training 15+ engineers in NumPy, Pandas, and scikit-learn, enabling data-driven development"
+      - text: "**Cross-functional Leadership:** Organized and facilitated Scrum ceremonies (standups, sprint planning, retrospectives, demos) while coordinating with hardware, QA, regulatory affairs, and clinical teams across multiple time zones"
         versions: ["ai"]
         priority: 1
         type: "ai_focus"
         
+      - text: "**Technical Infrastructure:** Developed comprehensive HIL (Hardware-in-the-Loop) test infrastructure achieving 96% code coverage, enabling automated firmware validation and accelerating development cycles by 40%"
+        versions: ["ai"]
+        priority: 1
+        type: "ai_focus"
+        
+      - text: "**Embedded Architecture:** Designed and implemented embedded software architecture for medical device combining Bluetooth communication stack with real-time insulin delivery protocols and safety-critical algorithms"
+        versions: ["ai"]
+        priority: 1
+        type: "ai_focus"
         
       - text: "**Strategic Project Management:** Translated clinical trial roadmap requirements into concrete technical strategies, managing multiple parallel projects under tight regulatory deadlines while ensuring ethical technology development"
         versions: ["consulting"]
