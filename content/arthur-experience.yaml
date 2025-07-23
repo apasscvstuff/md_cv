@@ -21,7 +21,7 @@ experiences:
     # Achievements with conditional logic following Action+Metric+Impact pattern
     achievements:
       # Core achievement - Priority 1 (consolidated with key metrics)
-      - text: "**ML Medical System:** Architected ML-powered signal processing system for FDA-compliant medical device, implementing real-time anomaly detection achieving 100% sensitivity for critical events while maintaining 0.1% false positive rate"
+      - text: "**ML Signal Processing:** Developed real-time anomaly detection system for medical device using statistical learning, achieving 100% critical event detection with 0.1% false positive rate"
         versions: ["ai"]
         priority: 1
         type: "ai_focus"
@@ -87,7 +87,7 @@ experiences:
         priority: 2
         type: "leadmetric"
         
-      - text: "**AI Documentation System:** Pioneered integration of local LLM (Ollama) for intelligent documentation search, reducing engineer lookup time by 75% and improving compliance accuracy through context-aware retrieval of 100+ MB regulatory documents"
+      - text: "**LLM Integration:** Deployed local Llama 3.2 model for intelligent documentation search, implementing RAG system over 100MB technical docs, reducing lookup time by 75%"
         versions: ["ai"]
         priority: 1
         type: "ai_focus"
@@ -97,12 +97,12 @@ experiences:
         priority: 2
         type: "ai_focus"
         
-      - text: "**Adaptive ML Calibration:** Designed adaptive calibration system using online learning techniques, continuously improving sensor accuracy from 94% to 99.5% through Bayesian optimization and temporal pattern recognition"
+      - text: "**Production Systems:** Architected safety-critical software with 99.9% uptime, implementing comprehensive testing (96% coverage) and real-time monitoring"
         versions: ["ai"]
         priority: 1
         type: "ai_focus"
         
-      - text: "**Technology Migration:** Led Python transformation initiative, creating ML-ready data pipeline replacing legacy LabView systems, enabling integration of predictive models and reducing analysis time from hours to minutes while training 15+ engineers in modern ML stack"
+      - text: "**Python Migration:** Led transition from LabView to Python/ML stack, training 15+ engineers in NumPy, Pandas, and scikit-learn, enabling data-driven development"
         versions: ["ai"]
         priority: 1
         type: "ai_focus"
@@ -194,7 +194,7 @@ experiences:
     # Skills tags by version
     skills_tags:
       firmware: "Software Architecture, System Engineering, C/C++, Python, FreeRTOS, Safety-Critical Systems, Sensor Fusion, Statistical Algorithms, Technical Leadership, Cross-functional Team Coordination, CI/CD Implementation, GitHub Actions, Grafana, Real-time Monitoring, Git Version Control, Stakeholder Communication, JTAG, STM32, Nordic, HIL Testing, Power Optimization, Agile/Scrum"
-      ai: "Python, RAG Systems, Ollama, Hybrid Retrieval, Signal Processing, Statistical Modeling, Data Analysis, Technical Training, Curriculum Design, PyTorch, Pandas, NumPy, Sensor Fusion, ML Pipeline Development, CI/CD, GitHub Actions, Grafana, Data Visualization, Technical Documentation, Knowledge Transfer, Proof-of-Concept Development, System Architecture, Medical AI Applications"
+      ai: "Signal Processing , Statistical Analysis , Production Systems , Team Leadership , Technical Training , Software Architecture , Testing Infrastructure , CI/CD , QMS, GitHub Actions , Grafana , Real-time Monitoring , Medical Device Development"
       consulting: "Technical Strategy, Cross-functional Coordination, Regulatory Compliance, Stakeholder Communication, Strategic Consulting, Proof-of-Concept Development, Technical Training, Team Development, Change Management, Innovation Leadership, Client Presentations, Ethical Technology Development"
       executive: "Strategic Technical Leadership, Cross-functional Coordination, Regulatory Compliance, $2M+ Project Impact"
       general: "System Architecture, Python, Technical Leadership, Proof-of-Concept Development, Risk Management, Requirement Engineering, Team Mentoring, Cross-functional Communication, HIL Testing, Statistical Analysis"
@@ -274,7 +274,7 @@ experiences:
     
     achievements:
       # AI version - detailed ML content
-      - text: "**ML Curriculum Design:** Designed and delivered comprehensive 40-hour ML curriculum for executive MBA program, covering supervised learning, neural networks, and practical business applications, achieving highest instructor rating (4.8/5.0) across 4 consecutive years with 100+ international students from 25+ countries"
+      - text: "**ML Curriculum:** Designed 40-hour hands-on curriculum covering supervised learning, neural networks, and PyTorch, achieving 4.8/5.0 rating from 100+ international executives"
         versions: ["ai"]
         priority: 1
         type: "ai_focus"
@@ -284,7 +284,7 @@ experiences:
         priority: 1
         type: "consulting_focus"
         
-      - text: "**Business-Focused AI Education:** Created innovative pedagogical approach translating complex ML concepts (backpropagation, gradient descent, transformer attention) into business-accessible frameworks, enabling non-technical leaders to implement AI strategies"
+      - text: "**Technical Translation:** Developed innovative methods to explain backpropagation, attention mechanisms, and gradient descent to non-technical business leaders"
         versions: ["ai"]
         priority: 1
         type: "ai_focus"
@@ -294,7 +294,7 @@ experiences:
         priority: 2
         type: "consulting_focus"
         
-      - text: "**Hands-on ML Projects:** Developed 15+ hands-on projects including demand forecasting, customer segmentation, and NLP-based sentiment analysis, with students presenting ML-powered business solutions to C-suite executives"
+      - text: "**Applied Projects:** Led implementation of business-focused ML projects including demand forecasting and sentiment analysis, with students presenting to C-suite"
         versions: ["ai"]
         priority: 1
         type: "ai_focus"
@@ -347,7 +347,7 @@ experiences:
         type: "base"
     
     skills_tags:
-      ai: "Machine Learning Education, Python/PyTorch/TensorFlow, Curriculum Development, Technical Training, Cross-cultural Communication, Team Leadership, Business Applications"
+      ai: "PyTorch , Teaching , Neural Networks , Python , Curriculum Design , Technical Communication , Training Development , Cross-cultural Communication , Educational Content Creation"
       consulting: "Technical Training Design, Stakeholder Communication, Cross-cultural Management, Educational Content Creation, Team Leadership, Business Impact Analysis"
       general: "Technical Training, Team Leadership, Cross-cultural Communication, Python Programming, Educational Content Creation"
       firmware: "Technical Training, Team Leadership, Cross-cultural Communication, Python Programming, Educational Content Creation"
@@ -435,6 +435,12 @@ experiences:
         versions: ["general"]
         priority: 2
         type: "base"
+    
+    skills_tags:
+      firmware: "Hardware-Software Integration, C/C++, Python, VHDL, ASIC Integration, Embedded Drivers, Medical Device Development, Regulatory Compliance, R&D Prototyping, Signal Processing, EPFL Innovation Park"
+      ai: "Neural Signal Processing, Python, Machine Learning, Signal Processing Pipelines, Medical AI, Feature Extraction, Time Series Analysis, Seizure Detection, High-Frequency Processing, Data Visualization, Medical Diagnostics"
+      consulting: "Medical Device R&D, Regulatory Compliance, Research Prototyping, Technical Documentation, Multidisciplinary Collaboration, Quality Systems, Ethical Technology Development"
+      general: "System Integration, Python, FPGA, Medical Device Development, R&D Collaboration, Regulatory Standards, Prototype Development"
 
   # ParSA Laboratory EPFL - Only shows in non-AI versions 
   - company: "ParSA Laboratory, EPFL"

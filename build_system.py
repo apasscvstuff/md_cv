@@ -78,15 +78,17 @@ class CVBuilder:
 
         if not templates_dir.exists():
             # Fallback to old system if templates directory doesn't exist
+            print("COUCOU")
             return {
-                "professional": "css_styling.css",
                 "francois": "css_styling_v2.css",
+                "professional": "css_styling.css",
                 "original": "css_styling_original.css",
             }
 
         for template_dir in templates_dir.iterdir():
             if template_dir.is_dir():
                 template_name = template_dir.name
+                print(template_name)
                 # Look for common CSS filenames
                 css_candidates = ["style.css", "resume.css", "main.css", "theme.css"]
 
@@ -315,11 +317,11 @@ class CVBuilder:
     def convert_markdown_to_html(self, text: str) -> str:
         """Convert basic Markdown syntax to HTML for pure HTML generation"""
         # Convert **bold** to <strong>bold</strong>
-        text = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', text)
+        text = re.sub(r"\*\*(.*?)\*\*", r"<strong>\1</strong>", text)
         # Convert *italic* to <em>italic</em>
-        text = re.sub(r'\*(.*?)\*', r'<em>\1</em>', text)
+        text = re.sub(r"\*(.*?)\*", r"<em>\1</em>", text)
         # Convert _italic_ to <em>italic</em>
-        text = re.sub(r'_(.*?)_', r'<em>\1</em>', text)
+        text = re.sub(r"_(.*?)_", r"<em>\1</em>", text)
         return text
 
     def filter_by_priority(self, items: List[Dict], target_version: str) -> List[Dict]:
@@ -482,7 +484,7 @@ class CVBuilder:
 
                 markdown += " • ".join(skill_items) + "</p></div>\n\n"
 
-            markdown += '</section>\n\n'
+            markdown += "</section>\n\n"
             return markdown
         else:
             # Technical format - 3-column skills table with semantic classes
@@ -497,11 +499,13 @@ class CVBuilder:
                 markdown += '<table class="cv-skills-table">\n'
                 markdown += "<thead>\n"
                 markdown += "<tr>\n"
+                markdown += '<th class="cv-skills-header"><strong>Software Engineering</strong></th>\n'
                 markdown += (
-                    '<th class="cv-skills-header"><strong>Software Engineering</strong></th>\n'
+                    '<th class="cv-skills-header"><strong>ML &amp; LLMs</strong></th>\n'
                 )
-                markdown += '<th class="cv-skills-header"><strong>AI &amp; LLMs</strong></th>\n'
-                markdown += '<th class="cv-skills-header"><strong>Data Science</strong></th>\n'
+                markdown += (
+                    '<th class="cv-skills-header"><strong>Data Science</strong></th>\n'
+                )
                 markdown += "</tr>\n"
                 markdown += "</thead>\n"
                 markdown += "<tbody>\n"
@@ -536,7 +540,7 @@ class CVBuilder:
                 markdown += "</table>\n"
                 markdown += "</div>\n\n"
 
-            markdown += '</section>\n\n'
+            markdown += "</section>\n\n"
             return markdown
 
     def generate_experience_markdown(
@@ -573,25 +577,29 @@ class CVBuilder:
             markdown += f'<div class="cv-entry-header">\n'
             markdown += f'  <h3 class="cv-company-name">{exp["company"]}</h3>\n'
             markdown += f'  <span class="cv-company-location"><em>{exp["location"]}</em></span>\n'
-            markdown += f'</div>\n\n'
+            markdown += f"</div>\n\n"
 
             # Create position header with date alignment
             markdown += f'<div class="cv-position-header">\n'
-            markdown += f'  <p class="cv-position-title"><strong>{exp["position"]}</strong>'
+            markdown += (
+                f'  <p class="cv-position-title"><strong>{exp["position"]}</strong>'
+            )
             if exp["reference"]:
                 markdown += f' <span class="cv-reference">{exp["reference"]}</span>'
-            markdown += f'</p>\n'
-            markdown += f'  <span class="cv-company-period"><em>{exp["period"]}</em></span>\n'
-            markdown += f'</div>\n\n'
+            markdown += f"</p>\n"
+            markdown += (
+                f'  <span class="cv-company-period"><em>{exp["period"]}</em></span>\n'
+            )
+            markdown += f"</div>\n\n"
 
             # Add achievements
             if exp["achievements"]:
                 markdown += '<ul class="cv-achievements">\n'
                 for achievement in exp["achievements"]:
-                    achievement_text = self.convert_markdown_to_html(achievement["text"])
-                    markdown += (
-                        f'<li class="cv-achievement">{achievement_text}</li>\n'
+                    achievement_text = self.convert_markdown_to_html(
+                        achievement["text"]
                     )
+                    markdown += f'<li class="cv-achievement">{achievement_text}</li>\n'
                 markdown += "</ul>\n\n"
 
             # Add skills tags if available
@@ -603,7 +611,7 @@ class CVBuilder:
 
             markdown += "</div>\n\n"
 
-        markdown += '</section>\n\n'
+        markdown += "</section>\n\n"
         return markdown
 
     def generate_projects_markdown(
@@ -687,7 +695,7 @@ class CVBuilder:
 
             markdown += "</div>\n\n"
 
-        markdown += '</section>\n\n'
+        markdown += "</section>\n\n"
         return markdown
 
     def process_education_section(
@@ -711,7 +719,9 @@ class CVBuilder:
                 "start_date": education.get("start_date", ""),
                 "end_date": education.get("end_date", ""),
                 "location": education.get("location", ""),
-                "technical_highlight": education.get("technical_highlight", {}).get(target_version, ""),
+                "technical_highlight": education.get("technical_highlight", {}).get(
+                    target_version, ""
+                ),
                 "relevant_coursework": education.get("relevant_coursework", {}).get(
                     target_version, []
                 ),
@@ -725,14 +735,12 @@ class CVBuilder:
                     processed_education["achievements"].append(
                         achievement["achievement"]
                     )
-            
+
             # Filter practical experience by version
             for experience in education.get("practical_experience", []):
                 experience_versions = experience.get("versions", [])
                 if self.check_version_condition(experience_versions, target_version):
-                    processed_education["achievements"].append(
-                        experience["experience"]
-                    )
+                    processed_education["achievements"].append(experience["experience"])
 
             filtered_education.append(processed_education)
 
@@ -770,16 +778,18 @@ class CVBuilder:
 
             # Create two-line header structure matching experience format
             markdown += f'<div class="cv-entry-header">\n'
-            markdown += f'  <h3 class="cv-institution-name">{education["institution"]}</h3>\n'
+            markdown += (
+                f'  <h3 class="cv-institution-name">{education["institution"]}</h3>\n'
+            )
             markdown += f'  <span class="cv-education-location"><em>{education["location"]}</em></span>\n'
-            markdown += f'</div>\n\n'
+            markdown += f"</div>\n\n"
 
             # Create degree header with date alignment - MINIMAL CLEAN DESIGN
             markdown += f'<div class="cv-position-header">\n'
             markdown += f'  <p class="cv-degree-title"><strong>{education["degree"]}</strong></p>\n'
             if education["start_date"] and education["end_date"]:
                 markdown += f'  <span class="cv-education-period"><em>{education["start_date"]} - {education["end_date"]}</em></span>\n'
-            markdown += f'</div>\n\n'
+            markdown += f"</div>\n\n"
 
             # Add single technical highlight line (subtle like bullet points but without bullet)
             if education["technical_highlight"]:
@@ -787,7 +797,7 @@ class CVBuilder:
 
             markdown += "</div>\n\n"
 
-        markdown += '</section>\n\n'
+        markdown += "</section>\n\n"
         return markdown
 
     def build_version(self, target_version: str) -> None:
@@ -922,7 +932,7 @@ class CVBuilder:
 
         print(f"✅ {target_version} version tested successfully")
 
-    def _copy_assets(self, target_version: str, template: str = "professional") -> None:
+    def _copy_assets(self, target_version: str, template: str = "francois") -> None:
         """Copy assets to output directory for proper PDF generation"""
         import shutil
 
@@ -993,7 +1003,7 @@ class CVBuilder:
                 shutil.rmtree(fonts_output_dest)
             shutil.copytree(fonts_src, fonts_output_dest)
 
-    def build_html(self, target_version: str, template: str = "professional") -> None:
+    def build_html(self, target_version: str, template: str = "francois") -> None:
         """Build HTML version of CV from markdown"""
         print(f"Building HTML for {target_version} version...")
 
@@ -1030,7 +1040,7 @@ class CVBuilder:
         except FileNotFoundError:
             print("❌ pandoc not found. Please install pandoc first.")
 
-    def build_pdf(self, target_version: str, template: str = "professional") -> None:
+    def build_pdf(self, target_version: str, template: str = "francois") -> None:
         """Attempt to build PDF version of CV"""
         print(f"Building PDF for {target_version} version...")
 
@@ -1281,7 +1291,7 @@ You can also use browser extensions or online converters.
         return True
 
     def build_all_formats(
-        self, target_version: str, template: str = "professional"
+        self, target_version: str, template: str = "francois"
     ) -> None:
         """Build all formats (markdown, HTML, PDF) for a version"""
         print(f"Building all formats for {target_version} version...")
@@ -1289,15 +1299,85 @@ You can also use browser extensions or online converters.
         self.build_html(target_version, template)  # HTML
         self.build_pdf(target_version, template)  # PDF
 
+    # Add this method to your CVBuilder class
+    def build_html_enhanced(
+        self, target_version: str, template: str = "francois"
+    ) -> None:
+        """Build HTML with enhanced CSS styling"""
+        print(f"Building enhanced HTML for {target_version} version...")
+
+        # Build markdown first if it doesn't exist
+        md_path = self.output_dir / target_version / f"arthur-{target_version}.md"
+        if not md_path.exists():
+            self.build_version(target_version)
+
+        # Create output directory
+        html_dir = self.output_dir / target_version
+        html_dir.mkdir(parents=True, exist_ok=True)
+
+        # Choose template CSS
+        template_dir = Path("templates") / template
+        if template == "francois":
+            css_file = template_dir / "style-enhanced.css"
+            if not css_file.exists():
+                css_file = template_dir / "style.css"  # Fallback
+        else:
+            css_file = template_dir / "style.css"
+
+        # Copy assets and CSS
+        self._copy_assets(html_dir)
+
+        # Copy enhanced CSS
+        if css_file.exists():
+            import shutil
+
+            shutil.copy2(css_file, html_dir / "css_styling.css")
+
+        # Generate HTML using pandoc
+        html_path = html_dir / f"arthur-{target_version}.html"
+
+        pandoc_cmd = [
+            "pandoc",
+            str(md_path),
+            "-o",
+            str(html_path),
+            "--standalone",
+            "--css",
+            "./css_fonts.css",
+            "--css",
+            "./css_styling.css",
+            "--metadata",
+            f"title=Arthur Passuello - {target_version.title()} CV",
+            "--template",
+            (
+                "templates/html-template.html"
+                if Path("templates/html-template.html").exists()
+                else None
+            ),
+        ]
+
+        # Remove None values
+        pandoc_cmd = [arg for arg in pandoc_cmd if arg is not None]
+
+        try:
+            result = subprocess.run(pandoc_cmd, capture_output=True, text=True)
+            if result.returncode == 0:
+                print(f"✅ Enhanced HTML generated: {html_path}")
+            else:
+                print(f"❌ Pandoc error: {result.stderr}")
+        except Exception as e:
+            print(f"❌ HTML generation failed: {e}")
+
 
 def main():
     # Create a temporary builder to discover templates for argparse choices
     temp_builder = CVBuilder()
     available_templates = temp_builder.get_available_templates()
+    print(available_templates)
     default_template = (
-        "professional"
-        if "professional" in available_templates
-        else (available_templates[0] if available_templates else "professional")
+        "francois"
+        if "francois" in available_templates
+        else (available_templates[0] if available_templates else "francois")
     )
 
     parser = argparse.ArgumentParser(description="Build Arthur Passuello CV versions")
@@ -1310,6 +1390,12 @@ def main():
     )
     parser.add_argument(
         "--test", action="store_true", help="Test version logic without building"
+    )
+    parser.add_argument(
+        "--enhanced",
+        action="store_true",
+        default=True,
+        help="Use enhanced CSS templates with improved typography and layout",
     )
     parser.add_argument("--html", action="store_true", help="Generate HTML output")
     parser.add_argument(
@@ -1349,6 +1435,7 @@ def main():
                 builder.test_version(version)
         else:
             builder.test_version(args.version)
+
     elif args.all_formats:
         if args.version == "all":
             for version in builder.versions.keys():

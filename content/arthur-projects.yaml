@@ -2,83 +2,74 @@
 # This file preserves the exact conditional logic from the LaTeX system
 
 projects:
-  # Technical Documentation RAG System - Shows in AI, consulting, general, firmware
-  - name: "Technical Documentation RAG System"
+  # Enterprise RAG System for Technical Documentation - Shows in AI, consulting, general
+  - name: "Enterprise RAG System for Technical Documentation"
     period: "June 2025 - Present"
     links:
       github: "https://github.com/apassuello/technical-doc-rag/"
       demo: "https://huggingface.co/spaces/ArthyP/technical-rag-assistant"
-    versions: ["ai", "consulting", "general", "firmware"]
+    versions: ["ai", "consulting", "general"]
+    priority: 2
     
     # Version-specific descriptions
     descriptions:
       ai:
-        - "**RAG Architecture:** Architected production RAG system processing 10,000+ technical documents with 99.5% chunk quality score through novel TOC-guided hierarchical parsing"
-        - "**Hybrid Retrieval:** Implemented hybrid retrieval combining dense (FAISS) and sparse (BM25) methods with neural reranking, achieving 94% relevance on custom evaluation set"
-        - "**Auto-scaling Design:** Designed auto-scaling architecture handling 1,000+ QPS with p99 latency under 100ms using async processing and intelligent caching"
-        - "**A/B Testing Framework:** Built comprehensive A/B testing framework comparing 8 different retrieval strategies, improving user satisfaction by 35% through data-driven optimization"
-        - "**Multi-model Deployment:** Deployed multi-model answer generation supporting Ollama (local), OpenAI, and HuggingFace endpoints with automatic failover and load balancing"
-      
-      firmware:
-        - "**RISC-V Documentation Assistant:** Designed comprehensive RISC-V documentation assistant eliminating manual research for embedded systems engineers"
-        - "**Hybrid Retrieval Architecture:** Implemented hybrid retrieval architecture achieving <100ms response times for complex technical queries"
-        - "**Production System:** Built production system supporting RISC-V ISA specifications, implementation guides, and debugging documentation"
-        - "**Cloud Deployment:** Deployed on AWS with Docker containerization and real-time performance monitoring"
+        - "**RAG Architecture:** Architected production RAG processing 10,000+ documents with hierarchical parsing and multi-stage query processing"
+        - "**Hybrid Retrieval:** Implemented hybrid retrieval: FAISS vector search + BM25 + neural reranking, achieving 94% relevance and <100ms latency"
+        - "**Auto-scaling Infrastructure:** Built auto-scaling infrastructure handling 1,000+ QPS with A/B testing framework improving satisfaction 35%"
+        - "**Enterprise Deployment:** Deployed enterprise solution with Weaviate integration and comprehensive LLM integration pipeline"
       
       consulting:
-        - "**Enterprise RAG Platform:** Delivered enterprise RAG platform providing knowledge democratization for RISC-V ecosystem, eliminating specialist consultation costs"
-        - "**Scalable Architecture:** Architected scalable solution supporting 10M+ documents with 1000+ QPS capability for production environments"
-        - "**Analytics Framework:** Implemented A/B testing framework and analytics dashboard enabling data-driven optimization and ROI measurement"
-        - "**Modular Integration:** Designed modular architecture enabling seamless integration with existing enterprise technical workflows"
+        - "**Enterprise RAG Platform:** Architected production RAG processing 10,000+ documents with hierarchical parsing and multi-stage query processing"
+        - "**Scalable Architecture:** Implemented hybrid retrieval: FAISS vector search + BM25 + neural reranking, achieving 94% relevance and <100ms latency"
+        - "**Business Impact:** Built auto-scaling infrastructure handling 1,000+ QPS with A/B testing framework improving satisfaction 35%"
+        - "**Enterprise Integration:** Deployed enterprise solution with Weaviate integration and comprehensive LLM integration pipeline"
       
       general:
-        - "**Production RAG System:** Built production-ready RAG system for RISC-V documentation achieving 99.5% chunk quality and <100ms response times"
-        - "**Hybrid Retrieval Implementation:** Implemented hybrid retrieval combining vector similarity, keyword matching, and neural reranking for optimal relevance"
-        - "**Modular Architecture:** Developed 6-component modular architecture with real-time analytics dashboard and comprehensive testing framework"
-        - "**Multi-LLM Deployment:** Deployed on AWS with multi-LLM support (Ollama, OpenAI) and streaming response generation"
+        - "**Production RAG System:** Architected production RAG processing 10,000+ documents with hierarchical parsing and multi-stage query processing"
+        - "**Hybrid Retrieval Implementation:** Implemented hybrid retrieval: FAISS vector search + BM25 + neural reranking, achieving 94% relevance and <100ms latency"
+        - "**Scalable Infrastructure:** Built auto-scaling infrastructure handling 1,000+ QPS with A/B testing framework improving satisfaction 35%"
+        - "**Enterprise Deployment:** Deployed enterprise solution with Weaviate integration and comprehensive LLM integration pipeline"
     
     # Skills tags by version
     skills_tags:
-      ai: "PyTorch, FAISS, BM25, Llama 3.2, OpenAI API, Neural Reranking, Graph Analysis, Plotly Dash, A/B Testing, AWS, Production ML, System Architecture"
-      firmware: "RISC-V, Hybrid Search, FAISS, BM25, Docker, AWS, Real-time Systems, Technical Documentation, Embedded Systems, Performance Optimization"
-      consulting: "Enterprise Architecture, Scalability Design, ROI Analysis, Business Impact, Technical Strategy, Docker, AWS, Performance Optimization, A/B Testing"
-      general: "PyTorch, FAISS, BM25, Llama 3.2, Streamlit, Docker, AWS, Real-time Systems, Technical Documentation, Production Deployment"
+      ai: "RAG • FAISS • Vector Search • Neural Reranking • Production ML • NLP • LangChain • A/B Testing • Weaviate • Deployment • Query Processing • LLM Integration"
+      consulting: "RAG • FAISS • Vector Search • Neural Reranking • Production ML • NLP • LangChain • A/B Testing • Weaviate • Deployment • Query Processing • LLM Integration"
+      general: "RAG • FAISS • Vector Search • Neural Reranking • Production ML • NLP • LangChain • A/B Testing • Weaviate • Deployment • Query Processing • LLM Integration"
 
-  # MultiModal Insight Engine - Shows in AI, consulting, general
-  - name: "MultiModal Insight Engine"
+  # MultiModal AI Research Implementation - Shows in AI, consulting, general
+  - name: "MultiModal AI Research Implementation"
     period: "Feb 2025 - May 2025"
     links:
       github: "https://github.com/apassuello/multimodal_insight_engine/"
     versions: ["ai", "consulting", "general"]
+    priority: 2
     
     # Version-specific descriptions
     descriptions:
       ai:
-        - "**Transformer Implementation:** Implemented complete transformer architecture from scratch based on Vaswani et al., achieving 95% of GPT-2 performance on equivalent tasks while using 40% less memory through custom optimization"
-        - "**Multimodal Fusion:** Developed multimodal fusion system integrating CLIP and ViT architectures, enabling cross-modal search with 89% accuracy on custom benchmark dataset"
-        - "**Safety Framework:** Built comprehensive safety evaluation framework implementing Anthropic's Constitutional AI principles, including automated red-teaming suite testing 500+ adversarial prompts"
-        - "**Distributed Training:** Created distributed training pipeline supporting multi-GPU execution with gradient accumulation, mixed precision training, and automatic checkpoint management"
-        - "**Performance Optimization:** Achieved 6x speedup on Apple Silicon through custom MPS kernels and memory-efficient attention implementation"
+        - "**Transformer Implementation:** Implemented transformer architectures from scratch (Attention is All You Need) with multi-stage training pipeline"
+        - "**Multimodal Fusion:** Built CLIP and ViT implementations for vision-language tasks with cross-modal attention and progressive training stages"
+        - "**Safety Framework:** Developed Constitutional AI safety framework with red teaming suite testing 500+ adversarial cases"
+        - "**Performance Optimization:** Optimized for Apple Silicon achieving 6x inference speedup through custom MPS kernels and multi-stage optimization"
       
       consulting:
-        - "**Multimodal AI Platform:** Architected comprehensive multimodal AI platform demonstrating technical leadership in cutting-edge model development"
-        - "**Modular System Design:** Designed modular system architecture enabling rapid prototyping and evaluation of business-critical multimodal applications"
-        - "**Safety-First Approach:** Implemented safety-first approach with red teaming frameworks, addressing enterprise concerns about AI deployment risks"
-        - "**Benchmarking Infrastructure:** Built benchmarking infrastructure providing quantitative ROI assessment for multimodal AI investments"
-        - "**Enterprise Training Pipeline:** Developed scalable training pipeline supporting enterprise-grade model optimization and deployment workflows"
+        - "**Multimodal AI Platform:** Implemented transformer architectures from scratch (Attention is All You Need) with multi-stage training pipeline"
+        - "**Technical Leadership:** Built CLIP and ViT implementations for vision-language tasks with cross-modal attention and progressive training stages"
+        - "**AI Safety Implementation:** Developed Constitutional AI safety framework with red teaming suite testing 500+ adversarial cases"
+        - "**Business Impact:** Optimized for Apple Silicon achieving 6x inference speedup through custom MPS kernels and multi-stage optimization"
       
       general:
-        - "**Training Platform:** Designed and implemented full-stack training platform for Transformer-based multimodal models"
-        - "**Model Optimization:** Developed comprehensive model optimization modules including mixed precision, quantization, and pruning techniques"
-        - "**Dataset Processing:** Built multilingual dataset processing pipeline with custom tokenizers and preprocessing workflows"
-        - "**Model Integration:** Integrated pretrained models (CLIP, ViT) with unified interface for image-text understanding tasks"
-        - "**Safety Evaluation:** Implemented safety evaluation framework with red teaming and adversarial testing capabilities"
+        - "**Research Implementation:** Implemented transformer architectures from scratch (Attention is All You Need) with multi-stage training pipeline"
+        - "**Multimodal Development:** Built CLIP and ViT implementations for vision-language tasks with cross-modal attention and progressive training stages"
+        - "**Safety Evaluation:** Developed Constitutional AI safety framework with red teaming suite testing 500+ adversarial cases"
+        - "**Optimization:** Optimized for Apple Silicon achieving 6x inference speedup through custom MPS kernels and multi-stage optimization"
     
     # Skills tags by version
     skills_tags:
-      ai: "PyTorch, Transformers, NLP, Vision Models, Model Optimization, Tokenization, CLIP, ViT, Mixed Precision, Quantization, Pruning, Red Teaming, BLEU/F1/Accuracy, t-SNE, Config Management, Visualization, Logging, Safety Evaluation"
-      consulting: "Technical Leadership, System Architecture, AI Safety, Enterprise Deployment, ROI Analysis, Risk Assessment, Model Optimization, Business Strategy"
-      general: "PyTorch, Transformers, Model Optimization, CLIP, ViT, Safety Evaluation, Red Teaming, Technical Implementation, System Design"
+      ai: "Transformers • CLIP • ViT • Multimodal AI • PyTorch • Constitutional AI • Research Implementation • Multi-stage Training • Progressive Training • Model Optimization"
+      consulting: "Transformers • CLIP • ViT • Multimodal AI • PyTorch • Constitutional AI • Research Implementation • Multi-stage Training • Progressive Training • Model Optimization"
+      general: "Transformers • CLIP • ViT • Multimodal AI • PyTorch • Constitutional AI • Research Implementation • Multi-stage Training • Progressive Training • Model Optimization"
 
   # Data-Driven Analysis of DeepWeb Marketplace Dynamics - Shows in all except firmware and executive
   - name: "Data-Driven Analysis of DeepWeb Marketplace Dynamics"
@@ -115,17 +106,17 @@ projects:
     
     # Skills tags by version
     skills_tags:
-      ai: "Statistical Modeling, Data Reconstruction, PySpark, Distributed Computing, Big Data Processing, BeautifulSoup, Data Visualization, JavaScript, Policy Analysis, Behavioral Analytics"
+      ai: "Statistical Modeling • Data Engineering • PySpark • Distributed Computing • Big Data Analytics • ETL Pipelines • Data Quality • Exploratory Data Analysis • Time Series Analysis • A/B Testing • Data Visualization • D3.js • Behavioral Analytics • Causal Inference"
       consulting: "Big Data Analytics, Policy Impact Analysis, Distributed Systems, Data Quality Frameworks, Stakeholder Communication, Regulatory Analysis, Web Visualization"
       general: "Big Data Processing, Statistical Analysis, PySpark, Distributed Computing, Data Visualization, JavaScript, Web Development, Policy Research"
 
-  # PriorityQueue Formal Verification - Shows in all except firmware and executive
+  # PriorityQueue Formal Verification - Shows in consulting and general only
   - name: "PriorityQueue Formal Verification"
     period: "2019 - 2020"
     links:
       github: "https://github.com/fquellec/PriorityQueue-FormalVerification"
       github_text: "GitHub Repository"
-    versions: ["ai", "consulting", "general"]
+    versions: ["consulting", "general"]
     
     # Version-specific descriptions
     descriptions:
@@ -154,13 +145,13 @@ projects:
       consulting: "Formal Verification, System Reliability, Analytical Methods, Quality Assurance, Safety-Critical Systems"
       general: "Scala, Stainless, Formal Verification, Functional Programming, Mathematical Proofs"
 
-  # ASIC Medical Device - Shows in all except executive
+  # ASIC Medical Device - Shows in consulting, general, and firmware
   - name: "ASIC-Enabled Medical Device Development"
     period: "2021 - 2022"
     links:
       website: "https://adeptneuro.com"
       website_text: "ADEPT Neuro SA"
-    versions: ["ai", "consulting", "general", "firmware"]
+    versions: ["consulting", "general", "firmware"]
     
     # Version-specific descriptions
     descriptions:
@@ -253,8 +244,8 @@ version_config:
 
 # Project selection logic based on version
 project_selection:
-  firmware: ["technical_documentation_rag", "asic_medical_device", "high_performance_genomic"]
-  ai: ["technical_documentation_rag", "multimodal_insight_engine", "data_driven_analysis", "priorityqueue_formal_verification", "asic_medical_device"]
-  consulting: ["technical_documentation_rag", "multimodal_insight_engine", "data_driven_analysis", "priorityqueue_formal_verification", "asic_medical_device"]
+  firmware: ["asic_medical_device", "high_performance_genomic"]
+  ai: ["enterprise_rag_system", "multimodal_ai_research", "data_driven_analysis"]
+  consulting: ["enterprise_rag_system", "multimodal_ai_research", "data_driven_analysis", "priorityqueue_formal_verification", "asic_medical_device"]
   executive: [] # No projects in executive
-  general: ["technical_documentation_rag", "multimodal_insight_engine", "data_driven_analysis", "priorityqueue_formal_verification", "asic_medical_device", "high_performance_genomic"]
+  general: ["enterprise_rag_system", "multimodal_ai_research", "data_driven_analysis", "priorityqueue_formal_verification", "asic_medical_device", "high_performance_genomic"]
