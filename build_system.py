@@ -569,16 +569,20 @@ class CVBuilder:
 
         for exp in experiences:
             markdown += f'<div class="cv-experience-item" id="cv-exp-{exp["company"].lower().replace(" ", "-")}">\n'
-            markdown += f'<h3 class="cv-company-name">{exp["company"]}</h3>\n'
-            markdown += f'<p class="cv-company-location"><em>{exp["location"]}</em><br>\n'
-            markdown += (
-                f'<span class="cv-company-period"><em>{exp["period"]}</em></span></p>\n\n'
-            )
+            # Create two-line header structure for proper François layout
+            markdown += f'<div class="cv-entry-header">\n'
+            markdown += f'  <h3 class="cv-company-name">{exp["company"]}</h3>\n'
+            markdown += f'  <span class="cv-company-location"><em>{exp["location"]}</em></span>\n'
+            markdown += f'</div>\n\n'
 
-            markdown += f'<p class="cv-position-title"><strong>{exp["position"]}</strong>'
+            # Create position header with date alignment
+            markdown += f'<div class="cv-position-header">\n'
+            markdown += f'  <p class="cv-position-title"><strong>{exp["position"]}</strong>'
             if exp["reference"]:
                 markdown += f' <span class="cv-reference">{exp["reference"]}</span>'
-            markdown += "</p>\n\n"
+            markdown += f'</p>\n'
+            markdown += f'  <span class="cv-company-period"><em>{exp["period"]}</em></span>\n'
+            markdown += f'</div>\n\n'
 
             # Add achievements
             if exp["achievements"]:
@@ -755,22 +759,22 @@ class CVBuilder:
             markdown += (
                 f'<div class="cv-education-item" id="cv-edu-{safe_institution_id}">\n'
             )
-            markdown += f'<h3 class="cv-institution-name">{institution_name}</h3>\n'
 
-            # Date range and location - match experience format exactly
-            markdown += (
-                f'<p class="cv-education-location"><em>{education["location"]}</em><br>\n'
-            )
-            if education["start_date"] and education["end_date"]:
-                markdown += f'<span class="cv-education-period"><em>{education["start_date"]} - {education["end_date"]}</em></span></p>\n\n'
+            # Create two-line header structure matching experience format
+            markdown += f'<div class="cv-entry-header">\n'
+            markdown += f'  <h3 class="cv-institution-name">{education["institution"]}</h3>\n'
+            markdown += f'  <span class="cv-education-location"><em>{education["location"]}</em></span>\n'
+            markdown += f'</div>\n\n'
 
-            # Degree information
-            markdown += f'<p class="cv-degree-title"><strong>{education["degree"]}</strong>'
+            # Create degree header with date alignment
+            markdown += f'<div class="cv-position-header">\n'
+            markdown += f'  <p class="cv-degree-title"><strong>{education["degree"]}</strong>'
             if education["major"]:
-                markdown += (
-                    f', <span class="cv-major">Major in {education["major"]}</span>'
-                )
-            markdown += "</p>\n\n"
+                markdown += f', <span class="cv-major">Major in {education["major"]}</span>'
+            markdown += f'</p>\n'
+            if education["start_date"] and education["end_date"]:
+                markdown += f'  <span class="cv-education-period"><em>{education["start_date"]} - {education["end_date"]}</em></span>\n'
+            markdown += f'</div>\n\n'
 
             # Focus area (version-specific)
             if education["focus_area"]:
