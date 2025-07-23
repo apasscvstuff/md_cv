@@ -718,12 +718,20 @@ class CVBuilder:
                 "achievements": [],
             }
 
-            # Filter achievements by version
+            # Filter achievements by version (notable_achievements)
             for achievement in education.get("notable_achievements", []):
                 achievement_versions = achievement.get("versions", [])
                 if self.check_version_condition(achievement_versions, target_version):
                     processed_education["achievements"].append(
                         achievement["achievement"]
+                    )
+            
+            # Filter practical experience by version
+            for experience in education.get("practical_experience", []):
+                experience_versions = experience.get("versions", [])
+                if self.check_version_condition(experience_versions, target_version):
+                    processed_education["achievements"].append(
+                        experience["experience"]
                     )
 
             filtered_education.append(processed_education)

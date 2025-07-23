@@ -118,14 +118,14 @@
   --text-2xl: clamp(1.5rem, 2vw + 1.2rem, 2rem);
   /* Name heading - guide.md standard */
 
-  /* Convert rem to pt for print compatibility */
+  /* Convert rem to pt for print compatibility - Reduced sizes for cleaner look */
   --size-name: var(--text-2xl);
   --size-tagline: var(--text-lg);
   --size-section: var(--text-lg);
-  --size-subsection: var(--text-xl);
-  --size-body: var(--text-base);
-  --size-small: var(--text-sm);
-  --size-tiny: var(--text-sm);
+  --size-subsection: var(--text-lg); /* Reduced from text-xl */
+  --size-body: var(--text-sm); /* Reduced from text-base */
+  --size-small: clamp(0.8rem, 0.4vw + 0.65rem, 0.9rem); /* Smaller */
+  --size-tiny: clamp(0.75rem, 0.3vw + 0.6rem, 0.85rem); /* Smaller */
 
   /* ==========================================================================
      📐 SWISS DESIGN SPACING - Mathematical precision for professional hierarchy
@@ -179,7 +179,7 @@ body {
   background-color: var(--color-bg);
   padding: 5mm var(--margin-page) var(--margin-page) var(--margin-page);
   letter-spacing: -0.015em;
-  font-weight: 400;
+  font-weight: 300; /* Reduced from 400 for lighter look */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* CSS Grid Layout - Enhanced from guide.md */
@@ -370,6 +370,8 @@ td {
   vertical-align: top;
   color: var(--color-text);
   line-height: 1.4;
+  font-size: var(--size-small); /* Added explicit font size */
+  font-weight: 300; /* Lighter weight */
 }
 
 /* Style empty skill cells to be invisible but maintain table structure */
@@ -395,7 +397,7 @@ tr:hover {
 h3 {
   font-family: var(--font-primary);
   font-size: var(--size-subsection);
-  font-weight: 600;
+  font-weight: 500; /* Reduced from 600 */
   color: var(--color-secondary);
   margin-top: var(--space-subsection);
   margin-bottom: 2px;
@@ -460,6 +462,7 @@ li {
   line-height: 1.4;
   color: var(--color-text);
   font-size: var(--size-small);
+  font-weight: 300; /* Lighter weight */
   padding-left: 14px;
 }
 
@@ -472,12 +475,12 @@ li::before {
   font-weight: 700;
 }
 
-/* Skills Tags - Subtle styling */
+/* Skills Tags - Subtle styling with reduced spacing */
 .skills-tags {
   font-size: var(--size-tiny);
   color: var(--color-text-muted);
-  margin: 8px 0 var(--space-item) 0;
-  line-height: 1.6;
+  margin: 6px 0 var(--space-small) 0; /* Reduced margins */
+  line-height: 1.4; /* Tighter line height */
   padding-left: 0;
   /* Remove old padding */
   border-left: none;
@@ -488,17 +491,17 @@ li::before {
   /* Remove italic */
 }
 
-/* Individual Skill Tag Boxes - Modern styling */
+/* Individual Skill Tag Boxes - Smaller, cleaner styling */
 .skill-tag {
   display: inline-block;
   background: #f8f9fa;
   border: 1px solid var(--color-border);
-  border-radius: 4px;
-  padding: 2px 4px;
-  margin: 1px 2px 1px 0;
-  font-size: var(--size-tiny);
+  border-radius: 3px; /* Smaller border radius */
+  padding: 1px 3px; /* Reduced padding */
+  margin: 1px 1px 1px 0; /* Tighter margins */
+  font-size: clamp(0.7rem, 0.25vw + 0.55rem, 0.75rem); /* Smaller font */
   color: var(--color-text);
-  font-weight: 500;
+  font-weight: 300; /* Lighter weight */
   font-style: normal;
   transition: all 0.2s ease;
 }
@@ -531,7 +534,7 @@ a:hover {
 
 /* Strong emphasis in text */
 strong {
-  font-weight: 600;
+  font-weight: 500; /* Reduced from 600 for lighter emphasis */
   color: var(--color-primary);
 }
 
@@ -890,7 +893,7 @@ h3+p a {
 
 .cv-company-name {
   font-size: var(--size-subsection);
-  font-weight: 500;
+  font-weight: 400; /* Further reduced for lighter look */
   color: var(--color-accent);
   /* Reduced weight to match François reference */
   margin-bottom: 4px;
@@ -911,7 +914,7 @@ h3+p a {
 }
 
 .cv-position-title {
-  font-weight: 500;
+  font-weight: 400; /* Reduced for lighter look */
   margin-bottom: var(--space-small);
   color: var(--color-secondary);
   font-size: var(--size-body);
@@ -1026,7 +1029,7 @@ h3+p a {
 
 .cv-institution-name {
   font-size: var(--size-subsection);
-  font-weight: 500;
+  font-weight: 400; /* Reduced for lighter look */
   color: var(--color-accent);
   /* Match company name styling for consistency */
   margin-bottom: 4px;
@@ -1050,7 +1053,7 @@ h3+p a {
 }
 
 .cv-degree-title {
-  font-weight: 500;
+  font-weight: 400; /* Reduced for lighter look */
   color: var(--color-secondary);
   font-size: var(--size-body);
   margin-bottom: 8px;
@@ -1101,8 +1104,8 @@ h3+p a {
 .cv-skills-tags {
   font-size: var(--size-tiny);
   color: var(--color-text-muted);
-  margin: 8px 0 var(--space-item) 0;
-  line-height: 1.6;
+  margin: 6px 0 var(--space-small) 0; /* Reduced margins */
+  line-height: 1.4; /* Tighter line height */
   padding-left: 0;
   /* Remove old padding */
   border-left: none;
@@ -1117,12 +1120,12 @@ h3+p a {
   display: inline-block;
   background: #f8f9fa;
   border: 1px solid var(--color-border);
-  border-radius: 4px;
-  padding: 2px 4px;
-  margin: 1px 2px 1px 0;
-  font-size: var(--size-tiny);
+  border-radius: 3px; /* Smaller border radius */
+  padding: 1px 3px; /* Reduced padding */
+  margin: 1px 1px 1px 0; /* Tighter margins */
+  font-size: clamp(0.7rem, 0.25vw + 0.55rem, 0.75rem); /* Smaller font */
   color: var(--color-text);
-  font-weight: 500;
+  font-weight: 300; /* Lighter weight */
   font-style: normal;
   transition: all 0.2s ease;
 }
