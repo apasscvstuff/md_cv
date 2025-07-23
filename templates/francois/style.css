@@ -104,40 +104,45 @@
   --font-secondary: 'Source Sans 3', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
   /* Body - Source Sans Pro excellent for technical professionals (toolkit.md) */
 
-  /* 📏 FLUID TYPOGRAPHY SCALE - Responsive sizes for modern presentation */
+  /* 📏 GUIDE.MD TYPOGRAPHY SCALE - Following 2025 best practices */
 
-  /* Fluid typography using clamp() for responsive scaling (guide.md reference) */
-  --size-name: clamp(24pt, 2vw + 22pt, 28pt);
-  /* Your name - scales from 24pt to 28pt based on viewport */
-  --size-tagline: clamp(11pt, 1.2vw + 10pt, 13pt);
-  /* Professional tagline - responsive professional sizing */
-  --size-section: clamp(14pt, 1.5vw + 13pt, 16pt);
-  /* Section headers - maintains hierarchy across devices */
-  --size-subsection: clamp(11pt, 1vw + 10pt, 13pt);
-  /* Company names, project titles - consistent scaling */
-  --size-body: clamp(9pt, 0.75vw + 8.5pt, 10pt);
-  /* Main content - optimal readability range */
-  --size-small: clamp(8pt, 0.5vw + 7.5pt, 9pt);
-  /* Dates, contact info - scales appropriately */
-  --size-tiny: clamp(7.5pt, 0.5vw + 7pt, 8.5pt);
-  /* Skills tags, fine details - maintains legibility */
+  /* Typography scale based on guide.md recommendations (lines 17-31) */
+  --text-base: clamp(1rem, 0.75vw + 0.8rem, 1.125rem);
+  /* Body text - guide.md standard */
+  --text-sm: clamp(0.875rem, 0.5vw + 0.7rem, 1rem);
+  /* Small text - address, contact info */
+  --text-lg: clamp(1.125rem, 1vw + 0.9rem, 1.25rem);
+  /* Large text - section headers */
+  --text-xl: clamp(1.25rem, 1.5vw + 1rem, 1.5rem);
+  /* Extra large - company names, project titles */
+  --text-2xl: clamp(1.5rem, 2vw + 1.2rem, 2rem);
+  /* Name heading - guide.md standard */
+
+  /* Convert rem to pt for print compatibility */
+  --size-name: var(--text-2xl);
+  --size-tagline: var(--text-lg);
+  --size-section: var(--text-lg);
+  --size-subsection: var(--text-xl);
+  --size-body: var(--text-base);
+  --size-small: var(--text-sm);
+  --size-tiny: var(--text-sm);
 
   /* ==========================================================================
      📐 SWISS DESIGN SPACING - Mathematical precision for professional hierarchy
      Based on typographic scale with golden ratio influence for visual harmony
      ========================================================================== */
 
-  /* 🎯 HIERARCHICAL SPACING SYSTEM - Mathematical precision (Swiss design principle) */
-  --space-section: clamp(20px, 3vw + 18px, 28px);
-  /* Between major sections - scales with viewport for consistency */
-  --space-subsection: clamp(16px, 2.5vw + 14px, 22px);
-  /* Between companies/projects - maintains proportional hierarchy */
-  --space-item: clamp(10px, 1.5vw + 8px, 16px);
-  /* Between individual items - responsive micro-spacing */
-  --space-small: clamp(6px, 1vw + 5px, 10px);
-  /* Internal element spacing - precise control */
-  --space-tiny: clamp(3px, 0.5vw + 2px, 6px);
-  /* Minimal spacing - maintains readability at all sizes */
+  /* 🎯 SWISS DESIGN SPACING - Guide.md proportions (reduced gaps) */
+  --space-section: 1.5rem;
+  /* Between major sections - Swiss design moderate spacing */
+  --space-subsection: 1rem;
+  /* Between companies/projects - maintains hierarchy */
+  --space-item: 0.75rem;
+  /* Between individual items - tighter spacing */
+  --space-small: 0.5rem;
+  /* Internal element spacing - minimal */
+  --space-tiny: 0.25rem;
+  /* Minimal spacing - very tight */
   
   /* 📊 SWISS DESIGN RATIOS - Based on mathematical proportions */
   --ratio-golden: 1.618;
@@ -172,49 +177,54 @@ body {
   line-height: var(--line-height-base);
   color: var(--color-text);
   background-color: var(--color-bg);
-  max-width: var(--max-width);
-  margin: 0 auto;
   padding: 5mm var(--margin-page) var(--margin-page) var(--margin-page);
   letter-spacing: -0.015em;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* CSS Grid Layout - Enhanced from guide.md */
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main-content";
+  gap: 1rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
 }
 
 /* =============================================================================
-   📐 SWISS DESIGN FLOAT-BASED HEADER LAYOUT (CORRECTED)
-   Restoring working float layout while maintaining Swiss design principles
+   📐 SWISS DESIGN CSS GRID LAYOUT - Guide.md Method Implementation
+   Modern CSS Grid following toolkit.md CSS-Tricks tutorial recommendations
    ============================================================================= */
 
-/* Header Area - Create proper two-column layout */
-body>p:first-child,
-body>h1:first-of-type,
-body>h3:first-of-type,
-body>p:nth-of-type(2),
-body>div:first-of-type,
-body>p:nth-of-type(3) {
-  position: relative;
+/* 🏗️ SEMANTIC GRID AREAS - Following guide.md method */
+
+/* 📝 HEADER GRID LAYOUT - Swiss design two-column precision */
+.cv-header {
+  grid-area: header;
+  display: grid;
+  grid-template-columns: 2fr 150px;
+  grid-template-areas: "header-info profile-photo";
+  gap: var(--space-item);
+  align-items: start;
 }
 
-/* Create left content column - Fixed selectors for actual HTML structure */
-body>h1:first-of-type,
-body>h3:first-of-type,
-body>p.cv-address,
-body>div:first-of-type,
-body>p.cv-languages {
-  width: calc(100% - 170px);
-  float: left;
-  clear: left;
+.cv-header-info {
+  grid-area: header-info;
 }
 
-/* Right photo column */
-body>p:first-child {
-  width: 150px;
-  float: right;
-  margin: 0;
-  padding: 0;
-  position: relative;
-  top: 0;
+.cv-profile-container {
+  grid-area: profile-photo;
+  justify-self: end;
+  align-self: start;
+}
+
+/* 📄 MAIN CONTENT AREA - Full width below header */
+.cv-main-content {
+  grid-area: main-content;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-section);
 }
 
 .profile-pic {
@@ -227,22 +237,7 @@ body>p:first-child {
   display: block;
 }
 
-/* Clear float after header */
-body>p.cv-languages {
-  margin-bottom: var(--space-section);
-}
-
-body>p.cv-languages::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Ensure skills section starts cleanly below header */
-body>h2:first-of-type {
-  clear: both;
-  margin-top: var(--space-section);
-}
+/* 🎯 GRID SPACING CONTROL - No float clearing needed with Grid */
 
 /* Name Styling - Left aligned in header */
 h1 {
@@ -274,14 +269,14 @@ h1+h3 {
   letter-spacing: -0.01em;
 }
 
-/* Address line - Italic style */
-/* h1+h3+p {
+/* Address line - Fallback for Pandoc HTML processing */
+.cv-header-info p:not(.cv-contact):not(.cv-languages) {
   font-size: var(--size-small);
   font-style: italic;
   color: var(--color-text-muted);
   margin-bottom: var(--space-small);
   letter-spacing: normal;
-} */
+}
 
 /* Contact info - Inline with icons */
 .inline-contact {
@@ -320,18 +315,17 @@ h1+h3 {
   letter-spacing: 0.02em;
 }
 
-/* Section Headers - Exact styling */
+/* Section Headers - Clean typography following guide.md */
 h2 {
   font-family: var(--font-primary);
   font-size: var(--size-section);
-  font-weight: 600;
-  color: var(--color-accent);
+  font-weight: 700;
+  color: var(--color-primary);
   margin-top: var(--space-section);
   margin-bottom: var(--space-subsection);
   padding-bottom: 6px;
-  border-bottom: 2px solid var(--color-accent);
+  border-bottom: 2px solid var(--color-primary);
   letter-spacing: -0.02em;
-  text-transform: uppercase;
   clear: both;
   /* Ensure section headers appear below floated header elements */
 }
@@ -550,24 +544,17 @@ h3+p a {
     print-color-adjust: exact;
   }
 
-  /* Adjust header layout for print */
-  body>p:first-child {
-    width: 100px;
-    float: right;
-  }
-
-  body>h1:first-of-type,
-  body>h3:first-of-type,
-  body>p:nth-of-type(2),
-  body>div:first-of-type,
-  body>p:nth-of-type(3) {
-    width: calc(100% - 150px);
-    /* Adjusted for smaller picture and margins */
+  /* 🖨️ GRID-AWARE PRINT LAYOUT - Toolkit.md SitePoint method */
+  .cv-header {
+    grid-template-columns: 2fr 120px;
+    gap: var(--space-small);
+    page-break-after: avoid;
+    break-after: avoid;
   }
 
   .profile-pic {
-    width: 140px;
-    height: 140px;
+    width: 110px;
+    height: 110px;
   }
 
   h2 {
@@ -621,9 +608,21 @@ h3+p a {
   }
 }
 
-/* 🎯 PAGE BREAK MANAGEMENT - Prevent awkward splits (toolkit.md reference) */
+/* 🎯 GRID-AWARE PAGE BREAK MANAGEMENT - Enhanced from toolkit.md */
 @media print {
+  /* Grid container break control */
+  .cv-header,
+  .cv-main-content {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  
   /* Section-level break control */
+  .cv-section {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  
   .cv-experience-item,
   .cv-project-item,
   .cv-education-item {
@@ -675,33 +674,28 @@ h3+p a {
   }
 }
 
-/* Mobile responsiveness for header */
+/* 📱 RESPONSIVE CSS GRID - Guide.md mobile adaptation method */
 @media screen and (max-width: 768px) {
-
-  /* Reset column layout for mobile */
-  body>p:first-child,
-  body>h1:first-of-type,
-  body>h3:first-of-type,
-  body>p.cv-address,
-  body>div:first-of-type,
-  body>p.cv-languages {
-    float: none;
-    width: 100%;
-    clear: both;
+  .cv-header {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "profile-photo"
+      "header-info";
     text-align: center;
+    gap: var(--space-small);
   }
 
-  /* Center picture on mobile */
-  body>p:first-child {
-    margin: 0 auto 20px auto;
-    width: auto;
+  .cv-profile-container {
+    justify-self: center;
+  }
+
+  .cv-header-info {
     text-align: center;
   }
 
   .profile-pic {
     width: 120px;
     height: 120px;
-    margin: 0 auto;
   }
 }
 
@@ -807,16 +801,13 @@ h3+p a {
 .cv-section-header {
   font-family: var(--font-primary);
   font-size: var(--size-section);
-  font-weight: 600;
-  color: #000000;
-  /* Changed to pure black for stronger hierarchy */
+  font-weight: 700;
+  color: var(--color-primary);
   margin-top: var(--space-section);
   margin-bottom: var(--space-subsection);
   padding-bottom: 6px;
-  border-bottom: 2px solid #000000;
-  /* Black underline to match header color */
+  border-bottom: 2px solid var(--color-primary);
   letter-spacing: -0.02em;
-  text-transform: uppercase;
   clear: both;
   /* Ensure section headers appear below floated header elements */
 }
