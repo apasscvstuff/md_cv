@@ -4,7 +4,7 @@
 projects:
   # Technical Documentation RAG System - Shows in AI, consulting, general, firmware
   - name: "Technical Documentation RAG System"
-    period: "Jan 2025 - Present"
+    period: "June 2025 - Present"
     links:
       github: "https://github.com/apassuello/technical-doc-rag/"
       demo: "https://huggingface.co/spaces/ArthyP/technical-rag-assistant"
@@ -46,7 +46,7 @@ projects:
 
   # MultiModal Insight Engine - Shows in AI, consulting, general
   - name: "MultiModal Insight Engine"
-    period: "Feb 2025 - Present"
+    period: "Feb 2025 - May 2025"
     links:
       github: "https://github.com/apassuello/multimodal_insight_engine/"
     versions: ["ai", "consulting", "general"]
