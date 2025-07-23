@@ -72,7 +72,7 @@
      ========================================================================== */
 
   /* 🔴 SWISS DESIGN ACCENT - François signature with professional restraint */
-  --color-accent: #e53e3e;
+  --color-accent: #3e5ae5;
   /* Vibrant red accent for visual impact - Swiss design principle of limited palette */
 
   /* 📖 PROFESSIONAL COLOR SYSTEM - Navy/Charcoal for Technical Roles */
@@ -122,10 +122,14 @@
   --size-name: var(--text-2xl);
   --size-tagline: var(--text-lg);
   --size-section: var(--text-lg);
-  --size-subsection: var(--text-lg); /* Reduced from text-xl */
-  --size-body: var(--text-sm); /* Reduced from text-base */
-  --size-small: clamp(0.8rem, 0.4vw + 0.65rem, 0.9rem); /* Smaller */
-  --size-tiny: clamp(0.75rem, 0.3vw + 0.6rem, 0.85rem); /* Smaller */
+  --size-subsection: var(--text-lg);
+  /* Reduced from text-xl */
+  --size-body: var(--text-sm);
+  /* Reduced from text-base */
+  --size-small: clamp(0.8rem, 0.4vw + 0.65rem, 0.9rem);
+  /* Smaller */
+  --size-tiny: clamp(0.75rem, 0.3vw + 0.6rem, 0.85rem);
+  /* Smaller */
 
   /* ==========================================================================
      📐 SWISS DESIGN SPACING - Mathematical precision for professional hierarchy
@@ -143,7 +147,7 @@
   /* Internal element spacing - minimal */
   --space-tiny: 0.25rem;
   /* Minimal spacing - very tight */
-  
+
   /* 📊 SWISS DESIGN RATIOS - Based on mathematical proportions */
   --ratio-golden: 1.618;
   /* Golden ratio for proportional relationships */
@@ -160,7 +164,7 @@
   /* 📋 PAGE SETUP - Optimized for international A4 format */
   --max-width: 210mm;
   /* A4 width (8.5in for US Letter) */
-  --margin-page: 20mm;
+  --margin-page: 15mm;
   /* Page margins (15mm=tighter, 25mm=more space) */
 }
 
@@ -179,7 +183,8 @@ body {
   background-color: var(--color-bg);
   padding: 5mm var(--margin-page) var(--margin-page) var(--margin-page);
   letter-spacing: -0.015em;
-  font-weight: 300; /* Reduced from 400 for lighter look */
+  font-weight: 300;
+  /* Reduced from 400 for lighter look */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* CSS Grid Layout - Enhanced from guide.md */
@@ -226,8 +231,8 @@ body {
   grid-area: main-content;
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-small);
-  /* Reduced gap to prevent double spacing with section margins */
+  gap: var(--space-section);
+  /* Proper section separation for PDF layout */
 }
 
 .profile-pic {
@@ -325,7 +330,8 @@ h2,
   font-size: var(--size-section);
   font-weight: 600;
   color: var(--color-primary);
-  margin-top: var(--space-section);
+  margin-top: 1rem;
+  /* Increased for PDF-safe section separation */
   margin-bottom: var(--space-subsection);
   padding-bottom: 6px;
   border-bottom: 2px solid var(--color-primary);
@@ -340,9 +346,17 @@ section.cv-section {
   /* Remove duplicate spacing - h2 margin handles section spacing */
 }
 
+/* Fix double horizontal bar - remove border from section wrapper */
+section.cv-section-header {
+  border-bottom: none;
+  /* Only h2 elements should have the underline, not section wrappers */
+  padding-bottom: 0;
+  /* Allow natural margin for proper spacing */
+}
+
 /* First section should not have top margin */
 .cv-main-content section:first-child h2,
-.cv-main-content section:first-child .cv-section-header {  
+.cv-main-content section:first-child .cv-section-header {
   margin-top: 0;
 }
 
@@ -370,8 +384,10 @@ td {
   vertical-align: top;
   color: var(--color-text);
   line-height: 1.4;
-  font-size: var(--size-small); /* Added explicit font size */
-  font-weight: 300; /* Lighter weight */
+  font-size: var(--size-small);
+  /* Added explicit font size */
+  font-weight: 300;
+  /* Lighter weight */
 }
 
 /* Style empty skill cells to be invisible but maintain table structure */
@@ -397,7 +413,8 @@ tr:hover {
 h3 {
   font-family: var(--font-primary);
   font-size: var(--size-subsection);
-  font-weight: 500; /* Reduced from 600 */
+  font-weight: 500;
+  /* Reduced from 600 */
   color: var(--color-secondary);
   margin-top: var(--space-subsection);
   margin-bottom: 2px;
@@ -462,7 +479,8 @@ li {
   line-height: 1.4;
   color: var(--color-text);
   font-size: var(--size-small);
-  font-weight: 300; /* Lighter weight */
+  font-weight: 300;
+  /* Lighter weight */
   padding-left: 14px;
 }
 
@@ -479,8 +497,10 @@ li::before {
 .skills-tags {
   font-size: var(--size-tiny);
   color: var(--color-text-muted);
-  margin: 6px 0 var(--space-small) 0; /* Reduced margins */
-  line-height: 1.4; /* Tighter line height */
+  margin: 6px 0 var(--space-small) 0;
+  /* Reduced margins */
+  line-height: 1.4;
+  /* Tighter line height */
   padding-left: 0;
   /* Remove old padding */
   border-left: none;
@@ -496,12 +516,17 @@ li::before {
   display: inline-block;
   background: #f8f9fa;
   border: 1px solid var(--color-border);
-  border-radius: 3px; /* Smaller border radius */
-  padding: 1px 3px; /* Reduced padding */
-  margin: 1px 1px 1px 0; /* Tighter margins */
-  font-size: clamp(0.7rem, 0.25vw + 0.55rem, 0.75rem); /* Smaller font */
+  border-radius: 3px;
+  /* Smaller border radius */
+  padding: 1px 3px;
+  /* Reduced padding */
+  margin: 1px 1px 1px 0;
+  /* Tighter margins */
+  font-size: clamp(0.7rem, 0.25vw + 0.55rem, 0.75rem);
+  /* Smaller font */
   color: var(--color-text);
-  font-weight: 300; /* Lighter weight */
+  font-weight: 300;
+  /* Lighter weight */
   font-style: normal;
   transition: all 0.2s ease;
 }
@@ -534,7 +559,8 @@ a:hover {
 
 /* Strong emphasis in text */
 strong {
-  font-weight: 500; /* Reduced from 600 for lighter emphasis */
+  font-weight: 500;
+  /* Reduced from 600 for lighter emphasis */
   color: var(--color-primary);
 }
 
@@ -556,6 +582,7 @@ h3+p a {
    ============================================================================= */
 
 @media print {
+
   /* 🎯 SWISS DESIGN PRINT VARIABLES - Mathematical precision for PDF */
   :root {
     --size-name: clamp(22pt, 4vw, 24pt);
@@ -640,7 +667,7 @@ h3+p a {
   size: A4 portrait;
   margin: 12mm 15mm 15mm 15mm;
   /* Swiss design margins: slightly reduced top for content density */
-  
+
   /* Page counter for multi-page CVs */
   @bottom-right {
     content: counter(page) " of " counter(pages);
@@ -653,33 +680,35 @@ h3+p a {
 
 /* 🎯 GRID-AWARE PAGE BREAK MANAGEMENT - Enhanced from toolkit.md */
 @media print {
+
   /* Grid container break control */
   .cv-header,
   .cv-main-content {
     page-break-inside: avoid;
     break-inside: avoid;
   }
-  
+
   /* Section-level break control - handle both semantic classes and Pandoc sections */
   .cv-section,
   section.cv-section {
     page-break-inside: avoid;
     break-inside: avoid;
   }
-  
+
   .cv-experience-item,
   .cv-project-item,
   .cv-education-item {
     page-break-inside: avoid;
     break-inside: avoid;
   }
-  
+
   /* Section headers should not be orphaned */
-  h2, h3 {
+  h2,
+  h3 {
     page-break-after: avoid;
     break-after: avoid;
   }
-  
+
   /* Keep achievements with their context */
   .cv-achievements,
   .cv-project-descriptions {
@@ -893,7 +922,8 @@ h3+p a {
 
 .cv-company-name {
   font-size: var(--size-subsection);
-  font-weight: 400; /* Further reduced for lighter look */
+  font-weight: 400;
+  /* Further reduced for lighter look */
   color: var(--color-accent);
   /* Reduced weight to match François reference */
   margin-bottom: 4px;
@@ -914,7 +944,8 @@ h3+p a {
 }
 
 .cv-position-title {
-  font-weight: 400; /* Reduced for lighter look */
+  font-weight: 400;
+  /* Reduced for lighter look */
   margin-bottom: var(--space-small);
   color: var(--color-secondary);
   font-size: var(--size-body);
@@ -1022,14 +1053,18 @@ h3+p a {
 
 /* 🎓 Education Section Elements - Match work experience styling exactly */
 .cv-education-item {
-  margin-bottom: var(--space-small); /* Reduced spacing for clean look */
-  padding-bottom: 0; /* Remove padding for minimal design */
-  border-bottom: none; /* Remove border for cleaner look */
+  margin-bottom: var(--space-subsection);
+  /* Increased to prevent PDF overlap */
+  padding-bottom: 0;
+  /* Remove padding for minimal design */
+  border-bottom: none;
+  /* Remove border for cleaner look */
 }
 
 .cv-institution-name {
   font-size: var(--size-subsection);
-  font-weight: 400; /* Reduced for lighter look */
+  font-weight: 400;
+  /* Reduced for lighter look */
   color: var(--color-accent);
   /* Match company name styling for consistency */
   margin-bottom: 4px;
@@ -1053,7 +1088,8 @@ h3+p a {
 }
 
 .cv-degree-title {
-  font-weight: 400; /* Reduced for lighter look */
+  font-weight: 400;
+  /* Reduced for lighter look */
   color: var(--color-secondary);
   font-size: var(--size-body);
   margin-bottom: 8px;
@@ -1071,8 +1107,10 @@ h3+p a {
   color: var(--color-text);
   font-size: var(--size-small);
   font-weight: 300;
-  padding-left: 14px; /* Same as bullet points for alignment */
-  font-style: normal; /* Remove italic to match bullet points */
+  padding-left: 14px;
+  /* Same as bullet points for alignment */
+  font-style: normal;
+  /* Remove italic to match bullet points */
 }
 
 .cv-coursework {
@@ -1108,8 +1146,10 @@ h3+p a {
 .cv-skills-tags {
   font-size: var(--size-tiny);
   color: var(--color-text-muted);
-  margin: 6px 0 var(--space-small) 0; /* Reduced margins */
-  line-height: 1.4; /* Tighter line height */
+  margin: 6px 0 var(--space-small) 0;
+  /* Reduced margins */
+  line-height: 1.4;
+  /* Tighter line height */
   padding-left: 0;
   /* Remove old padding */
   border-left: none;
@@ -1124,12 +1164,17 @@ h3+p a {
   display: inline-block;
   background: #f8f9fa;
   border: 1px solid var(--color-border);
-  border-radius: 3px; /* Smaller border radius */
-  padding: 1px 3px; /* Reduced padding */
-  margin: 1px 1px 1px 0; /* Tighter margins */
-  font-size: clamp(0.7rem, 0.25vw + 0.55rem, 0.75rem); /* Smaller font */
+  border-radius: 3px;
+  /* Smaller border radius */
+  padding: 1px 3px;
+  /* Reduced padding */
+  margin: 1px 1px 1px 0;
+  /* Tighter margins */
+  font-size: clamp(0.7rem, 0.25vw + 0.55rem, 0.75rem);
+  /* Smaller font */
   color: var(--color-text);
-  font-weight: 300; /* Lighter weight */
+  font-weight: 300;
+  /* Lighter weight */
   font-style: normal;
   transition: all 0.2s ease;
 }
