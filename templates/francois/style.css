@@ -72,7 +72,7 @@
      ========================================================================== */
 
   /* 🔴 SWISS DESIGN ACCENT - François signature with professional restraint */
-  --color-accent: #3e5ae5;
+  --color-accent: #e53e3e;
   /* Vibrant red accent for visual impact - Swiss design principle of limited palette */
 
   /* 📖 PROFESSIONAL COLOR SYSTEM - Navy/Charcoal for Technical Roles */
@@ -137,8 +137,8 @@
      ========================================================================== */
 
   /* 🎯 SWISS DESIGN SPACING - François reference proportions (reduced for density) */
-  --space-section: 0.75rem;
-  /* Between major sections - tighter François reference density */
+  --space-section: 1.5rem;
+  /* Between major sections - proper spacing for PDF generation */
   --space-subsection: 0.5rem;
   /* Between companies/projects - maintains hierarchy */
   --space-item: 0.375rem;
@@ -164,7 +164,7 @@
   /* 📋 PAGE SETUP - Optimized for international A4 format */
   --max-width: 210mm;
   /* A4 width (8.5in for US Letter) */
-  --margin-page: 15mm;
+  --margin-page: 20mm;
   /* Page margins (15mm=tighter, 25mm=more space) */
 }
 
@@ -183,8 +183,8 @@ body {
   background-color: var(--color-bg);
   padding: 5mm var(--margin-page) var(--margin-page) var(--margin-page);
   letter-spacing: -0.015em;
-  font-weight: 300;
-  /* Reduced from 400 for lighter look */
+  font-weight: 400;
+  /* Standard font weight for better readability */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* CSS Grid Layout - Enhanced from guide.md */
@@ -231,8 +231,8 @@ body {
   grid-area: main-content;
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-section);
-  /* Proper section separation for PDF layout */
+  gap: var(--space-small);
+  /* Reduced gap to prevent double spacing with section margins */
 }
 
 .profile-pic {
@@ -330,8 +330,7 @@ h2,
   font-size: var(--size-section);
   font-weight: 600;
   color: var(--color-primary);
-  margin-top: 1rem;
-  /* Increased for PDF-safe section separation */
+  margin-top: var(--space-section);
   margin-bottom: var(--space-subsection);
   padding-bottom: 6px;
   border-bottom: 2px solid var(--color-primary);
@@ -340,18 +339,10 @@ h2,
   /* Ensure section headers appear below floated header elements */
 }
 
-/* Handle Pandoc section wrapper elements - Remove duplicate spacing */
+/* Handle Pandoc section wrapper elements - Ensure proper spacing */
 section.cv-section {
-  margin-bottom: 0;
-  /* Remove duplicate spacing - h2 margin handles section spacing */
-}
-
-/* Fix double horizontal bar - remove border from section wrapper */
-section.cv-section-header {
-  border-bottom: none;
-  /* Only h2 elements should have the underline, not section wrappers */
-  padding-bottom: 0;
-  /* Allow natural margin for proper spacing */
+  margin-bottom: var(--space-subsection);
+  /* Ensure proper section separation in PDF */
 }
 
 /* First section should not have top margin */
@@ -386,8 +377,8 @@ td {
   line-height: 1.4;
   font-size: var(--size-small);
   /* Added explicit font size */
-  font-weight: 300;
-  /* Lighter weight */
+  font-weight: 400;
+  /* Standard weight for readability */
 }
 
 /* Style empty skill cells to be invisible but maintain table structure */
@@ -479,8 +470,8 @@ li {
   line-height: 1.4;
   color: var(--color-text);
   font-size: var(--size-small);
-  font-weight: 300;
-  /* Lighter weight */
+  font-weight: 400;
+  /* Standard weight for readability */
   padding-left: 14px;
 }
 
@@ -525,8 +516,8 @@ li::before {
   font-size: clamp(0.7rem, 0.25vw + 0.55rem, 0.75rem);
   /* Smaller font */
   color: var(--color-text);
-  font-weight: 300;
-  /* Lighter weight */
+  font-weight: 400;
+  /* Standard weight for readability */
   font-style: normal;
   transition: all 0.2s ease;
 }
@@ -1053,8 +1044,8 @@ h3+p a {
 
 /* 🎓 Education Section Elements - Match work experience styling exactly */
 .cv-education-item {
-  margin-bottom: var(--space-subsection);
-  /* Increased to prevent PDF overlap */
+  margin-bottom: var(--space-small);
+  /* Reduced spacing for clean look */
   padding-bottom: 0;
   /* Remove padding for minimal design */
   border-bottom: none;
@@ -1100,17 +1091,22 @@ h3+p a {
   color: var(--color-text);
 }
 
-.cv-education-highlight {
-  /* Match bullet point styling exactly but without bullet */
-  margin-bottom: 6px;
-  line-height: 1.4;
-  color: var(--color-text);
+.cv-technical-highlight {
   font-size: var(--size-small);
-  font-weight: 300;
-  padding-left: 14px;
-  /* Same as bullet points for alignment */
-  font-style: normal;
-  /* Remove italic to match bullet points */
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin-bottom: var(--space-small);
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.cv-education-highlight {
+  font-size: var(--size-small);
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin-bottom: var(--space-small);
+  font-weight: 400;
+  line-height: 1.3;
 }
 
 .cv-coursework {
@@ -1173,8 +1169,8 @@ h3+p a {
   font-size: clamp(0.7rem, 0.25vw + 0.55rem, 0.75rem);
   /* Smaller font */
   color: var(--color-text);
-  font-weight: 300;
-  /* Lighter weight */
+  font-weight: 400;
+  /* Standard weight for readability */
   font-style: normal;
   transition: all 0.2s ease;
 }
