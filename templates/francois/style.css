@@ -71,15 +71,15 @@
      Sophisticated colors that work great for creative and tech professionals
      ========================================================================== */
 
-  /* 🔴 SWISS DESIGN ACCENT - François signature with professional restraint */
-  --color-accent: #e53e3e;
-  /* Vibrant red accent for visual impact - Swiss design principle of limited palette */
+  /* 🌿 PROFESSIONAL DARK GREEN ACCENT - Clean and sophisticated */
+  --color-accent: #2d5016;
+  /* Dark olive green for professional accent - sophisticated and readable */
 
-  /* 📖 PROFESSIONAL COLOR SYSTEM - Navy/Charcoal for Technical Roles */
-  --color-primary: #1e40af;
-  /* Navy blue for headers - recommended for technical/corporate roles (toolkit.md) */
-  --color-secondary: #374151;
-  /* Charcoal gray for secondary text - professional presentation */
+  /* 📖 PROFESSIONAL COLOR SYSTEM - Dark Green for Technical Roles */
+  --color-primary: #1a3f0d;
+  /* Dark forest green for headers - professional and cohesive with accent */
+  --color-secondary: #030602;
+  /* Dark green-gray for secondary text - cohesive with green theme */
   --color-text: #1f2937;
   /* Main body text - optimal reading contrast */
   --color-text-light: #4b5563;
@@ -333,7 +333,7 @@ h2,
   margin-top: var(--space-section);
   margin-bottom: var(--space-subsection);
   padding-bottom: 6px;
-  border-bottom: 2px solid var(--color-primary);
+  /* No border for clean minimal design */
   letter-spacing: -0.02em;
   clear: both;
   /* Ensure section headers appear below floated header elements */
@@ -908,13 +908,13 @@ h3+p a {
 .cv-experience-item {
   margin-bottom: var(--space-subsection);
   padding-bottom: var(--space-small);
-  border-bottom: 1px solid var(--color-border);
+  /* Removed border-bottom to prevent double horizontal bars */
 }
 
 .cv-company-name {
-  font-size: var(--size-subsection);
-  font-weight: 400;
-  /* Further reduced for lighter look */
+  font-size: var(--size-body);
+  font-weight: 500;
+  /* Better weight for readability */
   color: var(--color-accent);
   /* Reduced weight to match François reference */
   margin-bottom: 4px;
@@ -940,6 +940,19 @@ h3+p a {
   margin-bottom: var(--space-small);
   color: var(--color-secondary);
   font-size: var(--size-body);
+}
+
+/* Fix for actual HTML structure - job titles and degree titles */
+.cv-position-header p {
+  font-size: var(--size-body);
+  margin: 0;
+  color: var(--color-secondary);
+}
+
+.cv-position-header p strong {
+  font-size: var(--size-body);
+  font-weight: 500;
+  color: var(--color-secondary);
 }
 
 .cv-reference {
@@ -978,10 +991,10 @@ h3+p a {
 }
 
 .cv-project-name {
-  font-size: var(--size-subsection);
+  font-size: var(--size-body);
   font-weight: 500;
   color: var(--color-accent);
-  /* Reduced weight to match François reference */
+  /* Consistent with company names */
   margin-bottom: 4px;
 }
 
@@ -1053,9 +1066,9 @@ h3+p a {
 }
 
 .cv-institution-name {
-  font-size: var(--size-subsection);
-  font-weight: 400;
-  /* Reduced for lighter look */
+  font-size: var(--size-body);
+  font-weight: 500;
+  /* Consistent with other names */
   color: var(--color-accent);
   /* Match company name styling for consistency */
   margin-bottom: 4px;
