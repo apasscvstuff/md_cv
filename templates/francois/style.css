@@ -1022,9 +1022,9 @@ h3+p a {
 
 /* 🎓 Education Section Elements - Match work experience styling exactly */
 .cv-education-item {
-  margin-bottom: var(--space-section);
-  padding-bottom: var(--space-item);
-  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--space-small); /* Reduced spacing for clean look */
+  padding-bottom: 0; /* Remove padding for minimal design */
+  border-bottom: none; /* Remove border for cleaner look */
 }
 
 .cv-institution-name {
@@ -1064,11 +1064,15 @@ h3+p a {
   color: var(--color-text);
 }
 
-.cv-focus-area {
+.cv-education-highlight {
+  /* Match bullet point styling exactly but without bullet */
+  margin-bottom: 6px;
+  line-height: 1.4;
+  color: var(--color-text);
   font-size: var(--size-small);
-  color: var(--color-text-muted);
-  font-style: italic;
-  margin-bottom: 8px;
+  font-weight: 300;
+  padding-left: 14px; /* Same as bullet points for alignment */
+  font-style: normal; /* Remove italic to match bullet points */
 }
 
 .cv-coursework {

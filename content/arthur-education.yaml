@@ -21,13 +21,13 @@ education:
       - "Computer Systems"
       - "Information Security"
     
-    # Key focus areas for version targeting
-    focus_areas:
-      ai: "Data Science specialization with strong focus on Machine Learning and Applied Data Analysis"
-      firmware: "Hardware and System Design with emphasis on Computer Systems architecture"
-      consulting: "Data Science and Machine Learning with business applications focus"
-      executive: "Advanced computer science degree with technical leadership preparation"
-      general: "Comprehensive computer science education with Data Science and Systems Design specialization"
+    # Concise one-liner technical focus per version (François style)
+    technical_highlight:
+      ai: "Data Science specialization with Machine Learning research and production deployment experience"
+      firmware: "Hardware-Software Co-design with Computer Systems architecture and embedded programming"
+      consulting: "Data Science and ML methodology with proven business impact and stakeholder communication"
+      executive: "Advanced technical degree with research excellence and cross-functional leadership experience"
+      general: "Data Science and Systems Design with both theoretical foundations and practical implementation"
     
     # Academic achievements and projects
     notable_achievements:
@@ -95,13 +95,13 @@ education:
       - "Linux kernel module development"
       - "FPGA-based accelerator design"
     
-    # Focus areas for version targeting
-    focus_areas:
-      firmware: "Embedded Systems major with FPGA/SoC design and Linux kernel development"
-      ai: "High-performance computing foundation with hardware acceleration expertise"
-      consulting: "Technical computer science background with system programming skills"
-      executive: "Engineering degree with embedded systems specialization"
-      general: "Computer science with embedded systems focus and hardware design experience"
+    # Concise one-liner technical focus per version (François style)
+    technical_highlight:
+      firmware: "Embedded Systems major with FPGA/SoC development and Linux kernel programming expertise"
+      ai: "High-performance computing foundation with hardware acceleration and parallel processing experience"
+      consulting: "Strong technical foundation with embedded systems and performance optimization experience"
+      executive: "Technical engineering degree with hands-on systems development and optimization expertise"
+      general: "Embedded Systems specialization with FPGA development and system-level programming experience"
     
     # Hands-on experience and projects
     practical_experience:

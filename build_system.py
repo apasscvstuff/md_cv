@@ -711,7 +711,7 @@ class CVBuilder:
                 "start_date": education.get("start_date", ""),
                 "end_date": education.get("end_date", ""),
                 "location": education.get("location", ""),
-                "focus_area": education.get("focus_areas", {}).get(target_version, ""),
+                "technical_highlight": education.get("technical_highlight", {}).get(target_version, ""),
                 "relevant_coursework": education.get("relevant_coursework", {}).get(
                     target_version, []
                 ),
@@ -774,33 +774,16 @@ class CVBuilder:
             markdown += f'  <span class="cv-education-location"><em>{education["location"]}</em></span>\n'
             markdown += f'</div>\n\n'
 
-            # Create degree header with date alignment
+            # Create degree header with date alignment - MINIMAL CLEAN DESIGN
             markdown += f'<div class="cv-position-header">\n'
-            markdown += f'  <p class="cv-degree-title"><strong>{education["degree"]}</strong>'
-            if education["major"]:
-                markdown += f', <span class="cv-major">Major in {education["major"]}</span>'
-            markdown += f'</p>\n'
+            markdown += f'  <p class="cv-degree-title"><strong>{education["degree"]}</strong></p>\n'
             if education["start_date"] and education["end_date"]:
                 markdown += f'  <span class="cv-education-period"><em>{education["start_date"]} - {education["end_date"]}</em></span>\n'
             markdown += f'</div>\n\n'
 
-            # Focus area (version-specific)
-            if education["focus_area"]:
-                markdown += f'<p class="cv-focus-area"><em>Focus: {education["focus_area"]}</em></p>\n\n'
-
-            # Relevant coursework (version-specific)
-            if education["relevant_coursework"]:
-                markdown += '<p class="cv-coursework"><strong>Key Coursework:</strong> '
-                markdown += " • ".join(education["relevant_coursework"]) + "</p>\n\n"
-
-            # Achievements (version-specific)
-            if education["achievements"]:
-                markdown += '<ul class="cv-education-achievements">\n'
-                for achievement in education["achievements"]:
-                    markdown += (
-                        f'<li class="cv-education-achievement">{achievement}</li>\n'
-                    )
-                markdown += "</ul>\n\n"
+            # Add single technical highlight line (subtle like bullet points but without bullet)
+            if education["technical_highlight"]:
+                markdown += f'<div class="cv-education-highlight">{education["technical_highlight"]}</div>\n\n'
 
             markdown += "</div>\n\n"
 
