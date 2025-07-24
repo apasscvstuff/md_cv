@@ -1,0 +1,33 @@
+CLAUDE ARTIFACT: unnamed5
+============================================================
+From Conversation: Job Application Strategy Planning
+Found at path: root.chat_messages[13].content[21]
+Artifact ID: N/A
+Type: tool_use
+Created: 2025-07-23T15:37:01.523752Z
+Updated: 2025-07-23T15:37:03.857132Z
+Note: Untitled artifact (>500 bytes)
+============================================================
+
+FULL ARTIFACT DATA:
+----------------------------------------
+{
+  "start_timestamp": "2025-07-23T15:37:01.523752Z",
+  "stop_timestamp": "2025-07-23T15:37:03.857132Z",
+  "type": "tool_use",
+  "name": "artifacts",
+  "input": {
+    "id": "resume_correction_prompt",
+    "command": "update",
+    "new_str": "### 5. TIMELINE CORRECTIONS\n\n**Update Tandem period to reflect accuracy:**\n```\nCurrent: \"December 2022 - Today\"\nCorrect: \"December 2022 - February 2025\"\n```\n\n**Additional Note:**\nThe RAG system work Arthur mentioned should be included as it represents legitimate technical work, likely developed as a prototype or internal tool during his time at Tandem to help with technical documentation search.",
+    "old_str": "**Additional Note:**\nThe RAG system work Arthur mentioned should be included as it represents legitimate technical work, likely developed as a prototype or internal tool during his time at Tandem to help with technical documentation search.",
+    "version_uuid": "bf3d9cae-184e-4603-86f7-bc360f18532e"
+  },
+  "message": "artifacts",
+  "integration_name": null,
+  "integration_icon_url": null,
+  "context": null,
+  "display_content": null,
+  "approval_options": null,
+  "approval_key": null
+}

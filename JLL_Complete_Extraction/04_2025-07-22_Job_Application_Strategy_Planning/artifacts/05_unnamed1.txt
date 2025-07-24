@@ -1,0 +1,33 @@
+CLAUDE ARTIFACT: unnamed1
+============================================================
+From Conversation: Job Application Strategy Planning
+Found at path: root.chat_messages[13].content[9]
+Artifact ID: N/A
+Type: tool_use
+Created: 2025-07-23T15:36:24.854723Z
+Updated: 2025-07-23T15:36:34.701819Z
+Note: Untitled artifact (>500 bytes)
+============================================================
+
+FULL ARTIFACT DATA:
+----------------------------------------
+{
+  "start_timestamp": "2025-07-23T15:36:24.854723Z",
+  "stop_timestamp": "2025-07-23T15:36:34.701819Z",
+  "type": "tool_use",
+  "name": "artifacts",
+  "input": {
+    "id": "resume_correction_prompt",
+    "command": "update",
+    "new_str": "**Replace With (ACCURATE):**\n- \"**Clinical Trial Leadership:** Led firmware development for Sigi™ insulin pump delivering FDA-compliant system for First In Human clinical trial, ensuring ISO-13485/IEC-62304 compliance with comprehensive regulatory documentation\"\n- \"**Technical Documentation System:** Designed and prototyped RAG-based technical documentation search system for complex medical device specifications, implementing intelligent document retrieval to improve engineering team efficiency\"\n- \"**Technical Infrastructure:** Developed comprehensive HIL (Hardware-in-the-Loop) test infrastructure achieving 96% code coverage, enabling automated firmware validation and accelerating development cycles by 40%\"\n- \"**Cross-functional Leadership:** Organized and facilitated Scrum ceremonies (standups, sprint planning, retrospectives, demos) while coordinating with hardware, QA, regulatory affairs, and clinical teams across multiple time zones\"\n- \"**Embedded Architecture:** Designed and implemented embedded software architecture for medical device combining Bluetooth communication stack with real-time insulin delivery protocols and safety-critical algorithms\"",
+    "old_str": "**Replace With (ACCURATE):**\n- \"**Clinical Trial Leadership:** Led firmware development for Sigi™ insulin pump delivering FDA-compliant system for First In Human clinical trial, ensuring ISO-13485/IEC-62304 compliance with comprehensive regulatory documentation\"\n- \"**Technical Infrastructure:** Developed comprehensive HIL (Hardware-in-the-Loop) test infrastructure achieving 96% code coverage, enabling automated firmware validation and accelerating development cycles by 40%\"\n- \"**Cross-functional Leadership:** Organized and facilitated Scrum ceremonies (standups, sprint planning, retrospectives, demos) while coordinating with hardware, QA, regulatory affairs, and clinical teams across multiple time zones\"\n- \"**Embedded Architecture:** Designed and implemented embedded software architecture for medical device combining Bluetooth communication stack with real-time insulin delivery protocols and safety-critical algorithms\"\n- \"**Documentation & Compliance:** Created comprehensive software architecture documentation, design specifications, and interface descriptions meeting medical device regulatory standards (ISO-13485/IEC-62304)\"",
+    "version_uuid": "81e756f9-4f22-4670-8ce4-8263639a62b7"
+  },
+  "message": "artifacts",
+  "integration_name": null,
+  "integration_icon_url": null,
+  "context": null,
+  "display_content": null,
+  "approval_options": null,
+  "approval_key": null
+}

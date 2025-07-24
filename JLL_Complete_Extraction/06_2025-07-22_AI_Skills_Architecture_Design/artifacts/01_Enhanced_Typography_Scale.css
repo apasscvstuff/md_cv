@@ -1,0 +1,134 @@
+CLAUDE ARTIFACT: Enhanced Typography Scale
+============================================================
+From Conversation: AI Skills Architecture Design
+Found at path: root.chat_messages[1].content[15]
+Artifact ID: enhanced_typography
+Type: application/vnd.ant.code
+Language: css
+Created: 2025-07-23T13:03:50.010977Z
+Updated: 2025-07-23T13:04:15.895567Z
+============================================================
+
+ARTIFACT CONTENT:
+----------------------------------------
+/* =============================================================================
+   🎯 ENHANCED TYPOGRAPHY SCALE - Swiss Design + Fluid Responsiveness
+   Optimized for Arthur's CV system based on design guide recommendations
+   ============================================================================= */
+
+:root {
+  /* 📏 FLUID TYPOGRAPHY SCALE - Responsive sizing for all formats */
+  --text-base: clamp(10pt, 1.2vw + 8pt, 11pt);    /* Body text - PDF optimized */
+  --text-sm: clamp(9pt, 1vw + 7.5pt, 10pt);       /* Small text - contact info */
+  --text-lg: clamp(12pt, 1.5vw + 10pt, 14pt);     /* Section headers */
+  --text-xl: clamp(14pt, 2vw + 11pt, 16pt);       /* Company names */
+  --text-2xl: clamp(24pt, 3vw + 20pt, 28pt);      /* Name - François standard */
+
+  /* 🎨 PROFESSIONAL COLOR PALETTE - Swiss design influenced */
+  --color-primary: #1a202c;          /* Deep blue-gray for authority */
+  --color-secondary: #2d3748;        /* Medium gray for readability */
+  --color-accent: #e53e3e;           /* François red - professional energy */
+  --color-text: #4a5568;             /* Subtle text gray */
+  --color-text-light: #718096;       /* Light gray for secondary info */
+  --color-border: #e2e8f0;           /* Subtle borders */
+  --color-background: #ffffff;       /* Clean white background */
+
+  /* 📐 SWISS SPACING SYSTEM - Mathematical precision */
+  --space-xs: 0.25rem;               /* 4px - minimal spacing */
+  --space-sm: 0.5rem;                /* 8px - small elements */
+  --space-md: 1rem;                  /* 16px - standard spacing */
+  --space-lg: 1.5rem;                /* 24px - section separation */
+  --space-xl: 2rem;                  /* 32px - major sections */
+
+  /* 🖨️ PRINT-SPECIFIC OPTIMIZATIONS */
+  --line-height-base: 1.4;           /* Optimal for print readability */
+  --line-height-tight: 1.2;          /* Headers and compact text */
+  --line-height-loose: 1.6;          /* Body text for easy reading */
+}
+
+/* 📝 CORE TYPOGRAPHY IMPLEMENTATION */
+body {
+  font-family: 'Roboto', 'Calibri', 'Arial', sans-serif;
+  font-size: var(--text-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  font-weight: 400;
+  letter-spacing: -0.01em;            /* Subtle tightening for professionalism */
+}
+
+/* 🏷️ SEMANTIC HEADER SYSTEM */
+.cv-name {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.02em;            /* Tighter for large text */
+  margin-bottom: var(--space-sm);
+}
+
+.cv-tagline {
+  font-size: var(--text-lg);
+  font-weight: 500;
+  color: var(--color-secondary);
+  line-height: var(--line-height-tight);
+  margin-bottom: var(--space-md);
+}
+
+.cv-section-header {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-xs);
+  border-bottom: 2px solid var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* 💼 CONTENT HIERARCHY */
+.cv-company-name,
+.cv-project-title {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--color-primary);
+  line-height: var(--line-height-tight);
+  margin-bottom: var(--space-xs);
+}
+
+.cv-position-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--color-secondary);
+  margin-bottom: var(--space-xs);
+}
+
+.cv-dates,
+.cv-location {
+  font-size: var(--text-sm);
+  color: var(--color-text-light);
+  font-style: italic;
+}
+
+/* 📊 ENHANCED PRINT OPTIMIZATION */
+@media print {
+  :root {
+    /* Slightly reduce sizes for print density */
+    --text-2xl: clamp(22pt, 3vw + 18pt, 24pt);
+    --text-xl: clamp(12pt, 1.8vw + 10pt, 14pt);
+    --text-lg: clamp(11pt, 1.5vw + 9pt, 12pt);
+    --text-base: clamp(9pt, 1.2vw + 7pt, 10pt);
+    --text-sm: clamp(8pt, 1vw + 6.5pt, 9pt);
+    
+    /* Adjust spacing for print */
+    --space-xl: 1.5rem;
+    --space-lg: 1rem;
+    --space-md: 0.75rem;
+  }
+
+  body {
+    line-height: var(--line-height-base);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

@@ -1,0 +1,33 @@
+CLAUDE ARTIFACT: unnamed2
+============================================================
+From Conversation: Job Application Strategy Planning
+Found at path: root.chat_messages[13].content[12]
+Artifact ID: N/A
+Type: tool_use
+Created: 2025-07-23T15:36:38.879162Z
+Updated: 2025-07-23T15:36:44.887306Z
+Note: Untitled artifact (>500 bytes)
+============================================================
+
+FULL ARTIFACT DATA:
+----------------------------------------
+{
+  "start_timestamp": "2025-07-23T15:36:38.879162Z",
+  "stop_timestamp": "2025-07-23T15:36:44.887306Z",
+  "type": "tool_use",
+  "name": "artifacts",
+  "input": {
+    "id": "resume_correction_prompt",
+    "command": "update",
+    "new_str": "**Current (ACCURATE - Keep):**\n```\nPosition: \"Lead AI/ML Instructor & Curriculum Designer\"\n```\n\n**This is actually correct based on evidence:**\n- Arthur designed complete program: \"structure, pedagogical objectives, course content, and practical exercises\"\n- Gave auditorium presentations to MBA students\n- Led technical team of 7 assistants\n- Had full curriculum design responsibility\n\n**Keep These (ALL ACCURATE):**\n- The 4.8/5.0 rating and 100+ international executives\n- The hands-on curriculum development and design\n- The technical translation to business leaders\n- Leading team of 7 assistants\n- Auditorium presentations in English",
+    "old_str": "**Current (EXAGGERATED):**\n```\nPosition: \"Lead AI/ML Instructor & Curriculum Designer\"\n```\n\n**Correct To:**\n```\nPosition: \"AI/ML Teaching Assistant & Educational Content Developer\"\n```\n\n**Keep These (ACCURATE):**\n- The 4.8/5.0 rating and 100+ international executives\n- The hands-on curriculum development\n- The technical translation to business leaders\n\n**Add Accuracy Note:**\n- Change \"designed 40-hour curriculum\" to \"contributed to 40-hour curriculum design and delivery\"",
+    "version_uuid": "51198c50-a7cd-43a1-bf6d-afca35673de4"
+  },
+  "message": "artifacts",
+  "integration_name": null,
+  "integration_icon_url": null,
+  "context": null,
+  "display_content": null,
+  "approval_options": null,
+  "approval_key": null
+}

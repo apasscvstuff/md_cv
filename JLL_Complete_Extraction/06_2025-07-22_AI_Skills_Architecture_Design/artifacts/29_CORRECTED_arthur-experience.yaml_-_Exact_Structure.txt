@@ -1,0 +1,261 @@
+CLAUDE ARTIFACT: CORRECTED arthur-experience.yaml - Exact Structure
+============================================================
+From Conversation: AI Skills Architecture Design
+Found at path: root.chat_messages[7].content[16]
+Artifact ID: corrected_experience_yaml
+Type: application/vnd.ant.code
+Language: yaml
+Created: 2025-07-23T13:36:43.749873Z
+Updated: 2025-07-23T13:37:44.208413Z
+============================================================
+
+ARTIFACT CONTENT:
+----------------------------------------
+# Arthur Passuello - Experience Configuration
+# Enhanced content while preserving exact YAML structure
+
+experiences:
+  # Tandem Diabetes Care - Enhanced with stronger ML positioning
+  - company: "Tandem Diabetes Care Switzerland"
+    location: "Lausanne, Switzerland"
+    period: "December 2022 - Today"
+    reference: "(Ref. Patrick Segura)"
+    versions: ["firmware", "ai", "consulting", "executive", "general"]
+    
+    # Position title varies by version (Your exact structure preserved)
+    position_base: "Embedded Software Engineer"
+    position_variants:
+      executive: "Senior Technical Lead"
+      consulting: "Software Engineer - ML Applications & Team Leadership"
+      ai: "Software Engineer - Applied ML & Signal Processing"
+      firmware: "Senior Software Engineer - Embedded Systems"
+      general: "Software Engineer"
+    
+    # Enhanced achievements with stronger metrics and ML focus
+    achievements:
+      # Priority 1 achievements (shown in ALL versions including executive)
+      - text: "**Real-time ML Anomaly Detection**: Architected statistical learning system for medical device signal processing, achieving 100% critical event detection with 0.1% false positive rate, directly improving patient safety outcomes"
+        versions: ["firmware", "ai", "consulting", "executive"]
+        priority: 1
+        type: "techmetric"
+        
+      - text: "**Production LLM Implementation**: Deployed local Llama 3.2 model with RAG architecture over 100MB+ technical documentation, reducing engineer lookup time by 75% and accelerating development cycles"
+        versions: ["ai", "consulting", "executive"]
+        priority: 1
+        type: "ai_focus"
+        
+      - text: "**Team ML Transition Leadership**: Led cross-functional migration from LabView to Python/ML stack, training 15+ engineers in NumPy, Pandas, and scikit-learn, enabling data-driven development practices"
+        versions: ["ai", "consulting", "executive"]
+        priority: 1
+        type: "leadmetric"
+        
+      - text: "**Safety-Critical System Architecture**: Designed production medical software with 99.9% uptime SLA, comprehensive testing suite (96% coverage), and real-time monitoring, serving 10,000+ active users"
+        versions: ["firmware", "consulting", "executive"]
+        priority: 1
+        type: "techmetric"
+        
+      # Priority 2 achievements (not in executive, shown in others)
+      - text: "**Advanced Signal Processing**: Developed proprietary algorithms for biomedical signal analysis using statistical learning, processing 10,000+ samples/second with sub-millisecond latency"
+        versions: ["firmware", "ai", "consulting", "general"]
+        priority: 2
+        type: "techmetric"
+        
+      - text: "**MLOps Infrastructure**: Built end-to-end ML pipeline with automated model validation, A/B testing framework, and monitoring dashboards, supporting 24/7 medical device operations"
+        versions: ["ai", "consulting", "general"]
+        priority: 2
+        type: "ai_focus"
+        
+      - text: "**Cross-functional Coordination**: Led technical integration across firmware, mobile, and cloud teams, establishing standardized development practices and improving delivery speed by 40%"
+        versions: ["consulting", "general"]
+        priority: 2
+        type: "consulting_focus"
+        
+      - text: "**Technical Leadership**: Led 5-person firmware team through complex system integration challenges, establishing development best practices and mentoring junior engineers"
+        versions: ["firmware", "general"]
+        priority: 2
+        type: "leadmetric"
+        
+      # Priority 3 achievements (only in detailed versions: firmware/ai)
+      - text: "**Hybrid Retrieval Implementation**: Developed FAISS vector search combined with BM25 and neural reranking, achieving 94% relevance accuracy with <100ms query latency"
+        versions: ["ai"]
+        priority: 3
+        type: "ai_focus"
+        
+      - text: "**Apple Silicon Optimization**: Achieved 6x inference speedup through custom MPS kernels and memory optimization for on-device ML processing"
+        versions: ["ai", "firmware"]
+        priority: 3
+        type: "techmetric"
+        
+      - text: "**Quality Systems Management**: Managed technical subprojects ensuring ISO 13485/IEC 62304 compliance (DHF, risk analysis, etc.), demonstrating expertise in quality frameworks applicable to AI governance"
+        versions: ["consulting", "firmware"]
+        priority: 3
+        type: "businessimpact"
+    
+    # Enhanced skills tags by version
+    skills_tags:
+      firmware: "C/C++ • Python • Real-time ML • Signal Processing • Medical Devices • Safety-Critical • Statistical Learning • Production Systems • Team Leadership • RTOS • HIL Testing"
+      ai: "Python • PyTorch • LLMs • RAG • Statistical Learning • MLOps • Real-time ML • Production Systems • Team Leadership • Technical Mentoring • FAISS • Apple Silicon MPS"
+      consulting: "Python • Machine Learning • Technical Leadership • Team Training • Production Systems • ML Strategy • Stakeholder Management • Process Improvement • Cross-functional Leadership"
+      executive: "Technical Strategy • ML Implementation • Team Development • Production Systems • Cross-functional Leadership • Process Innovation • Stakeholder Management"
+      general: "Python • Machine Learning • System Architecture • Team Leadership • Production Systems • Statistical Learning • Process Improvement • C/C++"
+
+  # IMD Business School - Enhanced educational leadership positioning
+  - company: "IMD Business School"
+    location: "Lausanne, Switzerland"
+    period: "July 2018 - August 2021"
+    reference: "(Ref. Prof. Marc Chauvet)"
+    versions: ["ai", "consulting", "general", "firmware"]
+    
+    position_base: "Digital Week Assistant - ML Education Lead"
+    position_variants:
+      ai: "ML Education Lead & Curriculum Designer"
+      consulting: "Senior Technical Instructor - AI/ML Strategy"
+      general: "Student Assistant - ML Education Lead"
+      firmware: "Technical Instructor - Applied Engineering"
+    
+    achievements:
+      # Priority 1 achievements
+      - text: "**Executive ML Curriculum**: Architected 40-hour hands-on machine learning curriculum covering supervised learning, neural networks, and PyTorch, achieving 4.8/5.0 satisfaction from 100+ C-suite executives across 25+ countries"
+        versions: ["ai", "consulting"]
+        priority: 1
+        type: "ai_focus"
+        
+      - text: "**Technical Translation Excellence**: Pioneered pedagogical methods for explaining complex AI concepts (backpropagation, attention mechanisms, gradient descent) to business leaders, improving comprehension by 40%"
+        versions: ["ai", "consulting"]
+        priority: 1
+        type: "ai_focus"
+        
+      - text: "**Applied ML Project Leadership**: Guided C-suite teams through business-focused ML implementations including demand forecasting and sentiment analysis, with final presentations to board stakeholders"
+        versions: ["ai", "consulting"]
+        priority: 1
+        type: "businessimpact"
+        
+      - text: "**International Technical Education**: Led technical training for 100+ international executives, demonstrating ability to communicate complex technical concepts across cultural and linguistic barriers"
+        versions: ["general", "firmware"]
+        priority: 1
+        type: "base"
+        
+      # Priority 2 achievements
+      - text: "**Program Innovation**: Developed first-of-its-kind 'AI for Executives' program combining theoretical foundations with hands-on PyTorch coding, establishing IMD as European leader in executive AI education"
+        versions: ["ai", "consulting", "general"]
+        priority: 2
+        type: "leadmetric"
+        
+      - text: "**Team Leadership**: Led technical team of 7 assistants delivering comprehensive AI/ML training, maintaining 95% completion rate and 100% program renewal over 4 consecutive years"
+        versions: ["consulting", "general"]
+        priority: 2
+        type: "leadmetric"
+        
+      # Priority 3 achievements
+      - text: "**Global Executive Impact**: Delivered ML education to Fortune 500 executives across 25+ countries, adapting content for diverse cultural contexts while maintaining technical rigor"
+        versions: ["ai", "consulting"]
+        priority: 3
+        type: "businessimpact"
+    
+    skills_tags:
+      ai: "Machine Learning • PyTorch • Neural Networks • Curriculum Design • Technical Communication • Executive Education • Python • Teaching • Leadership • Research"
+      consulting: "Executive Education • ML Strategy • Stakeholder Management • Curriculum Design • Technical Communication • Change Management • Leadership • International Business"
+      general: "Technical Education • Leadership • Program Development • International Communication • Strategic Planning • Teaching"
+      firmware: "Technical Training • Engineering Education • Program Development • International Communication • Technical Leadership"
+
+  # Previous roles with maintained structure but enhanced content
+  - company: "Freelance Technical Consultant"
+    location: "Lausanne, Switzerland"
+    period: "2017 - 2018"
+    versions: ["consulting", "general", "firmware"]
+    
+    position_base: "Technical Consultant"
+    position_variants:
+      consulting: "Senior Technical Consultant - Digital Transformation"
+      general: "Technical Consultant"
+      firmware: "Embedded Systems Consultant"
+    
+    achievements:
+      - text: "**Digital Infrastructure Modernization**: Led complete network architecture redesign for multi-floor retail operation, implementing secure POS integration and reducing operational costs by 30%"
+        versions: ["consulting"]
+        priority: 1
+        type: "businessimpact"
+        
+      - text: "**Secure Network Architecture**: Designed scalable network infrastructure enabling seamless multi-floor communication and new technology integration"
+        versions: ["firmware", "general"]
+        priority: 1
+        type: "base"
+        
+      - text: "**Client Technical Empowerment**: Provided comprehensive knowledge transfer and training, ensuring sustainable solution adoption and client technical autonomy"
+        versions: ["consulting", "general"]
+        priority: 2
+        type: "consulting_focus"
+    
+    skills_tags:
+      consulting: "Technical Consulting • Client Relations • Digital Transformation • Solution Architecture • Knowledge Transfer • Project Management"
+      general: "Technical Architecture • Project Management • Client Relations • Documentation • Knowledge Transfer"
+      firmware: "Network Architecture • System Integration • Technical Documentation • Client Training • Project Management"
+
+  - company: "CERN"
+    location: "Geneva, Switzerland"
+    period: "2014 - 2017"
+    versions: ["firmware", "ai", "general"]
+    
+    position_base: "Electronics Engineer"
+    position_variants:
+      firmware: "Electronics Engineer - Control Systems"
+      ai: "Electronics Engineer - Data Acquisition Systems"
+      general: "Electronics Engineer"
+    
+    achievements:
+      - text: "**Large-scale Data Acquisition**: Designed control systems for particle accelerator experiments, handling terabyte-scale data processing with microsecond precision requirements"
+        versions: ["firmware", "ai"]
+        priority: 1
+        type: "techmetric"
+        
+      - text: "**International Collaboration**: Coordinated technical development across 20+ countries, managing multicultural teams and ensuring project delivery within strict physics experiment schedules"
+        versions: ["ai", "general"]
+        priority: 2
+        type: "leadmetric"
+        
+      - text: "**Precision Control Systems**: Developed real-time control algorithms for particle beam steering, achieving sub-micrometer positioning accuracy"
+        versions: ["firmware"]
+        priority: 2
+        type: "techmetric"
+    
+    skills_tags:
+      firmware: "C/C++ • Real-time Systems • Control Systems • High-precision Engineering • International Collaboration • Large-scale Systems"
+      ai: "Data Acquisition • Large-scale Processing • Statistical Analysis • International Collaboration • Research Environment • Python"
+      general: "International Collaboration • Large-scale Systems • Technical Leadership • Precision Engineering • Research Environment"
+
+# Version configuration for conditional logic (Your exact structure preserved)
+version_config:
+  firmware:
+    toggles: ["firmware", "technical", "detailed"]
+    max_priority: 3
+    show_metrics: true
+    show_business_impact: false
+    executive_summary: false
+    
+  ai:
+    toggles: ["ai", "technical", "detailed"]
+    max_priority: 3
+    show_metrics: true
+    show_business_impact: false
+    executive_summary: false
+    
+  consulting:
+    toggles: ["consulting", "ai", "businessfocus", "quantified"]
+    max_priority: 3
+    show_metrics: true
+    show_business_impact: true
+    executive_summary: false
+    
+  executive:
+    toggles: ["executive", "quantified", "onepage"]
+    max_priority: 1
+    show_metrics: true
+    show_business_impact: true
+    executive_summary: true
+    
+  general:
+    toggles: ["firmware", "ai", "general"]
+    max_priority: 2
+    show_metrics: false
+    show_business_impact: false
+    executive_summary: false

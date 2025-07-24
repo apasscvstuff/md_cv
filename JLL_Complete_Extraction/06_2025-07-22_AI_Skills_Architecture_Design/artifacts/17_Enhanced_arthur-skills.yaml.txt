@@ -1,0 +1,209 @@
+CLAUDE ARTIFACT: Enhanced arthur-skills.yaml
+============================================================
+From Conversation: AI Skills Architecture Design
+Found at path: root.chat_messages[5].content[17]
+Artifact ID: enhanced_skills_yaml
+Type: application/vnd.ant.code
+Language: yaml
+Created: 2025-07-23T13:30:32.730748Z
+Updated: 2025-07-23T13:31:02.794414Z
+============================================================
+
+ARTIFACT CONTENT:
+----------------------------------------
+# Enhanced Technical Skills - Arthur Passuello
+# Optimized for AI/ML transition with better positioning
+
+# Executive version skills (streamlined, high-level)
+executive:
+  leadership_impact:
+    - "Technical Strategy & Innovation Leadership"
+    - "Digital Transformation & AI Implementation"
+    - "Cross-functional Team Leadership (15+ engineers)"
+    - "Stakeholder Management & Board Communication"
+    - "Risk Management & Regulatory Compliance"
+    - "Budget Management & ROI Optimization"
+    - "Vendor Relations & Technology Assessment"
+
+  domain_expertise:
+    - "Machine Learning & AI Systems"
+    - "Embedded Systems & IoT Architecture"
+    - "Medical Technology & Safety-Critical Systems"
+    - "System Architecture (ISAQB Certified)"
+    - "International Business & Multicultural Leadership"
+
+# Technical versions skills (3-column layout)
+technical:
+  # Column 1: Core Engineering & Architecture
+  software_engineering:
+    firmware:
+      - "C/C++"
+      - "Python"
+      - "FreeRTOS & RTOS"
+      - "Embedded Linux"
+      - "Device Drivers"
+      - "Hardware Integration"
+      - "Signal Processing"
+      - "Real-time Systems"
+      - "Safety-Critical Software"
+      - "Medical Device Standards"
+      - "Power Optimization"
+      - "JTAG & Debugging"
+      - "Protocol Implementation"
+      - "System Architecture"
+      - "ISAQB Certified"
+    ai:
+      - "Python"
+      - "PyTorch & TensorFlow"
+      - "Transformers & Attention"
+      - "LLMs & Fine-tuning"
+      - "RAG Systems"
+      - "Constitutional AI"
+      - "Vector Databases (FAISS)"
+      - "Neural Networks"
+      - "Deep Learning"
+      - "Statistical Learning"
+      - "MLOps & Model Deployment"
+      - "Edge AI & Optimization"
+      - "System Architecture"
+      - "Production ML Systems"
+      - "ISAQB Certified"
+    consulting:
+      - "Python"
+      - "System Architecture"
+      - "Technical Strategy"
+      - "Solution Design"
+      - "Requirements Engineering"
+      - "Risk Assessment"
+      - "Quality Assurance"
+      - "Process Improvement"
+      - "Technology Assessment"
+      - "ISAQB Certified"
+    general:
+      - "Python"
+      - "C/C++"
+      - "System Architecture"
+      - "Real-time Systems"
+      - "Machine Learning"
+      - "Signal Processing"
+      - "Quality Assurance"
+      - "ISAQB Certified"
+
+  # Column 2: AI/ML & Data Science
+  ai_ml_data:
+    firmware:
+      - "Statistical Analysis"
+      - "Signal Processing"
+      - "Anomaly Detection"
+      - "Edge ML Deployment"
+      - "TensorFlow Lite"
+      - "Model Optimization"
+      - "Real-time ML"
+      - "Sensor Fusion"
+      - "Performance Profiling"
+      - "Apple Silicon MPS"
+    ai:
+      - "CLIP & ViT"
+      - "Multimodal AI"
+      - "Hugging Face"
+      - "LangChain"
+      - "Sentence Transformers"
+      - "Neural Reranking"
+      - "A/B Testing Frameworks"
+      - "MLflow & W&B"
+      - "Gradio & Streamlit"
+      - "Research Implementation"
+      - "Apple Silicon MPS (6x speedup)"
+      - "Docker & Production Deploy"
+      - "Hybrid Retrieval Systems"
+      - "Constitutional AI Safety"
+      - "Cross-modal Understanding"
+    consulting:
+      - "Machine Learning Strategy"
+      - "Data-driven Decision Making"
+      - "Analytics & Insights"
+      - "Process Optimization"
+      - "Technical Training"
+      - "Knowledge Transfer"
+    general:
+      - "Machine Learning"
+      - "Statistical Analysis"
+      - "Data Processing"
+      - "Model Deployment"
+      - "Performance Optimization"
+
+  # Column 3: Leadership & Tools
+  leadership_tools:
+    firmware:
+      - "Technical Leadership"
+      - "Cross-functional Coordination"
+      - "Team Mentoring"
+      - "Agile/Scrum (SaFE)"
+      - "CI/CD (GitHub Actions)"
+      - "Git Version Control"
+      - "JIRA & Project Management"
+      - "Technical Documentation"
+      - "Code Review"
+      - "HIL Testing"
+      - "Grafana Monitoring"
+      - "Docker"
+      - "Requirements Engineering"
+      - "Stakeholder Communication"
+      - "Risk Management"
+    ai:
+      - "ML Education & Training"
+      - "Technical Mentoring"
+      - "Curriculum Design"
+      - "Cross-cultural Communication"
+      - "Research Methodology"
+      - "Technical Documentation"
+      - "Educational Content Creation"
+      - "International Collaboration"
+      - "Knowledge Transfer"
+      - "Innovation Leadership"
+      - "CI/CD & MLOps"
+      - "Docker & Kubernetes"
+      - "pytest & Testing"
+      - "Git & Version Control"
+      - "Stakeholder Management"
+    consulting:
+      - "Strategic Planning"
+      - "Client Relations"
+      - "Project Management"
+      - "Change Management"
+      - "Stakeholder Engagement"
+      - "Business Analysis"
+      - "ROI Assessment"
+      - "Process Implementation"
+      - "Training & Development"
+      - "Innovation Strategy"
+    general:
+      - "Team Leadership"
+      - "Project Management"
+      - "Client Communication"
+      - "Documentation"
+      - "Agile Methodologies"
+      - "Technical Training"
+
+# Version mapping for conditional logic
+version_mapping:
+  firmware:
+    toggles: ["firmware", "technical", "detailed"]
+    layout: "technical"
+    emphasis: "embedded_systems"
+  ai:
+    toggles: ["ai", "technical", "detailed"]
+    layout: "technical"
+    emphasis: "machine_learning"
+  consulting:
+    toggles: ["consulting", "ai", "businessfocus", "quantified"]
+    layout: "technical"
+    emphasis: "business_value"
+  executive:
+    toggles: ["executive", "quantified", "onepage"]
+    layout: "executive"
+    emphasis: "leadership"
+  general:
+    toggles: ["firmware", "ai", "general"]
+    layout: "technical"
+    emphasis: "balanced"

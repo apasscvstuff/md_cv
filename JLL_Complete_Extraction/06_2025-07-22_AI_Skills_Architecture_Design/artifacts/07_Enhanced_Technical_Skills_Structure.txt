@@ -1,0 +1,192 @@
+CLAUDE ARTIFACT: Enhanced Technical Skills Structure
+============================================================
+From Conversation: AI Skills Architecture Design
+Found at path: root.chat_messages[1].content[27]
+Artifact ID: enhanced_technical_skills
+Type: application/vnd.ant.code
+Language: yaml
+Created: 2025-07-23T13:05:35.635928Z
+Updated: 2025-07-23T13:06:00.356811Z
+============================================================
+
+ARTIFACT CONTENT:
+----------------------------------------
+# =============================================================================
+# ENHANCED TECHNICAL SKILLS - Optimized for AI/ML Transition
+# Arthur Passuello - Strategic Skills Positioning
+# =============================================================================
+
+# 🎯 AI VERSION - Emphasizes ML/AI capabilities for research and applied roles
+ai_skills:
+  machine_learning_ai:
+    category: "Machine Learning & AI"
+    priority: 1
+    target_version: ["ai", "consulting"]
+    skills:
+      - "PyTorch • TensorFlow"
+      - "Transformers • Attention"
+      - "LLMs • RAG Systems"
+      - "Constitutional AI"
+      - "CLIP • ViT • Multimodal"
+      - "Neural Networks"
+      - "Deep Learning"
+      - "MLOps • Model Deployment"
+      - "Vector Search • FAISS"
+      - "Statistical Learning"
+      
+  systems_architecture:
+    category: "Systems & Architecture"
+    priority: 1
+    target_version: ["ai", "firmware", "consulting"]
+    skills:
+      - "Python • C/C++"
+      - "System Architecture"
+      - "Real-time Systems"
+      - "Edge Computing"
+      - "Distributed Systems"
+      - "Microservices"
+      - "Docker • Kubernetes"
+      - "CI/CD Pipelines"
+      - "Production ML"
+      - "ISAQB Certified"
+      
+  leadership_delivery:
+    category: "Technical Leadership"
+    priority: 2
+    target_version: ["ai", "consulting", "executive"]
+    skills:
+      - "Technical Mentoring"
+      - "ML Education"
+      - "Documentation"
+      - "Agile • Scrum"
+      - "Code Review"
+      - "Risk Management"
+      - "Stakeholder Mgmt"
+      - "Team Leadership"
+      - "Innovation Strategy"
+      - "Knowledge Transfer"
+
+# 🔧 FIRMWARE VERSION - Emphasizes embedded systems with AI integration
+firmware_skills:
+  embedded_systems:
+    category: "Embedded Systems & Hardware"
+    priority: 1
+    target_version: ["firmware", "general"]
+    skills:
+      - "C/C++ • Python"
+      - "Real-time Systems"
+      - "Signal Processing"
+      - "Medical Devices"
+      - "Safety-Critical SW"
+      - "Hardware Integration"
+      - "RTOS • Embedded Linux"
+      - "Device Drivers"
+      - "Protocol Implementation"
+      - "System Optimization"
+      
+  ml_integration:
+    category: "Edge AI & ML"
+    priority: 1
+    target_version: ["firmware", "ai"]
+    skills:
+      - "Edge ML Deployment"
+      - "TensorFlow Lite"
+      - "Model Optimization"
+      - "Anomaly Detection"
+      - "Statistical Analysis"
+      - "Real-time ML"
+      - "Sensor Fusion"
+      - "Local Model Serving"
+      - "Performance Optimization"
+      - "Apple Silicon MPS"
+      
+  architecture_leadership:
+    category: "Architecture & Leadership"
+    priority: 2
+    target_version: ["firmware", "consulting", "executive"]
+    skills:
+      - "ISAQB Certified"
+      - "System Architecture"
+      - "Technical Leadership"
+      - "Requirements Analysis"
+      - "Design Patterns"
+      - "Code Quality"
+      - "Team Mentoring"
+      - "Project Management"
+      - "Risk Assessment"
+      - "Innovation Management"
+
+# 💼 EXECUTIVE VERSION - High-level competencies for leadership roles
+executive_skills:
+  strategic_leadership:
+    category: "Strategic Leadership"
+    priority: 1
+    target_version: ["executive"]
+    skills:
+      - "Technical Strategy"
+      - "Digital Transformation"
+      - "AI/ML Implementation"
+      - "Team Building"
+      - "Stakeholder Management"
+      - "Innovation Leadership"
+      - "Risk Management"
+      - "Budget Management"
+      - "Vendor Relations"
+      - "Board Reporting"
+      
+  domain_expertise:
+    category: "Domain Expertise"
+    priority: 1  
+    target_version: ["executive", "consulting"]
+    skills:
+      - "Embedded Systems"
+      - "Machine Learning"
+      - "Medical Technology"
+      - "System Architecture"
+      - "ISAQB Certified"
+      - "Regulatory Compliance"
+      - "Quality Systems"
+      - "Product Development"
+      - "Technology Assessment"
+      - "Industry Standards"
+
+# 🎨 SKILLS DISPLAY CONFIGURATION
+skills_display:
+  # Three-column layout for technical versions
+  technical_layout:
+    versions: ["firmware", "ai", "consulting"]
+    format: "three_column_grid"
+    show_checkmarks: true
+    category_styling: "professional"
+    
+  # Streamlined list for executive
+  executive_layout:
+    versions: ["executive"]
+    format: "compact_list"
+    show_metrics: true
+    emphasis: "leadership"
+    
+  # Balanced approach for general
+  general_layout:
+    versions: ["general"]
+    format: "two_column_grid"
+    show_checkmarks: true
+    category_styling: "balanced"
+
+# 🏷️ SKILLS TAGS SYSTEM - Context-aware tagging
+skills_tags:
+  firmware:
+    primary: ["C/C++", "Real-time Systems", "Signal Processing", "Edge ML", "Safety-Critical"]
+    secondary: ["Python", "System Architecture", "Technical Leadership", "ISAQB"]
+    
+  ai:
+    primary: ["PyTorch", "Transformers", "LLMs", "RAG", "Constitutional AI"]
+    secondary: ["Python", "MLOps", "System Architecture", "Technical Mentoring"]
+    
+  consulting:
+    primary: ["ML Strategy", "System Architecture", "Technical Leadership", "Stakeholder Mgmt"]
+    secondary: ["PyTorch", "Real-time Systems", "Project Management", "Innovation"]
+    
+  executive:
+    primary: ["Technical Strategy", "Digital Transformation", "Team Leadership", "Innovation"]
+    secondary: ["AI/ML", "System Architecture", "Risk Management", "Budget Management"]

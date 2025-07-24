@@ -1,0 +1,105 @@
+CLAUDE ARTIFACT: Multimodal AI Platform - Cloud Architecture
+============================================================
+From Conversation: Improving Your Data & AI Consulting Application
+Found at path: root.chat_messages[17].content[2]
+Artifact ID: multimodal_architecture
+Type: application/vnd.ant.mermaid
+Created: 2025-05-22T19:46:00.319668Z
+Updated: 2025-05-22T19:46:20.435675Z
+============================================================
+
+ARTIFACT CONTENT:
+----------------------------------------
+graph TB
+    subgraph "Client Layer"
+        WEB[Web Interface<br/>Gradio/Streamlit]
+        API_CLIENT[API Clients<br/>Mobile/Web Apps]
+        BATCH[Batch Processing<br/>Enterprise Clients]
+    end
+
+    subgraph "Load Balancer & Gateway"
+        ALB[Application Load Balancer<br/>AWS ALB / Azure App Gateway]
+        API_GW[API Gateway<br/>Rate Limiting & Auth]
+    end
+
+    subgraph "Application Layer (Containers)"
+        API[FastAPI Server<br/>Docker Container]
+        WORKER[Background Workers<br/>Celery/RQ]
+    end
+
+    subgraph "AI/ML Services"
+        MODEL_SERVE[Model Serving<br/>TorchServe/TensorFlow Serving]
+        CLIP_SERVICE[CLIP Models<br/>Image-Text Understanding]
+        VIT_SERVICE[Vision Transformer<br/>Image Analysis]
+        TOKENIZER[Tokenization Service<br/>Multilingual Support]
+        SAFETY[Safety Evaluation<br/>Red Team Framework]
+    end
+
+    subgraph "Data Storage"
+        S3[Object Storage<br/>AWS S3/Azure Blob<br/>Model Files & Media]
+        REDIS[Redis Cache<br/>Session & Results]
+        DB[(PostgreSQL<br/>Metadata & Logs)]
+    end
+
+    subgraph "ML Pipeline"
+        PREPROCESS[Data Preprocessing<br/>Image Resize, Text Clean]
+        QUANTIZE[Model Optimization<br/>Quantization & Pruning]
+        BENCHMARK[Performance Testing<br/>BLEU/F1/Accuracy]
+    end
+
+    subgraph "Monitoring & Ops"
+        METRICS[CloudWatch/Prometheus<br/>Performance Metrics]
+        LOGS[Centralized Logging<br/>ELK Stack]
+        ALERT[Alerting<br/>PagerDuty/Slack]
+    end
+
+    %% Client Connections
+    WEB --> ALB
+    API_CLIENT --> ALB
+    BATCH --> API_GW
+
+    %% Load Balancing
+    ALB --> API_GW
+    API_GW --> API
+
+    %% Application Flow
+    API --> MODEL_SERVE
+    API --> WORKER
+    WORKER --> MODEL_SERVE
+
+    %% ML Services Connections
+    MODEL_SERVE --> CLIP_SERVICE
+    MODEL_SERVE --> VIT_SERVICE
+    MODEL_SERVE --> TOKENIZER
+    MODEL_SERVE --> SAFETY
+
+    %% Data Flow
+    API --> REDIS
+    API --> DB
+    MODEL_SERVE --> S3
+    CLIP_SERVICE --> S3
+    VIT_SERVICE --> S3
+
+    %% ML Pipeline
+    MODEL_SERVE --> PREPROCESS
+    PREPROCESS --> QUANTIZE
+    QUANTIZE --> BENCHMARK
+
+    %% Monitoring
+    API --> METRICS
+    MODEL_SERVE --> METRICS
+    API --> LOGS
+    METRICS --> ALERT
+
+    %% Styling
+    classDef client fill:#e1f5fe
+    classDef api fill:#f3e5f5
+    classDef ml fill:#e8f5e8
+    classDef storage fill:#fff3e0
+    classDef ops fill:#fce4ec
+
+    class WEB,API_CLIENT,BATCH client
+    class ALB,API_GW,API,WORKER api
+    class MODEL_SERVE,CLIP_SERVICE,VIT_SERVICE,TOKENIZER,SAFETY,PREPROCESS,QUANTIZE,BENCHMARK ml
+    class S3,REDIS,DB storage
+    class METRICS,LOGS,ALERT ops

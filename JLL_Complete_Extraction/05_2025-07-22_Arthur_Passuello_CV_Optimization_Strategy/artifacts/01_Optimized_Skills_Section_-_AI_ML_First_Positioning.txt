@@ -1,0 +1,88 @@
+CLAUDE ARTIFACT: Optimized Skills Section - AI/ML First Positioning
+============================================================
+From Conversation: Arthur Passuello CV Optimization Strategy
+Found at path: root.chat_messages[1].content[2]
+Artifact ID: skills_section_optimized
+Type: application/vnd.ant.code
+Language: latex
+Created: 2025-07-15T12:07:51.937223Z
+Updated: 2025-07-15T12:08:23.961478Z
+============================================================
+
+ARTIFACT CONTENT:
+----------------------------------------
+\sectionTitle{Technical Expertise}{\faTasks}
+
+% Executive version - streamlined for maximum leadership impact
+\whenrole{executive}{
+  \begin{keywords}
+    \keywordsentry{Leadership \& Team Development}{Technical Team Leadership \leadmetric{(5+ Direct Reports)} • Cross-functional Coordination \metric{(12+ Stakeholders)} • Mentoring Excellence \businessimpact{(100\% Promotion Success Rate)}}
+    \keywordsentry{Strategic Impact \& Delivery}{Business Value Creation \businessimpact{(\$2M+ Clinical Trial Funding)} • Regulatory Compliance \metric{(100\% Pass Rate)} • Process Innovation \leadmetric{(45\% Efficiency Improvement)}}
+    \keywordsentry{Technical Leadership Domains}{AI/ML Implementation \metric{(Production Systems)} • Medical Device Innovation \techmetric{(ISO-13485/IEC-62304)} • System Architecture \businessimpact{(\$500K+ Platform Decisions)}}
+  \end{keywords}
+}
+
+% Technical versions - AI/ML-first positioning with quantified achievements
+\whennotrole{executive}{
+  \begin{keywords}
+    
+    % LEAD WITH AI/ML EXPERTISE - Primary positioning
+    \whenrole{ai}{
+      \keywordsentry{AI/ML \& Production Systems}{Production RAG Systems \metric{(99.5\% Accuracy)} • Custom Transformers \techmetric{(5,000+ Lines)} • Constitutional AI Safety • Computer Vision \metric{(CLIP/ViT)} • MLOps \techmetric{(Docker/AWS)}}
+      \keywordsentry{Advanced ML Technologies}{PyTorch \metric{(Expert)} • HuggingFace Transformers • Vector Databases \techmetric{(FAISS)} • Model Optimization \metric{(40\% Memory Reduction)} • Prompt Engineering • Neural Architecture Search}
+      \keywordsentry{AI Technical Education \& Research}{Technical Training Design \metric{(100+ Students)} • Cross-cultural Communication \leadmetric{(4.8/5.0 Rating)} • Research Implementation • Safety Evaluation Frameworks • Red Teaming \techmetric{(Adversarial Testing)}}
+    }
+    
+    \whenrole{consulting}{
+      \keywordsentry{AI/ML Consulting \& Strategy}{Production AI Systems \businessimpact{(Enterprise RAG)} • Strategic AI Advisory • Technical Training \metric{(100+ Executives)} • AI Safety \& Governance • Business Impact Analysis \leadmetric{(ROI Optimization)}}
+      \keywordsentry{Technical Leadership \& Communication}{Cross-functional Team Coordination \leadmetric{(12+ Stakeholders)} • Executive Presentations • Change Management • Process Innovation \businessimpact{(45\% Improvement)} • Client Relations \metric{(100\% Retention)}}
+      \keywordsentry{Solution Architecture \& Delivery}{Technical Consulting • Enterprise Integration • Performance Optimization • Regulatory Compliance \techmetric{(ISO Standards)} • Strategic Planning \businessimpact{(\$500K+ Decisions)}}
+    }
+    
+    \whenrole{firmware}{
+      \keywordsentry{Advanced Embedded Systems}{Safety-Critical Design \metric{(99.9\% Uptime)} • Real-time Systems • Hardware-Software Integration • Medical Device Firmware \techmetric{(FDA Compliant)} • Performance Optimization \metric{(40\% Improvement)}}
+      \keywordsentry{AI-Enabled Embedded Applications}{Edge AI Implementation • Sensor Fusion \techmetric{(100\% Accuracy)} • Statistical Algorithms • Signal Processing • Hardware Acceleration \metric{(Apple Silicon MPS)} • Embedded ML Inference}
+      \keywordsentry{System Architecture \& Integration}{FPGA Development \techmetric{(VHDL)} • Communication Protocols \metric{(BLE/UART/SPI)} • HIL Testing \techmetric{(96\% Coverage)} • CI/CD Automation • Hardware Debugging \metric{(JTAG)}}
+    }
+    
+    \whenrole{general}{
+      \keywordsentry{AI/ML \& Data Science}{PyTorch • TensorFlow • Production RAG \metric{(99.5\% Accuracy)} • Computer Vision • Model Optimization • Technical Training \leadmetric{(100+ Students)}}
+      \keywordsentry{Embedded Systems \& Architecture}{Safety-Critical Systems • Hardware Integration • Medical Device Development \techmetric{(ISO Compliance)} • Real-time Design • Performance Optimization}
+      \keywordsentry{Technical Leadership \& Communication}{Cross-functional Coordination • Team Mentoring \metric{(100\% Success Rate)} • Executive Presentations • Technical Documentation • Process Innovation}
+    }
+    
+    % Programming Excellence - Core technical foundation
+    \keywordsentry{Programming Languages \& Core Technologies}{
+      \whenrole{ai}{Python \metric{(Expert - 5+ Years)} • PyTorch/TensorFlow • C/C++ \techmetric{(Systems)} • JavaScript \metric{(Full-stack)} • SQL • Docker/AWS}
+      \whenrole{firmware}{C/C++ \metric{(Expert - Embedded)} • Python \techmetric{(Expert)} • VHDL • Assembly • Real-time Systems \metric{(FreeRTOS)} • Git/CI-CD}
+      \whenrole{consulting}{Python \metric{(Expert)} • JavaScript • SQL • Docker • Cloud Platforms \techmetric{(AWS)} • Technical Architecture • API Design}
+      \whenrole{general}{Python \metric{(Expert)} • C/C++ • PyTorch/TensorFlow • JavaScript • Docker • Git/CI-CD}
+    }
+    
+    % Medical Device & Regulatory Expertise - Unique differentiator
+    \whennotrole{consulting}{
+      \keywordsentry{Medical Device \& Regulatory Excellence}{ISO-13485/IEC-62304 Compliance \metric{(100\% Pass Rate)} • Quality Systems • Risk Management • Design Controls \& V\&V • Cybersecurity • Safety-Critical Design \techmetric{(FDA Compliant)}}
+    }
+    
+    \whenrole{consulting}{
+      \keywordsentry{Regulatory \& Quality Systems}{Medical Device Compliance \metric{(ISO Standards)} • Quality Management • Risk Assessment • Ethical AI Governance • Regulatory Strategy • Safety-Critical Systems}
+    }
+    
+    % Development Tools & Platform Expertise
+    \keywordsentry{Development Tools \& Platforms}{
+      \whenrole{ai}{HuggingFace • Streamlit • MLflow • Apple Silicon \techmetric{(MPS)} • pytest \metric{(67+ Tests)} • Production Deployment • Performance Monitoring}
+      \whenrole{firmware}{JIRA • Git Version Control • HIL Testing \metric{(Automated)} • Performance Profiling • JTAG \techmetric{(Hardware Debug)} • CI/CD Pipelines}
+      \whenrole{consulting}{Enterprise Integration • Performance Analytics • A/B Testing Frameworks • Client Platforms • Process Optimization Tools • Strategic Planning Tools}
+      \whenrole{general}{Git/CI-CD • Docker • pytest • Performance Optimization • Technical Documentation • Agile Tools}
+    }
+    
+    % Project Management & Leadership - Final category
+    \keywordsentry{Project Management \& Methodologies}{
+      \whenrole{ai}{Research Methodology • Technical Documentation • Educational Content Creation \metric{(4.8/5.0)} • Cross-cultural Communication • Innovation Leadership}
+      \whenrole{firmware}{Agile/Scrum \techmetric{(SaFE)} • Cross-functional Coordination • Technical Documentation • Stakeholder Communication • Team Mentoring \leadmetric{(5+ Members)}}
+      \whenrole{consulting}{Agile Implementation • Strategic Planning • Client Relations \businessimpact{(100\% Retention)} • ROI Analysis • Change Management • Executive Communication}
+      \whenrole{general}{Team Leadership • Agile/Scrum • Cross-functional Communication • Technical Mentoring \metric{(100\% Success)} • Process Innovation}
+    }
+    
+  \end{keywords}
+}

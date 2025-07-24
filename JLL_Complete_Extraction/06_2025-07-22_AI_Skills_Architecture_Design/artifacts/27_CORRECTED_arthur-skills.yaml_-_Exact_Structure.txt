@@ -1,0 +1,199 @@
+CLAUDE ARTIFACT: CORRECTED arthur-skills.yaml - Exact Structure
+============================================================
+From Conversation: AI Skills Architecture Design
+Found at path: root.chat_messages[7].content[12]
+Artifact ID: corrected_skills_yaml
+Type: application/vnd.ant.code
+Language: yaml
+Created: 2025-07-23T13:36:11.572367Z
+Updated: 2025-07-23T13:36:40.299194Z
+============================================================
+
+ARTIFACT CONTENT:
+----------------------------------------
+# Arthur Passuello - Skills Configuration
+# Enhanced content while preserving exact YAML structure
+
+# Executive Version - Streamlined for Impact (Your exact structure preserved)
+executive:
+  leadership_impact:
+    - skill: "Technical Team Leadership"
+      metric: "15+ Engineers Trained in ML/Python"
+      type: "leadmetric"
+    - skill: "Cross-functional Coordination"
+      metric: "Firmware/Mobile/Cloud Teams"
+      type: "leadmetric"
+    - skill: "Strategic Technical Decisions"
+      metric: "$2M+ Clinical Trial Impact"
+      type: "businessimpact"
+  
+  technical_domains:
+    - skill: "Medical Device Innovation"
+      metric: "FDA-Compliant ML Systems"
+      type: "techmetric"
+    - skill: "Embedded Systems Architecture"
+      metric: "Safety-Critical Real-time"
+      type: "techmetric"
+    - skill: "AI/ML Implementation"
+      metric: "Production-Ready Systems"
+      type: "techmetric"
+  
+  delivery_excellence:
+    - skill: "Agile/Scrum Implementation"
+      metric: "100% On-Time Delivery"
+      type: "leadmetric"
+    - skill: "Regulatory Compliance"
+      metric: "ISO-13485/IEC-62304"
+      type: "businessimpact"
+    - skill: "Quality Systems"
+      metric: "96% Test Coverage"
+      type: "techmetric"
+
+# Technical Versions - 3-column layout (Your exact structure preserved)
+technical:
+  # Column 1: Programming Languages (enhanced with AI/ML focus)
+  programming_languages:
+    firmware:
+      - "C/C++ (Expert, 8+ years)"
+      - "Python (Expert, 6+ years)"
+      - "VHDL/Verilog"
+      - "Assembly (ARM, x86)"
+      - "Shell Scripting (Bash/Zsh)"
+      - "MATLAB/Simulink"
+    ai:
+      - "Python (Expert, 6+ years)"
+      - "PyTorch (Custom Architectures)"
+      - "TensorFlow/Keras"
+      - "JAX (Functional Transformers)"
+      - "C/C++ (Performance Critical)"
+      - "JavaScript (Full-stack)"
+      - "SQL (Advanced Queries)"
+      - "R (Statistical Analysis)"
+    consulting:
+      - "Python (Expert)"
+      - "JavaScript (Full-stack)"
+      - "SQL (Business Intelligence)"
+      - "R (Statistical Modeling)"
+      - "C/C++ (System Integration)"
+    general:
+      - "Python (Expert)"
+      - "C/C++ (Expert)"
+      - "JavaScript"
+      - "SQL"
+      - "MATLAB"
+      - "Shell Scripting"
+
+  # Column 2: Core Technologies (enhanced with modern ML stack)
+  core_technologies:
+    firmware:
+      - "FreeRTOS & RTOS"
+      - "STM32/Nordic nRF"
+      - "FPGA (Xilinx/Intel)"
+      - "Protocol Stacks (BLE, WiFi)"
+      - "Signal Processing (DSP)"
+      - "Hardware Debugging (JTAG)"
+      - "Power Management"
+      - "Medical Device Standards"
+      - "Safety-Critical Systems"
+      - "Real-time ML Edge"
+    ai:
+      - "LLMs & Fine-tuning"
+      - "RAG Systems (FAISS, ChromaDB)"
+      - "Transformers & Attention"
+      - "CLIP & ViT (Multimodal)"
+      - "Constitutional AI"
+      - "Vector Databases"
+      - "Hugging Face Ecosystem"
+      - "LangChain & LlamaIndex"
+      - "Sentence Transformers"
+      - "Neural Reranking"
+      - "MLflow & Weights & Biases"
+      - "Apple Silicon MPS (6x speedup)"
+      - "Docker & Production Deploy"
+      - "A/B Testing Frameworks"
+      - "Gradio & Streamlit"
+      - "pytest & CI/CD"
+    consulting:
+      - "Machine Learning Strategy"
+      - "Data Pipeline Architecture"
+      - "Business Intelligence"
+      - "Process Optimization"
+      - "Technical Training Platforms"
+      - "Stakeholder Communication"
+      - "ROI Analysis & Metrics"
+      - "Docker & Containerization"
+      - "pytest & Quality Assurance"
+      - "CI/CD Implementation"
+    general:
+      - "Machine Learning (PyTorch)"
+      - "Signal Processing"
+      - "Embedded Systems"
+      - "FPGA Development"
+      - "Real-time Systems"
+      - "JIRA & Project Management"
+      - "Performance Profiling"
+      - "Agile Tools"
+      - "CI/CD"
+
+  # Column 3: Project Management & Communication (enhanced leadership focus)
+  project_management:
+    firmware:
+      - "Agile/Scrum (SAFe)"
+      - "Cross-functional Coordination"
+      - "Technical Documentation"
+      - "Stakeholder Communication"
+      - "Requirements Engineering"
+      - "Risk Management"
+      - "Quality Assurance"
+      - "Team Mentoring"
+      - "Code Review Leadership"
+      - "ISAQB Architecture"
+    ai:
+      - "ML Education & Training"
+      - "Technical Documentation"
+      - "Cross-cultural Communication"
+      - "International Collaboration"
+      - "Educational Content Creation"
+      - "Research Methodology"
+      - "Curriculum Design"
+      - "Executive Communication"
+      - "Knowledge Transfer"
+      - "Innovation Leadership"
+    consulting:
+      - "Strategic Planning"
+      - "Client Relations"
+      - "Business Analysis"
+      - "Change Management"
+      - "Stakeholder Engagement"
+      - "Project ROI Analysis"
+      - "Process Implementation"
+      - "Training & Development"
+      - "Agile/Scrum Implementation"
+      - "Risk Assessment"
+    general:
+      - "Team Leadership"
+      - "Project Management"
+      - "Technical Communication"
+      - "Documentation"
+      - "Collaborative Communication"
+      - "Client-facing Communication"
+      - "Agile Methodologies"
+      - "Quality Assurance"
+
+# Version mapping for conditional logic (Your exact structure preserved)
+version_mapping:
+  firmware:
+    toggles: ["firmware", "technical", "detailed"]
+    layout: "technical"
+  ai:
+    toggles: ["ai", "technical", "detailed"]
+    layout: "technical"
+  consulting:
+    toggles: ["consulting", "ai", "businessfocus", "quantified"]
+    layout: "technical"
+  executive:
+    toggles: ["executive", "quantified", "onepage"]
+    layout: "executive"
+  general:
+    toggles: ["firmware", "ai", "general"]
+    layout: "technical"
