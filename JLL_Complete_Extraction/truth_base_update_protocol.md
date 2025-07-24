@@ -43,7 +43,7 @@ This protocol ensures that user corrections to AI classifications persist across
    - `truth_base_update_protocol.md` (this file - correction integration) 
    - `validation_progress_tracker.md` (methodology reminders)
    - `strategic_content_identification_guide.md` (strategic vs procedural content recognition)
-4. **Complete JSON reading**: Use Read tool with offset/limit parameters to read entire JSON file bit by bit, extract both user and assistant messages from each chunk
+4. **Complete JSON reading**: Use Read tool with offset/limit parameters to read entire JSON file bit by bit (see `JSON_READING_EXAMPLE.md` for detailed methodology), extract both user and assistant messages from each chunk
 5. **Two-phase extraction**: Extract ALL statements first, then assess relevance
 6. **Classification with truth base**: Check existing CSV entries before classifying new claims
 7. Update CSV with findings from THIS conversation and artifacts only

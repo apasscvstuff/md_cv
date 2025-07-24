@@ -72,6 +72,8 @@
 - **Preserve message order**: Track reading progress to maintain chronological order
 - **Read until end**: Continue reading with progressive offsets until no more content
 
+**REFERENCE**: See `JSON_READING_EXAMPLE.md` for detailed step-by-step instructions
+
 **Complete Reading Protocol**:
 1. Read first 100 lines to understand JSON structure
 2. Continue reading in 500-1000 line chunks using offset parameter
