@@ -26,16 +26,11 @@ class CVBuilder:
         # Personal information loaded from YAML
         self.personal = None  # Will be loaded when needed
         
-        # Initialize Jinja2 environment
-        self.jinja_env = Environment(
-            loader=FileSystemLoader("templates/jinja2"),
-            autoescape=select_autoescape(["html", "xml"]),
-            trim_blocks=True,
-            lstrip_blocks=True
-        )
+        # Initialize Jinja2 environment (will be configured per template)
+        self.jinja_env = None
         
-        # Add custom filters
-        self.jinja_env.filters['markdown'] = self.convert_markdown_to_html
+        # Template configuration
+        self.available_templates = self.discover_templates()
 
     def _load_version_config(self) -> Dict[str, Any]:
         """Load version configuration from YAML file"""
@@ -74,38 +69,68 @@ class CVBuilder:
                 }
             }
 
-    def discover_templates(self) -> Dict[str, str]:
-        """Discover available templates by scanning templates directory"""
+    def discover_templates(self) -> Dict[str, Dict[str, str]]:
+        """Discover available templates with both Jinja2 and CSS components"""
         templates_dir = Path("templates")
         template_map = {}
 
         if not templates_dir.exists():
-            # Fallback to old system if templates directory doesn't exist
-            return {
-                "francois": "css_styling_v2.css",
-                "professional": "css_styling.css",
-                "original": "css_styling_original.css",
-            }
+            return {}
 
         for template_dir in templates_dir.iterdir():
-            if template_dir.is_dir():
+            if template_dir.is_dir() and template_dir.name != "jinja2":  # Skip old jinja2 dir
                 template_name = template_dir.name
-                # Look for common CSS filenames
+                template_info = {}
+                
+                # Look for Jinja2 template
+                jinja_candidates = ["template.html.j2", "base.html.j2", "index.html.j2"]
+                for jinja_file in jinja_candidates:
+                    jinja_path = template_dir / jinja_file
+                    if jinja_path.exists():
+                        template_info["jinja2"] = str(jinja_path)
+                        break
+                
+                # Look for CSS file
                 css_candidates = ["style.css", "resume.css", "main.css", "theme.css"]
-
                 for css_file in css_candidates:
                     css_path = template_dir / css_file
                     if css_path.exists():
-                        template_map[template_name] = str(css_path)
+                        template_info["css"] = str(css_path)
                         break
                 else:
-                    # Special handling for awesome-cv with nested structure
+                    # Special handling for awesome-cv
                     if template_name == "awesome-cv":
                         awesome_css = template_dir / "src" / "style.css"
                         if awesome_css.exists():
-                            template_map[template_name] = str(awesome_css)
+                            template_info["css"] = str(awesome_css)
+                
+                # Only add templates that have at least CSS (for backwards compatibility)
+                if template_info.get("css"):
+                    template_map[template_name] = template_info
 
         return template_map
+
+    def _setup_jinja_env(self, template_name: str) -> bool:
+        """Setup Jinja2 environment for specific template"""
+        template_info = self.available_templates.get(template_name)
+        if not template_info or not template_info.get("jinja2"):
+            return False
+            
+        # Get template directory
+        template_path = Path(template_info["jinja2"]).parent
+        
+        # Create new environment for this template
+        self.jinja_env = Environment(
+            loader=FileSystemLoader(str(template_path)),
+            autoescape=select_autoescape(["html", "xml"]),
+            trim_blocks=True,
+            lstrip_blocks=True
+        )
+        
+        # Add custom filters
+        self.jinja_env.filters['markdown'] = self.convert_markdown_to_html
+        
+        return True
 
     def get_available_templates(self) -> List[str]:
         """Get list of available template names"""
@@ -465,7 +490,7 @@ class CVBuilder:
 
         return filtered_projects
 
-    def generate_skills_markdown(self, skills_data: Dict, target_version: str) -> str:
+    def generate_skills_markdown_legacy(self, skills_data: Dict, target_version: str) -> str:
         """Generate skills section markdown with semantic Grid containers"""
         processed_skills = self.process_skills_section(skills_data, target_version)
 
@@ -544,7 +569,7 @@ class CVBuilder:
             markdown += "</section>\n\n"
             return markdown
 
-    def generate_experience_markdown(
+    def generate_experience_markdown_legacy(
         self, experience_data: Dict, target_version: str
     ) -> str:
         """
@@ -615,7 +640,7 @@ class CVBuilder:
         markdown += "</section>\n\n"
         return markdown
 
-    def generate_projects_markdown(
+    def generate_projects_markdown_legacy(
         self, projects_data: Dict, target_version: str
     ) -> str:
         """
@@ -747,7 +772,7 @@ class CVBuilder:
 
         return filtered_education
 
-    def generate_education_markdown(
+    def generate_education_markdown_legacy(
         self, education_data: Dict, target_version: str
     ) -> str:
         """Generate education section markdown"""
@@ -801,9 +826,15 @@ class CVBuilder:
         markdown += "</section>\n\n"
         return markdown
 
-    def build_version_jinja2(self, target_version: str) -> None:
+    def build_version_jinja2(self, target_version: str, template_name: str = "francois") -> None:
         """Build a specific CV version using Jinja2 templates"""
-        print(f"Building {target_version} version with Jinja2...")
+        print(f"Building {target_version} version with Jinja2 template '{template_name}'...")
+
+        # Setup Jinja2 environment for the specified template
+        if not self._setup_jinja_env(template_name):
+            print(f"❌ Template '{template_name}' not found or missing Jinja2 template")
+            print(f"Available templates: {', '.join(self.get_available_templates())}")
+            return
 
         # Load content files
         skills_data = self.load_yaml_file("arthur-skills.yaml")
@@ -827,8 +858,12 @@ class CVBuilder:
             "education": self.process_education_section(education_data, target_version),
         }
 
+        # Get template filename
+        template_info = self.available_templates[template_name]
+        template_filename = Path(template_info["jinja2"]).name
+        
         # Render template
-        template = self.jinja_env.get_template("base.html.j2")
+        template = self.jinja_env.get_template(template_filename)
         html_content = template.render(**context)
 
         # Save HTML file
@@ -836,7 +871,7 @@ class CVBuilder:
         output_path.parent.mkdir(parents=True, exist_ok=True)
 
         # Copy assets for proper rendering
-        self._copy_assets(target_version)
+        self._copy_assets(target_version, template_name)
 
         with open(output_path, "w", encoding="utf-8") as f:
             f.write(html_content)
@@ -844,9 +879,13 @@ class CVBuilder:
         print(f"✅ {target_version} version built successfully with Jinja2")
         print(f"📄 Output: {output_path}")
 
-    def build_version(self, target_version: str) -> None:
-        """Build a specific CV version"""
-        print(f"Building {target_version} version...")
+    def build_version(self, target_version: str, template_name: str = "francois") -> None:
+        """Build a specific CV version using Jinja2 templates (default method)"""
+        self.build_version_jinja2(target_version, template_name)
+
+    def build_version_legacy(self, target_version: str) -> None:
+        """Legacy markdown generation - deprecated"""
+        print(f"Building {target_version} version with legacy system...")
 
         # Load content files
         skills_data = self.load_yaml_file("arthur-skills.yaml")
@@ -923,12 +962,12 @@ class CVBuilder:
         print(f"✅ {target_version} version built successfully")
         print(f"📄 Output: {output_path}")
 
-    def build_all_versions(self) -> None:
-        """Build all CV versions"""
-        print("Building all CV versions...")
+    def build_all_versions(self, template_name: str = "francois") -> None:
+        """Build all CV versions using Jinja2 templates"""
+        print("Building all CV versions with Jinja2...")
 
         for version in self.versions.keys():
-            self.build_version(version)
+            self.build_version(version, template_name)
 
         print("🎉 All versions built successfully!")
 
@@ -1002,9 +1041,8 @@ class CVBuilder:
                 shutil.copy2(icon_src, icons_dir / icon)
 
         # Copy CSS files - use template discovery system
-        template_map = self.discover_templates()
-
-        css_source = template_map.get(template)
+        template_info = self.available_templates.get(template, {})
+        css_source = template_info.get("css")
         css_dest = self.output_dir / target_version / "css_styling.css"
         fonts_dest = self.output_dir / target_version / "css_fonts.css"
 
@@ -1347,11 +1385,11 @@ You can also use browser extensions or online converters.
         self.build_html(target_version, template)  # HTML
         self.build_pdf(target_version, template)  # PDF
 
-    def build_all_formats_jinja2(self, target_version: str) -> None:
+    def build_all_formats_jinja2(self, target_version: str, template_name: str = "francois") -> None:
         """Build all formats using Jinja2 templates (HTML + PDF)"""
         print(f"Building all formats with Jinja2 for {target_version} version...")
-        self.build_version_jinja2(target_version)  # HTML via Jinja2
-        self.build_pdf(target_version)  # PDF from Jinja2 HTML
+        self.build_version_jinja2(target_version, template_name)  # HTML via Jinja2
+        self.build_pdf(target_version, template_name)  # PDF from Jinja2 HTML
 
     # Add this method to your CVBuilder class
     def build_html_enhanced(
@@ -1505,15 +1543,15 @@ def main():
     elif args.jinja2_pdf:
         if args.version == "all":
             for version in builder.versions.keys():
-                builder.build_all_formats_jinja2(version)
+                builder.build_all_formats_jinja2(version, args.template)
         else:
-            builder.build_all_formats_jinja2(args.version)
+            builder.build_all_formats_jinja2(args.version, args.template)
     elif args.jinja2:
         if args.version == "all":
             for version in builder.versions.keys():
-                builder.build_version_jinja2(version)
+                builder.build_version_jinja2(version, args.template)
         else:
-            builder.build_version_jinja2(args.version)
+            builder.build_version_jinja2(args.version, args.template)
     elif args.html:
         if args.version == "all":
             for version in builder.versions.keys():
@@ -1527,11 +1565,11 @@ def main():
         else:
             builder.build_pdf(args.version, template=args.template)
     else:
-        # Default: build markdown only
+        # Default: build HTML with Jinja2 templates
         if args.version == "all":
-            builder.build_all_versions()
+            builder.build_all_versions(args.template)
         else:
-            builder.build_version(args.version)
+            builder.build_version(args.version, args.template)
 
 
 if __name__ == "__main__":
