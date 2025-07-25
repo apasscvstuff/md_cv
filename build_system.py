@@ -7,7 +7,7 @@ Converts YAML content to markdown with conditional logic preserving LaTeX system
 import yaml
 import re
 from pathlib import Path
-from typing import Dict, List, Any, Optional
+from typing import Dict, List, Any
 import subprocess
 import argparse
 
@@ -302,11 +302,6 @@ class CVBuilder:
         ]
 
         return "".join(tag_elements)
-
-    def check_toggle_condition(self, toggles: List[str], target_version: str) -> bool:
-        """Check if toggles are active for target version"""
-        version_toggles = self.versions[target_version]["toggles"]
-        return any(toggle in version_toggles for toggle in toggles)
 
     def convert_markdown_to_html(self, text: str) -> str:
         """Convert basic Markdown syntax to HTML for pure HTML generation"""
