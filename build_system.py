@@ -12,6 +12,7 @@ from typing import Dict, List, Any, Optional
 import subprocess
 import sys
 import argparse
+from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 
 class CVBuilder:
@@ -19,57 +20,59 @@ class CVBuilder:
         self.content_dir = Path(content_dir)
         self.output_dir = Path(output_dir)
 
-        # Version configuration matching LaTeX system
-        self.versions = {
-            "firmware": {
-                "toggles": ["firmware", "technical", "detailed"],
-                "tagline": "Senior Firmware Engineer | Software Architect | Technical Project Lead",
-                "max_priority": 3,
-                "show_metrics": True,
-                "show_business_impact": False,
-                "executive_summary": False,
-                "layout": "technical",
-            },
-            "ai": {
-                "toggles": ["ai", "technical", "detailed"],
-                "tagline": "Embedded Systems Engineer | Applied AI/ML Practitioner | Technical Lead",
-                "max_priority": 3,
-                "show_metrics": True,
-                "show_business_impact": False,
-                "executive_summary": False,
-                "layout": "technical",
-            },
-            "consulting": {
-                "toggles": ["consulting", "ai", "businessfocus", "quantified"],
-                "tagline": "Senior Embedded Systems Engineer | Applied AI/ML Practitioner | Technical Project Lead",
-                "max_priority": 3,
-                "show_metrics": True,
-                "show_business_impact": True,
-                "executive_summary": False,
-                "layout": "technical",
-            },
-            "executive": {
-                "toggles": ["executive", "quantified", "onepage"],
-                "tagline": "Senior Technical Leader | Cross-functional Engineering Manager",
-                "max_priority": 1,
-                "show_metrics": True,
-                "show_business_impact": True,
-                "executive_summary": True,
-                "layout": "executive",
-            },
-            "general": {
-                "toggles": ["firmware", "ai", "general"],
-                "tagline": "Embedded Systems Engineer | Applied AI/ML Practitioner | Technical Project Lead",
-                "max_priority": 2,
-                "show_metrics": False,
-                "show_business_impact": False,
-                "executive_summary": False,
-                "layout": "technical",
-            },
-        }
+        # Load version configuration from YAML
+        self.versions = self._load_version_config()
 
         # Personal information loaded from YAML
         self.personal = None  # Will be loaded when needed
+        
+        # Initialize Jinja2 environment
+        self.jinja_env = Environment(
+            loader=FileSystemLoader("templates/jinja2"),
+            autoescape=select_autoescape(["html", "xml"]),
+            trim_blocks=True,
+            lstrip_blocks=True
+        )
+        
+        # Add custom filters
+        self.jinja_env.filters['markdown'] = self.convert_markdown_to_html
+
+    def _load_version_config(self) -> Dict[str, Any]:
+        """Load version configuration from YAML file"""
+        try:
+            version_config = self.load_yaml_file("versions.yaml")
+            if "versions" not in version_config:
+                raise ValueError("versions.yaml must contain 'versions' key")
+            
+            versions = version_config["versions"]
+            
+            # Validate each version has required fields
+            required_fields = ["tagline", "toggles", "max_priority", "layout"]
+            for version_name, config in versions.items():
+                missing_fields = [field for field in required_fields if field not in config]
+                if missing_fields:
+                    raise ValueError(
+                        f"Version '{version_name}' missing required fields: {missing_fields}"
+                    )
+            
+            return versions
+            
+        except Exception as e:
+            print(f"Error loading version configuration: {e}")
+            print("Falling back to minimal default configuration")
+            # Minimal fallback to allow system to function
+            return {
+                "general": {
+                    "name": "General",
+                    "tagline": "Software Engineer",
+                    "toggles": ["general"],
+                    "max_priority": 3,
+                    "layout": "technical",
+                    "show_metrics": False,
+                    "show_business_impact": False,
+                    "executive_summary": False,
+                }
+            }
 
     def discover_templates(self) -> Dict[str, str]:
         """Discover available templates by scanning templates directory"""
@@ -78,7 +81,6 @@ class CVBuilder:
 
         if not templates_dir.exists():
             # Fallback to old system if templates directory doesn't exist
-            print("COUCOU")
             return {
                 "francois": "css_styling_v2.css",
                 "professional": "css_styling.css",
@@ -88,7 +90,6 @@ class CVBuilder:
         for template_dir in templates_dir.iterdir():
             if template_dir.is_dir():
                 template_name = template_dir.name
-                print(template_name)
                 # Look for common CSS filenames
                 css_candidates = ["style.css", "resume.css", "main.css", "theme.css"]
 
@@ -800,6 +801,49 @@ class CVBuilder:
         markdown += "</section>\n\n"
         return markdown
 
+    def build_version_jinja2(self, target_version: str) -> None:
+        """Build a specific CV version using Jinja2 templates"""
+        print(f"Building {target_version} version with Jinja2...")
+
+        # Load content files
+        skills_data = self.load_yaml_file("arthur-skills.yaml")
+        experience_data = self.load_yaml_file("arthur-experience.yaml")
+        projects_data = self.load_yaml_file("arthur-projects.yaml")
+        education_data = self.load_yaml_file("arthur-education.yaml")
+
+        # Load personal data
+        personal_info = self.load_personal_data(target_version)
+
+        # Get version configuration
+        version_config = self.versions[target_version]
+
+        # Process data for template
+        context = {
+            "personal": personal_info,
+            "version_config": version_config,
+            "skills": self.process_skills_section(skills_data, target_version),
+            "experiences": self.process_experience_section(experience_data, target_version),
+            "projects": self.process_projects_section(projects_data, target_version),
+            "education": self.process_education_section(education_data, target_version),
+        }
+
+        # Render template
+        template = self.jinja_env.get_template("base.html.j2")
+        html_content = template.render(**context)
+
+        # Save HTML file
+        output_path = self.output_dir / target_version / f"arthur-{target_version}.html"
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+
+        # Copy assets for proper rendering
+        self._copy_assets(target_version)
+
+        with open(output_path, "w", encoding="utf-8") as f:
+            f.write(html_content)
+
+        print(f"✅ {target_version} version built successfully with Jinja2")
+        print(f"📄 Output: {output_path}")
+
     def build_version(self, target_version: str) -> None:
         """Build a specific CV version"""
         print(f"Building {target_version} version...")
@@ -901,14 +945,18 @@ class CVBuilder:
         # Test personal data loading
         personal_info = self.load_personal_data(target_version)
         print(f"Personal data loaded: {personal_info['name']}")
-        tagline = personal_info.get("taglines", {}).get(
-            target_version, "No version-specific tagline"
-        )
-        print(
-            f"Version tagline: {tagline[:50]}..."
-            if len(tagline) > 50
-            else f"Version tagline: {tagline}"
-        )
+        
+        # Get tagline from version config
+        version_config = self.versions.get(target_version)
+        if version_config:
+            tagline = version_config.get("tagline", "No tagline configured")
+            print(
+                f"Version tagline: {tagline[:50]}..."
+                if len(tagline) > 50
+                else f"Version tagline: {tagline}"
+            )
+        else:
+            print(f"Version '{target_version}' not found in configuration")
 
         # Test skills processing
         processed_skills = self.process_skills_section(skills_data, target_version)
@@ -1299,6 +1347,12 @@ You can also use browser extensions or online converters.
         self.build_html(target_version, template)  # HTML
         self.build_pdf(target_version, template)  # PDF
 
+    def build_all_formats_jinja2(self, target_version: str) -> None:
+        """Build all formats using Jinja2 templates (HTML + PDF)"""
+        print(f"Building all formats with Jinja2 for {target_version} version...")
+        self.build_version_jinja2(target_version)  # HTML via Jinja2
+        self.build_pdf(target_version)  # PDF from Jinja2 HTML
+
     # Add this method to your CVBuilder class
     def build_html_enhanced(
         self, target_version: str, template: str = "francois"
@@ -1402,6 +1456,12 @@ def main():
         "--pdf", action="store_true", help="Generate PDF output (requires HTML)"
     )
     parser.add_argument(
+        "--jinja2", action="store_true", help="Use Jinja2 templates for HTML generation"
+    )
+    parser.add_argument(
+        "--jinja2-pdf", action="store_true", help="Generate HTML with Jinja2 and PDF"
+    )
+    parser.add_argument(
         "--all-formats",
         action="store_true",
         help="Generate all formats (markdown, HTML, PDF)",
@@ -1442,6 +1502,18 @@ def main():
                 builder.build_all_formats(version, template=args.template)
         else:
             builder.build_all_formats(args.version, template=args.template)
+    elif args.jinja2_pdf:
+        if args.version == "all":
+            for version in builder.versions.keys():
+                builder.build_all_formats_jinja2(version)
+        else:
+            builder.build_all_formats_jinja2(args.version)
+    elif args.jinja2:
+        if args.version == "all":
+            for version in builder.versions.keys():
+                builder.build_version_jinja2(version)
+        else:
+            builder.build_version_jinja2(args.version)
     elif args.html:
         if args.version == "all":
             for version in builder.versions.keys():

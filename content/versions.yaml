@@ -1,0 +1,128 @@
+# CV Version Configuration
+# This file centralizes all version-specific settings previously hardcoded in build_system.py
+# Each version defines its behavior, layout, and content filtering rules
+
+versions:
+  firmware:
+    # Display name and tagline for this version
+    name: "Firmware"
+    tagline: "Senior Firmware Engineer"
+    
+    # Feature toggles that control content inclusion
+    toggles:
+      - firmware
+      - technical
+      - detailed
+    
+    # Content filtering
+    max_priority: 3  # Include all priority levels (1=core, 2=standard, 3=detailed)
+    
+    # Display settings
+    layout: technical  # Use 3-column technical skills layout
+    show_metrics: true
+    show_business_impact: false
+    executive_summary: false
+    
+    # Additional version-specific settings
+    emphasis: technical_leadership
+    show_technical_interests: true
+    show_hospitality_background: false
+
+  ai:
+    name: "AI"
+    tagline: "Applied AI/ML Engineer | Production Systems & Education"
+    
+    toggles:
+      - ai
+      - technical
+      - detailed
+    
+    max_priority: 3
+    
+    layout: technical
+    show_metrics: true
+    show_business_impact: false
+    executive_summary: false
+    
+    emphasis: education_and_research
+    show_technical_interests: true
+    show_hospitality_background: false
+
+  consulting:
+    name: "Consulting"
+    tagline: "Technical Consultant & AI Specialist"
+    
+    toggles:
+      - consulting
+      - ai
+      - businessfocus
+      - quantified
+    
+    max_priority: 3
+    
+    layout: technical
+    show_metrics: true
+    show_business_impact: true
+    executive_summary: false
+    
+    emphasis: cross_cultural_communication
+    show_technical_interests: true
+    show_hospitality_background: true
+
+  executive:
+    name: "Executive"
+    tagline: "Senior Technical Leader"
+    
+    toggles:
+      - executive
+      - quantified
+      - onepage
+    
+    max_priority: 1  # Only core content for 1-page format
+    
+    layout: executive  # Streamlined executive layout
+    show_metrics: true
+    show_business_impact: true
+    executive_summary: true
+    
+    emphasis: leadership_impact
+    show_technical_interests: false
+    show_hospitality_background: false
+
+  general:
+    name: "General"
+    tagline: "Embedded Systems & AI Engineer"
+    
+    toggles:
+      - firmware
+      - ai
+      - general
+    
+    max_priority: 2  # Standard content depth
+    
+    layout: technical
+    show_metrics: false
+    show_business_impact: false
+    executive_summary: false
+    
+    emphasis: balanced_profile
+    show_technical_interests: true
+    show_hospitality_background: true
+
+# Version metadata
+metadata:
+  default_version: general
+  available_versions:
+    - firmware
+    - ai
+    - consulting
+    - executive
+    - general
+  
+  # Version descriptions for documentation
+  descriptions:
+    firmware: "Embedded systems focused - Technical metrics, hardware details"
+    ai: "ML/AI practitioner focused - Research achievements, educational impact"
+    consulting: "Business impact focused - ROI metrics, stakeholder management"
+    executive: "Leadership focused - Financial impact, 1-page format"
+    general: "Balanced technical/business - Comprehensive competencies"

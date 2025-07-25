@@ -1,0 +1,22 @@
+{# CV Header Component #}
+<div class="cv-header">
+    <div class="cv-header-info">
+        <h1 class="cv-name" id="cv-name"><strong>{{ personal.name }}</strong></h1>
+        <h3 class="cv-tagline" id="cv-tagline">{{ version_config.tagline }}</h3>
+        
+        <p class="cv-address" id="cv-address"><em>{{ personal.address }}</em></p>
+        
+        <div class="cv-contact inline-contact" id="cv-contact">
+            <img src="assets/icons/phone.png" class="cv-contact-icon icon" alt="Phone" /> {{ personal.phone }} | 
+            <img src="assets/icons/email.png" class="cv-contact-icon icon" alt="Email" /> <a href="mailto:{{ personal.email }}">{{ personal.email }}</a> | 
+            <img src="assets/icons/github.png" class="cv-contact-icon icon" alt="GitHub" /> <a href="https://github.com/{{ personal.github }}">{{ personal.github }}</a> | 
+            <img src="assets/icons/linkedin.png" class="cv-contact-icon icon" alt="LinkedIn" /> <a href="https://linkedin.com/in/{{ personal.linkedin }}">{{ personal.linkedin_name }}</a>
+        </div>
+        
+        <p class="cv-languages" id="cv-languages"><strong>{{ personal.languages }}</strong></p>
+    </div>
+    
+    <div class="cv-profile-container">
+        <img src="{{ personal.profile_photo }}" alt="{{ personal.name }}" class="cv-profile-pic profile-pic" />
+    </div>
+</div>

@@ -1,19 +1,11 @@
 # Arthur Passuello - Personal Information
-# Migrated from LaTeX content with enhanced version-specific taglines
+# Migrated from LaTeX content
 
 personal:
   name:
     first: "Arthur"
     last: "PASSUELLO"
     full: "Arthur PASSUELLO"
-  
-  # Version-specific taglines - François-style simple job titles
-  taglines:
-    firmware: "Senior Firmware Engineer"
-    ai: "Applied AI/ML Engineer | Production Systems & Education"
-    consulting: "Technical Consultant & AI Specialist"
-    executive: "Senior Technical Leader"
-    general: "Embedded Systems & AI Engineer"
   
   # Contact information from LaTeX cv_original.tex
   contact:
@@ -112,30 +104,3 @@ personal:
       - "Cycling"
       - "Rugby"
       - "General outdoor activities"
-
-# Version configuration for conditional content
-version_config:
-  firmware:
-    show_technical_interests: true
-    show_hospitality_background: false
-    emphasis: "technical_leadership"
-    
-  ai:
-    show_technical_interests: true
-    show_hospitality_background: false
-    emphasis: "education_and_research"
-    
-  consulting:
-    show_technical_interests: true
-    show_hospitality_background: true
-    emphasis: "cross_cultural_communication"
-    
-  executive:
-    show_technical_interests: false
-    show_hospitality_background: false
-    emphasis: "leadership_impact"
-    
-  general:
-    show_technical_interests: true
-    show_hospitality_background: true
-    emphasis: "balanced_profile"

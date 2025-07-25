@@ -8,7 +8,7 @@ import sys
 import os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-from scripts.build_cv import CVBuilder
+from build_system import CVBuilder
 import yaml
 from pathlib import Path
 
@@ -109,11 +109,18 @@ class CVSystemTester:
             'experiences': [
                 {
                     'company': 'Test Company',
+                    'location': 'Test Location',
+                    'period': '2020 - Present',
+                    'reference': '',
                     'versions': ['firmware', 'ai'],
                     'position_base': 'Engineer',
                     'position_variants': {
                         'firmware': 'Firmware Engineer',
                         'ai': 'AI Engineer'
+                    },
+                    'skills_tags': {
+                        'firmware': 'C++, Embedded, RTOS',
+                        'ai': 'Python, ML, PyTorch'
                     },
                     'achievements': [
                         {
@@ -188,10 +195,18 @@ class CVSystemTester:
             'projects': [
                 {
                     'name': 'Test Project',
+                    'period': '2023',
+                    'links': {
+                        'github': 'https://github.com/test/project'
+                    },
                     'versions': ['firmware', 'ai'],
                     'descriptions': {
                         'firmware': ['Firmware description'],
                         'ai': ['AI description']
+                    },
+                    'skills_tags': {
+                        'firmware': 'C++, RTOS, Hardware',
+                        'ai': 'Python, PyTorch, ML'
                     }
                 }
             ]
