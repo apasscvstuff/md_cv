@@ -1,1292 +1,754 @@
-/* Local fonts only - Google Fonts import removed to prevent override of local Roboto fonts
-   François template uses local fonts for better PDF generation and faster loading */
-
 /* =============================================================================
-   FRANÇOIS TEMPLATE - Modern Creative CV Design Tutorial
-   Inspired by François Quellec and the Awesome CV LaTeX template
+   AWESOME CV TEMPLATE - Modern Professional Design Tutorial
+   Based on the popular LaTeX Awesome CV template  
    ============================================================================= 
 
    🎯 TEMPLATE OVERVIEW:
-   This is a modern, creative template perfect for design, tech, creative industries,
-   and contemporary companies. Features vibrant green accents and clean typography.
+   This is a sophisticated, modern template based on the famous Awesome CV LaTeX
+   design. Perfect for tech professionals, modern companies, and creative industries
+   that want a clean, contemporary look with excellent visual hierarchy.
 
-   ✨ DESIGN PHILOSOPHY:
-   - Modern, elegant typography with ultra-smooth Inter font
-   - Vibrant green accent color for visual impact  
-   - Clean minimalist layout with excellent readability
-   - Creative industries friendly while maintaining professionalism
+   ✨ DESIGN PHILOSOPHY:  
+   - Clean, modern layout with excellent visual hierarchy
+   - Sophisticated color scheme and typography
+   - Professional yet contemporary appearance
+   - Optimized for both screen viewing and printing
 
    🚀 QUICK START - MOST COMMON CUSTOMIZATIONS:
 
-   1. CHANGE THE VIBRANT RED ACCENT:
-      --color-accent: #e53e3e;  ← Change this to your brand color
-      Popular alternatives: #3498db (blue), #27ae60 (green), #9b59b6 (purple)
+   1. CHANGE THE LAYOUT COLORS:
+      :root { background-color: #EFEFEF; } ← Page background (try #F5F5F5, #FFFFFF)
+      Look for color values below to customize accent colors and text
 
-   2. ADJUST MODERN TYPOGRAPHY:
-      --size-name: 28pt;        ← Your name size (24pt=smaller, 32pt=bigger)
-      --size-body: 10pt;        ← Main text size (9pt=compact, 11pt=readable)
+   2. ADJUST DOCUMENT SIZE:
+      #document { width: 8.5in; height: 11in; } ← US Letter (try A4: 210mm x 297mm)
 
-   3. MODIFY SPACING FOR DENSITY:
-      --space-section: 24px;    ← Between sections (18px=compact, 30px=spacious) 
-      --space-item: 12px;       ← Between jobs/projects (8px=tight, 16px=loose)
+   3. MODIFY SPACING AND DENSITY:  
+      #document { padding: 0.3in 0.5in; } ← Page margins (0.2in=tight, 0.4in=spacious)
 
-   4. CHANGE THE CLEAN MODERN FEEL:
-      --color-primary: #1a202c; ← Main headers (try #2c3e50 for softer)
-      --font-primary: 'Roboto'  ← Try 'Inter', 'Montserrat' for different personality
+   4. CUSTOMIZE TYPOGRAPHY:
+      font-family: 'Roboto' ← Try 'Inter', 'Open Sans', 'Lato' for different feel
 
-   📋 FULL CUSTOMIZATION VARIABLES:
-   All colors, sizes, and spacing are controlled by CSS variables in :root below.
-   This template is optimized for modern, creative professionals.
-
-   🎨 COLOR PALETTE:
-   - Accent: #e53e3e (vibrant red)
-   - Primary: #1a202c (dark blue-gray headers)
-   - Text: #2d3748 (readable dark gray)
-   - Light: #4a5568 (secondary text)
-   - Background: #ffffff (clean white)
-
-   ⚠️  BEFORE YOU START:
-   - Test changes: python build_system.py --html --template francois ai
-   - This template works great for creative/tech industries
-   - Optimized for clean, modern presentation
-   - Print version automatically adjusts for PDF
+   ⚠️  IMPORTANT NOTES:
+   - This template uses complex nested structure - make small changes first
+   - Test changes: python build_system.py --html --template awesome-cv firmware  
+   - Some elements may need CSS knowledge to customize effectively
+   - Best suited for modern, tech-oriented presentations
 
 ============================================================================= */
 
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,300i,400,400i,500,500i,700,700i");
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i");
+
 /* =============================================================================
-   🎨 MODERN CSS VARIABLES - Creative Professional Control Panel
-   
-   💡 ABOUT FRANÇOIS TEMPLATE VARIABLES:
-   This template uses smaller, more precise values than traditional templates.
-   The design emphasizes clean lines and modern typography.
-   
-   🎯 CUSTOMIZATION APPROACH:
-   - Small adjustments make big visual differences
-   - Focus on color and typography for personality
-   - Spacing is optimized for modern, clean layouts
+   🧹 CSS RESET - Eric Meyer's Reset CSS v2.0 for consistent baseline
    ============================================================================= */
-:root {
-  /* ==========================================================================
-     🌈 MODERN COLOR PALETTE - François Creative Style
-     Sophisticated colors that work great for creative and tech professionals
-     ========================================================================== */
-
-  /* 🌿 PROFESSIONAL DARK GREEN ACCENT - Clean and sophisticated */
-  --color-accent: #2d5016;
-  /* Dark olive green for professional accent - sophisticated and readable */
-
-  /* 📖 PROFESSIONAL COLOR SYSTEM - Dark Green for Technical Roles */
-  --color-primary: #1a3f0d;
-  /* Dark forest green for headers - professional and cohesive with accent */
-  --color-secondary: #030602;
-  /* Dark green-gray for secondary text - cohesive with green theme */
-  --color-text: #1f2937;
-  /* Main body text - optimal reading contrast */
-  --color-text-light: #4b5563;
-  /* Dates, locations, contact info - subtle hierarchy */
-  --color-text-muted: #6b7280;
-  /* Skills tags, fine details - very subtle */
-
-  /* 🎨 LAYOUT COLORS - Clean and minimal */
-  --color-border: #e2e8f0;
-  /* Very light borders (nearly invisible) */
-  --color-bg: #ffffff;
-  /* Pure white background (try: #fafafa for warmth) */
-
-  /* ==========================================================================
-     ✍️ MODERN TYPOGRAPHY - Clean, readable fonts with personality
-     François style emphasizes clean, contemporary font choices
-     ========================================================================== */
-
-  /* 🔤 ATS-FRIENDLY FONTS - Following guide.md + toolkit.md recommendations */
-  --font-primary: 'Roboto', 'Calibri', 'Arial', sans-serif;
-  /* Headers - Roboto #1 recommendation (guide.md), Calibri ATS-friendly (toolkit.md) */
-  --font-secondary: 'Roboto', 'Calibri', 'Arial', sans-serif;
-  /* Body - Same font stack for consistency, Roboto excellent readability */
-
-  /* 📏 GUIDE.MD TYPOGRAPHY SCALE - Following 2025 best practices */
-
-  /* Typography scale based on guide.md recommendations (lines 17-31) */
-  --text-base: clamp(1rem, 0.75vw + 0.8rem, 1.125rem);
-  /* Body text - guide.md standard */
-  --text-sm: clamp(0.875rem, 0.5vw + 0.7rem, 1rem);
-  /* Small text - address, contact info */
-  --text-lg: clamp(1.125rem, 1vw + 0.9rem, 1.25rem);
-  /* Large text - section headers */
-  --text-xl: clamp(1.25rem, 1.5vw + 1rem, 1.5rem);
-  /* Extra large - company names, project titles */
-  --text-2xl: clamp(1.5rem, 2vw + 1.2rem, 2rem);
-  /* Name heading - guide.md standard */
-
-  /* Convert rem to pt for print compatibility - Reduced sizes for cleaner look */
-  --size-name: var(--text-2xl);
-  --size-tagline: var(--text-lg);
-  --size-section: var(--text-lg);
-  --size-subsection: var(--text-lg);
-  /* Reduced from text-xl */
-  --size-body: var(--text-sm);
-  /* Reduced from text-base */
-  --size-small: clamp(0.8rem, 0.4vw + 0.65rem, 0.9rem);
-  /* Smaller */
-  --size-tiny: clamp(0.75rem, 0.3vw + 0.6rem, 0.85rem);
-  /* Smaller */
-
-  /* ==========================================================================
-     📐 SWISS DESIGN SPACING - Mathematical precision for professional hierarchy
-     Based on typographic scale with golden ratio influence for visual harmony
-     ========================================================================== */
-
-  /* 🎯 SWISS DESIGN SPACING - François reference proportions (reduced for density) */
-  --space-section: 1.5rem;
-  /* Between major sections - proper spacing for PDF generation */
-  --space-subsection: 0.5rem;
-  /* Between companies/projects - maintains hierarchy */
-  --space-item: 0.375rem;
-  /* Between individual items - tighter spacing */
-  --space-small: 0.375rem;
-  /* Internal element spacing - minimal */
-  --space-tiny: 0.25rem;
-  /* Minimal spacing - very tight */
-
-  /* 📊 SWISS DESIGN RATIOS - Based on mathematical proportions */
-  --ratio-golden: 1.618;
-  /* Golden ratio for proportional relationships */
-  --line-height-base: 1.5;
-  /* Optimal reading line height */
-  --line-height-tight: 1.25;
-  /* Compressed line height for headings */
-
-  /* ==========================================================================
-     📄 LAYOUT DIMENSIONS - Page setup for A4 and Letter
-     Usually don't need to change these - they're optimized for print
-     ========================================================================== */
-
-  /* 📋 PAGE SETUP - Optimized for international A4 format */
-  --max-width: 210mm;
-  /* A4 width (8.5in for US Letter) */
-  --margin-page: 20mm;
-  /* Page margins (15mm=tighter, 25mm=more space) */
-}
-
-/* Base Reset & Typography */
-* {
-  box-sizing: border-box;
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
-}
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
 
 body {
-  font-family: var(--font-secondary);
-  font-size: var(--size-body);
-  line-height: var(--line-height-base);
-  color: var(--color-text);
-  background-color: var(--color-bg);
-  padding: 5mm var(--margin-page) var(--margin-page) var(--margin-page);
-  letter-spacing: -0.015em;
-  font-weight: 400;
-  /* Standard font weight for better readability */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  /* CSS Grid Layout - Enhanced from guide.md */
-  display: grid;
-  grid-template-areas:
-    "header"
-    "main-content";
-  gap: 1rem;
-  max-width: var(--max-width);
-  margin: 0 auto;
+  line-height: 1; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* =============================================================================
+   📄 AWESOME CV MAIN LAYOUT - Modern document structure
+   
+   💡 KEY CUSTOMIZATION POINTS:
+   - background-color: Page background color (try #F5F5F5, #FFFFFF)  
+   - font-family: Primary font (try 'Inter', 'Open Sans', 'Source Sans Pro')
+   - Document dimensions and spacing controlled in #document section below
+   ============================================================================= */
+:root {
+  background-color: #EFEFEF;              /* Page background (try #F5F5F5 warm, #FFFFFF clean) */
+  font-family: 'Roboto', sans-serif;      /* Primary font (try 'Inter', 'Open Sans', 'Lato') */
+  font-weight: 400;                       /* Normal font weight */
+}
+
+/* 📋 DOCUMENT CONTAINER - The main CV page styling */
+:root #document {
+    /* 🏗️ LAYOUT STRUCTURE */
+    display: flex;                       /* Modern flexbox layout */
+    flex-direction: column;              /* Vertical stacking */
+    justify-content: flex-start;         /* Align to top */
+    
+    /* 🎨 VISUAL STYLING */
+    background-color: white;             /* Document background (try #FAFAFA for warmth) */
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.3);  /* Professional drop shadow */
+    
+    /* 📐 DIMENSIONS - Adjust for different paper sizes */
+    width: 8.5in;                        /* US Letter width (210mm for A4) */
+    height: 11in;                        /* US Letter height (297mm for A4) */
+    padding: 0.3in 0.5in;               /* Internal margins (0.2in=tight, 0.4in=spacious) */
+    margin: 5vh auto;                    /* Center on screen with top/bottom space */
+}
+  :root .about-me {
+    text-align: center; }
+    :root .about-me .about-me__name {
+      font-weight: 100;
+      font-size: 3em; }
+      :root .about-me .about-me__name .about-me__last-name {
+        font-weight: 700; }
+    :root .about-me h6 {
+      font-size: 0.8em;
+      line-height: 1.3em; }
+    :root .about-me .about-me__position {
+      color: #DD3D2A;
+      font-family: 'Source Sans Pro';
+      font-variant: small-caps;
+      font-size: 0.9333rem; }
+    :root .about-me .about-me__address {
+      font-weight: 500;
+      font-style: italic;
+      color: #999999; }
+    :root .about-me .about-me__social > h6 {
+      display: inline; }
+      :root .about-me .about-me__social > h6 a {
+        text-decoration: none;
+        color: black; }
+        :root .about-me .about-me__social > h6 a i.fa {
+          margin-right: 0.4em; }
+      :root .about-me .about-me__social > h6::after {
+        content: '|';
+        margin-left: 0.75em;
+        margin-right: 0.5em; }
+  :root section {
+    width: 100%;
+    margin-top: 0.5rem;
+    font-family: 'Source Sans Pro'; }
+    :root section .section__heading {
+      color: #DD3D2A;
+      font-weight: 700;
+      font-size: 1.4em;
+      margin-bottom: 0.15em;
+      display: flex;
+      flex-direction: row; }
+      :root section .section__heading span.section__heading-underline {
+        flex-grow: 1;
+        border-bottom: 2px solid #999999;
+        margin-bottom: 4px;
+        margin-left: 0.3em; }
+    :root section .section__item {
+      margin-bottom: 0.5rem; }
+      :root section .section__item > div {
+        width: 100%; }
+        :root section .section__item > div:not(:first-child) {
+          margin-top: 0.3em; }
+        :root section .section__item > div > * {
+          display: inline; }
+        :root section .section__item > div > *:last-child {
+          float: right; }
+        :root section .section__item > div .section__subheading {
+          font-weight: 600; }
+        :root section .section__item > div .section__location {
+          color: #DD3D2A;
+          font-size: 0.9em;
+          font-style: italic; }
+        :root section .section__item > div .section__subsubheading {
+          font-size: 0.9em;
+          font-weight: 500;
+          font-variant: small-caps;
+          color: #5D5D5D; }
+        :root section .section__item > div .section__date-range {
+          font-size: 0.9em;
+          font-weight: 500;
+          font-style: italic; }
+    :root section ul {
+      margin-left: 1.1em;
+      margin-top: 0.5em;
+      font-size: 0.9rem;
+      line-height: 1.2em; }
+      :root section ul li:not(:last-child) {
+        margin-bottom: 0.2rem; }
+    :root section ul, :root section table {
+      font-size: 0.9rem;
+      color: #333333; }
+  :root .skills table tr td:first-child {
+    text-align: right;
+    font-weight: bold;
+    font-size: 1rem;
+    padding-right: 0.8em; }
+  :root .skills .skills__list span:not(:last-child)::after {
+    content: ', '; }
+  :root footer {
+    align-self: flex-end;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    font-size: 0.75em;
+    font-variant: small-caps;
+    margin-top: auto; }
+    :root footer table {
+      width: 100%;
+      color: #999999; }
+      :root footer table td {
+        flex-grow: 1; }
+
+/* 🖨️ PRINT OPTIMIZATIONS - Automatic adjustments for PDF generation */
+@media print {
+  :root #document {
+    top: initial;                        /* Reset positioning for print */
+    bottom: initial;                     /* Reset positioning for print */
+    transform: none;                     /* Remove screen transforms */
+    margin: 0;                           /* Full page margins */
+    width: 100%;                         /* Full page width */
+    height: 100%;                        /* Full page height */
+    padding: 0;                          /* Remove screen padding */
+  }
 }
 
 /* =============================================================================
-   📐 SWISS DESIGN CSS GRID LAYOUT - Guide.md Method Implementation
-   Modern CSS Grid following toolkit.md CSS-Tricks tutorial recommendations
+   🎨 AWESOME CV CUSTOMIZATION GUIDE
+   Simplified customization for this complex template
    ============================================================================= */
 
-/* 🏗️ SEMANTIC GRID AREAS - Following guide.md method */
+/*
+   ⚠️  IMPORTANT: Awesome CV Template Customization Notice
+   
+   This template uses a complex nested structure with SCSS compilation.
+   For major customizations, consider using the Professional or François templates
+   which are more user-friendly and fully documented.
+   
+   🎯 SAFE CUSTOMIZATIONS for Awesome CV:
+   
+   1. CHANGE PAGE BACKGROUND:
+      :root { background-color: #F5F5F5; }  ← Line 80
+   
+   2. CHANGE DOCUMENT BACKGROUND:  
+      background-color: white;  ← Line 93 (try #FAFAFA)
+   
+   3. ADJUST PAGE SIZE:
+      width: 8.5in; height: 11in;  ← Lines 97-98 (try 210mm x 297mm for A4)
+   
+   4. MODIFY MARGINS:
+      padding: 0.3in 0.5in;  ← Line 99 (try 0.4in 0.6in for more space)
+   
+   5. CHANGE FONT:
+      font-family: 'Roboto', sans-serif;  ← Line 81 (try 'Inter', 'Open Sans')
+   
+   🔧 TROUBLESHOOTING:
+   
+   ❌ Layout breaks with changes?
+   ✅ This template is complex - try smaller adjustments or use Professional template
+   
+   ❌ Colors not changing?
+   ✅ Look for specific color values throughout the file (many are hardcoded)
+   
+   ❌ Text sizing issues?
+   ✅ Font sizes are defined in multiple places - be careful with changes
+   
+   ❌ Want more customization options?
+   ✅ Consider using the Professional or François templates instead
+   
+   💡 RECOMMENDATION:
+   For extensive customization, use the Professional or François templates
+   which are fully documented and more flexible.
+*/
 
-/* 📝 HEADER GRID LAYOUT - Swiss design two-column precision */
-.cv-header {
-  grid-area: header;
-  display: grid;
-  grid-template-columns: 2fr 150px;
-  grid-template-areas: "header-info profile-photo";
-  gap: var(--space-item);
-  align-items: start;
-}
+/* =============================================================================
+   🖼️ CV SYSTEM COMPATIBILITY - Profile Picture & Contact Icons
+   Added support for standardized CV elements while preserving Awesome-CV aesthetic
+   ============================================================================= */
 
-/* Fix for Pandoc HTML structure - handle section wrapper around header info */
-.cv-header section.cv-header-info,
-.cv-header .cv-header-info {
-  grid-area: header-info;
-}
-
-.cv-profile-container {
-  grid-area: profile-photo;
-  justify-self: end;
-  align-self: start;
-}
-
-/* 📄 MAIN CONTENT AREA - Full width below header */
-.cv-main-content {
-  grid-area: main-content;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-small);
-  /* Reduced gap to prevent double spacing with section margins */
-}
-
+/* 👤 PROFILE PICTURE - Modern circular styling consistent with Awesome-CV design */
 .profile-pic {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 3px solid var(--color-border);
-  object-fit: cover;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: block;
+    width: 120px;                        /* Profile picture size (100px=smaller, 140px=larger) */
+    height: 120px;                       /* Keep equal to width for perfect circle */
+    border-radius: 50%;                  /* Makes it circular */
+    float: right;                        /* Position on right side */
+    margin-left: 25px;                   /* Space from text content */
+    margin-bottom: 20px;                 /* Space below image */
+    border: 3px solid #DD3D2A;           /* Awesome-CV red border */
+    object-fit: cover;                   /* Ensure image scales properly */
+    box-shadow: 0 4px 12px rgba(221, 61, 42, 0.2); /* Modern shadow with brand color */
 }
 
-/* 🎯 GRID SPACING CONTROL - No float clearing needed with Grid */
-
-/* Name Styling - Left aligned in header */
-h1 {
-  font-family: var(--font-primary);
-  font-size: var(--size-name);
-  font-weight: 700;
-  color: var(--color-primary);
-  line-height: 1.1;
-  letter-spacing: -0.025em;
-  margin-bottom: 6px;
-  /* Increased spacing between name and job title */
-  margin-top: 0;
-  padding-top: 0;
-  /* Ensure no padding contributes to top spacing */
-}
-
-h1 strong {
-  font-weight: 700;
-}
-
-/* Tagline/Subtitle - Left aligned */
-h1+h3 {
-  font-family: var(--font-secondary);
-  font-size: var(--size-tagline);
-  font-weight: 400;
-  color: var(--color-text-light);
-  line-height: 1.3;
-  margin-bottom: var(--space-small);
-  letter-spacing: -0.01em;
-}
-
-/* Address line - Fallback for Pandoc HTML processing */
-.cv-header-info p:not(.cv-contact):not(.cv-languages) {
-  font-size: var(--size-small);
-  font-style: italic;
-  color: var(--color-text-muted);
-  margin-bottom: var(--space-small);
-  letter-spacing: normal;
-}
-
-/* Contact info - Inline with icons */
+/* 📞 CONTACT INFORMATION - Inline contact layout with modern styling */
 .inline-contact {
-  font-size: var(--size-small);
-  line-height: 1.6;
-  margin-bottom: var(--space-item);
-  color: var(--color-text-light);
+    font-family: 'Source Sans Pro', sans-serif; /* Consistent with Awesome-CV typography */
+    font-size: 0.9rem;                   /* Contact text size (0.8rem=smaller, 1rem=larger) */
+    margin-bottom: 1.5rem;               /* Space below contact section */
+    line-height: 1.4;                    /* Comfortable line spacing */
+    color: #333333;                      /* Dark gray for contact info */
+    clear: both;                         /* Clear any floated elements */
+    text-align: center;                  /* Center align for modern look */
 }
 
 .inline-contact .icon {
-  width: 10px;
-  height: 10px;
-  margin-right: 3px;
-  vertical-align: middle;
-  opacity: 0.6;
+    width: 14px;                         /* Contact icon size */
+    height: 14px;                        /* Keep square for icons */
+    margin-right: 6px;                   /* Space between icon and text */
+    vertical-align: middle;              /* Align with text baseline */
+    display: inline-block;               /* Proper inline display */
+    filter: grayscale(0.3);              /* Subtle desaturation for sophistication */
 }
 
 .inline-contact a {
-  color: var(--color-text-light);
-  text-decoration: none;
-  transition: all 0.2s ease;
-  border-bottom: 1px solid transparent;
+    color: #DD3D2A;                      /* Awesome-CV brand red for links */
+    text-decoration: none;               /* Remove underlines */
+    font-weight: 500;                    /* Medium weight for links */
+    transition: color 0.3s ease;        /* Smooth color transition */
 }
 
 .inline-contact a:hover {
-  color: var(--color-accent);
-  border-bottom-color: var(--color-accent);
+    color: #b8331f;                      /* Darker red on hover */
+    text-decoration: none;               /* Keep clean on hover */
 }
 
-/* Languages line */
-.inline-contact+p {
-  font-size: var(--size-small);
-  font-weight: 600;
-  margin-bottom: var(--space-section);
-  color: var(--color-secondary);
-  letter-spacing: 0.02em;
-}
-
-/* Section Headers - François style with horizontal red bars extending right */
-h2,
-h2.cv-section-header {
-  font-family: var(--font-primary);
-  font-size: var(--size-section);
-  font-weight: 600;
-  color: var(--color-primary);
-  margin-top: var(--space-section);
-  margin-bottom: var(--space-subsection);
-  letter-spacing: -0.02em;
-  clear: both;
-  /* François horizontal bar implementation - flexbox for same-line extension */
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-/* François horizontal bar extending right on same line */
-h2::after,
-h2.cv-section-header::after {
-  content: "";
-  flex: 1;
-  height: 2px;
-  background: var(--color-accent);
-  /* Red bar color matching François design */
-}
-
-/* Handle Pandoc section wrapper elements - Ensure proper spacing */
-section.cv-section {
-  margin-bottom: var(--space-subsection);
-  /* Ensure proper section separation in PDF */
-}
-
-/* First section should not have top margin */
-.cv-main-content section:first-child h2,
-.cv-main-content section:first-child .cv-section-header {
-  margin-top: 0;
-}
-
-/* Skills Section - Three Column Table */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: var(--space-section);
-  font-size: var(--size-small);
-}
-
-th {
-  font-family: var(--font-primary);
-  font-size: var(--size-body);
-  font-weight: 600;
-  color: var(--color-secondary);
-  text-align: left;
-  padding: 8px 8px 6px 0;
-  border-bottom: 1px solid var(--color-border);
-  letter-spacing: -0.01em;
-}
-
-td {
-  padding: 5px 8px 5px 0;
-  vertical-align: top;
-  color: var(--color-text);
-  line-height: 1.4;
-  font-size: var(--size-small);
-  /* Added explicit font size */
-  font-weight: 400;
-  /* Standard weight for readability */
-}
-
-/* Style empty skill cells to be invisible but maintain table structure */
-td.cv-skill-item:empty {
-  visibility: hidden;
-  position: relative;
-}
-
-/* Ensure empty cells have minimal visual impact */
-td.cv-skill-item:empty::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
-/* Remove table hover effect for cleaner look */
-tr:hover {
-  background-color: transparent;
-}
-
-/* Experience Section Headers */
-h3 {
-  font-family: var(--font-primary);
-  font-size: var(--size-subsection);
-  font-weight: 500;
-  /* Reduced from 600 */
-  color: var(--color-secondary);
-  margin-top: var(--space-subsection);
-  margin-bottom: 2px;
-  letter-spacing: -0.015em;
-  display: block;
-  /* Back to normal block display */
-  clear: both;
-  /* Clear any previous floats */
-}
-
-/* =============================================================================
-   ✨ FRANÇOIS LAYOUT FIX - Proper Two-Line Header Structure
-   Replaces broken float-based positioning with clean flexbox layout
-   ============================================================================= */
-
-/* Entry Header - Company/Institution + Location on same line */
-.cv-entry-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 4px;
-}
-
-/* Position Header - Title + Date on same line */
-.cv-position-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: var(--space-small);
-}
-
-/* Ensure titles take full width except for date/location */
-.cv-entry-header h3,
-.cv-position-header .cv-position-title {
-  flex: 1;
-  margin: 0;
-}
-
-/* Style location and date with consistent formatting */
-.cv-entry-header .cv-company-location,
-.cv-entry-header .cv-education-location,
-.cv-position-header .cv-company-period,
-.cv-position-header .cv-education-period {
-  font-size: var(--size-small);
-  color: var(--color-text-muted);
-  font-style: italic;
-  text-align: right;
-  white-space: nowrap;
-  margin-left: var(--space-small);
-}
-
-/* Achievement Lists */
-ul {
-  margin-left: 18px;
-  margin-bottom: var(--space-item);
-  list-style: none;
-}
-
-li {
-  position: relative;
-  margin-bottom: 6px;
-  line-height: 1.4;
-  color: var(--color-text);
-  font-size: var(--size-small);
-  font-weight: 400;
-  /* Standard weight for readability */
-  padding-left: 14px;
-}
-
-/* Custom bullet point - consistent with semantic classes */
-li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: var(--color-accent);
-  font-weight: 700;
-}
-
-/* Skills Tags - Subtle styling with reduced spacing */
+/* 🏷️ SKILLS TAGS - Modern boxed skill tags matching Awesome-CV aesthetic */
 .skills-tags {
-  font-size: var(--size-tiny);
-  color: var(--color-text-muted);
-  margin: 6px 0 var(--space-small) 0;
-  /* Reduced margins */
-  line-height: 1.4;
-  /* Tighter line height */
-  padding-left: 0;
-  /* Remove old padding */
-  border-left: none;
-  /* Remove old border */
-  margin-left: 0;
-  /* Remove old margin */
-  font-style: normal;
-  /* Remove italic */
+    margin-top: 1rem;                    /* Space above skills tags */
+    margin-bottom: 1.5rem;               /* Space below skills tags */
+    line-height: 1.8;                    /* Comfortable line height for wrapped tags */
+    text-align: left;                    /* Left align for professional look */
 }
 
-/* Individual Skill Tag Boxes - Smaller, cleaner styling */
 .skill-tag {
-  display: inline-block;
-  background: #f8f9fa;
-  border: 1px solid var(--color-border);
-  border-radius: 3px;
-  /* Smaller border radius */
-  padding: 1px 3px;
-  /* Reduced padding */
-  margin: 1px 1px 1px 0;
-  /* Tighter margins */
-  font-size: clamp(0.7rem, 0.25vw + 0.55rem, 0.75rem);
-  /* Smaller font */
-  color: var(--color-text);
-  font-weight: 400;
-  /* Standard weight for readability */
-  font-style: normal;
-  transition: all 0.2s ease;
+    display: inline-block;               /* Allow tags to wrap */
+    background-color: #f8f9fa;           /* Very light gray background */
+    color: #5D5D5D;                      /* Medium gray text matching Awesome-CV */
+    padding: 6px 12px;                   /* Internal padding (5px 10px=smaller, 8px 15px=larger) */
+    margin: 3px 4px 3px 0;               /* Spacing between tags */
+    border: 1px solid #e9ecef;           /* Very subtle border */
+    border-radius: 6px;                  /* Rounded corners for modern look */
+    font-size: 0.8rem;                   /* Smaller font for tags */
+    font-weight: 500;                    /* Medium weight */
+    font-family: 'Source Sans Pro', sans-serif; /* Consistent typography */
+    white-space: nowrap;                 /* Prevent text wrapping within tags */
+    transition: all 0.3s ease;          /* Smooth transitions */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Subtle shadow */
 }
 
-/* Hover effect for skill tags */
 .skill-tag:hover {
-  background: var(--color-accent);
-  color: white;
-  border-color: var(--color-accent);
+    background-color: #DD3D2A;           /* Awesome-CV red background on hover */
+    color: white;                        /* White text on hover */
+    border-color: #DD3D2A;               /* Red border on hover */
+    transform: translateY(-1px);         /* Subtle lift effect */
+    box-shadow: 0 2px 6px rgba(221, 61, 42, 0.3); /* Enhanced shadow on hover */
 }
 
-/* Links in content */
-a {
-  color: var(--color-accent);
-  text-decoration: none;
-  transition: all 0.2s ease;
-  font-weight: 500;
+/* 📋 TABLE SUPPORT - Enhanced table styling for skills sections */
+table {
+    width: 100%;                         /* Full width tables */
+    border-collapse: collapse;           /* Clean borders */
+    margin-bottom: 1.5rem;               /* Space below tables */
+    font-family: 'Source Sans Pro', sans-serif; /* Consistent typography */
 }
 
-a:hover {
-  text-decoration: underline;
-  color: #d63031;
+table th {
+    font-weight: 600;                    /* Semi-bold headers */
+    color: #DD3D2A;                      /* Brand color for headers */
+    border-bottom: 2px solid #e9ecef;    /* Subtle bottom border */
+    padding: 0.75rem 0.5rem;             /* Comfortable padding */
+    text-align: left;                    /* Left align headers */
+    font-size: 0.95rem;                  /* Slightly larger for headers */
 }
 
-/* Education & Projects formatting - ONLY in education/project sections */
-.cv-education-item h3+p+p,
-.cv-project-item h3+p+p {
-  margin-bottom: var(--space-small);
-}
-
-/* Strong emphasis in text */
-strong {
-  font-weight: 500;
-  /* Reduced from 600 for lighter emphasis */
-  color: var(--color-primary);
-}
-
-/* Metrics emphasis */
-.metric {
-  color: var(--color-accent);
-  font-weight: 600;
-}
-
-/* Project links */
-h3+p a {
-  margin-right: 8px;
-  font-size: var(--size-small);
+table td {
+    padding: 0.5rem 0.5rem;              /* Cell padding */
+    border-bottom: 1px solid #f8f9fa;    /* Very subtle row separators */
+    color: #333333;                      /* Dark gray text */
+    font-size: 0.9rem;                   /* Standard cell text size */
+    vertical-align: top;                 /* Align to top for multi-line content */
 }
 
 /* =============================================================================
-   🖨️ ADVANCED PRINT OPTIMIZATION - Swiss Design PDF Quality Enhancement
-   Following toolkit.md SitePoint guide recommendations for print-friendly CSS
+   📱 RESPONSIVE ADJUSTMENTS - Mobile and tablet optimizations
    ============================================================================= */
 
-@media print {
-
-  /* 🎯 SWISS DESIGN PRINT VARIABLES - Mathematical precision for PDF */
-  :root {
-    --size-name: clamp(22pt, 4vw, 24pt);
-    --size-tagline: clamp(10pt, 2.5vw, 12pt);
-    --size-section: clamp(12pt, 3vw, 14pt);
-    --size-subsection: clamp(10pt, 2vw, 11pt);
-    --size-body: clamp(8pt, 1.8vw, 9pt);
-    --size-small: clamp(7pt, 1.5vw, 8pt);
-    --size-tiny: clamp(6pt, 1.2vw, 7pt);
-    --margin-page: 12mm;
-    /* Optimized print margins for professional presentation */
-    --line-height-print: 1.35;
-    /* Tighter line height for print readability */
-  }
-
-  /* 📄 PDF BODY OPTIMIZATION - Following guide.md recommendations */
-  body {
-    max-width: none;
-    line-height: var(--line-height-print);
-    font-size: var(--size-body);
-    /* Ensure color accuracy in PDF generation */
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-
-  /* 🖨️ GRID-AWARE PRINT LAYOUT - Toolkit.md SitePoint method */
-  .cv-header {
-    grid-template-columns: 2fr 120px;
-    gap: var(--space-small);
-    page-break-after: avoid;
-    break-after: avoid;
-  }
-
-  /* Fix for print - handle section wrapper around header info */
-  .cv-header section.cv-header-info,
-  .cv-header .cv-header-info {
-    grid-area: header-info;
-  }
-
-  .profile-pic {
-    width: 110px;
-    height: 110px;
-  }
-
-  h2 {
-    margin-top: 18px;
-    margin-bottom: 12px;
-    page-break-after: avoid;
-  }
-
-  h3 {
-    margin-top: 14px;
-    page-break-after: avoid;
-  }
-
-  ul,
-  .skills-tags {
-    page-break-inside: avoid;
-  }
-
-  li {
-    margin-bottom: 4px;
-  }
-
-  table {
-    page-break-inside: avoid;
-  }
-
-  /* Ensure consistent font rendering */
-  * {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-}
-
-/* =============================================================================
-   📜 SWISS DESIGN @PAGE RULES - Professional PDF page control
-   Advanced page setup following guide.md recommendations for precise PDF output
-   ============================================================================= */
-
-@page {
-  size: A4 portrait;
-  margin: 12mm 15mm 15mm 15mm;
-  /* Swiss design margins: slightly reduced top for content density */
-
-  /* Page counter for multi-page CVs */
-  @bottom-right {
-    content: counter(page) " of " counter(pages);
-    font-family: var(--font-secondary);
-    font-size: 8pt;
-    color: var(--color-text-muted);
-    margin-bottom: 5mm;
-  }
-}
-
-/* 🎯 GRID-AWARE PAGE BREAK MANAGEMENT - Enhanced from toolkit.md */
-@media print {
-
-  /* Grid container break control */
-  .cv-header,
-  .cv-main-content {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-
-  /* Section-level break control - handle both semantic classes and Pandoc sections */
-  .cv-section,
-  section.cv-section {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-
-  .cv-experience-item,
-  .cv-project-item,
-  .cv-education-item {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-
-  /* Section headers should not be orphaned */
-  h2,
-  h3 {
-    page-break-after: avoid;
-    break-after: avoid;
-  }
-
-  /* Keep achievements with their context */
-  .cv-achievements,
-  .cv-project-descriptions {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-
-/* Utility classes */
-.clearfix::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Executive version adjustments */
-.cv-executive {
-  --size-body: 11pt;
-  --size-small: 10pt;
-}
-
-.cv-executive h2 {
-  font-size: 15pt;
-  text-transform: none;
-}
-
-.cv-executive li {
-  margin-bottom: 5px;
-}
-
-/* Ensure proper rendering in PDF generators */
-@media screen {
-  body {
-    min-height: 297mm;
-    /* A4 height */
-  }
-}
-
-/* 📱 RESPONSIVE CSS GRID - Guide.md mobile adaptation method */
 @media screen and (max-width: 768px) {
-  .cv-header {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "profile-photo"
-      "header-info";
-    text-align: center;
-    gap: var(--space-small);
-  }
-
-  .cv-profile-container {
-    justify-self: center;
-  }
-
-  /* Fix for mobile - handle section wrapper around header info */
-  .cv-header section.cv-header-info,
-  .cv-header .cv-header-info {
-    text-align: center;
-  }
-
-  .profile-pic {
-    width: 120px;
-    height: 120px;
-  }
+    .profile-pic {
+        width: 100px;                    /* Smaller profile pic on mobile */
+        height: 100px;                   /* Keep proportional */
+        float: none;                     /* Remove float on mobile */
+        display: block;                  /* Block display */
+        margin: 0 auto 1rem auto;        /* Center on mobile */
+    }
+    
+    .inline-contact {
+        font-size: 0.8rem;               /* Smaller contact text on mobile */
+        text-align: center;              /* Center contact info */
+    }
+    
+    .skill-tag {
+        font-size: 0.75rem;              /* Smaller skill tags on mobile */
+        padding: 4px 8px;                /* Tighter padding */
+        margin: 2px 2px 2px 0;           /* Tighter margins */
+    }
+    
+    table {
+        font-size: 0.8rem;               /* Smaller table text on mobile */
+    }
 }
 
 /* =============================================================================
-   🏷️ SEMANTIC CV ELEMENT CLASSES - François Template Enhancement
-   New semantic classes for reliable, maintainable styling - ENHANCED VERSION
-   
-   📋 IMPLEMENTATION OVERVIEW:
-   This section implements a complete semantic CSS class system that solves the 
-   original address placement problem and provides reliable styling for all CV elements.
-   
-   🎯 KEY PROBLEM SOLVED:
-   - Original: Fragile CSS selectors like h1+h3+p for address styling
-   - Solution: Dedicated semantic classes (cv-address, cv-contact, cv-name, etc.)
-   - Benefit: Reliable styling independent of HTML structure proximity
-   
-   🔧 DUAL CLASS SYSTEM:
-   Each element includes both semantic and legacy classes:
-   - Semantic classes (cv-*): For reliable, maintainable targeting
-   - Legacy classes: For backward compatibility with existing CSS
-   - Example: class="cv-name" works alongside existing h1 selectors
-   
-   🎨 FRANÇOIS TEMPLATE INTEGRATION:
-   All semantic classes use François design variables and maintain the elegant,
-   sophisticated aesthetic while providing modern maintainability.
-   
+   🏷️ SEMANTIC CV ELEMENT CLASSES - Awesome-CV Template Enhancement
+   New semantic classes for reliable, maintainable styling
    ============================================================================= */
 
-/* 🎯 Header Elements - Clean, semantic selectors 
-   
-   CRITICAL SOLUTION: Address Placement Problem
-   
-   Before: Fragile CSS selector h1+h3+p targeted address based on HTML proximity
-   After:  Dedicated .cv-address class provides reliable styling regardless of structure
-   
-   Each header element now has semantic targeting that eliminates dependency on
-   HTML element ordering and provides consistent styling across all templates.
-*/
+/* 🎯 Header Elements - Clean, semantic selectors */
 .cv-name {
-  /* Semantic styling for CV name - replaces fragile h1 proximity selectors */
-  font-family: var(--font-primary);
-  font-size: var(--size-name);
-  font-weight: 700;
-  color: var(--color-primary);
-  line-height: 1.1;
-  letter-spacing: -0.025em;
-  margin-bottom: 6px;
-  /* Increased spacing between name and job title */
-  margin-top: 0;
-  padding-top: 0;
-  /* Ensure no padding contributes to top spacing */
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #333333;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    font-family: 'Roboto', sans-serif;
 }
 
 .cv-tagline {
-  font-family: var(--font-secondary);
-  font-size: var(--size-tagline);
-  font-weight: 400;
-  color: var(--color-text-light);
-  line-height: 1.3;
-  margin-bottom: var(--space-small);
-  letter-spacing: -0.01em;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #5D5D5D;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 .cv-address {
-  /* 🎯 CRITICAL FIX: Address Placement Solution
-     This replaces the fragile h1+h3+p selector that caused address styling issues.
-     Now address placement is reliable regardless of HTML structure changes. */
-  font-size: var(--size-small);
-  font-style: italic;
-  color: var(--color-text-muted);
-  margin-bottom: var(--space-small);
-  letter-spacing: normal;
-  display: block;
-  /* Ensure block-level behavior */
+    font-size: 0.95rem;
+    color: #777777;
+    font-style: italic;
+    margin-bottom: 1rem;
+    text-align: center;
 }
 
-
 .cv-contact {
-  font-size: var(--size-small);
-  line-height: 1.6;
-  margin-bottom: var(--space-item);
-  color: var(--color-text-light);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    color: #5D5D5D;
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 .cv-contact-icon {
-  width: 10px;
-  height: 10px;
-  margin-right: 3px;
-  vertical-align: middle;
-  opacity: 0.6;
+    width: 14px;
+    height: 14px;
+    margin-right: 8px;
+    vertical-align: middle;
+    display: inline-block;
+    opacity: 0.7;
+    filter: grayscale(0.3);
 }
 
 .cv-languages {
-  font-size: var(--size-body);
-  font-weight: 600;
-  margin-bottom: var(--space-section);
-  color: var(--color-secondary);
-  letter-spacing: 0.02em;
-  text-align: left;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #333333;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
-/* Note: Section header styling handled by h2, .cv-section-header selector above */
+/* 📚 Section Headers - Professional section styling */
+.cv-section-header {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #DD3D2A;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #DD3D2A;
+    padding-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Roboto', sans-serif;
+}
 
 /* 💼 Skills Section Elements */
 .cv-skills-table-container {
-  margin-bottom: var(--space-section);
+    margin-bottom: 2rem;
 }
 
 .cv-skills-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: var(--size-small);
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Source Sans Pro', sans-serif;
+    margin-bottom: 1.5rem;
 }
 
 .cv-skills-header {
-  font-family: var(--font-primary);
-  font-size: var(--size-body);
-  font-weight: 600;
-  color: var(--color-secondary);
-  text-align: left;
-  padding: 8px 8px 6px 0;
-  border-bottom: 1px solid var(--color-border);
-  letter-spacing: -0.01em;
+    font-weight: 600;
+    color: #DD3D2A;
+    border-bottom: 2px solid #e9ecef;
+    padding: 0.75rem 0.5rem;
+    text-align: left;
+    font-size: 0.95rem;
 }
 
 .cv-skill-item {
-  padding: 5px 8px 5px 0;
-  vertical-align: top;
-  line-height: 1.4;
-  color: var(--color-text);
+    padding: 0.5rem 0.5rem;
+    border-bottom: 1px solid #f8f9fa;
+    color: #333333;
+    font-size: 0.9rem;
+    vertical-align: top;
 }
 
 .cv-skill-category {
-  margin-bottom: var(--space-item);
+    margin-bottom: 1.5rem;
 }
 
 .cv-executive-skills {
-  display: inline-block;
-  margin-right: 20px;
-  margin-bottom: 10px;
+    display: inline-block;
+    margin-right: 2rem;
+    margin-bottom: 1rem;
 }
 
 /* 🏢 Experience Section Elements */
 .cv-experience-item {
-  margin-bottom: var(--space-subsection);
-  padding-bottom: var(--space-small);
-  /* Removed border-bottom to prevent double horizontal bars */
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e9ecef;
 }
 
 .cv-company-name {
-  font-size: var(--size-body);
-  font-weight: 500;
-  /* Better weight for readability */
-  color: var(--color-accent);
-  /* Reduced weight to match François reference */
-  margin-bottom: 4px;
-  letter-spacing: -0.005em;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 0.5rem;
+    font-family: 'Roboto', sans-serif;
 }
 
 .cv-company-location {
-  font-size: var(--size-small);
-  color: var(--color-text-muted);
-  margin-bottom: 8px;
-  font-style: italic;
+    font-size: 0.9rem;
+    color: #777777;
+    font-style: italic;
+    margin-bottom: 0.75rem;
 }
 
 .cv-company-period {
-  font-size: var(--size-small);
-  color: var(--color-text-muted);
-  font-style: italic;
+    font-size: 0.9rem;
+    color: #777777;
+    font-style: italic;
+    margin-bottom: 0.75rem;
 }
 
 .cv-position-title {
-  font-weight: 400;
-  /* Reduced for lighter look */
-  margin-bottom: var(--space-small);
-  color: var(--color-secondary);
-  font-size: var(--size-body);
-}
-
-/* Fix for actual HTML structure - job titles and degree titles */
-.cv-position-header p {
-  font-size: var(--size-body);
-  margin: 0;
-  color: var(--color-secondary);
-}
-
-.cv-position-header p strong {
-  font-size: var(--size-body);
-  font-weight: 500;
-  color: var(--color-secondary);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #5D5D5D;
+    margin-bottom: 1rem;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 .cv-reference {
-  font-size: var(--size-small);
-  color: var(--color-text-muted);
-  font-weight: 400;
+    font-size: 0.85rem;
+    color: #999999;
+    font-weight: 400;
 }
 
 .cv-achievements {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+    list-style: none;
+    margin: 0 0 1rem 1rem;
+    padding: 0;
 }
 
 .cv-achievement {
-  margin-bottom: 6px;
-  padding-left: 14px;
-  position: relative;
-  line-height: 1.4;
-  color: var(--color-text);
-  font-size: var(--size-small);
+    position: relative;
+    margin-bottom: 0.75rem;
+    padding-left: 1rem;
+    line-height: 1.5;
+    color: #333333;
+    font-size: 0.95rem;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 .cv-achievement:before {
-  content: "•";
-  color: var(--color-accent);
-  font-weight: 700;
-  position: absolute;
-  left: 0;
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: #DD3D2A;
+    font-weight: bold;
 }
 
 /* 🎯 Projects Section Elements */
 .cv-project-item {
-  margin-bottom: var(--space-item);
-  padding-bottom: var(--space-small);
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e9ecef;
 }
 
 .cv-project-name {
-  font-size: var(--size-body);
-  font-weight: 500;
-  color: var(--color-accent);
-  /* Consistent with company names */
-  margin-bottom: 4px;
-}
-
-.cv-project-name .cv-project-period {
-  /* Style period when it's inline with project title */
-  font-family: var(--font-secondary);
-  font-size: var(--size-small);
-  font-weight: 400;
-  color: var(--color-text-light);
-  font-style: italic;
-  float: right;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 0.5rem;
+    font-family: 'Roboto', sans-serif;
 }
 
 .cv-project-period {
-  font-size: var(--size-small);
-  color: var(--color-text-muted);
-  font-style: italic;
-  text-align: right;
-  margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #777777;
+    font-style: italic;
+    margin-bottom: 0.75rem;
 }
 
 .cv-project-links {
-  margin-bottom: 8px;
+    margin-bottom: 1rem;
 }
 
 .cv-project-link {
-  color: var(--color-accent);
-  margin-right: 8px;
-  font-size: var(--size-small);
-  text-decoration: none;
-  font-weight: 500;
+    color: #DD3D2A;
+    margin-right: 1rem;
+    font-size: 0.9rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
 .cv-project-link:hover {
-  text-decoration: underline;
+    color: #b8331f;
+    text-decoration: none;
 }
 
 .cv-project-descriptions {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+    list-style: none;
+    margin: 0 0 1rem 1rem;
+    padding: 0;
 }
 
 .cv-project-description {
-  margin-bottom: 6px;
-  padding-left: 14px;
-  position: relative;
-  line-height: 1.4;
-  color: var(--color-text);
-  font-size: var(--size-small);
+    position: relative;
+    margin-bottom: 0.75rem;
+    padding-left: 1rem;
+    line-height: 1.5;
+    color: #333333;
+    font-size: 0.95rem;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 .cv-project-description:before {
-  content: "•";
-  color: var(--color-accent);
-  font-weight: 700;
-  position: absolute;
-  left: 0;
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: #DD3D2A;
+    font-weight: bold;
 }
 
-/* 🎓 Education Section Elements - Match work experience styling exactly */
+/* 🎓 Education Section Elements */
 .cv-education-item {
-  margin-bottom: var(--space-small);
-  /* Reduced spacing for clean look */
-  padding-bottom: 0;
-  /* Remove padding for minimal design */
-  border-bottom: none;
-  /* Remove border for cleaner look */
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e9ecef;
 }
 
 .cv-institution-name {
-  font-size: var(--size-body);
-  font-weight: 500;
-  /* Consistent with other names */
-  color: var(--color-accent);
-  /* Match company name styling for consistency */
-  margin-bottom: 4px;
-  letter-spacing: -0.005em;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 0.5rem;
+    font-family: 'Roboto', sans-serif;
 }
 
-/* Education sections now use the same .cv-entry-header and .cv-position-header structure
-   No additional CSS needed - handled by the flexbox rules above */
-
 .cv-education-location {
-  font-size: var(--size-small);
-  color: var(--color-text-muted);
-  font-style: italic;
-  margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #777777;
+    font-style: italic;
+    margin-bottom: 0.75rem;
 }
 
 .cv-education-period {
-  font-size: var(--size-small);
-  color: var(--color-text-muted);
-  font-style: italic;
+    font-size: 0.9rem;
+    color: #777777;
+    font-style: italic;
+    margin-bottom: 0.75rem;
 }
 
 .cv-degree-title {
-  font-weight: 400;
-  /* Reduced for lighter look */
-  color: var(--color-secondary);
-  font-size: var(--size-body);
-  margin-bottom: 8px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #5D5D5D;
+    margin-bottom: 1rem;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 .cv-major {
-  font-weight: 400;
-  color: var(--color-text);
+    font-weight: 400;
+    color: #333333;
 }
 
-.cv-technical-highlight {
-  font-size: var(--size-small);
-  color: var(--color-text-muted);
-  font-style: italic;
-  margin-bottom: var(--space-small);
-  font-weight: 400;
-  line-height: 1.3;
-}
-
-.cv-education-highlight {
-  font-size: var(--size-small);
-  color: var(--color-text-muted);
-  font-style: italic;
-  margin-bottom: var(--space-small);
-  font-weight: 400;
-  line-height: 1.3;
+.cv-focus-area {
+    font-size: 0.9rem;
+    color: #777777;
+    font-style: italic;
+    margin-bottom: 0.75rem;
 }
 
 .cv-coursework {
-  font-size: var(--size-small);
-  color: var(--color-text);
-  margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #333333;
+    margin-bottom: 0.75rem;
 }
 
 .cv-education-achievements {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+    list-style: none;
+    margin: 0 0 1rem 1rem;
+    padding: 0;
 }
 
 .cv-education-achievement {
-  margin-bottom: 6px;
-  padding-left: 14px;
-  position: relative;
-  line-height: 1.4;
-  color: var(--color-text);
-  font-size: var(--size-small);
+    position: relative;
+    margin-bottom: 0.75rem;
+    padding-left: 1rem;
+    line-height: 1.5;
+    color: #333333;
+    font-size: 0.95rem;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 .cv-education-achievement:before {
-  content: "•";
-  color: var(--color-accent);
-  font-weight: 700;
-  position: absolute;
-  left: 0;
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: #DD3D2A;
+    font-weight: bold;
 }
 
 /* 🏷️ Skills Tags - Enhanced with semantic classes */
 .cv-skills-tags {
-  font-size: var(--size-tiny);
-  color: var(--color-text-muted);
-  margin: 6px 0 var(--space-small) 0;
-  /* Reduced margins */
-  line-height: 1.4;
-  /* Tighter line height */
-  padding-left: 0;
-  /* Remove old padding */
-  border-left: none;
-  /* Remove old border */
-  margin-left: 0;
-  /* Remove old margin */
-  font-style: normal;
-  /* Remove italic */
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    text-align: left;
 }
 
 .cv-skill-tag {
-  display: inline-block;
-  background: #f8f9fa;
-  border: 1px solid var(--color-border);
-  border-radius: 3px;
-  /* Smaller border radius */
-  padding: 1px 3px;
-  /* Reduced padding */
-  margin: 1px 1px 1px 0;
-  /* Tighter margins */
-  font-size: clamp(0.7rem, 0.25vw + 0.55rem, 0.75rem);
-  /* Smaller font */
-  color: var(--color-text);
-  font-weight: 400;
-  /* Standard weight for readability */
-  font-style: normal;
-  transition: all 0.2s ease;
+    display: inline-block;
+    background-color: #f8f9fa;
+    color: #5D5D5D;
+    padding: 6px 12px;
+    margin: 3px 4px 3px 0;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    font-family: 'Source Sans Pro', sans-serif;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .cv-skill-tag:hover {
-  background: var(--color-accent);
-  color: white;
-  border-color: var(--color-accent);
+    background-color: #DD3D2A;
+    color: white;
+    border-color: #DD3D2A;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(221, 61, 42, 0.3);
 }
-
-/* =============================================================================
-   🎨 FRANÇOIS CREATIVE CUSTOMIZATION RECIPES
-   Copy and paste these examples to achieve specific creative/modern looks
-   ============================================================================= */
-
-/* 
-   ✨ RECIPE 1: CREATIVE AGENCY LOOK
-   Perfect for design, marketing, creative agencies
-   
-   Copy these changes to your :root section above:
-   --color-accent: #ff6b35;
-   --color-primary: #2c3e50;
-   --size-name: 32pt;
-   --space-section: 30px;
-*/
-
-/* 
-   ✨ RECIPE 2: TECH STARTUP MODERN
-   Clean, contemporary for software/tech roles
-   
-   Copy these changes to your :root section above:
-   --color-accent: #3498db;
-   --color-bg: #fafafa;
-   --font-primary: 'Inter', sans-serif;
-   --font-secondary: 'Inter', sans-serif;
-*/
-
-/* 
-   ✨ RECIPE 3: SUBTLE PROFESSIONAL
-   François style but more conservative for traditional industries
-   
-   Copy these changes to your :root section above:
-   --color-accent: #34495e;
-   --color-primary: #2c3e50;
-   --size-name: 26pt;
-   --space-section: 20px;
-*/
-
-/* 
-   ✨ RECIPE 4: BOLD CREATIVE IMPACT
-   Maximum visual impact for portfolio/creative roles
-   
-   Copy these changes to your :root section above:
-   --color-accent: #e74c3c;
-   --size-name: 36pt;
-   --size-section: 18pt;
-   --space-section: 32px;
-*/
-
-/* 
-   ✨ RECIPE 5: MINIMAL SCANDINVIAN
-   Ultra-clean Nordic design aesthetic
-   
-   Copy these changes to your :root section above:
-   --color-accent: #95a5a6;
-   --color-primary: #2c3e50;
-   --color-text: #34495e;
-   --space-section: 28px;
-   --space-item: 14px;
-*/
-
-/* =============================================================================
-   🔧 FRANÇOIS TEMPLATE TROUBLESHOOTING
-   Common issues and solutions for this modern template
-   ============================================================================= */
-
-/*
-   ❌ PROBLEM: Text looks too small/refined
-   ✅ SOLUTION: François uses modern sizing - increase --size-body to 11pt or 12pt
-   
-   ❌ PROBLEM: Red accent is too bold/vibrant
-   ✅ SOLUTION: Try softer alternatives: #c0392b, #8e44ad, #2980b9, #27ae60
-   
-   ❌ PROBLEM: Name doesn't have enough impact
-   ✅ SOLUTION: Increase --size-name to 32pt or 36pt for more presence
-   
-   ❌ PROBLEM: Layout feels too tight/cramped
-   ✅ SOLUTION: Increase --space-section to 28px and --space-item to 14px
-   
-   ❌ PROBLEM: Skills table doesn't look right
-   ✅ SOLUTION: François uses 3-column table - check your YAML has technical layout
-   
-   ❌ PROBLEM: Contact info looks different
-   ✅ SOLUTION: François uses subtle contact styling - this is intentional for elegance
-*/
