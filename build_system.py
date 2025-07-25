@@ -11,6 +11,14 @@ from typing import Dict, List, Any, Optional
 import subprocess
 import argparse
 
+# Add dynamic skills processor with fallback
+try:
+    from DYNAMIC_SKILLS_PROCESSOR import DynamicSkillsProcessor
+    DYNAMIC_SKILLS_AVAILABLE = True
+except ImportError:
+    DYNAMIC_SKILLS_AVAILABLE = False
+    print("Warning: Dynamic skills processor not available, using legacy mode")
+
 
 class CVBuilder:
     def __init__(self, content_dir: str = "content", output_dir: str = "output"):
@@ -316,7 +324,43 @@ class CVBuilder:
         return [item for item in items if item.get("priority", 1) <= max_priority]
 
     def process_skills_section(self, skills_data: Dict, target_version: str) -> Dict:
-        """Process skills section with version-specific logic"""
+        """
+        Process skills section with dynamic processor support
+        
+        Supports both:
+        - New dynamic format (skill-centric with zero duplication)
+        - Legacy format (version-centric with duplication) for backward compatibility
+        """
+        
+        # Check if using new dynamic format
+        if (DYNAMIC_SKILLS_AVAILABLE and 
+            'skills' in skills_data and 
+            'categories' in skills_data and 
+            'version_layouts' in skills_data):
+            
+            # Use new dynamic processor
+            try:
+                processor = DynamicSkillsProcessor(skills_data)
+                result = processor.process_skills_for_version(target_version)
+                
+                # Add debug flag if in development mode
+                if hasattr(self, 'debug_mode') and self.debug_mode:
+                    result['debug_mode'] = True
+                
+                print(f"✅ Dynamic skills processing: {target_version} -> {result['column_count']} columns")
+                return result
+                
+            except Exception as e:
+                print(f"Warning: Dynamic skills processing failed: {e}")
+                print("Falling back to legacy processing...")
+                return self._process_skills_legacy(skills_data, target_version)
+        
+        else:
+            # Use legacy processing for backward compatibility
+            return self._process_skills_legacy(skills_data, target_version)
+
+    def _process_skills_legacy(self, skills_data: Dict, target_version: str) -> Dict:
+        """Legacy skills processing (renamed from original process_skills_section)"""
         version_config = self.versions[target_version]
 
         if version_config["layout"] == "executive":
@@ -472,6 +516,11 @@ class CVBuilder:
 
             markdown += "</section>\n\n"
             return markdown
+            
+        elif processed_skills["layout"] == "technical_dynamic":
+            # Dynamic format - supports 2-6+ columns automatically
+            return self._generate_dynamic_skills_markdown(processed_skills, target_version)
+            
         else:
             # Technical format - 3-column skills table with semantic classes
             markdown = '<section class="cv-section cv-skills">\n<h2 class="cv-section-header" id="skills">Skills</h2>\n\n'
@@ -528,6 +577,215 @@ class CVBuilder:
 
             markdown += "</section>\n\n"
             return markdown
+
+    def _generate_dynamic_skills_markdown(self, processed_skills: Dict, target_version: str) -> str:
+        """Generate dynamic skills markdown with 2-6+ column support"""
+        markdown = '<section class="cv-section cv-skills">\n<h2 class="cv-section-header" id="skills">Skills</h2>\n\n'
+        
+        categories = processed_skills.get("categories", [])
+        column_count = processed_skills.get("column_count", len(categories))
+        column_width = processed_skills.get("column_width", f"{100/column_count:.2f}%")
+        
+        if categories and column_count <= 6:
+            # Table layout for 2-6 columns
+            markdown += '<div class="cv-skills-table-container">\n'
+            markdown += f'<table class="cv-skills-table cv-skills-dynamic" data-columns="{column_count}">\n'
+            markdown += "<thead>\n<tr>\n"
+            
+            # Generate headers
+            for category in categories:
+                markdown += f'<th class="cv-skills-header" style="width: {column_width};"><strong>{category["name"]}</strong></th>\n'
+            
+            markdown += "</tr>\n</thead>\n<tbody>\n"
+            
+            # Calculate maximum number of skills across all categories
+            max_skills = max(len(category["skills"]) for category in categories) if categories else 0
+            
+            # Generate rows dynamically based on max skills
+            for i in range(max_skills):
+                markdown += '<tr class="cv-skills-row">\n'
+                for category in categories:
+                    if i < len(category["skills"]):
+                        skill = category["skills"][i]
+                        markdown += f'<td class="cv-skill-item"><span class="cv-skill-bullet">✓</span> {skill}</td>\n'
+                    else:
+                        markdown += '<td class="cv-skill-item"></td>\n'
+                markdown += "</tr>\n"
+            
+            markdown += "</tbody>\n</table>\n</div>\n\n"
+            
+            # Add responsive CSS for dynamic columns
+            markdown += self._generate_dynamic_skills_css(column_count, column_width)
+            
+        elif categories and column_count > 6:
+            # List layout for 7+ columns (too many for table)
+            markdown += '<div class="cv-skills-list-container">\n'
+            for category in categories:
+                markdown += f'<div class="cv-skill-category">\n'
+                markdown += f'<h3 class="cv-skill-category-header">{category["name"]}</h3>\n'
+                markdown += '<div class="cv-skill-items">\n'
+                for skill in category["skills"]:
+                    markdown += f'<span class="cv-skill-tag">{skill}</span>\n'
+                markdown += '</div>\n</div>\n'
+            markdown += '</div>\n\n'
+            
+            # Add list layout CSS
+            markdown += self._generate_list_skills_css()
+        else:
+            # Fallback when no categories are available
+            markdown += f'''<div class="cv-skills-notice">
+    <p class="cv-notice-text">
+        <em>Skills configuration not available for {target_version} version.</em>
+    </p>
+</div>
+
+'''
+        
+        markdown += "</section>\n\n"
+        return markdown
+
+    def _generate_dynamic_skills_css(self, column_count: int, column_width: str) -> str:
+        """Generate responsive CSS for dynamic skills table"""
+        css = f'''<style>
+/* Dynamic Skills CSS */
+.cv-skills-dynamic {{
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+}}
+
+.cv-skills-dynamic th,
+.cv-skills-dynamic td {{
+    width: {column_width};
+    overflow-wrap: break-word;
+    vertical-align: top;
+    padding: 0.3rem 0.5rem;
+}}
+
+.cv-skills-dynamic th {{
+    background-color: var(--color-accent, #e53e3e);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}}
+
+.cv-skill-bullet {{
+    color: var(--color-accent, #e53e3e);
+    font-weight: bold;
+    margin-right: 0.3rem;
+}}
+
+'''
+
+        # Add responsive font sizing based on column count
+        if column_count >= 5:
+            css += '''/* 5+ columns: smaller font for better fit */
+@media print {
+    .cv-skills-dynamic {
+        font-size: 8pt;
+    }
+    .cv-skill-item {
+        font-size: 7pt;
+    }
+}
+
+@media screen {
+    .cv-skills-dynamic {
+        font-size: 0.8rem;
+    }
+    .cv-skill-item {
+        font-size: 0.75rem;
+    }
+}
+
+'''
+        elif column_count == 4:
+            css += '''/* 4 columns: medium font */
+@media print {
+    .cv-skills-dynamic {
+        font-size: 9pt;
+    }
+    .cv-skill-item {
+        font-size: 8pt;
+    }
+}
+
+@media screen {
+    .cv-skills-dynamic {
+        font-size: 0.85rem;
+    }
+    .cv-skill-item {
+        font-size: 0.8rem;
+    }
+}
+
+'''
+        else:  # 2-3 columns
+            css += '''/* 2-3 columns: normal font */
+@media print {
+    .cv-skills-dynamic {
+        font-size: 10pt;
+    }
+    .cv-skill-item {
+        font-size: 9pt;
+    }
+}
+
+'''
+        
+        css += '''</style>
+
+'''
+        return css
+
+    def _generate_list_skills_css(self) -> str:
+        """Generate CSS for list layout (7+ columns)"""
+        return '''<style>
+/* List layout styling (for 7+ columns) */
+.cv-skills-list-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.cv-skill-category {
+    margin-bottom: 1rem;
+}
+
+.cv-skill-category-header {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--color-accent, #e53e3e);
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-accent, #e53e3e);
+    padding-bottom: 0.2rem;
+}
+
+.cv-skill-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+}
+
+.cv-skill-tag {
+    background-color: var(--color-light-gray, #f5f5f5);
+    color: var(--color-text, #2d3748);
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    border: 1px solid var(--color-border, #e2e8f0);
+}
+
+@media print {
+    .cv-skill-tag {
+        background-color: transparent;
+        border: 1px solid #ccc;
+    }
+}
+</style>
+
+'''
 
     def generate_experience_markdown(
         self, experience_data: Dict, target_version: str

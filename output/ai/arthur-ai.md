@@ -25,68 +25,165 @@
 <h2 class="cv-section-header" id="skills">Skills</h2>
 
 <div class="cv-skills-table-container">
-<table class="cv-skills-table">
+<table class="cv-skills-table cv-skills-dynamic" data-columns="4">
 <thead>
 <tr>
-<th class="cv-skills-header"><strong>Software Engineering</strong></th>
-<th class="cv-skills-header"><strong>ML &amp; LLMs</strong></th>
-<th class="cv-skills-header"><strong>Data Science</strong></th>
+<th class="cv-skills-header" style="width: 25%;"><strong>Programming Languages</strong></th>
+<th class="cv-skills-header" style="width: 25%;"><strong>AI & Machine Learning</strong></th>
+<th class="cv-skills-header" style="width: 25%;"><strong>Data Science</strong></th>
+<th class="cv-skills-header" style="width: 25%;"><strong>Project Management</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="cv-skills-row">
-<td class="cv-skill-item">✓ Python, C++</td>
-<td class="cv-skill-item">✓ PyTorch, TensorFlow</td>
-<td class="cv-skill-item">✓ NumPy, Pandas</td>
+<td class="cv-skill-item"><span class="cv-skill-bullet">✓</span> Docker, CI/CD</td>
+<td class="cv-skill-item"><span class="cv-skill-bullet">✓</span> Constitutional AI</td>
+<td class="cv-skill-item"><span class="cv-skill-bullet">✓</span> Data Engineering</td>
+<td class="cv-skill-item"><span class="cv-skill-bullet">✓</span> Cross-cultural Communication</td>
 </tr>
 <tr class="cv-skills-row">
-<td class="cv-skill-item">✓ FastAPI, REST</td>
-<td class="cv-skill-item">✓ Transformers, LLMs</td>
-<td class="cv-skill-item">✓ Matplotlib, Seaborn</td>
+<td class="cv-skill-item"><span class="cv-skill-bullet">✓</span> FastAPI, REST</td>
+<td class="cv-skill-item"><span class="cv-skill-bullet">✓</span> Deep Learning</td>
+<td class="cv-skill-item"><span class="cv-skill-bullet">✓</span> Jupyter Notebooks</td>
+<td class="cv-skill-item"><span class="cv-skill-bullet">✓</span> Educational Content Creation</td>
 </tr>
 <tr class="cv-skills-row">
-<td class="cv-skill-item">✓ Git Version Control</td>
-<td class="cv-skill-item">✓ RAG, Vector Search</td>
-<td class="cv-skill-item">✓ Jupyter, Data Analysis</td>
+<td class="cv-skill-item"><span class="cv-skill-bullet">✓</span> Git Version Control</td>
+<td class="cv-skill-item"><span class="cv-skill-bullet">✓</span> Large Language Models (LLMs)</td>
+<td class="cv-skill-item"><span class="cv-skill-bullet">✓</span> Matplotlib</td>
+<td class="cv-skill-item"></td>
 </tr>
 <tr class="cv-skills-row">
-<td class="cv-skill-item">✓ Docker, CI/CD</td>
-<td class="cv-skill-item">✓ Multimodal AI</td>
-<td class="cv-skill-item">✓ Gradio & Streamlit</td>
+<td class="cv-skill-item"><span class="cv-skill-bullet">✓</span> Python, C++</td>
+<td class="cv-skill-item"><span class="cv-skill-bullet">✓</span> Model Optimization</td>
+<td class="cv-skill-item"><span class="cv-skill-bullet">✓</span> NumPy</td>
+<td class="cv-skill-item"></td>
 </tr>
 <tr class="cv-skills-row">
-<td class="cv-skill-item">✓ Technical Leadership</td>
-<td class="cv-skill-item">✓ Constitutional AI</td>
-<td class="cv-skill-item">✓ Statistical Analysis</td>
+<td class="cv-skill-item"><span class="cv-skill-bullet">✓</span> Technical Leadership</td>
+<td class="cv-skill-item"><span class="cv-skill-bullet">✓</span> Multimodal AI</td>
+<td class="cv-skill-item"><span class="cv-skill-bullet">✓</span> Pandas</td>
+<td class="cv-skill-item"></td>
 </tr>
 <tr class="cv-skills-row">
-<td class="cv-skill-item">✓ System Architecture</td>
-<td class="cv-skill-item">✓ Neural Networks, Deep Learning</td>
-<td class="cv-skill-item">✓ Data Engineering</td>
+<td class="cv-skill-item"></td>
+<td class="cv-skill-item"><span class="cv-skill-bullet">✓</span> Neural Networks</td>
+<td class="cv-skill-item"><span class="cv-skill-bullet">✓</span> Seaborn</td>
+<td class="cv-skill-item"></td>
 </tr>
 <tr class="cv-skills-row">
-<td class="cv-skill-item">✓ Technical Documentation</td>
-<td class="cv-skill-item">✓ Model Optimization</td>
-<td class="cv-skill-item">✓ Cross-cultural Communication</td>
+<td class="cv-skill-item"></td>
+<td class="cv-skill-item"><span class="cv-skill-bullet">✓</span> Neural Networks, Deep Learning</td>
+<td class="cv-skill-item"><span class="cv-skill-bullet">✓</span> Statistical Analysis</td>
+<td class="cv-skill-item"></td>
 </tr>
 <tr class="cv-skills-row">
-<td class="cv-skill-item">✓ Hardware-Software Integration</td>
-<td class="cv-skill-item">✓ Production ML</td>
-<td class="cv-skill-item">✓ Educational Content Creation</td>
-</tr>
-<tr class="cv-skills-row">
-<td class="cv-skill-item">✓ Real-time Systems</td>
+<td class="cv-skill-item"></td>
+<td class="cv-skill-item"><span class="cv-skill-bullet">✓</span> Production ML</td>
 <td class="cv-skill-item"></td>
 <td class="cv-skill-item"></td>
 </tr>
 <tr class="cv-skills-row">
-<td class="cv-skill-item">✓ Hardware Optimization</td>
+<td class="cv-skill-item"></td>
+<td class="cv-skill-item"><span class="cv-skill-bullet">✓</span> PyTorch</td>
+<td class="cv-skill-item"></td>
+<td class="cv-skill-item"></td>
+</tr>
+<tr class="cv-skills-row">
+<td class="cv-skill-item"></td>
+<td class="cv-skill-item"><span class="cv-skill-bullet">✓</span> PyTorch, TensorFlow</td>
+<td class="cv-skill-item"></td>
+<td class="cv-skill-item"></td>
+</tr>
+<tr class="cv-skills-row">
+<td class="cv-skill-item"></td>
+<td class="cv-skill-item"><span class="cv-skill-bullet">✓</span> RAG (Retrieval-Augmented Generation)</td>
+<td class="cv-skill-item"></td>
+<td class="cv-skill-item"></td>
+</tr>
+<tr class="cv-skills-row">
+<td class="cv-skill-item"></td>
+<td class="cv-skill-item"><span class="cv-skill-bullet">✓</span> RAG, Vector Search</td>
+<td class="cv-skill-item"></td>
+<td class="cv-skill-item"></td>
+</tr>
+<tr class="cv-skills-row">
+<td class="cv-skill-item"></td>
+<td class="cv-skill-item"><span class="cv-skill-bullet">✓</span> TensorFlow</td>
+<td class="cv-skill-item"></td>
+<td class="cv-skill-item"></td>
+</tr>
+<tr class="cv-skills-row">
+<td class="cv-skill-item"></td>
+<td class="cv-skill-item"><span class="cv-skill-bullet">✓</span> Transformers</td>
+<td class="cv-skill-item"></td>
+<td class="cv-skill-item"></td>
+</tr>
+<tr class="cv-skills-row">
+<td class="cv-skill-item"></td>
+<td class="cv-skill-item"><span class="cv-skill-bullet">✓</span> Transformers, LLMs</td>
+<td class="cv-skill-item"></td>
+<td class="cv-skill-item"></td>
+</tr>
+<tr class="cv-skills-row">
+<td class="cv-skill-item"></td>
+<td class="cv-skill-item"><span class="cv-skill-bullet">✓</span> Vector Search</td>
 <td class="cv-skill-item"></td>
 <td class="cv-skill-item"></td>
 </tr>
 </tbody>
 </table>
 </div>
+
+<style>
+/* Dynamic Skills CSS */
+.cv-skills-dynamic {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cv-skills-dynamic th,
+.cv-skills-dynamic td {
+    width: 25%;
+    overflow-wrap: break-word;
+    vertical-align: top;
+    padding: 0.3rem 0.5rem;
+}
+
+.cv-skills-dynamic th {
+    background-color: var(--color-accent, #e53e3e);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.cv-skill-bullet {
+    color: var(--color-accent, #e53e3e);
+    font-weight: bold;
+    margin-right: 0.3rem;
+}
+
+/* 4 columns: medium font */
+@media print {
+    .cv-skills-dynamic {
+        font-size: 9pt;
+    }
+    .cv-skill-item {
+        font-size: 8pt;
+    }
+}
+
+@media screen {
+    .cv-skills-dynamic {
+        font-size: 0.85rem;
+    }
+    .cv-skill-item {
+        font-size: 0.8rem;
+    }
+}
+
+</style>
 
 </section>
 
