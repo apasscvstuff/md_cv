@@ -1,0 +1,99 @@
+/* =============================================================================
+   LOCAL FONT DECLARATIONS - Tutorial for PDF Font Management
+   Ensures consistent fonts in PDF generation across all templates
+   ============================================================================= 
+
+   🎯 PURPOSE:
+   This file provides local font fallbacks for PDF generation. When generating
+   PDFs, online fonts (Google Fonts) may not load properly, so we use locally
+   stored font files to ensure consistent typography.
+
+   💡 HOW IT WORKS:
+   - Each @font-face declaration maps a font family to local TTF files
+   - PDF generators use these local fonts when online fonts fail
+   - Covers multiple font weights (400=normal, 500=medium, 700=bold, 900=black)
+
+   🔧 CUSTOMIZATION:
+   - Usually don't need to modify this file
+   - If adding new fonts, place TTF files in fonts/ directory
+   - Add new @font-face declarations following the pattern below
+   - Ensure file paths match your font file locations
+
+   ⚠️  IMPORTANT:
+   - This file is automatically copied to each template output directory
+   - Local font files must exist in fonts/ directory
+   - PDF generation quality depends on these font declarations
+
+============================================================================= */
+
+@font-face {
+    font-family: 'Roboto';
+    src: local('Roboto-Regular'),
+         url('file:///Users/apa/Documents/md_cv/fonts/Roboto-Regular.ttf') format('truetype'),
+         url('./fonts/Roboto-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: local('Roboto-Medium'),
+         url('file:///Users/apa/Documents/md_cv/fonts/Roboto-Medium.ttf') format('truetype'),
+         url('./fonts/Roboto-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: local('Roboto-Bold'),
+         url('file:///Users/apa/Documents/md_cv/fonts/Roboto-Bold.ttf') format('truetype'),
+         url('./fonts/Roboto-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: local('Roboto-Black'),
+         url('file:///Users/apa/Documents/md_cv/fonts/Roboto-Black.ttf') format('truetype'),
+         url('./fonts/Roboto-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: local('SourceSans3-Regular'),
+         url('file:///Users/apa/Documents/md_cv/fonts/SourceSans3-Regular.ttf') format('truetype'),
+         url('./fonts/SourceSans3-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: local('SourceSans3-Medium'),
+         url('file:///Users/apa/Documents/md_cv/fonts/SourceSans3-Medium.ttf') format('truetype'),
+         url('./fonts/SourceSans3-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: local('SourceSans3-Semibold'),
+         url('file:///Users/apa/Documents/md_cv/fonts/SourceSans3-Semibold.ttf') format('truetype'),
+         url('./fonts/SourceSans3-Semibold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: local('SourceSans3-Bold'),
+         url('file:///Users/apa/Documents/md_cv/fonts/SourceSans3-Bold.ttf') format('truetype'),
+         url('./fonts/SourceSans3-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
