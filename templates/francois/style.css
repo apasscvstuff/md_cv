@@ -323,20 +323,31 @@ h1+h3 {
   letter-spacing: 0.02em;
 }
 
-/* Section Headers - Clean typography following guide.md */
+/* Section Headers - François style with horizontal red bars extending right */
 h2,
-.cv-section-header {
+h2.cv-section-header {
   font-family: var(--font-primary);
   font-size: var(--size-section);
   font-weight: 600;
   color: var(--color-primary);
   margin-top: var(--space-section);
   margin-bottom: var(--space-subsection);
-  padding-bottom: 6px;
-  /* No border for clean minimal design */
   letter-spacing: -0.02em;
   clear: both;
-  /* Ensure section headers appear below floated header elements */
+  /* François horizontal bar implementation - flexbox for same-line extension */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* François horizontal bar extending right on same line */
+h2::after,
+h2.cv-section-header::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: var(--color-accent);
+  /* Red bar color matching François design */
 }
 
 /* Handle Pandoc section wrapper elements - Ensure proper spacing */
