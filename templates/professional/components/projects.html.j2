@@ -1,0 +1,50 @@
+{# Projects Section Component #}
+{% if projects %}
+<section class="cv-section cv-projects">
+    <h2 class="cv-section-header" id="projects">Projects</h2>
+    
+    {% for project in projects %}
+    <div class="cv-project-item" id="cv-proj-{{ project.name.lower().replace(' ', '-').replace("'", '').replace('"', '') }}">
+        <h3 class="cv-project-name">
+            {{ project.name }} 
+            <span class="cv-project-period"><em>{{ project.period }}</em></span>
+        </h3>
+        
+        {# Project links #}
+        {% if project.links %}
+        <p class="cv-project-links">
+            {% set link_parts = [] %}
+            {% for link_type, url in project.links.items() %}
+                {% if link_type == 'github' %}
+                    {% set _ = link_parts.append('<a href="' + url + '" class="cv-project-link cv-github-link">Github</a>') %}
+                {% elif link_type == 'demo' %}
+                    {% set _ = link_parts.append('<a href="' + url + '" class="cv-project-link cv-demo-link">Demo</a>') %}
+                {% elif link_type == 'website' %}
+                    {% set _ = link_parts.append('<a href="' + url + '" class="cv-project-link cv-website-link">Website</a>') %}
+                {% endif %}
+            {% endfor %}
+            {{ link_parts | join(' | ') | safe }}
+        </p>
+        {% endif %}
+        
+        {# Project descriptions #}
+        {% if project.descriptions %}
+        <ul class="cv-project-descriptions">
+            {% for desc in project.descriptions %}
+            <li class="cv-project-description">{{ desc | markdown | safe }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        
+        {# Skills tags #}
+        {% if project.skills_tags %}
+        <div class="cv-skills-tags skills-tags">
+            {% for tag in project.skills_tags.split(',') %}
+            <span class="cv-skill-tag skill-tag">{{ tag.strip() }}</span>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+</section>
+{% endif %}

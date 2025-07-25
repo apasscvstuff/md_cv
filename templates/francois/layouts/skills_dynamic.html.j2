@@ -1,0 +1,259 @@
+{# Dynamic Skills Layout - Automatically adapts to any number of categories #}
+{# This template replaces both technical_skills.html.j2 and technical_skills_4col.html.j2 #}
+
+{% if skills.categories and skills.categories|length > 0 %}
+
+{# Dynamic table layout for 2-6 columns #}
+{% if skills.column_count <= 6 %}
+<div class="cv-skills-table-container">
+    <table class="cv-skills-table cv-skills-dynamic" data-columns="{{ skills.column_count }}">
+        <thead>
+            <tr>
+                {% for category in skills.categories %}
+                <th class="cv-skills-header" style="width: {{ skills.column_width }};">
+                    <strong>{{ category.name }}</strong>
+                </th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {# Calculate maximum number of skills across all categories #}
+            {% set max_skills = skills.categories | map(attribute='skills') | map('length') | max %}
+            
+            {# Generate rows dynamically based on max skills #}
+            {% for i in range(max_skills) %}
+            <tr class="cv-skills-row">
+                {% for category in skills.categories %}
+                <td class="cv-skill-item">
+                    {% if i < category.skills|length %}
+                        <span class="cv-skill-bullet">✓</span> {{ category.skills[i] }}
+                    {% endif %}
+                </td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{# List layout for 7+ columns (too many for table) #}
+{% else %}
+<div class="cv-skills-list-container">
+    {% for category in skills.categories %}
+    <div class="cv-skill-category">
+        <h3 class="cv-skill-category-header">{{ category.name }}</h3>
+        <div class="cv-skill-items">
+            {% for skill in category.skills %}
+            <span class="cv-skill-tag">{{ skill }}</span>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+{# Dynamic CSS based on column count #}
+<style>
+/* Base table styling */
+.cv-skills-dynamic {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cv-skills-dynamic th,
+.cv-skills-dynamic td {
+    width: {{ skills.column_width }};
+    overflow-wrap: break-word;
+    vertical-align: top;
+    padding: 0.3rem 0.5rem;
+}
+
+.cv-skills-dynamic th {
+    background-color: var(--color-accent, #e53e3e);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.cv-skill-item {
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.cv-skill-bullet {
+    color: var(--color-accent, #e53e3e);
+    font-weight: bold;
+    margin-right: 0.3rem;
+}
+
+/* Responsive font sizing based on column count */
+{% if skills.column_count >= 5 %}
+/* 5+ columns: smaller font for better fit */
+@media print {
+    .cv-skills-dynamic {
+        font-size: 8pt;
+    }
+    .cv-skill-item {
+        font-size: 7pt;
+    }
+}
+
+@media screen {
+    .cv-skills-dynamic {
+        font-size: 0.8rem;
+    }
+    .cv-skill-item {
+        font-size: 0.75rem;
+    }
+}
+
+{% elif skills.column_count == 4 %}
+/* 4 columns: medium font */
+@media print {
+    .cv-skills-dynamic {
+        font-size: 9pt;
+    }
+    .cv-skill-item {
+        font-size: 8pt;
+    }
+}
+
+@media screen {
+    .cv-skills-dynamic {
+        font-size: 0.85rem;
+    }
+    .cv-skill-item {
+        font-size: 0.8rem;
+    }
+}
+
+{% else %}
+/* 2-3 columns: normal font */
+@media print {
+    .cv-skills-dynamic {
+        font-size: 10pt;
+    }
+    .cv-skill-item {
+        font-size: 9pt;
+    }
+}
+{% endif %}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+    {% if skills.column_count > 3 %}
+    /* Stack columns vertically on mobile for 4+ columns */
+    .cv-skills-table-container {
+        overflow-x: auto;
+    }
+    
+    .cv-skills-dynamic {
+        min-width: 600px; /* Ensure table doesn't get too cramped */
+        font-size: 0.75rem;
+    }
+    
+    /* Alternative: Convert to card layout on very small screens */
+    @media screen and (max-width: 480px) {
+        .cv-skills-table,
+        .cv-skills-table thead,
+        .cv-skills-table tbody,
+        .cv-skills-table th,
+        .cv-skills-table td,
+        .cv-skills-table tr {
+            display: block;
+        }
+        
+        .cv-skills-table th {
+            background-color: var(--color-accent, #e53e3e);
+            color: white;
+            margin-top: 1rem;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+        
+        .cv-skills-table td {
+            padding: 0.2rem 0.5rem;
+            border: none;
+        }
+    }
+    {% endif %}
+}
+
+/* List layout styling (for 7+ columns) */
+.cv-skills-list-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.cv-skill-category {
+    margin-bottom: 1rem;
+}
+
+.cv-skill-category-header {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--color-accent, #e53e3e);
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-accent, #e53e3e);
+    padding-bottom: 0.2rem;
+}
+
+.cv-skill-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+}
+
+.cv-skill-tag {
+    background-color: var(--color-light-gray, #f5f5f5);
+    color: var(--color-text, #2d3748);
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    border: 1px solid var(--color-border, #e2e8f0);
+}
+
+@media print {
+    .cv-skill-tag {
+        background-color: transparent;
+        border: 1px solid #ccc;
+    }
+}
+</style>
+
+{% else %}
+{# Fallback when no categories are available #}
+<div class="cv-skills-notice">
+    <p class="cv-notice-text">
+        <em>Skills configuration not available for {{ skills.version }} version.</em>
+    </p>
+</div>
+
+<style>
+.cv-skills-notice {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--color-light-gray, #f8f9fa);
+    border-radius: 4px;
+    margin: 1rem 0;
+}
+
+.cv-notice-text {
+    color: var(--color-secondary, #6c757d);
+    font-style: italic;
+}
+</style>
+{% endif %}
+
+{# Debug information (only shown in development) #}
+{% if skills.config and skills.config.debug_mode %}
+<!-- Debug Info: 
+Version: {{ skills.version }}
+Layout: {{ skills.layout }}
+Column Count: {{ skills.column_count }}
+Categories: {{ skills.categories | map(attribute='name') | list | join(', ') }}
+-->
+{% endif %}

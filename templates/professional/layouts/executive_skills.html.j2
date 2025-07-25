@@ -1,0 +1,17 @@
+{# Executive Skills Layout - Streamlined categories with metrics #}
+{% for category, skills_list in skills.categories.items() %}
+<div class="cv-skill-category cv-executive-skills">
+    <p class="cv-skill-category-header">
+        <strong>{{ category.replace('_', ' ').title() }}</strong>: 
+        {% set skill_items = [] %}
+        {% for skill in skills_list %}
+            {% if skill.metric %}
+                {% set _ = skill_items.append(skill.skill + ' (' + skill.metric + ')') %}
+            {% else %}
+                {% set _ = skill_items.append(skill.skill) %}
+            {% endif %}
+        {% endfor %}
+        {{ skill_items | join(' • ') }}
+    </p>
+</div>
+{% endfor %}
