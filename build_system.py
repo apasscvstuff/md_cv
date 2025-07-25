@@ -5,12 +5,10 @@ Converts YAML content to markdown with conditional logic preserving LaTeX system
 """
 
 import yaml
-import json
 import re
 from pathlib import Path
 from typing import Dict, List, Any, Optional
 import subprocess
-import sys
 import argparse
 
 
@@ -1294,75 +1292,6 @@ You can also use browser extensions or online converters.
         self.build_html(target_version, template)  # HTML
         self.build_pdf(target_version, template)  # PDF
 
-
-    # Add this method to your CVBuilder class
-    def build_html_enhanced(
-        self, target_version: str, template: str = "francois"
-    ) -> None:
-        """Build HTML with enhanced CSS styling"""
-        print(f"Building enhanced HTML for {target_version} version...")
-
-        # Build markdown first if it doesn't exist
-        md_path = self.output_dir / target_version / f"arthur-{target_version}.md"
-        if not md_path.exists():
-            self.build_version(target_version)
-
-        # Create output directory
-        html_dir = self.output_dir / target_version
-        html_dir.mkdir(parents=True, exist_ok=True)
-
-        # Choose template CSS
-        template_dir = Path("templates") / template
-        if template == "francois":
-            css_file = template_dir / "style-enhanced.css"
-            if not css_file.exists():
-                css_file = template_dir / "style.css"  # Fallback
-        else:
-            css_file = template_dir / "style.css"
-
-        # Copy assets and CSS
-        self._copy_assets(html_dir)
-
-        # Copy enhanced CSS
-        if css_file.exists():
-            import shutil
-
-            shutil.copy2(css_file, html_dir / "css_styling.css")
-
-        # Generate HTML using pandoc
-        html_path = html_dir / f"arthur-{target_version}.html"
-
-        pandoc_cmd = [
-            "pandoc",
-            str(md_path),
-            "-o",
-            str(html_path),
-            "--standalone",
-            "--css",
-            "./css_fonts.css",
-            "--css",
-            "./css_styling.css",
-            "--metadata",
-            f"title=Arthur Passuello - {target_version.title()} CV",
-            "--template",
-            (
-                "templates/html-template.html"
-                if Path("templates/html-template.html").exists()
-                else None
-            ),
-        ]
-
-        # Remove None values
-        pandoc_cmd = [arg for arg in pandoc_cmd if arg is not None]
-
-        try:
-            result = subprocess.run(pandoc_cmd, capture_output=True, text=True)
-            if result.returncode == 0:
-                print(f"✅ Enhanced HTML generated: {html_path}")
-            else:
-                print(f"❌ Pandoc error: {result.stderr}")
-        except Exception as e:
-            print(f"❌ HTML generation failed: {e}")
 
 
 def main():
