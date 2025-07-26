@@ -268,6 +268,21 @@ class CVBuilder:
             return True
         return target_version in item_versions
 
+    def _get_content_for_version(self, content_dict: Dict, target_version: str) -> Any:
+        """Get content supporting both single keys ('ai') and multi-version keys ('ai,ds')"""
+        if not content_dict:
+            return [] if any(isinstance(v, list) for v in content_dict.values() if content_dict) else ""
+        
+        for key, value in content_dict.items():
+            # Split comma-separated keys and check if target_version is included
+            versions_in_key = [v.strip() for v in key.split(',')]
+            if target_version in versions_in_key:
+                return value
+        
+        # Return appropriate empty value based on content type
+        sample_value = next(iter(content_dict.values())) if content_dict else ""
+        return [] if isinstance(sample_value, list) else ""
+
     def format_skill_tags(self, skills_tags_text: str) -> str:
         """
         Convert comma-separated skill tags to individual HTML elements with dual CSS classes.
@@ -369,24 +384,14 @@ class CVBuilder:
             technical_skills = skills_data.get("technical", {})
             result = {
                 "layout": "technical",
-                "programming_languages": technical_skills.get(
-                    "programming_languages", {}
-                ).get(target_version, []),
-                "core_technologies": technical_skills.get("core_technologies", {}).get(
-                    target_version, []
-                ),
-                "tools_platforms": technical_skills.get("tools_platforms", {}).get(
-                    target_version, []
-                ),
-                "project_management": technical_skills.get(
-                    "project_management", {}
-                ).get(target_version, []),
+                "programming_languages": self._get_content_for_version(technical_skills.get("programming_languages", {}), target_version),
+                "core_technologies": self._get_content_for_version(technical_skills.get("core_technologies", {}), target_version),
+                "tools_platforms": self._get_content_for_version(technical_skills.get("tools_platforms", {}), target_version),
+                "project_management": self._get_content_for_version(technical_skills.get("project_management", {}), target_version),
             }
 
             # Add domain expertise (version-specific)
-            domain_expertise = technical_skills.get("domain_expertise", {}).get(
-                target_version, {}
-            )
+            domain_expertise = self._get_content_for_version(technical_skills.get("domain_expertise", {}), target_version)
             if domain_expertise:
                 result["domain_expertise"] = domain_expertise
 
@@ -425,7 +430,7 @@ class CVBuilder:
                 "position": exp.get("position_variants", {}).get(
                     target_version, exp.get("position_base", "")
                 ),
-                "skills_tags": exp.get("skills_tags", {}).get(target_version, ""),
+                "skills_tags": self._get_content_for_version(exp.get("skills_tags", {}), target_version),
                 "achievements": [],
             }
 
@@ -481,8 +486,8 @@ class CVBuilder:
                 "name": project["name"],
                 "period": project["period"],
                 "links": project.get("links", {}),
-                "descriptions": project.get("descriptions", {}).get(target_version, []),
-                "skills_tags": project.get("skills_tags", {}).get(target_version, ""),
+                "descriptions": self._get_content_for_version(project.get("descriptions", {}), target_version),
+                "skills_tags": self._get_content_for_version(project.get("skills_tags", {}), target_version),
             }
 
             filtered_projects.append(processed_project)
@@ -935,12 +940,8 @@ class CVBuilder:
                 "start_date": education.get("start_date", ""),
                 "end_date": education.get("end_date", ""),
                 "location": education.get("location", ""),
-                "technical_highlight": education.get("technical_highlight", {}).get(
-                    target_version, ""
-                ),
-                "relevant_coursework": education.get("relevant_coursework", {}).get(
-                    target_version, []
-                ),
+                "technical_highlight": self._get_content_for_version(education.get("technical_highlight", {}), target_version),
+                "relevant_coursework": self._get_content_for_version(education.get("relevant_coursework", {}), target_version),
                 "achievements": [],
             }
 
@@ -1015,9 +1016,7 @@ class CVBuilder:
 
         # Get version configuration and tagline
         version_config = self.versions[target_version]
-        tagline = personal_info.get("taglines", {}).get(
-            target_version, version_config["tagline"]
-        )
+        tagline = self._get_content_for_version(personal_info.get("taglines", {}), target_version) or version_config["tagline"]
 
         # =====================================================================
         # SEMANTIC HTML GENERATION - Enhanced CV Structure
@@ -1531,7 +1530,7 @@ def main():
     parser.add_argument(
         "version",
         nargs="?",
-        choices=["firmware", "ai", "consulting", "executive", "general", "all"],
+        choices=["firmware", "ai", "consulting", "executive", "general", "ds", "all"],
         default="all",
         help="Version to build (default: all)",
     )

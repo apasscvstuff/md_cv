@@ -203,7 +203,7 @@ experiences:
     # Skills tags by version
     skills_tags:
       firmware: "Software Architecture, System Engineering, C/C++, Python, FreeRTOS, Safety-Critical Systems, Sensor Fusion, Statistical Algorithms, Technical Leadership, Cross-functional Team Coordination, CI/CD Implementation, GitHub Actions, Grafana, Real-time Monitoring, Git Version Control, Stakeholder Communication, JTAG, STM32, Nordic, HIL Testing, Power Optimization, Agile/Scrum"
-      ai: "Signal Processing , Statistical Analysis , Production Systems , Team Leadership , Technical Training , Software Architecture , Testing Infrastructure , CI/CD , QMS, GitHub Actions , Grafana , Real-time Monitoring , Medical Device Development"
+      "ai, ds": "Signal Processing , Statistical Analysis , Production Systems , Team Leadership , Technical Training , Software Architecture , Testing Infrastructure , CI/CD , QMS, GitHub Actions , Grafana , Real-time Monitoring , Medical Device Development"
       consulting: "Technical Strategy, Cross-functional Coordination, Regulatory Compliance, Stakeholder Communication, Strategic Consulting, Proof-of-Concept Development, Technical Training, Team Development, Change Management, Innovation Leadership, Client Presentations, Ethical Technology Development"
       executive: "Strategic Technical Leadership, Cross-functional Coordination, Regulatory Compliance, $2M+ Project Impact"
       general: "System Architecture, Python, Technical Leadership, Proof-of-Concept Development, Risk Management, Requirement Engineering, Team Mentoring, Cross-functional Communication, HIL Testing, Statistical Analysis"
@@ -276,7 +276,7 @@ experiences:
     
     position_base: "Digital Week Assistant - ML Education Lead"
     position_variants:
-      ai: "Lead AI/ML Instructor & Curriculum Designer"
+      "ai, ds": "Lead AI/ML Instructor & Curriculum Designer"
       consulting: "Digital Week Assistant - ML Education Lead"
       general: "Student Assistant - ML Education Lead"
       firmware: "Assistant - ML Education Lead"
@@ -356,7 +356,7 @@ experiences:
         type: "base"
     
     skills_tags:
-      ai: "PyTorch , Teaching , Neural Networks , Python , Curriculum Design , Technical Communication , Training Development , Cross-cultural Communication , Educational Content Creation"
+      "ai, ds": "PyTorch , Teaching , Neural Networks , Python , Curriculum Design , Technical Communication , Training Development , Cross-cultural Communication , Educational Content Creation"
       consulting: "Technical Training Design, Stakeholder Communication, Cross-cultural Management, Educational Content Creation, Team Leadership, Business Impact Analysis"
       general: "Technical Training, Team Leadership, Cross-cultural Communication, Python Programming, Educational Content Creation"
       firmware: "Technical Training, Team Leadership, Cross-cultural Communication, Python Programming, Educational Content Creation"
@@ -447,7 +447,7 @@ experiences:
     
     skills_tags:
       firmware: "Hardware-Software Integration, C/C++, Python, VHDL, ASIC Integration, Embedded Drivers, Medical Device Development, Regulatory Compliance, R&D Prototyping, Signal Processing, EPFL Innovation Park"
-      ai: "Neural Signal Processing, Python, Machine Learning, Signal Processing Pipelines, Medical AI, Feature Extraction, Time Series Analysis, Seizure Detection, High-Frequency Processing, Data Visualization, Medical Diagnostics"
+      "ai,ds": "Neural Signal Processing, Python, Machine Learning, Signal Processing Pipelines, Medical AI, Feature Extraction, Time Series Analysis, Seizure Detection, High-Frequency Processing, Data Visualization, Medical Diagnostics"
       consulting: "Medical Device R&D, Regulatory Compliance, Research Prototyping, Technical Documentation, Multidisciplinary Collaboration, Quality Systems, Ethical Technology Development"
       general: "System Integration, Python, FPGA, Medical Device Development, R&D Collaboration, Regulatory Standards, Prototype Development"
 
@@ -533,6 +533,13 @@ version_config:
     executive_summary: false
     
   ai:
+    toggles: ["ai", "technical", "detailed"]
+    max_priority: 3
+    show_metrics: true
+    show_business_impact: false
+    executive_summary: false
+
+  ds:
     toggles: ["ai","ds", "technical", "detailed"]
     max_priority: 3
     show_metrics: true

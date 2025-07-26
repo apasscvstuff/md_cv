@@ -53,7 +53,7 @@ _Signal Processing , Statistical Analysis , Production Systems , Team Leadership
 _Lausanne, Switzerland_<br>
 _July 2018 - August 2021_
 
-**Lead AI/ML Instructor & Curriculum Designer** · _(Ref. Marc Chauvet)_
+**Digital Week Assistant - ML Education Lead** · _(Ref. Marc Chauvet)_
 
 * **ML Curriculum:** Designed 40-hour hands-on curriculum covering supervised learning, neural networks, and PyTorch, achieving 4.8/5.0 rating from 100+ international executives
 * **Technical Translation:** Developed innovative methods to explain backpropagation, attention mechanisms, and gradient descent to non-technical business leaders
@@ -107,6 +107,12 @@ _Transformers, CLIP, ViT, Multimodal AI, PyTorch, Constitutional AI, Research Im
 _2019_
 
 [Demo](https://ada-2019.github.io/Project/) | [Github](https://github.com/ADA-2019/Project)
+
+- **Statistical Modeling:** Implemented statistical modeling pipeline to reconstruct missing marketplace data, addressing data sparsity challenges in large-scale behavioral datasets
+- **Big Data Processing:** Built scalable data processing system using PySpark and distributed databases handling 1TB+ of historical marketplace data on standard hardware
+- **Data Extraction Pipeline:** Developed comprehensive data extraction and cleaning pipeline processing mixed HTML content using BeautifulSoup and custom parsing algorithms
+- **Interactive Visualization:** Created interactive JavaScript visualization dashboard demonstrating complex market dynamics and regulatory policy impact analysis
+- **Statistical Analysis:** Conducted rigorous statistical analysis of police intervention effects on marketplace behavior, revealing no significant long-term market disruption
 
 _Statistical Modeling, Data Engineering, PySpark, Distributed Computing, Big Data Analytics, ETL Pipelines, Data Quality, Exploratory Data Analysis, Time Series Analysis, A/B Testing, Data Visualization, D3.js, Behavioral Analytics, Causal Inference_
 

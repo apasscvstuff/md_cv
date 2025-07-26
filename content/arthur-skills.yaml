@@ -175,6 +175,7 @@ skills:
   name: Technical Documentation
   versions:
   - ai
+  - ds
 - category: frameworks
   name: Hardware-Software Integration
   versions:
