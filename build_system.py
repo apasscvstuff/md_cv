@@ -490,16 +490,15 @@ class CVBuilder:
         return filtered_projects
 
     def generate_skills_markdown(self, skills_data: Dict, target_version: str) -> str:
-        """Generate skills section markdown with semantic Grid containers"""
+        """Generate clean markdown for skills section"""
         processed_skills = self.process_skills_section(skills_data, target_version)
 
         if processed_skills["layout"] == "executive":
-            # Executive format - 3 streamlined categories with semantic classes
-            markdown = '<section class="cv-section cv-skills">\n<h2 class="cv-section-header" id="skills">Skills</h2>\n\n'
+            # Executive format - clean paragraph style
+            markdown = "## Skills\n\n"
             for category, skills in processed_skills["categories"].items():
                 formatted_category = category.replace("_", " ").title()
-                markdown += f'<div class="cv-skill-category cv-executive-skills"><p class="cv-skill-category-header"><strong>{formatted_category}</strong>: '
-
+                
                 skill_items = []
                 for skill in skills:
                     skill_text = skill["skill"]
@@ -507,51 +506,40 @@ class CVBuilder:
                         skill_text += f" ({skill['metric']})"
                     skill_items.append(skill_text)
 
-                markdown += " • ".join(skill_items) + "</p></div>\n\n"
+                markdown += f"**{formatted_category}**: {' • '.join(skill_items)}\n\n"
 
-            markdown += "</section>\n\n"
             return markdown
             
         elif processed_skills["layout"] == "technical_dynamic":
             # Dynamic format - supports 2-6+ columns automatically
-            return self._generate_dynamic_skills_markdown(processed_skills, target_version)
+            return self._generate_dynamic_skills_markdown_clean(processed_skills, target_version)
             
         else:
-            # Technical format - 3-column skills table with semantic classes
-            markdown = '<section class="cv-section cv-skills">\n<h2 class="cv-section-header" id="skills">Skills</h2>\n\n'
+            # Technical format - clean markdown table
+            markdown = "## Skills\n\n"
 
             # Software Engineering category
             col1_items = processed_skills.get(
                 "programming_languages", []
             ) + processed_skills.get("core_technologies", [])
-            if col1_items:
-                markdown += '<div class="cv-skills-table-container">\n'
-                markdown += '<table class="cv-skills-table">\n'
-                markdown += "<thead>\n"
-                markdown += "<tr>\n"
-                markdown += '<th class="cv-skills-header"><strong>Software Engineering</strong></th>\n'
-                markdown += (
-                    '<th class="cv-skills-header"><strong>ML &amp; LLMs</strong></th>\n'
-                )
-                markdown += (
-                    '<th class="cv-skills-header"><strong>Data Science</strong></th>\n'
-                )
-                markdown += "</tr>\n"
-                markdown += "</thead>\n"
-                markdown += "<tbody>\n"
+            
+            # Domain expertise (AI & LLMs)
+            col2_items = []
+            domain_exp = processed_skills.get("domain_expertise", {})
+            if domain_exp:
+                col2_items.extend(domain_exp.get("skills", []))
+                col2_items.extend(domain_exp.get("secondary_skills", []))
 
-                # Domain expertise (AI & LLMs)
-                col2_items = []
-                domain_exp = processed_skills.get("domain_expertise", {})
-                if domain_exp:
-                    col2_items.extend(domain_exp.get("skills", []))
-                    col2_items.extend(domain_exp.get("secondary_skills", []))
+            # Tools and platforms (Data Science)
+            col3_items = processed_skills.get(
+                "tools_platforms", []
+            ) + processed_skills.get("project_management", [])
 
-                # Tools and platforms (Data Science)
-                col3_items = processed_skills.get(
-                    "tools_platforms", []
-                ) + processed_skills.get("project_management", [])
-
+            if col1_items or col2_items or col3_items:
+                # Generate table header
+                markdown += "| **Software Engineering** | **ML & LLMs** | **Data Science** |\n"
+                markdown += "| :----------------------- | :------------ | :--------------- |\n"
+                
                 # Create table rows
                 max_items = max(len(col1_items), len(col2_items), len(col3_items))
 
@@ -560,18 +548,9 @@ class CVBuilder:
                     col2 = f"✓ {col2_items[i]}" if i < len(col2_items) else ""
                     col3 = f"✓ {col3_items[i]}" if i < len(col3_items) else ""
 
-                    markdown += '<tr class="cv-skills-row">\n'
-                    markdown += f'<td class="cv-skill-item">{col1}</td>\n'
-                    markdown += f'<td class="cv-skill-item">{col2}</td>\n'
-                    markdown += f'<td class="cv-skill-item">{col3}</td>\n'
-                    markdown += "</tr>\n"
+                    markdown += f"| {col1} | {col2} | {col3} |\n"
 
-                markdown += "</tbody>\n"
-                markdown += "</table>\n"
-                markdown += "</div>\n\n"
-
-            markdown += "</section>\n\n"
-            return markdown
+            return markdown + "\n"
 
     def _generate_dynamic_skills_markdown(self, processed_skills: Dict, target_version: str) -> str:
         """Generate dynamic skills markdown with 2-6+ column support"""
@@ -782,159 +761,157 @@ class CVBuilder:
 
 '''
 
+    def _generate_dynamic_skills_markdown_clean(self, processed_skills: Dict, target_version: str) -> str:
+        """Generate clean markdown for dynamic skills (2-6+ columns)"""
+        markdown = "## Skills\n\n"
+        
+        categories = processed_skills.get("categories", [])
+        column_count = processed_skills.get("column_count", len(categories))
+        
+        if categories and column_count <= 6:
+            # Table layout for 2-6 columns
+            # Generate table header
+            headers = [f"**{cat['name']}**" for cat in categories]
+            markdown += "| " + " | ".join(headers) + " |\n"
+            markdown += "| " + " | ".join([":--" for _ in headers]) + " |\n"
+            
+            # Calculate maximum number of skills across all categories
+            max_skills = max(len(category["skills"]) for category in categories) if categories else 0
+            
+            # Generate rows
+            for i in range(max_skills):
+                row = []
+                for category in categories:
+                    if i < len(category["skills"]):
+                        skill = category["skills"][i]
+                        # Handle different skill formats
+                        if isinstance(skill, dict):
+                            skill_name = skill.get('name', skill.get('skill', str(skill)))
+                        else:
+                            skill_name = str(skill)
+                        row.append(f"✓ {skill_name}")
+                    else:
+                        row.append("")
+                markdown += "| " + " | ".join(row) + " |\n"
+            
+        elif categories and column_count > 6:
+            # For 7+ columns, use a different format (categories as paragraphs)
+            for category in categories:
+                markdown += f"**{category['name']}**: "
+                skills = []
+                for skill in category["skills"]:
+                    if isinstance(skill, dict):
+                        skill_name = skill.get('name', skill.get('skill', str(skill)))
+                    else:
+                        skill_name = str(skill)
+                    skills.append(skill_name)
+                markdown += " • ".join(skills) + "\n\n"
+        else:
+            # Fallback when no categories are available
+            markdown += f"*Skills configuration not available for {target_version} version.*\n"
+        
+        return markdown + "\n"
+
     def generate_experience_markdown(
         self, experience_data: Dict, target_version: str
     ) -> str:
         """
-        Generate experience section markdown with semantic HTML structure.
-
-        SEMANTIC CSS ENHANCEMENT:
-        This method was enhanced to generate HTML with semantic CSS classes:
-        - cv-section-header: Section title with unique ID
-        - cv-experience-item: Container for each work experience
-        - cv-company-name: Company name styling
-        - cv-company-location/cv-company-period: Location and date info
-        - cv-position-title: Job title with emphasis
-        - cv-reference: Reference contact information
-        - cv-achievements/cv-achievement: Achievement list items
-        - cv-skills-tags: Container for skill tags
-
+        Generate clean markdown for experience section.
+        
         Args:
             experience_data: Raw experience data from YAML
             target_version: CV version being built (affects content filtering)
 
         Returns:
-            Markdown string with embedded semantic HTML classes
+            Clean markdown string following the pattern:
+            ### Company
+            _Location_<br>
+            _Date Range_
+            
+            **Position** · _Reference_
+            
+            * Achievement 1
+            * Achievement 2
+            
+            _Skills, Tags, Here_
         """
         experiences = self.process_experience_section(experience_data, target_version)
 
-        markdown = '<section class="cv-section cv-experience">\n<h2 class="cv-section-header" id="work-experience">Work Experience</h2>\n\n'
+        markdown = "## Work Experience\n\n"
 
         for exp in experiences:
-            markdown += f'<div class="cv-experience-item" id="cv-exp-{exp["company"].lower().replace(" ", "-")}">\n'
-            # Create two-line header structure for proper François layout
-            markdown += f'<div class="cv-entry-header">\n'
-            markdown += f'  <h3 class="cv-company-name">{exp["company"]}</h3>\n'
-            markdown += f'  <span class="cv-company-location"><em>{exp["location"]}</em></span>\n'
-            markdown += f"</div>\n\n"
+            # Company header with location/date
+            markdown += f"### {exp['company']}\n"
+            markdown += f"_{exp['location']}_<br>\n"
+            markdown += f"_{exp['period']}_\n\n"
+            
+            # Position with optional reference
+            position = f"**{exp['position']}**"
+            if exp.get('reference'):
+                position += f" · _{exp['reference']}_"
+            markdown += f"{position}\n\n"
+            
+            # Achievements as bullet list
+            if exp['achievements']:
+                for achievement in exp['achievements']:
+                    markdown += f"* {achievement['text']}\n"
+                markdown += "\n"
+            
+            # Skills tags as italic text
+            if exp.get('skills_tags'):
+                markdown += f"_{exp['skills_tags']}_\n\n"
 
-            # Create position header with date alignment
-            markdown += f'<div class="cv-position-header">\n'
-            markdown += (
-                f'  <p class="cv-position-title"><strong>{exp["position"]}</strong>'
-            )
-            if exp["reference"]:
-                markdown += f' <span class="cv-reference">{exp["reference"]}</span>'
-            markdown += f"</p>\n"
-            markdown += (
-                f'  <span class="cv-company-period"><em>{exp["period"]}</em></span>\n'
-            )
-            markdown += f"</div>\n\n"
-
-            # Add achievements
-            if exp["achievements"]:
-                markdown += '<ul class="cv-achievements">\n'
-                for achievement in exp["achievements"]:
-                    achievement_text = self.convert_markdown_to_html(
-                        achievement["text"]
-                    )
-                    markdown += f'<li class="cv-achievement">{achievement_text}</li>\n'
-                markdown += "</ul>\n\n"
-
-            # Add skills tags if available
-            if exp["skills_tags"]:
-                formatted_tags = self.format_skill_tags(exp["skills_tags"])
-                markdown += (
-                    f'<div class="cv-skills-tags skills-tags">{formatted_tags}</div>\n'
-                )
-
-            markdown += "</div>\n\n"
-
-        markdown += "</section>\n\n"
         return markdown
 
     def generate_projects_markdown(
         self, projects_data: Dict, target_version: str
     ) -> str:
         """
-        Generate projects section markdown with semantic HTML structure.
-
-        SEMANTIC CSS ENHANCEMENT:
-        This method generates HTML with semantic CSS classes for project elements:
-        - cv-project-item: Container for each project with unique ID
-        - cv-project-name: Project title styling
-        - cv-project-period: Project timeline
-        - cv-project-links: Container for project links (GitHub, Demo, etc.)
-        - cv-project-link: Individual link styling with semantic classes
-        - cv-project-descriptions/cv-project-description: Project description lists
+        Generate clean markdown for projects section.
 
         Args:
             projects_data: Raw projects data from YAML
             target_version: CV version being built (affects content filtering)
 
         Returns:
-            Markdown string with embedded semantic HTML classes, or empty string if no projects
+            Clean markdown string, or empty string if no projects
         """
         projects = self.process_projects_section(projects_data, target_version)
 
         if not projects:
             return ""
 
-        markdown = '<section class="cv-section cv-projects">\n<h2 class="cv-section-header" id="projects">Projects</h2>\n\n'
+        markdown = "## Projects\n\n"
 
         for project in projects:
-            safe_project_id = (
-                project["name"]
-                .lower()
-                .replace(" ", "-")
-                .replace("'", "")
-                .replace('"', "")
-            )
-            markdown += (
-                f'<div class="cv-project-item" id="cv-proj-{safe_project_id}">\n'
-            )
-            markdown += f'<h3 class="cv-project-name">{project["name"]} <span class="cv-project-period"><em>{project["period"]}</em></span></h3>\n\n'
+            # Project name with period
+            markdown += f"### {project['name']}\n"
+            markdown += f"_{project['period']}_\n\n"
 
-            # Add links
-            if project["links"]:
+            # Add links if available
+            if project.get("links"):
                 link_parts = []
                 for link_type, url in project["links"].items():
                     if link_type == "github":
-                        link_parts.append(
-                            f'<a href="{url}" class="cv-project-link cv-github-link">Github</a>'
-                        )
+                        link_parts.append(f"[Github]({url})")
                     elif link_type == "demo":
-                        link_parts.append(
-                            f'<a href="{url}" class="cv-project-link cv-demo-link">Demo</a>'
-                        )
+                        link_parts.append(f"[Demo]({url})")
                     elif link_type == "website":
-                        link_parts.append(
-                            f'<a href="{url}" class="cv-project-link cv-website-link">Website</a>'
-                        )
-
+                        link_parts.append(f"[Website]({url})")
+                
                 if link_parts:
-                    markdown += (
-                        f'<p class="cv-project-links">{" | ".join(link_parts)}</p>\n\n'
-                    )
+                    markdown += " | ".join(link_parts) + "\n\n"
 
-            # Add descriptions
-            if project["descriptions"]:
-                markdown += '<ul class="cv-project-descriptions">\n'
+            # Add descriptions as bullet points
+            if project.get("descriptions"):
                 for desc in project["descriptions"]:
-                    desc_text = self.convert_markdown_to_html(desc)
-                    markdown += f'<li class="cv-project-description">{desc_text}</li>\n'
-                markdown += "</ul>\n\n"
+                    markdown += f"- {desc}\n"
+                markdown += "\n"
 
             # Add skills tags if available
-            if project["skills_tags"]:
-                formatted_tags = self.format_skill_tags(project["skills_tags"])
-                markdown += (
-                    f'<div class="cv-skills-tags skills-tags">{formatted_tags}</div>\n'
-                )
+            if project.get("skills_tags"):
+                markdown += f"_{project['skills_tags']}_\n\n"
 
-            markdown += "</div>\n\n"
-
-        markdown += "</section>\n\n"
         return markdown
 
     def process_education_section(
@@ -988,7 +965,7 @@ class CVBuilder:
     def generate_education_markdown(
         self, education_data: Dict, target_version: str
     ) -> str:
-        """Generate education section markdown"""
+        """Generate clean markdown for education section"""
         processed_education = self.process_education_section(
             education_data, target_version
         )
@@ -996,47 +973,26 @@ class CVBuilder:
         if not processed_education:
             return ""
 
-        markdown = '<section class="cv-section cv-education">\n<h2 class="cv-section-header" id="education">Education</h2>\n\n'
+        markdown = "## Education\n\n"
 
         for education in processed_education:
-            # Institution and degree
-            institution_name = (
-                education["institution_full"]
-                if education["institution_full"]
-                else education["institution"]
-            )
-            safe_institution_id = (
-                institution_name.lower()
-                .replace(" ", "-")
-                .replace("'", "")
-                .replace("é", "e")
-            )
-            markdown += (
-                f'<div class="cv-education-item" id="cv-edu-{safe_institution_id}">\n'
-            )
-
-            # Create two-line header structure matching experience format
-            markdown += f'<div class="cv-entry-header">\n'
-            markdown += (
-                f'  <h3 class="cv-institution-name">{education["institution"]}</h3>\n'
-            )
-            markdown += f'  <span class="cv-education-location"><em>{education["location"]}</em></span>\n'
-            markdown += f"</div>\n\n"
-
-            # Create degree header with date alignment - MINIMAL CLEAN DESIGN
-            markdown += f'<div class="cv-position-header">\n'
-            markdown += f'  <p class="cv-degree-title"><strong>{education["degree"]}</strong></p>\n'
+            # Institution header
+            markdown += f"### {education['institution']}\n"
+            markdown += f"_{education['location']}_<br>\n"
+            
+            # Date range
             if education["start_date"] and education["end_date"]:
-                markdown += f'  <span class="cv-education-period"><em>{education["start_date"]} - {education["end_date"]}</em></span>\n'
-            markdown += f"</div>\n\n"
+                markdown += f"_{education['start_date']} - {education['end_date']}_\n\n"
+            
+            # Degree
+            markdown += f"**{education['degree']}**\n"
+            
+            # Technical highlight if available
+            if education.get("technical_highlight"):
+                markdown += f"{education['technical_highlight']}\n"
+            
+            markdown += "\n"
 
-            # Add single technical highlight line (subtle like bullet points but without bullet)
-            if education["technical_highlight"]:
-                markdown += f'<div class="cv-education-highlight">{education["technical_highlight"]}</div>\n\n'
-
-            markdown += "</div>\n\n"
-
-        markdown += "</section>\n\n"
         return markdown
 
 
@@ -1080,29 +1036,16 @@ class CVBuilder:
         # =====================================================================
 
         # Build semantic HTML structure for CSS Grid (guide.md method)
-        markdown_content = f"""<div class="cv-header">
-  <div class="cv-header-info">
-    <h1 class="cv-name" id="cv-name"><strong>{personal_info['name']}</strong></h1>
-    <h3 class="cv-tagline" id="cv-tagline">{tagline}</h3>
-    
-    <p class="cv-address" id="cv-address"><em>{personal_info['address']}</em></p>
-    
-    <div class="cv-contact inline-contact" id="cv-contact">
-      <img src="assets/icons/phone.png" class="cv-contact-icon icon" alt="Phone" /> {personal_info['phone']} | 
-      <img src="assets/icons/email.png" class="cv-contact-icon icon" alt="Email" /> <a href="mailto:{personal_info['email']}">{personal_info['email']}</a> | 
-      <img src="assets/icons/github.png" class="cv-contact-icon icon" alt="GitHub" /> <a href="https://github.com/{personal_info['github']}">{personal_info['github']}</a> | 
-      <img src="assets/icons/linkedin.png" class="cv-contact-icon icon" alt="LinkedIn" /> <a href="https://linkedin.com/in/{personal_info['linkedin']}">{personal_info['linkedin_name']}</a>
-    </div>
-    
-    <p class="cv-languages" id="cv-languages"><strong>{personal_info['languages']}</strong></p>
-  </div>
-  
-  <div class="cv-profile-container">
-    <img src="{personal_info['profile_photo']}" alt="{personal_info['name']}" class="cv-profile-pic profile-pic" />
-  </div>
-</div>
+        markdown_content = f"""![{personal_info['name']}]({personal_info['profile_photo']})
 
-<div class="cv-main-content">
+# **{personal_info['name']}**
+### {tagline}
+
+_{personal_info['address']}_
+
+📞 {personal_info['phone']} | ✉️ [{personal_info['email']}](mailto:{personal_info['email']}) | 🔗 [GitHub](https://github.com/{personal_info['github']}) | 💼 [LinkedIn](https://linkedin.com/in/{personal_info['linkedin']})
+
+**{personal_info['languages']}**
 {self.generate_skills_markdown(skills_data, target_version)}
 
 {self.generate_experience_markdown(experience_data, target_version)}
@@ -1110,7 +1053,6 @@ class CVBuilder:
 {self.generate_projects_markdown(projects_data, target_version)}
 
 {self.generate_education_markdown(education_data, target_version)}
-</div>
 """
 
         # Save markdown file
@@ -1249,26 +1191,49 @@ class CVBuilder:
                 shutil.rmtree(fonts_output_dest)
             shutil.copytree(fonts_src, fonts_output_dest)
 
-    def build_html(self, target_version: str, template: str = "francois") -> None:
-        """Build HTML version of CV from markdown"""
+    def build_html(self, target_version: str, template: str = "francois", no_enrich: bool = False) -> None:
+        """Build HTML version of CV from clean markdown with optional enrichment"""
         print(f"Building HTML for {target_version} version...")
 
-        # Build markdown first
+        # Build clean markdown first
         self.build_version(target_version)
+
+        # Load clean markdown content
+        md_path = self.output_dir / target_version / f"arthur-{target_version}.md"
+        with open(md_path, 'r', encoding='utf-8') as f:
+            clean_markdown = f.read()
+
+        if no_enrich:
+            # Use clean markdown directly (for debugging)
+            print("⚠️ Skipping enrichment - using clean markdown directly")
+            input_path = md_path
+            pandoc_format = "markdown"
+        else:
+            # Enrich markdown with HTML structure
+            from markdown_enricher import MarkdownEnricher
+            enricher = MarkdownEnricher()
+            enriched_html = enricher.enrich_markdown(clean_markdown)
+
+            # Save enriched HTML to temporary file
+            temp_html_path = md_path.with_suffix('.enriched.html')
+            with open(temp_html_path, 'w', encoding='utf-8') as f:
+                f.write(enriched_html)
+            
+            input_path = temp_html_path
+            pandoc_format = "html"
 
         # Copy assets for proper PDF generation
         self._copy_assets(target_version, template)
 
-        # Convert markdown to HTML using pandoc
-        md_path = self.output_dir / target_version / f"arthur-{target_version}.md"
+        # Convert to final HTML using pandoc
         html_path = self.output_dir / target_version / f"arthur-{target_version}.html"
 
         try:
             cmd = [
                 "pandoc",
-                str(md_path),
+                str(input_path),
                 "-f",
-                "html",
+                pandoc_format,
                 "-t",
                 "html",
                 "--css",
@@ -1285,6 +1250,10 @@ class CVBuilder:
             print(f"❌ HTML generation failed: {e}")
         except FileNotFoundError:
             print("❌ pandoc not found. Please install pandoc first.")
+        finally:
+            # Clean up temporary file if it was created
+            if not no_enrich:
+                temp_html_path.unlink(missing_ok=True)
 
     def build_pdf(self, target_version: str, template: str = "francois") -> None:
         """Attempt to build PDF version of CV"""
@@ -1570,6 +1539,9 @@ def main():
         "--test", action="store_true", help="Test version logic without building"
     )
     parser.add_argument(
+        "--html", action="store_true", help="Generate HTML output (requires clean markdown)"
+    )
+    parser.add_argument(
         "--pdf", action="store_true", help="Generate PDF output (generates HTML automatically)"
     )
     parser.add_argument(
@@ -1584,6 +1556,9 @@ def main():
         choices=available_templates,
         default=default_template,
         help=f'CSS template to use. Available: {", ".join(available_templates)}',
+    )
+    parser.add_argument(
+        "--no-enrich", action="store_true", help="Skip markdown enrichment (for debugging clean markdown)"
     )
 
     args = parser.parse_args()
@@ -1601,6 +1576,13 @@ def main():
                 builder.test_version(version)
         else:
             builder.test_version(args.version)
+    elif args.html:
+        # Build markdown + HTML only
+        if args.version == "all":
+            for version in builder.versions.keys():
+                builder.build_html(version, template=args.template, no_enrich=args.no_enrich)
+        else:
+            builder.build_html(args.version, template=args.template, no_enrich=args.no_enrich)
     elif args.pdf:
         # Build markdown + HTML + PDF 
         if args.version == "all":
@@ -1609,7 +1591,7 @@ def main():
         else:
             builder.build_all_formats(args.version, template=args.template)
     else:
-        # Default: build markdown + HTML (François-style pipeline)
+        # Default: build markdown only
         if args.version == "all":
             builder.build_all_versions(args.template)
         else:
