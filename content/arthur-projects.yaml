@@ -8,7 +8,7 @@ projects:
     links:
       github: "https://github.com/apassuello/technical-doc-rag/"
       demo: "https://huggingface.co/spaces/ArthyP/technical-rag-assistant"
-    versions: ["ai", "consulting", "general"]
+    versions: ["ai", "ds", "consulting", "general"]
     priority: 2
     
     # Version-specific descriptions
@@ -42,7 +42,7 @@ projects:
     period: "Feb 2025 - May 2025"
     links:
       github: "https://github.com/apassuello/multimodal_insight_engine/"
-    versions: ["ai", "consulting", "general"]
+    versions: ["ai", "ds", "consulting", "general"]
     priority: 2
     
     # Version-specific descriptions
@@ -79,7 +79,7 @@ projects:
       demo_text: "Interactive Demo"
       github: "https://github.com/ADA-2019/Project"
       github_text: "EPFL ADA Course"
-    versions: ["ai", "consulting", "general"]
+    versions: ["ai","ds", "consulting", "general"]
     
     # Version-specific descriptions
     descriptions:

@@ -108,6 +108,25 @@ versions:
     emphasis: balanced_profile
     show_technical_interests: true
     show_hospitality_background: true
+  ds:
+    name: "Data Scientist"
+    tagline: "Data Scientist | Embedded Systems Engineer"
+    
+    toggles:
+      - ds
+      - technical
+      - detailed
+    
+    max_priority: 3
+    
+    layout: technical
+    show_metrics: true
+    show_business_impact: false
+    executive_summary: false
+    
+    emphasis: data_science_and_systems
+    show_technical_interests: true
+    show_hospitality_background: false
 
 # Version metadata
 metadata:
@@ -118,11 +137,12 @@ metadata:
     - consulting
     - executive
     - general
+    - ds
   
-  # Version descriptions for documentation
   descriptions:
     firmware: "Embedded systems focused - Technical metrics, hardware details"
     ai: "ML/AI practitioner focused - Research achievements, educational impact"
     consulting: "Business impact focused - ROI metrics, stakeholder management"
     executive: "Leadership focused - Financial impact, 1-page format"
     general: "Balanced technical/business - Comprehensive competencies"
+    ds: "Data science focused - Analytics, ML, and embedded systems expertise"

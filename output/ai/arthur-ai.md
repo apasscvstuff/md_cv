@@ -12,11 +12,11 @@ _Chemin du Parc-de-Valency 1, 1004 Lausanne, Switzerland_
 
 | **Programming Languages** | **AI & Machine Learning** | **Data Science** | **Project Management** |
 | :-- | :-- | :-- | :-- |
-| ✓ Docker, CI/CD | ✓ Constitutional AI | ✓ Data Engineering | ✓ Cross-cultural Communication |
+| ✓ Docker, Git, CI/CD | ✓ Constitutional AI | ✓ Data Engineering | ✓ Cross-cultural Communication |
 | ✓ FastAPI, REST | ✓ Deep Learning | ✓ Jupyter Notebooks | ✓ Educational Content Creation |
-| ✓ Git Version Control | ✓ Large Language Models (LLMs) | ✓ Matplotlib |  |
-| ✓ Python, C++ | ✓ Model Optimization | ✓ NumPy |  |
-| ✓ Technical Leadership | ✓ Multimodal AI | ✓ Pandas |  |
+| ✓ Python, R | ✓ Large Language Models (LLMs) | ✓ Matplotlib |  |
+| ✓ Technical Leadership | ✓ Model Optimization | ✓ NumPy |  |
+|  | ✓ Multimodal AI | ✓ Pandas |  |
 |  | ✓ Neural Networks | ✓ Seaborn |  |
 |  | ✓ Neural Networks, Deep Learning | ✓ Statistical Analysis |  |
 |  | ✓ Production ML |  |  |
@@ -107,12 +107,6 @@ _Transformers, CLIP, ViT, Multimodal AI, PyTorch, Constitutional AI, Research Im
 _2019_
 
 [Demo](https://ada-2019.github.io/Project/) | [Github](https://github.com/ADA-2019/Project)
-
-- **Statistical Modeling:** Implemented statistical modeling pipeline to reconstruct missing marketplace data, addressing data sparsity challenges in large-scale behavioral datasets
-- **Big Data Processing:** Built scalable data processing system using PySpark and distributed databases handling 1TB+ of historical marketplace data on standard hardware
-- **Data Extraction Pipeline:** Developed comprehensive data extraction and cleaning pipeline processing mixed HTML content using BeautifulSoup and custom parsing algorithms
-- **Interactive Visualization:** Created interactive JavaScript visualization dashboard demonstrating complex market dynamics and regulatory policy impact analysis
-- **Statistical Analysis:** Conducted rigorous statistical analysis of police intervention effects on marketplace behavior, revealing no significant long-term market disruption
 
 _Statistical Modeling, Data Engineering, PySpark, Distributed Computing, Big Data Analytics, ETL Pipelines, Data Quality, Exploratory Data Analysis, Time Series Analysis, A/B Testing, Data Visualization, D3.js, Behavioral Analytics, Causal Inference_
 

@@ -32,7 +32,7 @@ education:
     # Academic achievements and projects
     notable_achievements:
       - achievement: "Specialized in Data Science track with Machine Learning focus"
-        versions: ["ai", "consulting", "general"]
+        versions: ["ai", "ds", "consulting", "general"]
         type: "academic"
       - achievement: "Hardware and System Design concentration for embedded systems expertise" 
         versions: ["firmware", "general"]
@@ -41,7 +41,7 @@ education:
         versions: ["consulting", "firmware"]
         type: "technical"
       - achievement: "Applied Data Analysis projects with real-world business applications"
-        versions: ["ai", "consulting"]
+        versions: ["ai", "ds", "consulting"]
         type: "practical"
     
     # Relevant coursework by version
@@ -99,6 +99,7 @@ education:
     technical_highlight:
       firmware: "Embedded Systems major with FPGA/SoC development and Linux kernel programming expertise"
       ai: "High-performance computing foundation with hardware acceleration and parallel processing experience"
+      ds: "High-performance computing foundation with hardware acceleration and parallel processing experience"
       consulting: "Strong technical foundation with embedded systems and performance optimization experience"
       executive: "Technical engineering degree with hands-on systems development and optimization expertise"
       general: "Embedded Systems specialization with FPGA development and system-level programming experience"

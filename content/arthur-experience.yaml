@@ -7,7 +7,7 @@ experiences:
     location: "Lausanne, Switzerland"
     period: "December 2022 - June 2025"
     reference: "(Ref. Patrick Segura)"
-    versions: ["firmware", "ai", "consulting", "executive", "general"]
+    versions: ["firmware", "ai","ds", "consulting", "executive", "general"]
     
     # Position title varies by version
     position_base: "Embedded Software Engineer"
@@ -22,7 +22,7 @@ experiences:
     achievements:
       # Core achievement - Priority 1 (consolidated with key metrics)
       - text: "**Clinical Trial Leadership:** Led firmware development for Sigi™ insulin pump delivering FDA-compliant system for First In Human clinical trial, ensuring ISO-13485/IEC-62304 compliance with comprehensive regulatory documentation"
-        versions: ["ai"]
+        versions: ["ai","ds"]
         priority: 1
         type: "ai_focus"
         
@@ -88,32 +88,32 @@ experiences:
         type: "leadmetric"
         
       - text: "**Technical Documentation System:** Designed and prototyped RAG-based technical documentation search system for complex medical device specifications, implementing intelligent document retrieval to improve engineering team efficiency"
-        versions: ["ai"]
+        versions: ["ai","ds"]
         priority: 1
         type: "ai_focus"
         
       - text: "**Data Pipeline Development:** Implemented Hall effect signal modeling and data analysis pipelines using Python for simulation experiments and sensor validation in medical device applications"
-        versions: ["ai"]
+        versions: ["ai","ds"]
         priority: 2
         type: "ai_focus"
         
       - text: "**Production Systems:** Architected safety-critical software with 99.9% uptime, implementing comprehensive testing (96% coverage) and real-time monitoring"
-        versions: ["ai"]
+        versions: ["ai","ds"]
         priority: 1
         type: "ai_focus"
         
       - text: "**Cross-functional Leadership:** Organized and facilitated Scrum ceremonies (standups, sprint planning, retrospectives, demos) while coordinating with hardware, QA, regulatory affairs, and clinical teams across multiple time zones"
-        versions: ["ai"]
+        versions: ["ai","ds"]
         priority: 1
         type: "ai_focus"
         
       - text: "**Technical Infrastructure:** Developed comprehensive HIL (Hardware-in-the-Loop) test infrastructure achieving 96% code coverage, enabling automated firmware validation and accelerating development cycles by 40%"
-        versions: ["ai"]
+        versions: ["ai","ds"]
         priority: 1
         type: "ai_focus"
         
       - text: "**Embedded Architecture:** Designed and implemented embedded software architecture for medical device combining Bluetooth communication stack with real-time insulin delivery protocols and safety-critical algorithms"
-        versions: ["ai"]
+        versions: ["ai","ds"]
         priority: 1
         type: "ai_focus"
         
@@ -272,7 +272,7 @@ experiences:
     location: "Lausanne, Switzerland"
     period: "July 2018 - August 2021"
     reference: "(Ref. Marc Chauvet)"
-    versions: ["ai", "consulting", "general", "firmware"]
+    versions: ["ai","ds", "consulting", "general", "firmware"]
     
     position_base: "Digital Week Assistant - ML Education Lead"
     position_variants:
@@ -284,7 +284,7 @@ experiences:
     achievements:
       # AI version - detailed ML content
       - text: "**ML Curriculum:** Designed 40-hour hands-on curriculum covering supervised learning, neural networks, and PyTorch, achieving 4.8/5.0 rating from 100+ international executives"
-        versions: ["ai"]
+        versions: ["ai","ds"]
         priority: 1
         type: "ai_focus"
         
@@ -294,7 +294,7 @@ experiences:
         type: "consulting_focus"
         
       - text: "**Technical Translation:** Developed innovative methods to explain backpropagation, attention mechanisms, and gradient descent to non-technical business leaders"
-        versions: ["ai"]
+        versions: ["ai","ds"]
         priority: 1
         type: "ai_focus"
         
@@ -304,12 +304,12 @@ experiences:
         type: "consulting_focus"
         
       - text: "**Applied Projects:** Led implementation of business-focused ML projects including demand forecasting and sentiment analysis, with students presenting to C-suite"
-        versions: ["ai"]
+        versions: ["ai","ds"]
         priority: 1
         type: "ai_focus"
         
       - text: "**Advanced Pedagogical Skills:** Demonstrated advanced pedagogical skills in technical education, successfully translating complex ML algorithms into actionable business insights for diverse international professional backgrounds"
-        versions: ["ai"]
+        versions: ["ai","ds"]
         priority: 2
         type: "ai_focus"
         
@@ -366,7 +366,7 @@ experiences:
     location: "Lausanne, Switzerland"
     period: "September 2021 - March 2022"
     reference: "(Ref. Dr. Jason Ruan)"
-    versions: ["ai", "consulting", "general", "firmware"]
+    versions: ["ai","ds", "consulting", "general", "firmware"]
     
     position_base: "Research Project Student Intern"
     position_variants:
@@ -394,22 +394,22 @@ experiences:
         
       # AI version - detailed machine learning and signal processing
       - text: "**Neural Signal Processing:** Performed time series analysis on 300+ parallel neural signals at 50-60Hz for epilepsy onset detection, implementing feature extraction algorithms for medical diagnostic applications"
-        versions: ["ai"]
+        versions: ["ai","ds"]
         priority: 1
         type: "ai_focus"
         
       - text: "**Signal Processing Pipelines:** Developed signal processing pipelines using Python visualization libraries for ASIC-based neural electrode data acquisition and analysis"
-        versions: ["ai"]
+        versions: ["ai","ds"]
         priority: 2
         type: "ai_focus"
         
       - text: "**Medical AI Algorithms:** Developed machine learning-based seizure detection algorithms achieving 87% accuracy with <100ms real-time processing latency"
-        versions: ["ai"]
+        versions: ["ai","ds"]
         priority: 1
         type: "ai_focus"
         
       - text: "**High-Frequency Processing:** Processed neural signals at 30kHz sampling rate contributing to 2 patent applications for novel electrode technology"
-        versions: ["ai"]
+        versions: ["ai","ds"]
         priority: 2
         type: "ai_focus"
         
@@ -533,14 +533,14 @@ version_config:
     executive_summary: false
     
   ai:
-    toggles: ["ai", "technical", "detailed"]
+    toggles: ["ai","ds", "technical", "detailed"]
     max_priority: 3
     show_metrics: true
     show_business_impact: false
     executive_summary: false
     
   consulting:
-    toggles: ["consulting", "ai", "businessfocus", "quantified"]
+    toggles: ["consulting", "ai","ds", "businessfocus", "quantified"]
     max_priority: 3
     show_metrics: true
     show_business_impact: true
@@ -554,7 +554,7 @@ version_config:
     executive_summary: true
     
   general:
-    toggles: ["firmware", "ai", "general"]
+    toggles: ["firmware", "ai","ds", "general"]
     max_priority: 2
     show_metrics: false
     show_business_impact: false

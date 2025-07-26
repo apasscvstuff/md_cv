@@ -29,6 +29,15 @@ categories:
   tools:
     description: Development tools and platforms
     display_name: Tools & Platforms
+  programming_engineering:
+    description: Core programming and engineering skills
+    display_name: Programming & Engineering
+  ml_ai:
+    description: Machine learning and AI frameworks
+    display_name: ML & AI
+  data_science_analytics:
+    description: Data science and analytics tools
+    display_name: Data Science
 configuration:
   category_separator: ' • '
   max_columns: 6
@@ -93,34 +102,38 @@ skills:
   versions:
   - firmware
 - category: programming
-  name: Python, C++
+  name: Python, R
   versions:
   - ai
+  - ds
 - category: programming
   name: FastAPI, REST
   versions:
   - ai
+  - ds
 - category: programming
-  name: Git Version Control
+  name: Docker, Git, CI/CD
   versions:
   - ai
-- category: programming
-  name: Docker, CI/CD
-  versions:
-  - ai
+  - ds
+  - general
+  - firmware
 - category: programming
   name: Technical Leadership
   versions:
   - ai
+  - ds
 - category: programming
   name: JavaScript
   versions:
   - consulting
   - general
+  - ds
 - category: programming
-  name: SQL
+  name: PostGreSQL
   versions:
   - consulting
+  - ds
 - category: programming
   name: R
   versions:
@@ -157,6 +170,7 @@ skills:
   name: System Architecture
   versions:
   - ai
+  - ds
 - category: frameworks
   name: Technical Documentation
   versions:
@@ -567,6 +581,63 @@ skills:
   name: Real-time Design
   versions:
   - firmware
+# New DS-specific skills
+- category: programming_engineering
+  name: Python (Expert)
+  versions:
+  - ds
+- category: programming_engineering
+  name: R (Proficient)
+  versions:
+  - ds
+- category: programming_engineering
+  name: PostgreSQL
+  versions:
+  - ds
+- category: programming_engineering
+  name: Shell/Bash
+  versions:
+  - ds
+- category: ml_ai
+  name: HuggingFace Ecosystem
+  versions:
+  - ds
+- category: ml_ai
+  name: MLflow / Experiment Tracking
+  versions:
+  - ds
+- category: ml_ai
+  name: Vector Databases (FAISS / Weaviate)
+  versions:
+  - ds
+- category: ml_ai
+  name: Cloud ML (AWS / GCP)
+  versions:
+  - ds
+- category: data_science_analytics
+  name: Data Visualization (Plotly / Seaborn)
+  versions:
+  - ds
+- category: data_science_analytics
+  name: Time-series / Signal Processing
+  versions:
+  - ds
+- category: data_science_analytics
+  name: PySpark / Big Data Processing
+  versions:
+  - ds
+- category: data_science_analytics
+  name: Data Cleaning & Structuring
+  versions:
+  - ds
+- category: leadership_management
+  name: Prototype Development
+  versions:
+  - ds
+- category: leadership_management
+  name: Educational Leadership
+  versions:
+  - ds
 version_layouts:
   ai:
     categories:
@@ -608,3 +679,14 @@ version_layouts:
     - programming
     - tools
     - leadership
+  ds:
+    categories:
+    - programming_engineering
+    - ml_ai
+    - data_science_analytics
+    - leadership_management
+    category_order:
+    - programming_engineering
+    - ml_ai
+    - data_science_analytics
+    - leadership_management
