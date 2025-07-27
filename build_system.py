@@ -252,6 +252,7 @@ class CVBuilder:
                 "languages": languages_formatted,
                 "profile_photo": "assets/profile.jpeg",
                 "taglines": personal_info.get("taglines", {}),
+                "executive_summaries": personal_info.get("executive_summaries", {}),
                 "certifications": personal_info.get("certifications", []),
                 "interests": personal_info.get("interests", {}),
             }
@@ -817,6 +818,33 @@ class CVBuilder:
         
         return markdown + "\n"
 
+    def generate_executive_summary_markdown(self, personal_data: Dict, target_version: str) -> str:
+        """
+        Generate clean markdown for executive summary section.
+        
+        Args:
+            personal_data: Personal data from YAML including executive summaries
+            target_version: CV version being built (affects content selection)
+            
+        Returns:
+            Clean markdown string with executive summary section, or empty string if not applicable
+        """
+        version_config = self.versions[target_version]
+        
+        # Check if this version should show executive summary
+        if not version_config.get("show_executive_summary", False):
+            return ""
+        
+        # Get version-specific executive summary
+        executive_summaries = personal_data.get("executive_summaries", {})
+        summary = executive_summaries.get(target_version, "")
+        
+        if not summary:
+            return ""
+        
+        # Return just the summary text without section header (styled as italic text)
+        return f"_{summary}_\n\n"
+
     def generate_experience_markdown(
         self, experience_data: Dict, target_version: str
     ) -> str:
@@ -996,6 +1024,85 @@ class CVBuilder:
 
         return markdown
 
+    def process_certifications_section(self, personal_data: Dict, target_version: str) -> List[Dict]:
+        """Process certifications section with version-specific filtering"""
+        version_config = self.versions[target_version]
+        certifications = personal_data.get("certifications", [])
+        
+        if not certifications:
+            return []
+        
+        filtered_certifications = []
+        
+        for cert in certifications:
+            # Check if certification should be included for this version
+            if not self.check_version_condition(cert.get("versions", []), target_version):
+                continue
+            
+            # Check priority condition  
+            if cert.get("priority", 1) > version_config["max_priority"]:
+                continue
+            
+            # Process certification with all metadata
+            processed_cert = {
+                "name": cert.get("name", ""),
+                "type": cert.get("type", ""),
+                "issuing_organization": cert.get("issuing_organization", ""),
+                "year": cert.get("year"),
+                "description": cert.get("description", ""),
+                "priority": cert.get("priority", 1)
+            }
+            
+            filtered_certifications.append(processed_cert)
+        
+        # Sort by priority (1=highest) then by year (newest first)
+        filtered_certifications.sort(key=lambda x: (x["priority"], -(x["year"] or 0)))
+        
+        return filtered_certifications
+
+    def generate_certifications_markdown(self, personal_data: Dict, target_version: str) -> str:
+        """
+        Generate clean markdown for certifications section.
+        
+        Args:
+            personal_data: Personal data from YAML including certifications
+            target_version: CV version being built (affects content filtering)
+            
+        Returns:
+            Clean markdown string with certifications, or empty string if none
+        """
+        version_config = self.versions[target_version]
+        
+        # Check if this version should show certifications
+        if not version_config.get("show_certifications", False):
+            return ""
+        
+        processed_certifications = self.process_certifications_section(personal_data, target_version)
+        
+        if not processed_certifications:
+            return ""
+        
+        markdown = "## Training & Certifications\n\n"
+        
+        for cert in processed_certifications:
+            # Certification name
+            markdown += f"### {cert['name']}\n"
+            
+            # Organization and year
+            org_year_parts = []
+            if cert["issuing_organization"]:
+                org_year_parts.append(f"_{cert['issuing_organization']}_")
+            if cert["year"]:
+                org_year_parts.append(f"_{cert['year']}_")
+            
+            if org_year_parts:
+                markdown += " | ".join(org_year_parts) + "\n\n"
+            
+            # Description if available
+            if cert["description"]:
+                markdown += f"{cert['description']}\n\n"
+        
+        return markdown
 
     def build_version(self, target_version: str, template_name: str = "francois") -> None:
         """Build a specific CV version using François-style markdown generation"""
@@ -1045,6 +1152,7 @@ _{personal_info['address']}_
 📞 {personal_info['phone']} | ✉️ [{personal_info['email']}](mailto:{personal_info['email']}) | 🔗 [GitHub](https://github.com/{personal_info['github']}) | 💼 [LinkedIn](https://linkedin.com/in/{personal_info['linkedin']})
 
 **{personal_info['languages']}**
+{self.generate_executive_summary_markdown(personal_info, target_version)}
 {self.generate_skills_markdown(skills_data, target_version)}
 
 {self.generate_experience_markdown(experience_data, target_version)}
@@ -1052,6 +1160,8 @@ _{personal_info['address']}_
 {self.generate_projects_markdown(projects_data, target_version)}
 
 {self.generate_education_markdown(education_data, target_version)}
+
+{self.generate_certifications_markdown(personal_info, target_version)}
 """
 
         # Save markdown file

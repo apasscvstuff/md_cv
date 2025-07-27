@@ -24,6 +24,8 @@ class MarkdownEnricher:
             'experience': self._compile_experience_patterns(),
             'projects': self._compile_project_patterns(),
             'education': self._compile_education_patterns(),
+            'executive_summary': self._compile_executive_summary_patterns(),
+            'certifications': self._compile_certifications_patterns(),
             'section': self._compile_section_patterns()
         }
     
@@ -102,6 +104,22 @@ class MarkdownEnricher:
             'degree': re.compile(r'^\*\*([^*]+)\*\*(?:\s*<br>\n(.+))?$', re.MULTILINE)
         }
     
+    def _compile_executive_summary_patterns(self) -> Dict[str, re.Pattern]:
+        """Compile regex patterns for executive summary section"""
+        return {
+            'section_header': re.compile(r'^## Executive Summary$', re.MULTILINE),
+            'summary_text': re.compile(r'^(.+?)$', re.MULTILINE)
+        }
+    
+    def _compile_certifications_patterns(self) -> Dict[str, re.Pattern]:
+        """Compile regex patterns for certifications section"""
+        return {
+            'section_header': re.compile(r'^## Training & Certifications$', re.MULTILINE),
+            'cert_name': re.compile(r'^### (.+)$', re.MULTILINE),
+            'org_year': re.compile(r'^_([^_]+)_(?:\s*\|\s*_([^_]+)_)?$', re.MULTILINE),
+            'description': re.compile(r'^([^#\n]+)$', re.MULTILINE)
+        }
+    
     def _compile_section_patterns(self) -> Dict[str, re.Pattern]:
         """Compile general section patterns"""
         return {
@@ -158,7 +176,9 @@ class MarkdownEnricher:
         """Identify section type from title"""
         title_lower = title.lower()
         
-        if 'skill' in title_lower:
+        if 'training' in title_lower and 'certification' in title_lower:
+            return 'certifications'
+        elif 'skill' in title_lower:
             return 'skills'
         elif 'experience' in title_lower or 'work' in title_lower:
             return 'experience'
@@ -184,6 +204,8 @@ class MarkdownEnricher:
             return self._enrich_projects(content)
         elif section_type == 'education':
             return self._enrich_education(content)
+        elif section_type == 'certifications':
+            return self._enrich_certifications(content)
         else:
             return self._enrich_generic_section(content)
     
@@ -245,6 +267,17 @@ class MarkdownEnricher:
             if lang_match:
                 languages = lang_match.group(1)
                 html_parts.append(f'    <p class="cv-languages" id="cv-languages"><strong>{languages}</strong></p>')
+                continue
+            
+            # Executive summary text (plain paragraph after languages)
+            # This will be a longer text paragraph, not matching other patterns
+            if (len(line) > 50 and not line.startswith('**') and not line.startswith('_') 
+                and not any(icon in line for icon in ['📞', '✉️', '🔗', '💼']) 
+                and not line.startswith('#')):
+                formatted_summary = self._process_markdown_formatting(line)
+                html_parts.append(f'    <div class="cv-executive-summary-inline">')
+                html_parts.append(f'      <p class="cv-executive-summary-text">{formatted_summary}</p>')
+                html_parts.append(f'    </div>')
                 continue
         
         # Close header info div
@@ -722,6 +755,80 @@ class MarkdownEnricher:
             return f'<section class="cv-section cv-{section_id}">\n{content}\n</section>\n'
         
         return content
+    
+    def _enrich_certifications(self, content: str) -> str:
+        """Transform certifications markdown into semantic HTML"""
+        html_parts = []
+        
+        # Start certifications section
+        html_parts.append('<section class="cv-section cv-certifications">')
+        html_parts.append('<h2 class="cv-section-header" id="training-certifications">Training & Certifications</h2>')
+        html_parts.append('')
+        
+        # Process certifications line by line
+        lines = content.split('\n')
+        i = 0
+        
+        while i < len(lines):
+            line = lines[i].strip()
+            if not line:
+                i += 1
+                continue
+            
+            # Certification name (### Certification Name)
+            cert_match = self.patterns['certifications']['cert_name'].match(line)
+            if cert_match:
+                cert_name = cert_match.group(1)
+                cert_id = f"cv-cert-{cert_name.lower().replace(' ', '-').replace('/', '-')[:20]}"
+                
+                html_parts.append(f'<div class="cv-certification-item" id="{cert_id}">')
+                
+                # Create certification header (similar to experience/education format)
+                html_parts.append('<div class="cv-entry-header">')
+                html_parts.append(f'  <h3 class="cv-certification-name">{cert_name}</h3>')
+                
+                i += 1
+                
+                # Look for organization and year on next line
+                if i < len(lines) and ('_' in lines[i]):
+                    org_year_line = lines[i].strip()
+                    org_year_match = self.patterns['certifications']['org_year'].match(org_year_line)
+                    if org_year_match:
+                        organization = org_year_match.group(1)
+                        year = org_year_match.group(2) if org_year_match.group(2) else ''
+                        
+                        if organization:
+                            html_parts.append(f'  <span class="cv-certification-org"><em>{organization}</em></span>')
+                        if year:
+                            html_parts.append(f'  <span class="cv-certification-year"><em>{year}</em></span>')
+                        i += 1
+                
+                html_parts.append('</div>')
+                html_parts.append('')
+                
+                # Look for description
+                if i < len(lines) and lines[i].strip() == '':
+                    i += 1  # Skip empty line
+                
+                if i < len(lines) and lines[i].strip() and not lines[i].strip().startswith('###'):
+                    description = lines[i].strip()
+                    formatted_desc = self._process_markdown_formatting(description)
+                    html_parts.append(f'<div class="cv-certification-description">')
+                    html_parts.append(f'  <p class="cv-certification-desc-text">{formatted_desc}</p>')
+                    html_parts.append('</div>')
+                    html_parts.append('')
+                    i += 1
+                
+                html_parts.append('</div>')
+                html_parts.append('')
+                continue
+            
+            i += 1
+        
+        html_parts.append('</section>')
+        html_parts.append('')
+        
+        return '\n'.join(html_parts)
     
     def _format_skill_tags(self, skills: str) -> str:
         """Format comma-separated skills into span tags"""

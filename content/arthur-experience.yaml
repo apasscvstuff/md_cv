@@ -537,14 +537,14 @@ version_config:
     max_priority: 3
     show_metrics: true
     show_business_impact: false
-    executive_summary: false
+    executive_summary: true
 
   ds:
     toggles: ["ai","ds", "technical", "detailed"]
     max_priority: 3
     show_metrics: true
     show_business_impact: false
-    executive_summary: false
+    executive_summary: true
     
   consulting:
     toggles: ["consulting", "ai","ds", "businessfocus", "quantified"]

@@ -21,7 +21,8 @@ versions:
     layout: technical  # Use 3-column technical skills layout
     show_metrics: true
     show_business_impact: false
-    executive_summary: false
+    show_executive_summary: false
+    show_certifications: true
     
     # Additional version-specific settings
     emphasis: technical_leadership
@@ -42,7 +43,8 @@ versions:
     layout: technical
     show_metrics: true
     show_business_impact: false
-    executive_summary: false
+    show_executive_summary: true
+    show_certifications: true
     
     emphasis: education_and_research
     show_technical_interests: true
@@ -63,7 +65,8 @@ versions:
     layout: technical
     show_metrics: true
     show_business_impact: true
-    executive_summary: false
+    show_executive_summary: true
+    show_certifications: true
     
     emphasis: cross_cultural_communication
     show_technical_interests: true
@@ -83,7 +86,8 @@ versions:
     layout: executive  # Streamlined executive layout
     show_metrics: true
     show_business_impact: true
-    executive_summary: true
+    show_executive_summary: true
+    show_certifications: true
     
     emphasis: leadership_impact
     show_technical_interests: false
@@ -103,7 +107,8 @@ versions:
     layout: technical
     show_metrics: false
     show_business_impact: false
-    executive_summary: false
+    show_executive_summary: true
+    show_certifications: true
     
     emphasis: balanced_profile
     show_technical_interests: true
@@ -122,7 +127,8 @@ versions:
     layout: technical
     show_metrics: true
     show_business_impact: false
-    executive_summary: false
+    show_executive_summary: true
+    show_certifications: true
     
     emphasis: data_science_and_systems
     show_technical_interests: true

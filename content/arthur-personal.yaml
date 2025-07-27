@@ -79,6 +79,82 @@ personal:
       type: "leadership"
       year: null
   
+  # Executive Summaries - Version-specific professional summaries (2-3 sentences)
+  executive_summaries:
+    firmware: "Senior embedded systems engineer with 8+ years of medical device development experience, specializing in safety-critical firmware architecture and regulatory compliance. Proven track record leading cross-functional teams to deliver FDA-compliant products while implementing robust testing infrastructure and real-time monitoring systems. Expert in ISO-13485/IEC-62304 standards with deep technical leadership capabilities."
+    
+    ai: "Applied AI/ML engineer and educator with expertise in production systems, deep learning, and transformative AI technologies. Combines hands-on technical implementation with educational impact, developing RAG-based systems and leading technical teams while creating content that bridges complex AI concepts for diverse audiences. Passionate about democratizing AI knowledge and building responsible AI solutions."
+
+    ds: "Applied AI/ML engineer and educator with expertise in production systems, deep learning, and transformative AI technologies. Combines hands-on technical implementation with educational impact, developing RAG-based systems and leading technical teams while creating content that bridges complex AI concepts for diverse audiences. Passionate about democratizing AI knowledge and building responsible AI solutions."
+    
+    consulting: "Technical consultant and AI specialist with proven ability to translate complex technical solutions into business value for multinational organizations. Expert in cross-cultural communication and stakeholder management, with experience leading distributed teams and delivering quantifiable business impact through innovative technology implementations. Strong background in both technical depth and business strategy."
+    
+    executive: "Senior technical leader with comprehensive experience driving innovation in embedded systems, AI/ML technologies, and cross-functional team leadership. Demonstrated success in scaling technical teams, ensuring regulatory compliance, and delivering transformative solutions that create measurable business impact. Proven track record of balancing technical excellence with strategic business objectives."
+    
+    general: "Versatile embedded systems and AI engineer with expertise spanning medical device development, machine learning implementation, and technical leadership. Combines deep technical knowledge with strong communication skills and cross-cultural competencies, enabling effective collaboration in diverse, international environments. Committed to continuous learning and knowledge sharing."
+
+  # Enhanced Certifications and Training - Professional development with metadata
+  certifications:
+    # Professional Architecture Certification
+    - name: "ISAQB Software Architect"
+      type: "professional_certification"
+      issuing_organization: "International Software Architecture Qualification Board"
+      year: 2025
+      description: "Advanced software architecture certification covering system design, quality attributes, and architectural patterns"
+      versions: ["firmware", "ai", "consulting", "executive", "general", "ds"]
+      priority: 1
+    
+    # Medical Device Regulatory Training
+    - name: "ISO 13485 Quality Management Systems"
+      type: "regulatory_compliance"
+      issuing_organization: "Medical Device Standards"
+      year: null
+      description: "Quality management systems for medical devices - design controls and regulatory compliance"
+      versions: ["firmware", "consulting", "executive"]
+      priority: 1
+    
+    - name: "IEC 62304 Medical Device Software"
+      type: "regulatory_compliance" 
+      issuing_organization: "International Electrotechnical Commission"
+      year: null
+      description: "Medical device software lifecycle processes and safety classification"
+      versions: ["firmware", "consulting", "executive"]
+      priority: 1
+    
+    # Technical Leadership Training
+    - name: "System Engineering Fundamentals"
+      type: "technical_leadership"
+      issuing_organization: "Professional Development"
+      year: null
+      description: "Systems thinking, requirements engineering, and technical architecture principles"
+      versions: ["firmware", "consulting", "executive", "general"]
+      priority: 2
+    
+    - name: "Requirement Engineering"
+      type: "technical_process"
+      issuing_organization: "Professional Development"
+      year: null
+      description: "Advanced requirements analysis, specification, and validation methodologies"
+      versions: ["firmware", "consulting", "executive"]
+      priority: 2
+    
+    # Leadership and Management
+    - name: "Cross-functional Team Leadership"
+      type: "leadership_development"
+      issuing_organization: "Management Training Institute"
+      year: null
+      description: "Agile leadership, international team management, and stakeholder communication"
+      versions: ["consulting", "executive"]
+      priority: 1
+    
+    - name: "Quality System Management"
+      type: "management_system"
+      issuing_organization: "Quality Management Institute"
+      year: null
+      description: "Quality system implementation, process improvement, and compliance management"
+      versions: ["firmware", "consulting", "executive"]
+      priority: 2
+
   # Personal interests from section_languages.tex
   interests:
     training_mentoring:

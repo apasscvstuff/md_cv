@@ -8,6 +8,9 @@ _Chemin du Parc-de-Valency 1, 1004 Lausanne, Switzerland_
 📞 +41 79 176 24 84 | ✉️ [apassuello@proton.me](mailto:apassuello@proton.me) | 🔗 [GitHub](https://github.com/apassuello) | 💼 [LinkedIn](https://linkedin.com/in/arthur-passuello/)
 
 **French (Native) • English (Fluent) • German (Basics)**
+_Applied AI/ML engineer and educator with expertise in production systems, deep learning, and transformative AI technologies. Combines hands-on technical implementation with educational impact, developing RAG-based systems and leading technical teams while creating content that bridges complex AI concepts for diverse audiences. Passionate about democratizing AI knowledge and building responsible AI solutions._
+
+
 ## Skills
 
 | **Programming Languages** | **AI & Machine Learning** | **Data Science** | **Project Management** |
@@ -133,5 +136,14 @@ _2016 - 2018_
 
 **Bachelor's in Computer Science, Major in Embedded Systems**
 High-performance computing foundation with hardware acceleration and parallel processing experience
+
+
+
+## Training & Certifications
+
+### ISAQB Software Architect
+_International Software Architecture Qualification Board_ | _2025_
+
+Advanced software architecture certification covering system design, quality attributes, and architectural patterns
 
 

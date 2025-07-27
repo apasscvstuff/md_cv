@@ -318,9 +318,17 @@ h1+h3 {
 .inline-contact+p {
   font-size: var(--size-small);
   font-weight: 600;
-  margin-bottom: var(--space-section);
+  margin-bottom: var(--space-subsection);
   color: var(--color-secondary);
   letter-spacing: 0.02em;
+}
+
+/* Executive summary - make it wider and with proper spacing */
+.cv-header p em {
+  display: block;
+  margin-top: var(--space-subsection);
+  line-height: 1.4;
+  max-width: none;
 }
 
 /* Section Headers - François style with horizontal red bars extending right */
@@ -540,6 +548,103 @@ li::before {
   border-color: var(--color-accent);
 }
 
+/* =============================================================================
+   📝 EXECUTIVE SUMMARY INLINE - François design integration
+   Professional summary text integrated into header area
+   ============================================================================= */
+
+.cv-executive-summary-inline {
+  margin-top: var(--space-subsection);
+  margin-bottom: var(--space-subsection);
+}
+
+.cv-executive-summary-text {
+  font-size: var(--size-body);
+  line-height: 1.6;
+  color: var(--color-text);
+  margin: 0;
+  font-weight: 400;
+  text-align: justify;
+  letter-spacing: 0.01em;
+}
+
+/* =============================================================================
+   🎓 TRAINING & CERTIFICATIONS SECTION - François design integration
+   Clean certification listing matching education section styling
+   ============================================================================= */
+
+.cv-certifications {
+  margin-bottom: var(--space-section);
+}
+
+.cv-certification-item {
+  margin-bottom: var(--space-item);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--space-small);
+}
+
+.cv-certification-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* Certification header - following experience/education pattern */
+.cv-certification-item .cv-entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: var(--space-tiny);
+}
+
+.cv-certification-name {
+  font-family: var(--font-primary);
+  font-size: var(--size-subsection);
+  font-weight: 600;
+  color: var(--color-primary);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.cv-certification-org {
+  font-size: var(--size-small);
+  color: var(--color-text-light);
+  font-style: italic;
+}
+
+.cv-certification-year {
+  font-size: var(--size-small);
+  color: var(--color-text-light);
+  font-style: italic;
+  margin-left: var(--space-tiny);
+}
+
+.cv-certification-description {
+  margin-top: var(--space-tiny);
+}
+
+.cv-certification-desc-text {
+  font-size: var(--size-small);
+  color: var(--color-text);
+  line-height: 1.5;
+  margin: 0;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+/* Print optimizations for new sections */
+@media print {
+  .cv-executive-summary-content {
+    background: #f9f9f9;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  
+  .cv-certification-item {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
 /* Links in content */
 a {
   color: var(--color-accent);
@@ -691,10 +796,10 @@ h3+p a {
   }
 
   /* Section-level break control - handle both semantic classes and Pandoc sections */
+  /* Allow sections to break across pages for better flow */
   .cv-section,
   section.cv-section {
-    page-break-inside: avoid;
-    break-inside: avoid;
+    /* Removed page-break-inside: avoid to allow sections to span pages */
   }
 
   .cv-experience-item,
