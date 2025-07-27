@@ -50,7 +50,7 @@ _December 2022 - June 2025_
 * **Technical Infrastructure:** Developed comprehensive HIL (Hardware-in-the-Loop) test infrastructure achieving 96% code coverage, enabling automated firmware validation and accelerating development cycles by 40%
 * **Embedded Architecture:** Designed and implemented embedded software architecture for medical device combining Bluetooth communication stack with real-time insulin delivery protocols and safety-critical algorithms
 
-_Signal Processing , Statistical Analysis , Production Systems , Team Leadership , Technical Training , Software Architecture , Testing Infrastructure , CI/CD , QMS, GitHub Actions , Grafana , Real-time Monitoring , Medical Device Development_
+_Signal Processing , Statistical Analysis , Production Systems , Team Leadership , Software Architecture , Testing Infrastructure , CI/CD , QMS, Grafana , Real-time Monitoring , Medical Device Development_
 
 ### IMD Business School
 _Lausanne, Switzerland_<br>

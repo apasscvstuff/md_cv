@@ -203,7 +203,7 @@ experiences:
     # Skills tags by version
     skills_tags:
       firmware: "Software Architecture, System Engineering, C/C++, Python, FreeRTOS, Safety-Critical Systems, Sensor Fusion, Statistical Algorithms, Technical Leadership, Cross-functional Team Coordination, CI/CD Implementation, GitHub Actions, Grafana, Real-time Monitoring, Git Version Control, Stakeholder Communication, JTAG, STM32, Nordic, HIL Testing, Power Optimization, Agile/Scrum"
-      "ai, ds": "Signal Processing , Statistical Analysis , Production Systems , Team Leadership , Technical Training , Software Architecture , Testing Infrastructure , CI/CD , QMS, GitHub Actions , Grafana , Real-time Monitoring , Medical Device Development"
+      "ai, ds": "Signal Processing , Statistical Analysis , Production Systems , Team Leadership , Software Architecture , Testing Infrastructure , CI/CD , QMS, Grafana , Real-time Monitoring , Medical Device Development"
       consulting: "Technical Strategy, Cross-functional Coordination, Regulatory Compliance, Stakeholder Communication, Strategic Consulting, Proof-of-Concept Development, Technical Training, Team Development, Change Management, Innovation Leadership, Client Presentations, Ethical Technology Development"
       executive: "Strategic Technical Leadership, Cross-functional Coordination, Regulatory Compliance, $2M+ Project Impact"
       general: "System Architecture, Python, Technical Leadership, Proof-of-Concept Development, Risk Management, Requirement Engineering, Team Mentoring, Cross-functional Communication, HIL Testing, Statistical Analysis"
