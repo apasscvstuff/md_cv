@@ -42,7 +42,6 @@ _December 2022 - June 2025_
 
 **Embedded Software Engineer & Technical Lead** · _(Ref. Patrick Segura)_
 
-* **Clinical Trial Leadership:** Led firmware development for Sigi™ insulin pump delivering FDA-compliant system for First In Human clinical trial, ensuring ISO-13485/IEC-62304 compliance with comprehensive regulatory documentation
 * **Technical Documentation System:** Designed and prototyped RAG-based technical documentation search system for complex medical device specifications, implementing intelligent document retrieval to improve engineering team efficiency
 * **Data Pipeline Development:** Implemented Hall effect signal modeling and data analysis pipelines using Python for simulation experiments and sensor validation in medical device applications
 * **Production Systems:** Architected safety-critical software with 99.9% uptime, implementing comprehensive testing (96% coverage) and real-time monitoring
@@ -56,7 +55,7 @@ _Signal Processing , Statistical Analysis , Production Systems , Team Leadership
 _Lausanne, Switzerland_<br>
 _July 2018 - August 2021_
 
-**Digital Week Assistant - ML Education Lead** · _(Ref. Marc Chauvet)_
+**Lead AI/ML Instructor & Curriculum Designer** · _(Ref. Marc Chauvet)_
 
 * **ML Curriculum:** Designed 40-hour hands-on curriculum covering supervised learning, neural networks, and PyTorch, achieving 4.8/5.0 rating from 100+ international executives
 * **Technical Translation:** Developed innovative methods to explain backpropagation, attention mechanisms, and gradient descent to non-technical business leaders
@@ -82,8 +81,8 @@ _Neural Signal Processing, Python, Machine Learning, Signal Processing Pipelines
 
 ## Projects
 
-### Enterprise RAG System (Personal Portfolio Project)
-_June 2025 - Present_
+### Technical Documentation RAG System with Advanced Retrieval
+_July 2025_
 
 [Github](https://github.com/apassuello/technical-doc-rag/) | [Demo](https://huggingface.co/spaces/ArthyP/technical-rag-assistant)
 
@@ -94,8 +93,8 @@ _June 2025 - Present_
 
 _RAG, FAISS, Vector Search, Neural Reranking, Production ML, NLP, LangChain, A/B Testing, Weaviate, Deployment, Query Processing, LLM Integration_
 
-### MultiModal AI Research Implementation (Personal Project)
-_Feb 2025 - May 2025_
+### MultiModal AI Research Implementation
+_2025_
 
 [Github](https://github.com/apassuello/multimodal_insight_engine/)
 
@@ -106,7 +105,7 @@ _Feb 2025 - May 2025_
 
 _Transformers, CLIP, ViT, Multimodal AI, PyTorch, Constitutional AI, Research Implementation, Multi-stage Training, Progressive Training, Model Optimization_
 
-### Data-Driven Analysis of DeepWeb Marketplace Dynamics
+### Statistical Analysis of DeepWeb Marketplace Dynamics
 _2019_
 
 [Demo](https://ada-2019.github.io/Project/) | [Github](https://github.com/ADA-2019/Project)

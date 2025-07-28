@@ -34,10 +34,10 @@ categories:
     display_name: Programming & Engineering
   ml_ai:
     description: Machine learning and AI frameworks
-    display_name: ML & AI
+    display_name: AI & Machine Learning
   data_science_analytics:
     description: Data science and analytics tools
-    display_name: Data Science
+    display_name: Data Science & Analytics
 configuration:
   category_separator: ' • '
   max_columns: 6
@@ -582,45 +582,75 @@ skills:
   name: Real-time Design
   versions:
   - firmware
-# New DS-specific skills
+# DS-specific skills - Programming & Engineering
 - category: programming_engineering
   name: Python (Expert)
   versions:
   - ds
 - category: programming_engineering
-  name: R (Proficient)
+  name: Docker / CI-CD / Git
   versions:
   - ds
 - category: programming_engineering
-  name: PostgreSQL
+  name: REST APIs / FastAPI
   versions:
   - ds
 - category: programming_engineering
-  name: Shell/Bash
+  name: SQL / Database Design
+  versions:
+  - ds
+- category: programming_engineering
+  name: System Architecture
+  versions:
+  - ds
+- category: programming_engineering
+  name: Technical Communication
+  versions:
+  - ds
+- category: programming_engineering
+  name: Cross-functional Projects
+  versions:
+  - ds
+# DS-specific skills - AI & Machine Learning
+- category: ml_ai
+  name: LLM Integration (Anthropic, OpenAI)
   versions:
   - ds
 - category: ml_ai
-  name: HuggingFace Ecosystem
+  name: PyTorch / TensorFlow
   versions:
   - ds
 - category: ml_ai
-  name: MLflow / Experiment Tracking
+  name: Transformers / Multimodal
   versions:
   - ds
 - category: ml_ai
-  name: Vector Databases (FAISS / Weaviate)
+  name: Prompt Engineering
   versions:
   - ds
 - category: ml_ai
-  name: Cloud ML (AWS / GCP)
+  name: RAG Systems
+  versions:
+  - ds
+- category: ml_ai
+  name: Vector Databases (FAISS/Weaviate)
+  versions:
+  - ds
+- category: ml_ai
+  name: Deep Learning / Neural Networks
+  versions:
+  - ds
+# DS-specific skills - Data Science & Analytics
+- category: data_science_analytics
+  name: Statistical Analysis / Modeling
   versions:
   - ds
 - category: data_science_analytics
-  name: Data Visualization (Plotly / Seaborn)
+  name: NumPy / Pandas / Matplotlib
   versions:
   - ds
 - category: data_science_analytics
-  name: Time-series / Signal Processing
+  name: scikit-learn / Statistical Learning
   versions:
   - ds
 - category: data_science_analytics
@@ -628,15 +658,15 @@ skills:
   versions:
   - ds
 - category: data_science_analytics
+  name: Time Series / Signal Processing
+  versions:
+  - ds
+- category: data_science_analytics
   name: Data Cleaning & Structuring
   versions:
   - ds
-- category: leadership_management
-  name: Prototype Development
-  versions:
-  - ds
-- category: leadership_management
-  name: Educational Leadership
+- category: data_science_analytics
+  name: Data Visualization (Plotly/Seaborn)
   versions:
   - ds
 version_layouts:
@@ -685,9 +715,7 @@ version_layouts:
     - programming_engineering
     - ml_ai
     - data_science_analytics
-    - leadership_management
     category_order:
     - programming_engineering
     - ml_ai
     - data_science_analytics
-    - leadership_management

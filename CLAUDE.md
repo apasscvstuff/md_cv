@@ -14,12 +14,16 @@ This is a markdown-based CV system that generates multiple CV versions from YAML
 - `python scripts/build-cv.py all` - Alternative build script location
 
 ### HTML Generation
-- `python build_system.py --html all` - Generate HTML for all versions
-- `python build_system.py --html firmware` - Generate HTML for specific version
+- `python build_system.py --html all` - Generate HTML for all versions (regenerates markdown from YAML)
+- `python build_system.py --html firmware` - Generate HTML for specific version (regenerates markdown from YAML)
+- `python build_system.py --html --from-existing all` - Generate HTML from existing markdown files (no YAML regeneration)
+- `python build_system.py --html --from-existing firmware` - Generate HTML from existing markdown file (no YAML regeneration)
 
 ### PDF Generation
-- `python build_system.py --pdf all` - Generate PDF for all versions (tries automated then manual)
-- `python build_system.py --pdf firmware` - Generate PDF for specific version
+- `python build_system.py --pdf all` - Generate PDF for all versions (tries automated then manual, regenerates markdown from YAML)
+- `python build_system.py --pdf firmware` - Generate PDF for specific version (regenerates markdown from YAML)
+- `python build_system.py --pdf --from-existing all` - Generate PDF from existing markdown files (no YAML regeneration)
+- `python build_system.py --pdf --from-existing firmware` - Generate PDF from existing markdown file (no YAML regeneration)
 - `python build_system.py --all-formats firmware` - Build markdown, HTML, and PDF
 
 ### Testing

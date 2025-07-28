@@ -115,7 +115,7 @@ versions:
     show_hospitality_background: true
   ds:
     name: "Data Scientist"
-    tagline: "Data Scientist | Embedded Systems Engineer"
+    tagline: "Data Scientist | Software Architect | Embedded Systems Engineer"
     
     toggles:
       - ds

@@ -3,8 +3,9 @@
 
 projects:
   # Enterprise RAG System for Technical Documentation - Shows in AI, consulting, general
-  - name: "Enterprise RAG System (Personal Portfolio Project)"
-    period: "June 2025 - Present"
+  - name: "Technical Documentation RAG System"
+    period: "July 2025"
+    location: "Lausanne, Switzerland"
     links:
       github: "https://github.com/apassuello/technical-doc-rag/"
       demo: "https://huggingface.co/spaces/ArthyP/technical-rag-assistant"
@@ -13,11 +14,18 @@ projects:
     
     # Version-specific descriptions
     descriptions:
-      "ai,ds":  # Shared descriptions for AI and DS
+      ai:
         - "**Personal Portfolio Project:** Architected production RAG processing 10,000+ documents with hierarchical parsing and multi-stage query processing"
         - "**Hybrid Retrieval:** Implemented hybrid retrieval: FAISS vector search + BM25 + neural reranking, achieving 94% relevance and <100ms latency"
         - "**Auto-scaling Infrastructure:** Built auto-scaling infrastructure handling 1,000+ QPS with A/B testing framework improving satisfaction 35%"
         - "**Enterprise Deployment:** Deployed enterprise solution with Weaviate integration and comprehensive LLM integration pipeline"
+      ds:
+        - "**Hybrid Search Implementation**: Built production RAG system combining FAISS vector search, BM25 sparse retrieval, and Reciprocal Rank Fusion (RRF) with optimized parameter tuning."
+        - "**Neural Reranking Pipeline**: Implemented cross-encoder reranking using Sentence Transformers with batch processing, lazy initialization, and caching mechanisms for improved relevance scoring"
+        - "**Multi-Backend Vector Storage**: Architected FAISS and Weaviate integration with hot-swapping capabilities, supporting both local development and cloud deployment scenarios"
+        - "**LLM API Integration**: Developed adapters for OpenAI, Anthropic, and HuggingFace APIs with unified interfaces, error handling, and response processing for consistent answer generation"
+        - "**Real-time Analytics Dashboard**: Created Plotly-based monitoring system with performance metrics, query analysis, and A/B testing framework for systematic retrieval optimization"
+        - "**Production Engineering**: Deployed using Docker containers with CI/CD pipelines, comprehensive logging, and modular 6-component architecture"
       
       consulting:
         - "**Personal Portfolio Project:** Architected production RAG processing 10,000+ documents with hierarchical parsing and multi-stage query processing"
@@ -33,13 +41,14 @@ projects:
     
     # Skills tags by version
     skills_tags:
-      "ai,ds": "RAG, FAISS, Vector Search, Neural Reranking, Production ML, NLP, LangChain, A/B Testing, Weaviate, Deployment, Query Processing, LLM Integration"
+      ai: "RAG, FAISS, Vector Search, Neural Reranking, Production ML, NLP, LangChain, A/B Testing, Weaviate, Deployment, Query Processing, LLM Integration"
+      ds: "RAG Systems, FAISS, Weaviate, Sentence Transformers, BM25, Neural Reranking, OpenAI API, Anthropic API, Docker, CI/CD, Plotly"
       consulting: "RAG, FAISS, Vector Search, Neural Reranking, Production ML, NLP, LangChain, A/B Testing, Weaviate, Deployment, Query Processing, LLM Integration"
       general: "RAG, FAISS, Vector Search, Neural Reranking, Production ML, NLP, LangChain, A/B Testing, Weaviate, Deployment, Query Processing, LLM Integration"
 
   # MultiModal AI Research Implementation - Shows in AI, consulting, general
-  - name: "MultiModal AI Research Implementation (Personal Project)"
-    period: "Feb 2025 - May 2025"
+  - name: "MultiModal AI Research Implementation"
+    period: "2025"
     links:
       github: "https://github.com/apassuello/multimodal_insight_engine/"
     versions: ["ai", "ds", "consulting", "general"]
@@ -47,11 +56,16 @@ projects:
     
     # Version-specific descriptions
     descriptions:
-      "ai,ds":
+      ai:
         - "**Transformer Implementation:** Implemented transformer architectures from scratch (Attention is All You Need) with multi-stage training pipeline"
         - "**Multimodal Fusion:** Built CLIP and ViT implementations for vision-language tasks with cross-modal attention and progressive training stages"
         - "**Safety Framework:** Developed Constitutional AI safety framework with red teaming suite testing 500+ adversarial cases"
         - "**Performance Optimization:** Optimized for Apple Silicon achieving 6x inference speedup through custom MPS kernels and multi-stage optimization"
+      ds:
+        - "**Transformer Architecture from Scratch**: Implemented complete transformer encoder-decoder with multiple attention variants, rotary positional embeddings, and Vision Transformer (ViT) with patch embedding"
+        - "**Statistical Learning Framework**: Developed comprehensive testing infrastructure with 172 test functions, implementing 15+ loss functions including VICReg, contrastive learning, and Barlow Twins"
+        - "**Safety-Focused AI Development**: Built red-teaming framework and safety evaluation metrics aligned with Constitutional AI principles, documenting feature collapse challenges in multimodal contrastive learning"
+        - "**Research Documentation**: Systematic approach to documenting technical challenges, solutions attempted, and areas for future investigation with production-ready code organization"
       
       consulting:
         - "**Multimodal AI Platform:** Implemented transformer architectures from scratch (Attention is All You Need) with multi-stage training pipeline"
@@ -67,12 +81,13 @@ projects:
     
     # Skills tags by version
     skills_tags:
-      "ai,ds": "Transformers, CLIP, ViT, Multimodal AI, PyTorch, Constitutional AI, Research Implementation, Multi-stage Training, Progressive Training, Model Optimization"
+      ai: "Transformers, CLIP, ViT, Multimodal AI, PyTorch, Constitutional AI, Research Implementation, Multi-stage Training, Progressive Training, Model Optimization"
+      ds: "PyTorch, Transformers, Vision Transformers, Multimodal AI, Constitutional AI, Statistical Learning, VICReg, Contrastive Learning"
       consulting: "Transformers, CLIP, ViT, Multimodal AI, PyTorch, Constitutional AI, Research Implementation, Multi-stage Training, Progressive Training, Model Optimization"
       general: "Transformers, CLIP, ViT, Multimodal AI, PyTorch, Constitutional AI, Research Implementation, Multi-stage Training, Progressive Training, Model Optimization"
 
   # Data-Driven Analysis of DeepWeb Marketplace Dynamics - Shows in all except firmware and executive
-  - name: "Data-Driven Analysis of DeepWeb Marketplace Dynamics"
+  - name: "Statistical Analysis of DeepWeb Marketplace Dynamics"
     period: "2019"
     links:
       demo: "https://ada-2019.github.io/Project/"
@@ -83,12 +98,16 @@ projects:
     
     # Version-specific descriptions
     descriptions:
-      "ai,ds":
+      ai:
         - "**Statistical Modeling:** Implemented statistical modeling pipeline to reconstruct missing marketplace data, addressing data sparsity challenges in large-scale behavioral datasets"
         - "**Big Data Processing:** Built scalable data processing system using PySpark and distributed databases handling 1TB+ of historical marketplace data on standard hardware"
         - "**Data Extraction Pipeline:** Developed comprehensive data extraction and cleaning pipeline processing mixed HTML content using BeautifulSoup and custom parsing algorithms"
         - "**Interactive Visualization:** Created interactive JavaScript visualization dashboard demonstrating complex market dynamics and regulatory policy impact analysis"
         - "**Statistical Analysis:** Conducted rigorous statistical analysis of police intervention effects on marketplace behavior, revealing no significant long-term market disruption"
+      ds:
+        - "**Big Data Statistical Modeling**: Implemented comprehensive statistical analysis on 1TB+ historical marketplace dataset using PySpark and distributed computing, focusing on behavioral economics and regulatory policy impact analysis"
+        - "**Missing Data Reconstruction**: Developed statistical modeling pipeline to address data sparsity challenges, applying advanced statistical techniques to reconstruct marketplace behavioral patterns from incomplete datasets"
+        - "**Policy Impact Analysis**: Conducted rigorous statistical analysis of law enforcement intervention effects on digital marketplace behavior, demonstrating statistically significant findings about market resilience through quantitative analysis"
       
       consulting:
         - "**Policy Impact Analysis:** Analyzed regulatory policy impact on digital marketplace ecosystems, investigating law enforcement intervention effects on market dynamics"
@@ -106,7 +125,8 @@ projects:
     
     # Skills tags by version
     skills_tags:
-      "ai,ds": "Statistical Modeling, Data Engineering, PySpark, Distributed Computing, Big Data Analytics, ETL Pipelines, Data Quality, Exploratory Data Analysis, Time Series Analysis, A/B Testing, Data Visualization, D3.js, Behavioral Analytics, Causal Inference"
+      ai: "Statistical Modeling, Data Engineering, PySpark, Distributed Computing, Big Data Analytics, ETL Pipelines, Data Quality, Exploratory Data Analysis, Time Series Analysis, A/B Testing, Data Visualization, D3.js, Behavioral Analytics, Causal Inference"
+      ds: "PySpark, Statistical Modeling, Big Data Analytics, Distributed Computing, BeautifulSoup, Data Visualization"
       consulting: "Big Data Analytics, Policy Impact Analysis, Distributed Systems, Data Quality Frameworks, Stakeholder Communication, Regulatory Analysis, Web Visualization"
       general: "Big Data Processing, Statistical Analysis, PySpark, Distributed Computing, Data Visualization, JavaScript, Web Development, Policy Research"
 

@@ -15,16 +15,32 @@ experiences:
       executive: "Senior Embedded Software Engineer"
       consulting: "Embedded Software Engineer"
       ai: "Embedded Software Engineer & Technical Lead"
+      ds: "Embedded Software Engineer"
       firmware: "Embedded Software Engineer"
       general: "Embedded Software Engineer"
     
     # Achievements with conditional logic following Action+Metric+Impact pattern
     achievements:
       # Core achievement - Priority 1 (consolidated with key metrics)
-      - text: "**Clinical Trial Leadership:** Led firmware development for Sigi™ insulin pump delivering FDA-compliant system for First In Human clinical trial, ensuring ISO-13485/IEC-62304 compliance with comprehensive regulatory documentation"
-        versions: ["ai","ds"]
+      - text: "**Statistical Failure Analysis**: Conducted comprehensive root cause analysis for bluetooth communication anomalies using statistical methods to identify failure predictors and validate fix effectiveness through statistical process control techniques"
+        versions: ["ds"]
         priority: 1
-        type: "ai_focus"
+        type: "ds_focus"
+        
+      - text: "**Data-Driven System Validation**: Applied statistical analysis to sensor fusion data from accelerometer and Hall effect sensors, implementing calibration algorithms based on statistical modeling of device performance patterns"
+        versions: ["ds"]
+        priority: 1
+        type: "ds_focus"
+        
+      - text: "**Cross-functional Analytics Collaboration**: Worked extensively with QA, regulatory affairs, and clinical teams to analyze and interpret device performance data, ensuring statistical validation of medical device functionality for regulatory compliance"
+        versions: ["ds"]
+        priority: 1
+        type: "ds_focus"
+        
+      - text: "**Technical Team Leadership**: Led firmware development team while mentoring colleagues in statistical analysis techniques and data-driven development methodologies"
+        versions: ["ds"]
+        priority: 1
+        type: "ds_focus"
         
       - text: "**FDA-Compliant Firmware:** Led firmware development for Sigi™ insulin pump delivering FIH-compliant system 15% ahead of schedule"
         versions: ["firmware", "consulting", "executive", "general"]
@@ -88,32 +104,32 @@ experiences:
         type: "leadmetric"
         
       - text: "**Technical Documentation System:** Designed and prototyped RAG-based technical documentation search system for complex medical device specifications, implementing intelligent document retrieval to improve engineering team efficiency"
-        versions: ["ai","ds"]
+        versions: ["ai"]
         priority: 1
         type: "ai_focus"
         
       - text: "**Data Pipeline Development:** Implemented Hall effect signal modeling and data analysis pipelines using Python for simulation experiments and sensor validation in medical device applications"
-        versions: ["ai","ds"]
+        versions: ["ai"]
         priority: 2
         type: "ai_focus"
         
       - text: "**Production Systems:** Architected safety-critical software with 99.9% uptime, implementing comprehensive testing (96% coverage) and real-time monitoring"
-        versions: ["ai","ds"]
+        versions: ["ai"]
         priority: 1
         type: "ai_focus"
         
       - text: "**Cross-functional Leadership:** Organized and facilitated Scrum ceremonies (standups, sprint planning, retrospectives, demos) while coordinating with hardware, QA, regulatory affairs, and clinical teams across multiple time zones"
-        versions: ["ai","ds"]
+        versions: ["ai"]
         priority: 1
         type: "ai_focus"
         
       - text: "**Technical Infrastructure:** Developed comprehensive HIL (Hardware-in-the-Loop) test infrastructure achieving 96% code coverage, enabling automated firmware validation and accelerating development cycles by 40%"
-        versions: ["ai","ds"]
+        versions: ["ai"]
         priority: 1
         type: "ai_focus"
         
       - text: "**Embedded Architecture:** Designed and implemented embedded software architecture for medical device combining Bluetooth communication stack with real-time insulin delivery protocols and safety-critical algorithms"
-        versions: ["ai","ds"]
+        versions: ["ai"]
         priority: 1
         type: "ai_focus"
         
@@ -203,7 +219,8 @@ experiences:
     # Skills tags by version
     skills_tags:
       firmware: "Software Architecture, System Engineering, C/C++, Python, FreeRTOS, Safety-Critical Systems, Sensor Fusion, Statistical Algorithms, Technical Leadership, Cross-functional Team Coordination, CI/CD Implementation, GitHub Actions, Grafana, Real-time Monitoring, Git Version Control, Stakeholder Communication, JTAG, STM32, Nordic, HIL Testing, Power Optimization, Agile/Scrum"
-      "ai, ds": "Signal Processing , Statistical Analysis , Production Systems , Team Leadership , Software Architecture , Testing Infrastructure , CI/CD , QMS, Grafana , Real-time Monitoring , Medical Device Development"
+      ai: "Signal Processing , Statistical Analysis , Production Systems , Team Leadership , Software Architecture , Testing Infrastructure , CI/CD , QMS, Grafana , Real-time Monitoring , Medical Device Development"
+      ds: "Statistical Analysis, Signal Processing, Medical Device Development, Cross-functional Collaboration, Python, Data Analysis, Quality Systems, Regulatory Compliance"
       consulting: "Technical Strategy, Cross-functional Coordination, Regulatory Compliance, Stakeholder Communication, Strategic Consulting, Proof-of-Concept Development, Technical Training, Team Development, Change Management, Innovation Leadership, Client Presentations, Ethical Technology Development"
       executive: "Strategic Technical Leadership, Cross-functional Coordination, Regulatory Compliance, $2M+ Project Impact"
       general: "System Architecture, Python, Technical Leadership, Proof-of-Concept Development, Risk Management, Requirement Engineering, Team Mentoring, Cross-functional Communication, HIL Testing, Statistical Analysis"
@@ -276,15 +293,21 @@ experiences:
     
     position_base: "Digital Week Assistant - ML Education Lead"
     position_variants:
-      "ai, ds": "Lead AI/ML Instructor & Curriculum Designer"
+      ai: "Lead AI/ML Instructor & Curriculum Designer"
+      ds: "ML Education Lead & Curriculum Designer"
       consulting: "Digital Week Assistant - ML Education Lead"
       general: "Student Assistant - ML Education Lead"
       firmware: "Assistant - ML Education Lead"
     
     achievements:
       # AI version - detailed ML content
+      - text: "**Data Science Curriculum Development**: Designed and delivered comprehensive 40-hour Python and Machine Learning curriculum for 100+ international MBA students across 4 consecutive years"
+        versions: ["ds"]
+        priority: 1
+        type: "ds_focus"
+        
       - text: "**ML Curriculum:** Designed 40-hour hands-on curriculum covering supervised learning, neural networks, and PyTorch, achieving 4.8/5.0 rating from 100+ international executives"
-        versions: ["ai","ds"]
+        versions: ["ai"]
         priority: 1
         type: "ai_focus"
         
@@ -293,8 +316,18 @@ experiences:
         priority: 1
         type: "consulting_focus"
         
+      - text: "**Applied Statistical Learning**: Created hands-on business analytics projects including demand forecasting, sentiment analysis, and predictive modeling with students presenting statistical insights to executive audiences"
+        versions: ["ds"]
+        priority: 1
+        type: "ds_focus"
+        
+      - text: "**Cross-cultural Technical Communication**: Successfully translated complex statistical concepts and machine learning algorithms into actionable business insights for diverse, non-technical international professional audiences"
+        versions: ["ds"]
+        priority: 1
+        type: "ds_focus"
+        
       - text: "**Technical Translation:** Developed innovative methods to explain backpropagation, attention mechanisms, and gradient descent to non-technical business leaders"
-        versions: ["ai","ds"]
+        versions: ["ai"]
         priority: 1
         type: "ai_focus"
         
@@ -304,12 +337,12 @@ experiences:
         type: "consulting_focus"
         
       - text: "**Applied Projects:** Led implementation of business-focused ML projects including demand forecasting and sentiment analysis, with students presenting to C-suite"
-        versions: ["ai","ds"]
+        versions: ["ai"]
         priority: 1
         type: "ai_focus"
         
       - text: "**Advanced Pedagogical Skills:** Demonstrated advanced pedagogical skills in technical education, successfully translating complex ML algorithms into actionable business insights for diverse international professional backgrounds"
-        versions: ["ai","ds"]
+        versions: ["ai"]
         priority: 2
         type: "ai_focus"
         
@@ -356,7 +389,8 @@ experiences:
         type: "base"
     
     skills_tags:
-      "ai, ds": "PyTorch , Teaching , Neural Networks , Python , Curriculum Design , Technical Communication , Training Development , Cross-cultural Communication , Educational Content Creation"
+      ai: "PyTorch , Teaching , Neural Networks , Python , Curriculum Design , Technical Communication , Training Development , Cross-cultural Communication , Educational Content Creation"
+      ds: "Python, Machine Learning, Statistical Learning, Curriculum Design, Technical Communication, Cross-cultural Training, Business Analytics"
       consulting: "Technical Training Design, Stakeholder Communication, Cross-cultural Management, Educational Content Creation, Team Leadership, Business Impact Analysis"
       general: "Technical Training, Team Leadership, Cross-cultural Communication, Python Programming, Educational Content Creation"
       firmware: "Technical Training, Team Leadership, Cross-cultural Communication, Python Programming, Educational Content Creation"
@@ -371,6 +405,7 @@ experiences:
     position_base: "Research Project Student Intern"
     position_variants:
       ai: "Research Project Student Intern"
+      ds: "Research Project Student Intern"
       consulting: "Research Project Student Intern"
       general: "Research Project Student Intern"
       firmware: "Research Project Student Intern"
@@ -393,23 +428,38 @@ experiences:
         type: "base"
         
       # AI version - detailed machine learning and signal processing
+      - text: "**Neural Signal Statistical Analysis**: Performed time series analysis on 300+ parallel neural signal channels at 50-60Hz sampling rates for epilepsy onset detection, implementing feature extraction algorithms and statistical pattern recognition for medical diagnostic applications"
+        versions: ["ds"]
+        priority: 1
+        type: "ds_focus"
+        
       - text: "**Neural Signal Processing:** Performed time series analysis on 300+ parallel neural signals at 50-60Hz for epilepsy onset detection, implementing feature extraction algorithms for medical diagnostic applications"
-        versions: ["ai","ds"]
+        versions: ["ai"]
         priority: 1
         type: "ai_focus"
         
+      - text: "**Medical Data Processing**: Developed signal processing pipelines using Python for ASIC-based neural electrode data acquisition, focusing on statistical validation of biomedical signal quality and diagnostic accuracy"
+        versions: ["ds"]
+        priority: 1
+        type: "ds_focus"
+        
+      - text: "**Clinical Data Analytics**: Contributed to development of machine learning-based seizure detection algorithms, applying statistical methods to enhance diagnostic sensitivity and specificity in clinical applications"
+        versions: ["ds"]
+        priority: 1
+        type: "ds_focus"
+        
       - text: "**Signal Processing Pipelines:** Developed signal processing pipelines using Python visualization libraries for ASIC-based neural electrode data acquisition and analysis"
-        versions: ["ai","ds"]
+        versions: ["ai"]
         priority: 2
         type: "ai_focus"
         
       - text: "**Medical AI Algorithms:** Developed machine learning-based seizure detection algorithms achieving 87% accuracy with <100ms real-time processing latency"
-        versions: ["ai","ds"]
+        versions: ["ai"]
         priority: 1
         type: "ai_focus"
         
       - text: "**High-Frequency Processing:** Processed neural signals at 30kHz sampling rate contributing to 2 patent applications for novel electrode technology"
-        versions: ["ai","ds"]
+        versions: ["ai"]
         priority: 2
         type: "ai_focus"
         
@@ -447,7 +497,8 @@ experiences:
     
     skills_tags:
       firmware: "Hardware-Software Integration, C/C++, Python, VHDL, ASIC Integration, Embedded Drivers, Medical Device Development, Regulatory Compliance, R&D Prototyping, Signal Processing, EPFL Innovation Park"
-      "ai,ds": "Neural Signal Processing, Python, Machine Learning, Signal Processing Pipelines, Medical AI, Feature Extraction, Time Series Analysis, Seizure Detection, High-Frequency Processing, Data Visualization, Medical Diagnostics"
+      ai: "Neural Signal Processing, Python, Machine Learning, Signal Processing Pipelines, Medical AI, Feature Extraction, Time Series Analysis, Seizure Detection, High-Frequency Processing, Data Visualization, Medical Diagnostics"
+      ds: "Neural Signal Processing, Python, Machine Learning, Time Series Analysis, Feature Extraction, Medical Diagnostics, Statistical Pattern Recognition"
       consulting: "Medical Device R&D, Regulatory Compliance, Research Prototyping, Technical Documentation, Multidisciplinary Collaboration, Quality Systems, Ethical Technology Development"
       general: "System Integration, Python, FPGA, Medical Device Development, R&D Collaboration, Regulatory Standards, Prototype Development"
 

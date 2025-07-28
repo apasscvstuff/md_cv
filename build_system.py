@@ -1300,6 +1300,23 @@ _{personal_info['address']}_
                 shutil.rmtree(fonts_output_dest)
             shutil.copytree(fonts_src, fonts_output_dest)
 
+    def build_html_from_existing(self, target_version: str, template: str = "francois", no_enrich: bool = False) -> None:
+        """Build HTML version of CV from existing markdown file (no YAML regeneration)"""
+        print(f"Building HTML from existing markdown for {target_version} version...")
+
+        # Check if markdown file exists
+        md_path = self.output_dir / target_version / f"arthur-{target_version}.md"
+        if not md_path.exists():
+            print(f"❌ Markdown file not found: {md_path}")
+            print(f"   Run without --from-existing to generate markdown from YAML first")
+            return
+
+        # Load existing markdown content
+        with open(md_path, 'r', encoding='utf-8') as f:
+            clean_markdown = f.read()
+
+        self._process_markdown_to_html(clean_markdown, target_version, template, no_enrich)
+
     def build_html(self, target_version: str, template: str = "francois", no_enrich: bool = False) -> None:
         """Build HTML version of CV from clean markdown with optional enrichment"""
         print(f"Building HTML for {target_version} version...")
@@ -1311,6 +1328,13 @@ _{personal_info['address']}_
         md_path = self.output_dir / target_version / f"arthur-{target_version}.md"
         with open(md_path, 'r', encoding='utf-8') as f:
             clean_markdown = f.read()
+
+        self._process_markdown_to_html(clean_markdown, target_version, template, no_enrich)
+
+    def _process_markdown_to_html(self, clean_markdown: str, target_version: str, template: str = "francois", no_enrich: bool = False) -> None:
+        """Common HTML processing logic for both build methods"""
+        
+        md_path = self.output_dir / target_version / f"arthur-{target_version}.md"
 
         if no_enrich:
             # Use clean markdown directly (for debugging)
@@ -1364,6 +1388,17 @@ _{personal_info['address']}_
             if not no_enrich:
                 temp_html_path.unlink(missing_ok=True)
 
+    def build_pdf_from_existing(self, target_version: str, template: str = "francois") -> None:
+        """Attempt to build PDF version of CV from existing markdown (no YAML regeneration)"""
+        print(f"Building PDF from existing markdown for {target_version} version...")
+
+        # First ensure HTML exists, generate from existing markdown if needed
+        html_path = self.output_dir / target_version / f"arthur-{target_version}.html"
+        if not html_path.exists():
+            self.build_html_from_existing(target_version, template)
+
+        self._process_pdf_generation(target_version)
+
     def build_pdf(self, target_version: str, template: str = "francois") -> None:
         """Attempt to build PDF version of CV"""
         print(f"Building PDF for {target_version} version...")
@@ -1373,6 +1408,12 @@ _{personal_info['address']}_
         if not html_path.exists():
             self.build_html(target_version, template)
 
+        self._process_pdf_generation(target_version)
+
+    def _process_pdf_generation(self, target_version: str) -> None:
+        """Common PDF generation logic for both build methods"""
+        
+        html_path = self.output_dir / target_version / f"arthur-{target_version}.html"
         pdf_path = self.output_dir / target_version / f"arthur-{target_version}.pdf"
 
         # Try different PDF generation methods
@@ -1669,6 +1710,9 @@ def main():
     parser.add_argument(
         "--no-enrich", action="store_true", help="Skip markdown enrichment (for debugging clean markdown)"
     )
+    parser.add_argument(
+        "--from-existing", action="store_true", help="Generate HTML/PDF from existing markdown (skip YAML regeneration)"
+    )
 
     args = parser.parse_args()
 
@@ -1686,19 +1730,37 @@ def main():
         else:
             builder.test_version(args.version)
     elif args.html:
-        # Build markdown + HTML only
-        if args.version == "all":
-            for version in builder.versions.keys():
-                builder.build_html(version, template=args.template, no_enrich=args.no_enrich)
+        # Build HTML only
+        if args.from_existing:
+            # Generate HTML from existing markdown files
+            if args.version == "all":
+                for version in builder.versions.keys():
+                    builder.build_html_from_existing(version, template=args.template, no_enrich=args.no_enrich)
+            else:
+                builder.build_html_from_existing(args.version, template=args.template, no_enrich=args.no_enrich)
         else:
-            builder.build_html(args.version, template=args.template, no_enrich=args.no_enrich)
+            # Build markdown + HTML
+            if args.version == "all":
+                for version in builder.versions.keys():
+                    builder.build_html(version, template=args.template, no_enrich=args.no_enrich)
+            else:
+                builder.build_html(args.version, template=args.template, no_enrich=args.no_enrich)
     elif args.pdf:
-        # Build markdown + HTML + PDF 
-        if args.version == "all":
-            for version in builder.versions.keys():
-                builder.build_all_formats(version, template=args.template)
+        # Build PDF
+        if args.from_existing:
+            # Generate PDF from existing markdown files
+            if args.version == "all":
+                for version in builder.versions.keys():
+                    builder.build_pdf_from_existing(version, template=args.template)
+            else:
+                builder.build_pdf_from_existing(args.version, template=args.template)
         else:
-            builder.build_all_formats(args.version, template=args.template)
+            # Build markdown + HTML + PDF
+            if args.version == "all":
+                for version in builder.versions.keys():
+                    builder.build_all_formats(version, template=args.template)
+            else:
+                builder.build_all_formats(args.version, template=args.template)
     else:
         # Default: build markdown only
         if args.version == "all":
