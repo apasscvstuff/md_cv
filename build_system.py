@@ -13,7 +13,7 @@ import argparse
 
 # Add dynamic skills processor with fallback
 try:
-    from DYNAMIC_SKILLS_PROCESSOR import DynamicSkillsProcessor
+    from dynamic_skills_processor import DynamicSkillsProcessor
     DYNAMIC_SKILLS_AVAILABLE = True
 except ImportError:
     DYNAMIC_SKILLS_AVAILABLE = False
