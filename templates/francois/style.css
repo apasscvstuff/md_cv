@@ -199,7 +199,7 @@
      ========================================================================== */
 
   /* 🖼️ PROFILE PICTURE CONTROLS - Easy size and styling adjustments */
-  --profile-pic-size: 150px;
+  --profile-pic-size: 130px;
   /* Profile picture size (120px=smaller, 180px=larger) */
   --profile-pic-border-width: 3px;
   /* Border thickness (1px=thin, 5px=thick, 0px=no border) */
@@ -696,7 +696,7 @@ li::before {
    ============================================================================= */
 
 .cv-certifications {
-  margin-bottom: var(--space-section);
+  /* Bottom margin handled by section spacing rules */
 }
 
 .cv-certification-item {
@@ -840,7 +840,7 @@ h3+p a {
     --space-item: 0.5rem;
 
     /* Scaled elements for print */
-    --profile-pic-size: calc(var(--profile-pic-size) * 0.8);
+    /* Profile pic size now uses regular CSS variable without scaling */
     --bullet-spacing: calc(var(--bullet-spacing) * 0.8);
   }
 
@@ -867,8 +867,8 @@ h3+p a {
   }
 
   .profile-pic {
-    width: 110px;
-    height: 110px;
+    width: var(--profile-pic-size);
+    height: var(--profile-pic-size);
   }
 
   /* 🎯 SECTION SPACING - UNIFIED APPROACH */
@@ -883,6 +883,12 @@ h3+p a {
   .cv-main-content section.cv-section:first-child,
   .cv-main-content .cv-section:first-child {
     margin-top: 0;
+  }
+
+  /* Last section no bottom margin to prevent empty page */
+  .cv-main-content section.cv-section:last-child,
+  .cv-main-content .cv-section:last-child {
+    margin-bottom: 0;
   }
 
   /* 📋 PAGE BREAK MANAGEMENT */
