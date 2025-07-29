@@ -162,9 +162,9 @@
      Based on typographic scale with golden ratio influence for visual harmony
      ========================================================================== */
 
-  /* 🎯 SWISS DESIGN SPACING - François reference proportions (reduced for density) */
-  --space-section: 1.5rem;
-  /* Between major sections - proper spacing for PDF generation */
+  /* 🎯 SWISS DESIGN SPACING - François reference proportions (optimized for AI version) */
+  --space-section: 1.2rem;
+  /* Between major sections - optimized for content density and page flow */
   --space-subsection: 0.5rem;
   /* Between companies/projects - maintains hierarchy */
   --space-item: 0.375rem;
@@ -356,8 +356,8 @@ body {
   grid-area: main-content;
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-small);
-  /* Reduced gap to prevent double spacing with section margins */
+  gap: 0;
+  /* Remove gap - use pure margin-based spacing for PDF compatibility */
 }
 
 .profile-pic {
@@ -827,8 +827,8 @@ h3+p a {
     --size-tiny: clamp(6pt, 1.2vw, 7pt);
     --margin-page: 12mm;
     /* Optimized print margins for professional presentation */
-    --line-height-print: 1.35;
-    /* Tighter line height for print readability */
+    --line-height-print: 1.5;
+    /* Increased line height to prevent text overlap in PDF */
     
     /* 📐 PRINT-OPTIMIZED CUSTOMIZATION OVERRIDES */
     /* These automatically scale your customizations for better PDF output */
@@ -847,11 +847,16 @@ h3+p a {
   /* 📄 PDF BODY OPTIMIZATION - Following guide.md recommendations */
   body {
     max-width: none;
-    line-height: var(--line-height-print);
+    line-height: var(--line-height-print) !important;
     font-size: var(--size-body);
     /* Ensure color accuracy in PDF generation */
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
+  }
+  
+  /* Force consistent line heights to prevent overlap */
+  * {
+    line-height: var(--line-height-print) !important;
   }
 
   /* 🖨️ GRID-AWARE PRINT LAYOUT - Toolkit.md SitePoint method */
@@ -911,8 +916,8 @@ h3+p a {
 
 @page {
   size: A4 portrait;
-  margin: 12mm 15mm 15mm 15mm;
-  /* Swiss design margins: slightly reduced top for content density */
+  margin: 15mm 15mm 15mm 15mm;
+  /* Optimized margins for better readability and content flow */
 
   /* Page counter for multi-page CVs */
   @bottom-right {
@@ -941,38 +946,52 @@ h3+p a {
     /* Removed page-break-inside: avoid to allow sections to span pages */
   }
 
-  /* LATEX-STYLE PAGE BREAKING: Keep individual entries together, allow breaks between entries */
+  /* INTELLIGENT PAGE BREAKING: Optimized for AI version content density */
   
-  /* Keep ALL individual entries together as complete units - like LaTeX does */
+  /* Keep shorter entries together */
   .cv-experience-item,
-  .cv-project-item,
   .cv-education-item,
   .cv-certification-item {
-    page-break-inside: avoid;
     break-inside: avoid;
     margin-bottom: var(--space-subsection);
   }
 
-  /* Allow page breaks between entries - this is key for natural flow */
-  .cv-experience-item + .cv-experience-item,
-  .cv-project-item + .cv-project-item,
-  .cv-education-item + .cv-education-item {
-    page-break-before: auto;
-    break-before: auto;
+  /* ANTI-ORPHAN PROJECT RULES: Prevent title orphaning */
+  .cv-project-item {
+    margin-bottom: var(--space-subsection);
+    break-inside: avoid;
+    page-break-inside: avoid;
+    /* Prevent project entries from splitting across pages */
+  }
+  
+  /* Keep project header with first content */
+  .cv-project-item h3,
+  .cv-project-item .cv-project-links,
+  .cv-project-item ul li:first-child,
+  .cv-project-item ul li:nth-child(2) {
+    break-after: avoid;
+    page-break-after: avoid;
+    /* Keep title with first 2 bullets to prevent orphaning */
+  }
+  
+  /* Prevent widow lines in project descriptions */
+  .cv-project-item li {
+    orphans: 2;
+    widows: 2;
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 
-  /* Keep section headers with their content - no orphaned headers */
+  /* Keep section headers with their content */
   h2.cv-section-header {
     page-break-after: avoid;
     break-after: avoid;
-    page-break-before: auto;
-    break-before: auto;
   }
   
-  /* Allow sections to break from each other naturally */
-  .cv-section {
-    page-break-before: auto;
-    break-before: auto;
+  /* Keep individual list items together */
+  li {
+    page-break-inside: avoid;
+    break-inside: avoid;
   }
 }
 
@@ -1254,7 +1273,7 @@ h3+p a {
 
 /* 🎯 Projects Section Elements */
 .cv-project-item {
-  margin-bottom: var(--space-item);
+  margin-bottom: var(--space-subsection);
   padding-bottom: var(--space-small);
 }
 
@@ -1267,13 +1286,13 @@ h3+p a {
 }
 
 .cv-project-name .cv-project-period {
-  /* Style period when it's inline with project title */
+  /* Style period when it's inline with project title - NO FLOAT */
   font-family: var(--font-secondary);
   font-size: var(--size-small);
   font-weight: 400;
   color: var(--color-text-light);
   font-style: italic;
-  float: right;
+  /* Removed float: right - handled by flexbox in .cv-entry-header */
 }
 
 .cv-project-period {
@@ -1325,10 +1344,10 @@ h3+p a {
 
 /* 🎓 Education Section Elements - Match work experience styling exactly */
 .cv-education-item {
-  margin-bottom: var(--space-small);
-  /* Reduced spacing for clean look */
-  padding-bottom: 0;
-  /* Remove padding for minimal design */
+  margin-bottom: var(--space-subsection);
+  /* Consistent with other sections */
+  padding-bottom: var(--space-small);
+  /* Add padding for consistent spacing */
   border-bottom: none;
   /* Remove border for cleaner look */
 }
@@ -1554,42 +1573,43 @@ h3+p a {
    between Projects and Education/Certifications sections in PDF output
    ============================================================================= */
 
-/* Section-level spacing to prevent overlaps */
+/* CLEAN VERTICAL SEPARATION - Eliminate overlap with predictable spacing */
 .cv-section {
   margin-bottom: var(--space-section);
-}
-
-.cv-section + .cv-section {
   margin-top: var(--space-section);
+  /* Consistent top and bottom margins for predictable PDF spacing */
 }
 
-/* Ensure proper spacing between sections to prevent overlap */
-.cv-section {
-  margin-bottom: var(--space-section);
+/* First section doesn't need top margin */
+.cv-main-content .cv-section:first-child {
+  margin-top: 0;
 }
 
-/* CRITICAL: Force separation between overlapping sections */
-.cv-projects {
-  margin-bottom: calc(var(--space-section) * 2);
-  padding-bottom: var(--space-section);
-}
-
-.cv-education,
-.cv-certifications {
-  margin-top: calc(var(--space-section) * 2);
-  padding-top: var(--space-section);
-}
-
-/* Additional print-specific spacing to prevent overlap */
+/* PDF-OPTIMIZED VERTICAL SPACING */
 @media print {
-  .cv-projects {
-    margin-bottom: 20mm;
-    padding-bottom: 10mm;
+  /* Maintain consistent section spacing in PDF */
+  .cv-section {
+    margin-bottom: var(--space-section);
+    margin-top: var(--space-section);
+    /* Force consistent vertical separation */
   }
   
-  .cv-education,
-  .cv-certifications {
-    margin-top: 20mm;
-    padding-top: 10mm;
+  /* First section still no top margin */
+  .cv-main-content .cv-section:first-child {
+    margin-top: 0;
+  }
+  
+  /* Prevent widows and orphans */
+  .cv-section h2 {
+    orphans: 2;
+    widows: 2;
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+  
+  /* Additional Projects-Education separation */
+  .cv-projects {
+    margin-bottom: calc(var(--space-section) * 1.5);
+    /* Extra spacing to prevent overlap */
   }
 }
