@@ -8,29 +8,20 @@ _Chemin du Parc-de-Valency 1, 1004 Lausanne, Switzerland_
 📞 +41 79 176 24 84 | ✉️ [apassuello@proton.me](mailto:apassuello@proton.me) | 🔗 [GitHub](https://github.com/apassuello) | 💼 [LinkedIn](https://linkedin.com/in/arthur-passuello/)
 
 **French (Native) • English (Fluent) • German (Basics)**
-_Applied AI/ML engineer and educator with expertise in production systems, deep learning, and transformative AI technologies. Combines hands-on technical implementation with educational impact, developing RAG-based systems and leading technical teams while creating content that bridges complex AI concepts for diverse audiences. Passionate about democratizing AI knowledge and building responsible AI solutions._
+_Embedded systems engineer transitioning to AI research with proven ability to implement complex theoretical concepts (Constitutional AI, attention mechanisms) in production-ready systems. Unique combination of hardware optimization expertise and AI safety implementation._
 
 
 ## Skills
 
-| **Programming Languages** | **AI & Machine Learning** | **Data Science** | **Project Management** |
-| :-- | :-- | :-- | :-- |
-| ✓ Docker, Git, CI/CD | ✓ Constitutional AI | ✓ Data Engineering | ✓ Cross-cultural Communication |
-| ✓ FastAPI, REST | ✓ Deep Learning | ✓ Jupyter Notebooks | ✓ Educational Content Creation |
-| ✓ Python, R | ✓ Large Language Models (LLMs) | ✓ Matplotlib |  |
-| ✓ Technical Leadership | ✓ Model Optimization | ✓ NumPy |  |
-|  | ✓ Multimodal AI | ✓ Pandas |  |
-|  | ✓ Neural Networks | ✓ Seaborn |  |
-|  | ✓ Neural Networks, Deep Learning | ✓ Statistical Analysis |  |
-|  | ✓ Production ML |  |  |
-|  | ✓ PyTorch |  |  |
-|  | ✓ PyTorch, TensorFlow |  |  |
-|  | ✓ RAG (Retrieval-Augmented Generation) |  |  |
-|  | ✓ RAG, Vector Search |  |  |
-|  | ✓ TensorFlow |  |  |
-|  | ✓ Transformers |  |  |
-|  | ✓ Transformers, LLMs |  |  |
-|  | ✓ Vector Search |  |  |
+| **Software Engineering** | **AI & LLMs** | **Data Science** |
+| :-- | :-- | :-- |
+| ✓ C/C++ | ✓ AI Safety & Red Teaming | ✓ Model Optimization (40% reduction) |
+| ✓ Docker/Kubernetes | ✓ Attention Mechanisms | ✓ NumPy/Pandas/Matplotlib |
+| ✓ Git/CI-CD | ✓ Constitutional AI | ✓ RAG Systems (~75 docs) |
+| ✓ Hardware-Software Co-design | ✓ LLM Fine-tuning | ✓ Statistical Analysis |
+| ✓ Performance Optimization | ✓ Multimodal AI (CLIP, ViT) | ✓ Technical Documentation |
+| ✓ Python (Expert) | ✓ Research Methodology | ✓ V&V (Verification & Validation) |
+| ✓ System Architecture | ✓ Transformer Architectures | ✓ Vector Search (FAISS/Weaviate) |
 
 
 

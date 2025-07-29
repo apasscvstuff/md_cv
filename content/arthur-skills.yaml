@@ -38,6 +38,15 @@ categories:
   data_science_analytics:
     description: Data science and analytics tools
     display_name: Data Science & Analytics
+  software_engineering:
+    description: Core programming and system foundations
+    display_name: Software Engineering
+  ai_llms:
+    description: AI research and large language models
+    display_name: AI & LLMs
+  data_science_ml:
+    description: Applied ML and data science
+    display_name: Data Science
 configuration:
   category_separator: ' • '
   max_columns: 6
@@ -77,11 +86,101 @@ executive:
     skill: AI/ML Implementation
     type: metric
 skills:
+# Software Engineering skills for AI version
+- category: software_engineering
+  level: Expert
+  name: Python
+  versions:
+  - ai
+- category: software_engineering
+  name: C/C++
+  versions:
+  - ai
+- category: software_engineering
+  name: System Architecture
+  versions:
+  - ai
+- category: software_engineering
+  name: Docker/Kubernetes
+  versions:
+  - ai
+- category: software_engineering
+  name: Git/CI-CD
+  versions:
+  - ai
+- category: software_engineering
+  name: Hardware-Software Co-design
+  versions:
+  - ai
+- category: software_engineering
+  name: Performance Optimization
+  versions:
+  - ai
+# AI & LLMs skills for AI version
+- category: ai_llms
+  name: Constitutional AI
+  versions:
+  - ai
+- category: ai_llms
+  name: AI Safety & Red Teaming
+  versions:
+  - ai
+- category: ai_llms
+  name: Transformer Architectures
+  versions:
+  - ai
+- category: ai_llms
+  name: Attention Mechanisms
+  versions:
+  - ai
+- category: ai_llms
+  name: Multimodal AI (CLIP, ViT)
+  versions:
+  - ai
+- category: ai_llms
+  name: LLM Fine-tuning
+  versions:
+  - ai
+- category: ai_llms
+  name: Research Methodology
+  versions:
+  - ai
+# Data Science skills for AI version
+- category: data_science_ml
+  name: RAG Systems (~75 docs)
+  versions:
+  - ai
+- category: data_science_ml
+  name: Model Optimization (40% reduction)
+  versions:
+  - ai
+- category: data_science_ml
+  name: Vector Search (FAISS/Weaviate)
+  versions:
+  - ai
+- category: data_science_ml
+  name: Statistical Analysis
+  versions:
+  - ai
+- category: data_science_ml
+  name: NumPy/Pandas/Matplotlib
+  versions:
+  - ai
+- category: data_science_ml
+  name: V&V (Verification & Validation)
+  versions:
+  - ai
+- category: data_science_ml
+  name: Technical Documentation
+  versions:
+  - ai
+# Original programming skills
 - category: programming
   level: Expert
   name: C/C++
   versions:
   - firmware
+  - ai
 - category: programming
   level: Expert
   name: Python
@@ -89,6 +188,7 @@ skills:
   - consulting
   - firmware
   - general
+  - ai
 - category: programming
   name: VHDL
   versions:
@@ -672,15 +772,13 @@ skills:
 version_layouts:
   ai:
     categories:
-    - programming
-    - ai_ml
-    - data_science
-    - leadership
+    - software_engineering
+    - ai_llms
+    - data_science_ml
     category_order:
-    - programming
-    - ai_ml
-    - data_science
-    - leadership
+    - software_engineering
+    - ai_llms
+    - data_science_ml
   consulting:
     categories:
     - programming
