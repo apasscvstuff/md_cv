@@ -941,47 +941,38 @@ h3+p a {
     /* Removed page-break-inside: avoid to allow sections to span pages */
   }
 
+  /* LATEX-STYLE PAGE BREAKING: Keep individual entries together, allow breaks between entries */
+  
+  /* Keep ALL individual entries together as complete units - like LaTeX does */
   .cv-experience-item,
-  .cv-education-item {
+  .cv-project-item,
+  .cv-education-item,
+  .cv-certification-item {
     page-break-inside: avoid;
     break-inside: avoid;
+    margin-bottom: var(--space-subsection);
   }
 
-  /* CRITICAL FIX: Allow project items to break to prevent section overlap */
-  .cv-project-item {
-    /* Remove page-break-inside: avoid to allow projects to break across pages */
-    /* This prevents the entire projects section from being forced together */
+  /* Allow page breaks between entries - this is key for natural flow */
+  .cv-experience-item + .cv-experience-item,
+  .cv-project-item + .cv-project-item,
+  .cv-education-item + .cv-education-item {
+    page-break-before: auto;
+    break-before: auto;
   }
 
-  /* Section headers should not be orphaned */
-  h2,
-  h3 {
+  /* Keep section headers with their content - no orphaned headers */
+  h2.cv-section-header {
     page-break-after: avoid;
     break-after: avoid;
-  }
-
-  /* Keep achievements with their context, but allow project descriptions to break */
-  .cv-achievements {
-    page-break-inside: avoid;
-    break-inside: avoid;
+    page-break-before: auto;
+    break-before: auto;
   }
   
-  /* Allow project descriptions to break to prevent section overlap */
-  .cv-project-descriptions {
-    /* Remove page-break-inside: avoid to allow breaking */
-  }
-
-  /* CRITICAL FIX: Ensure proper spacing between sections without forced breaks */
-  .cv-projects {
-    margin-bottom: 8mm;
-  }
-  
-  .cv-education,
-  .cv-certifications {
-    margin-top: 8mm;
-    /* Ensure education can start on new page if needed */
-    orphans: 3;
-    widows: 3;
+  /* Allow sections to break from each other naturally */
+  .cv-section {
+    page-break-before: auto;
+    break-before: auto;
   }
 }
 
@@ -1572,4 +1563,33 @@ h3+p a {
   margin-top: var(--space-section);
 }
 
-/* Enhanced print media queries - REMOVED conflicting rules */
+/* Ensure proper spacing between sections to prevent overlap */
+.cv-section {
+  margin-bottom: var(--space-section);
+}
+
+/* CRITICAL: Force separation between overlapping sections */
+.cv-projects {
+  margin-bottom: calc(var(--space-section) * 2);
+  padding-bottom: var(--space-section);
+}
+
+.cv-education,
+.cv-certifications {
+  margin-top: calc(var(--space-section) * 2);
+  padding-top: var(--space-section);
+}
+
+/* Additional print-specific spacing to prevent overlap */
+@media print {
+  .cv-projects {
+    margin-bottom: 20mm;
+    padding-bottom: 10mm;
+  }
+  
+  .cv-education,
+  .cv-certifications {
+    margin-top: 20mm;
+    padding-top: 10mm;
+  }
+}
