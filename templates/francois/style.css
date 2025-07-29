@@ -942,10 +942,15 @@ h3+p a {
   }
 
   .cv-experience-item,
-  .cv-project-item,
   .cv-education-item {
     page-break-inside: avoid;
     break-inside: avoid;
+  }
+
+  /* CRITICAL FIX: Allow project items to break to prevent section overlap */
+  .cv-project-item {
+    /* Remove page-break-inside: avoid to allow projects to break across pages */
+    /* This prevents the entire projects section from being forced together */
   }
 
   /* Section headers should not be orphaned */
@@ -955,11 +960,28 @@ h3+p a {
     break-after: avoid;
   }
 
-  /* Keep achievements with their context */
-  .cv-achievements,
-  .cv-project-descriptions {
+  /* Keep achievements with their context, but allow project descriptions to break */
+  .cv-achievements {
     page-break-inside: avoid;
     break-inside: avoid;
+  }
+  
+  /* Allow project descriptions to break to prevent section overlap */
+  .cv-project-descriptions {
+    /* Remove page-break-inside: avoid to allow breaking */
+  }
+
+  /* CRITICAL FIX: Ensure proper spacing between sections without forced breaks */
+  .cv-projects {
+    margin-bottom: 8mm;
+  }
+  
+  .cv-education,
+  .cv-certifications {
+    margin-top: 8mm;
+    /* Ensure education can start on new page if needed */
+    orphans: 3;
+    widows: 3;
   }
 }
 
@@ -1534,3 +1556,20 @@ h3+p a {
    ❌ PROBLEM: Contact info looks different
    ✅ SOLUTION: François uses subtle contact styling - this is intentional for elegance
 */
+
+/* =============================================================================
+   📐 SECTION SPACING FIXES - Prevent overlap between sections
+   These rules ensure proper spacing between all CV sections, especially
+   between Projects and Education/Certifications sections in PDF output
+   ============================================================================= */
+
+/* Section-level spacing to prevent overlaps */
+.cv-section {
+  margin-bottom: var(--space-section);
+}
+
+.cv-section + .cv-section {
+  margin-top: var(--space-section);
+}
+
+/* Enhanced print media queries - REMOVED conflicting rules */
