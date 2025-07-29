@@ -163,7 +163,7 @@
      ========================================================================== */
 
   /* 🎯 SWISS DESIGN SPACING - François reference proportions (optimized for AI version) */
-  --space-section: 1.2rem;
+  --space-section: 0.2rem;
   /* Between major sections - optimized for content density and page flow */
   --space-subsection: 0.5rem;
   /* Between companies/projects - maintains hierarchy */
@@ -190,7 +190,7 @@
   /* 📋 PAGE SETUP - Optimized for international A4 format */
   --max-width: 210mm;
   /* A4 width (8.5in for US Letter) */
-  --margin-page: 20mm;
+  --margin-page: 2mm;
   /* Page margins (15mm=tighter, 25mm=more space) */
 
   /* ==========================================================================
