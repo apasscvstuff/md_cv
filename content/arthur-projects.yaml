@@ -6,9 +6,9 @@ projects:
   - name: "Technical Documentation RAG System"
     period: "July 2025"
     location: "Lausanne, Switzerland"
-    links:
-      github: "https://github.com/apassuello/technical-doc-rag/"
-      demo: "https://huggingface.co/spaces/ArthyP/technical-rag-assistant"
+    #links:
+    #  github: "https://github.com/apassuello/technical-doc-rag/"
+    #  demo: "https://huggingface.co/spaces/ArthyP/technical-rag-assistant"
     versions: ["ai", "ds", "consulting", "general"]
     priority: 2
     
@@ -49,8 +49,8 @@ projects:
   # MultiModal AI Research Implementation - Shows in AI, consulting, general
   - name: "MultiModal AI Research Implementation"
     period: "2025"
-    links:
-      github: "https://github.com/apassuello/multimodal_insight_engine/"
+    #links:
+    #  github: "https://github.com/apassuello/multimodal_insight_engine/"
     versions: ["ai", "ds", "consulting", "general"]
     priority: 2
     
@@ -89,11 +89,11 @@ projects:
   # Data-Driven Analysis of DeepWeb Marketplace Dynamics - Shows in all except firmware and executive
   - name: "Statistical Analysis of DeepWeb Marketplace Dynamics"
     period: "2019"
-    links:
-      demo: "https://ada-2019.github.io/Project/"
-      demo_text: "Interactive Demo"
-      github: "https://github.com/ADA-2019/Project"
-      github_text: "EPFL ADA Course"
+    #links:
+    #  demo: "https://ada-2019.github.io/Project/"
+    #  demo_text: "Interactive Demo"
+    #  github: "https://github.com/ADA-2019/Project"
+    #  github_text: "EPFL ADA Course"
     versions: ["ai","ds", "consulting", "general"]
     
     # Version-specific descriptions
@@ -124,7 +124,7 @@ projects:
     
     # Skills tags by version
     skills_tags:
-      ai: "Statistical Modeling, Data Engineering, PySpark, Distributed Computing, Big Data Analytics, ETL Pipelines, Data Quality, Exploratory Data Analysis, Time Series Analysis, Data Visualization, Behavioral Analytics, Causal Inference"
+      ai: "Statistical Modeling, Data Engineering, PySpark, Distributed Computing, Big Data Analytics, Data Quality, Exploratory Data Analysis, Time Series Analysis, Data Visualization, Behavioral Analytics, Causal Inference"
       ds: "PySpark, Statistical Modeling, Big Data Analytics, Distributed Computing, BeautifulSoup, Data Visualization"
       consulting: "Big Data Analytics, Policy Impact Analysis, Distributed Systems, Data Quality Frameworks, Stakeholder Communication, Regulatory Analysis, Web Visualization"
       general: "Big Data Processing, Statistical Analysis, PySpark, Distributed Computing, Data Visualization, JavaScript, Web Development, Policy Research"
@@ -132,9 +132,9 @@ projects:
   # PriorityQueue Formal Verification - Shows in consulting and general only
   - name: "PriorityQueue Formal Verification"
     period: "2019 - 2020"
-    links:
-      github: "https://github.com/fquellec/PriorityQueue-FormalVerification"
-      github_text: "GitHub Repository"
+    #links:
+    #  github: "https://github.com/fquellec/PriorityQueue-FormalVerification"
+    #  github_text: "GitHub Repository"
     versions: ["consulting", "general"]
     
     # Version-specific descriptions
@@ -160,9 +160,9 @@ projects:
   # ASIC Medical Device - Shows in consulting, general, and firmware
   - name: "ASIC-Enabled Medical Device Development"
     period: "2021 - 2022"
-    links:
-      website: "https://adeptneuro.com"
-      website_text: "ADEPT Neuro SA"
+    #links:
+    #  website: "https://adeptneuro.com"
+    #  website_text: "ADEPT Neuro SA"
     versions: ["consulting", "general", "firmware"]
     
     # Version-specific descriptions

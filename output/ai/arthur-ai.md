@@ -33,14 +33,14 @@ _December 2022 - June 2025_
 
 **Embedded Software Engineer & Technical Lead** · _(Ref. Patrick Segura)_
 
-* **Technical Documentation System:** Designed and prototyped RAG-based technical documentation search system for complex medical device specifications, implementing intelligent document retrieval to improve engineering team efficiency
+* **Systems Architecture Leadership:** Led technical architecture decisions for safety-critical medical device, applying systems-level design thinking to complex hardware-software integration challenges across multiple interdisciplinary development teams
 * **Data Pipeline Development:** Implemented Hall effect signal modeling and data analysis pipelines using Python for simulation experiments and sensor validation in medical device applications
 * **Production Systems:** Architected safety-critical software with 99.9% uptime, implementing comprehensive testing (96% coverage) and real-time monitoring
-* **Cross-functional Leadership:** Organized and facilitated Scrum ceremonies (standups, sprint planning, retrospectives, demos) while coordinating with hardware, QA, regulatory affairs, and clinical teams across multiple time zones
-* **Technical Infrastructure:** Developed comprehensive HIL (Hardware-in-the-Loop) test infrastructure achieving 96% code coverage, enabling automated firmware validation and accelerating development cycles by 40%
-* **Embedded Architecture:** Designed and implemented embedded software architecture for medical device combining Bluetooth communication stack with real-time insulin delivery protocols and safety-critical algorithms
+* **Research-Style Technical Coordination:** Coordinated technical development across hardware, QA, regulatory, and clinical teams, demonstrating research environment collaboration skills in fast-paced, multi-stakeholder technical projects
+* **Technical Prototyping & Validation:** Designed and demonstrated 6 proof-of-concept systems, translating complex clinical requirements into feasible technical architectures through systematic prototyping methodology and stakeholder validation
+* **Technical Systems Integration:** Designed and implemented embedded system architectures combining third-party components with custom safety algorithms, demonstrating research-style technical problem-solving in constrained environments
 
-_Signal Processing , Statistical Analysis , Production Systems , Team Leadership , Software Architecture , Testing Infrastructure , CI/CD , QMS, Grafana , Real-time Monitoring , Medical Device Development_
+_Systems Architecture, Technical Leadership, Cross-functional Coordination, Proof-of-Concept Development, Research Methodology, Safety-Critical Systems, Hardware-Software Integration, Technical Communication, Interdisciplinary Collaboration_
 
 ### ADEPT Neuro SA
 _Lausanne, Switzerland_<br>
@@ -48,12 +48,11 @@ _September 2021 - March 2022_
 
 **Research Project Student Intern** · _(Ref. Dr. Jason Ruan)_
 
-* **Neural Signal Processing:** Performed time series analysis on 300+ parallel neural signals at 50-60Hz for epilepsy onset detection, implementing feature extraction algorithms for medical diagnostic applications
-* **Signal Processing Pipelines:** Developed signal processing pipelines using Python visualization libraries for ASIC-based neural electrode data acquisition and analysis
-* **Medical AI Algorithms:** Developed machine learning-based seizure detection algorithms achieving 87% accuracy with <100ms real-time processing latency
-* **High-Frequency Processing:** Processed neural signals at 30kHz sampling rate contributing to 2 patent applications for novel electrode technology
+* **Heterogeneous Systems Architecture:** Designed hardware-software integration architecture for ASIC-enabled neural electrodes, applying systematic design methodology to complex multi-component system challenges
+* **Multi-channel Signal Processing:** Developed signal processing architecture handling 300+ parallel channels at 50-60Hz, demonstrating large-scale data processing system design for real-time applications
+* **Startup R&D Environment:** Worked independently in fast-paced medical device startup environment at EPFL Innovation Park, demonstrating adaptability to research-intensive innovation settings
 
-_Neural Signal Processing, Python, Machine Learning, Signal Processing Pipelines, Medical AI, Feature Extraction, Time Series Analysis, Seizure Detection, High-Frequency Processing, Data Visualization, Medical Diagnostics_
+_Research Methodology, Heterogeneous Systems, Hardware-Software Integration, Signal Processing, Research Project Management, Technical Documentation, Multi-disciplinary Collaboration_
 
 ### IMD Business School
 _Lausanne, Switzerland_<br>
@@ -61,12 +60,22 @@ _July 2018 - August 2021_
 
 **Lead AI/ML Instructor & Curriculum Designer** · _(Ref. Marc Chauvet)_
 
-* **ML Curriculum:** Designed 40-hour hands-on curriculum covering supervised learning, neural networks, and PyTorch, achieving 4.8/5.0 rating from 100+ international executives
-* **Technical Translation:** Developed innovative methods to explain backpropagation, attention mechanisms, and gradient descent to non-technical business leaders
-* **Applied Projects:** Led implementation of business-focused ML projects including demand forecasting and sentiment analysis, with students presenting to C-suite
-* **Advanced Pedagogical Skills:** Demonstrated advanced pedagogical skills in technical education, successfully translating complex ML algorithms into actionable business insights for diverse international professional backgrounds
+* **Technical Curriculum Development:** Designed comprehensive 40-hour ML curriculum for 100+ international executives, demonstrating ability to structure complex technical content for diverse professional audiences
+* **Technical Team Leadership:** Led team of 7 assistants in delivering AI/ML education program, achieving 4.8/5.0 satisfaction rating through systematic coordination and quality management
+* **Cross-cultural Technical Translation:** Successfully adapted complex ML algorithms and concepts for international business leaders from 25+ countries, demonstrating research-to-application communication skills
 
-_PyTorch , Teaching , Neural Networks , Python , Curriculum Design , Technical Communication , Training Development , Cross-cultural Communication , Educational Content Creation_
+_Technical Communication, Curriculum Design, Research Translation, Cross-cultural Collaboration, Technical Training, AI/ML Education, Team Leadership_
+
+### ParSA Laboratory, EPFL
+_Lausanne, Switzerland_<br>
+_December 2020 - March 2021_
+
+**Research Project Student Assistant** · _(Ref. Pr. M.Stojilovic)_
+
+* **Side-Channel Security Research:** Designed and implemented heterogeneous system architecture (FPGA + CPU) for security research, studying feasibility of inferring ARM instructions from power side-channel leakage in shared power systems
+* **High-Performance Computing Systems:** Developed optimized communication systems achieving 2Mbps data transfer rates for real-time processing applications, relevant to large-scale research computing infrastructure
+
+_Research Infrastructure, Heterogeneous Computing, High-Performance Systems, Technical Documentation, Research Support, FPGA Development, System Architecture_
 
 
 
@@ -75,39 +84,32 @@ _PyTorch , Teaching , Neural Networks , Python , Curriculum Design , Technical C
 ### Technical Documentation RAG System
 _July 2025_
 
-[Github](https://github.com/apassuello/technical-doc-rag/) | [Demo](https://huggingface.co/spaces/ArthyP/technical-rag-assistant)
+- **Hybrid RAG System Implementation:** Built functional RAG system with FAISS and Weaviate vector database support, backend switching between local LLMs and APIs, comprehensive document processing pipeline, and neural reranking achieving <100ms query response times
+- **Multi-Model Architecture Enhancement:** Currently extending existing system with intelligent query routing and multi-LLM integration based on detailed technical specifications for cost optimization and performance scaling
+- **Scalable Infrastructure Design:** Designed comprehensive cloud-native architecture specifications including microservices decomposition, Kubernetes orchestration, and observability stack integration for deployment scaling
+- **Advanced ML Pipeline Integration:** Implementing model adapter patterns and containerized deployment strategies to enhance working RAG system with multi-provider LLM support and improved scalability
 
-- **Personal Portfolio Project:** Architected production RAG processing 10,000+ documents with hierarchical parsing and multi-stage query processing
-- **Hybrid Retrieval:** Implemented hybrid retrieval: FAISS vector search + BM25 + neural reranking, achieving 94% relevance and <100ms latency
-- **Auto-scaling Infrastructure:** Built auto-scaling infrastructure handling 1,000+ QPS with A/B testing framework improving satisfaction 35%
-- **Enterprise Deployment:** Deployed enterprise solution with Weaviate integration and comprehensive LLM integration pipeline
-
-_RAG, FAISS, Vector Search, Neural Reranking, Production ML, NLP, LangChain, A/B Testing, Weaviate, Deployment, Query Processing, LLM Integration_
+_RAG Systems, FAISS, Weaviate, Vector Search, Neural Reranking, Document Processing, Backend Integration, Local LLMs, API Integration, Multi-Model Architecture, Kubernetes, Microservices, Cloud-Native Design_
 
 ### MultiModal AI Research Implementation
 _2025_
 
-[Github](https://github.com/apassuello/multimodal_insight_engine/)
-
-- **Transformer Implementation:** Implemented transformer architectures from scratch (Attention is All You Need) with multi-stage training pipeline
-- **Multimodal Fusion:** Built CLIP and ViT implementations for vision-language tasks with cross-modal attention and progressive training stages
-- **Safety Framework:** Developed Constitutional AI safety framework with red teaming suite testing 500+ adversarial cases
-- **Performance Optimization:** Optimized for Apple Silicon achieving 6x inference speedup through custom MPS kernels and multi-stage optimization
+- **Transformer Architecture Implementation:** Built complete transformer encoder-decoder with multiple attention variants from scratch, including scaled dot-product attention, rotary positional embeddings, and flash attention optimizations, directly relevant to optimizing novel attention mechanisms
+- **Multimodal System Integration:** Implemented CLIP and ViT architectures for vision-language tasks with cross-modal attention mechanisms and progressive training stages, directly aligned with team focus on multimodal capabilities for LLMs
+- **Performance Optimization Engineering:** Achieved 6x inference speedup through custom MPS kernels and 40% memory reduction via magnitude-based pruning, INT8/INT4 quantization, and mixed precision training, demonstrating training infrastructure optimization thinking
+- **AI Safety Framework Implementation:** Developed Constitutional AI safety evaluation system with comprehensive red teaming suite testing adversarial cases, showing systematic approach to AI safety methodology and evaluation frameworks
 
 _Transformers, CLIP, ViT, Multimodal AI, PyTorch, Constitutional AI, Research Implementation, Multi-stage Training, Progressive Training, Model Optimization_
 
 ### Statistical Analysis of DeepWeb Marketplace Dynamics
 _2019_
 
-[Demo](https://ada-2019.github.io/Project/) | [Github](https://github.com/ADA-2019/Project)
+- **Large-Scale Data Processing:** Implemented distributed computing system processing 1TB+ historical dataset using PySpark and distributed databases, demonstrating capability to handle LLM-training-scale data volumes with robust data processing pipelines
+- **Scalable Data Pipeline Architecture:** Built comprehensive data extraction and cleaning pipeline processing mixed HTML content using custom parsing algorithms, showing systematic approach to preparing large-scale datasets for model consumption
+- **Statistical Analysis Framework:** Conducted rigorous statistical modeling and policy impact analysis on massive behavioral datasets, demonstrating scientific experiment design and analytical methodology relevant to LLM research evaluation
+- **Research Infrastructure Development:** Created interactive visualization dashboard and scalable processing system achieving excellent performance on standard hardware through distributed computing optimization, showing research tooling development capabilities
 
-- **Statistical Modeling:** Implemented statistical modeling pipeline to reconstruct missing marketplace data, addressing data sparsity challenges in large-scale behavioral datasets
-- **Big Data Processing:** Built scalable data processing system using PySpark and distributed databases handling 1TB+ of historical marketplace data on standard hardware
-- **Data Extraction Pipeline:** Developed comprehensive data extraction and cleaning pipeline processing mixed HTML content using BeautifulSoup and custom parsing algorithms
-- **Interactive Visualization:** Created interactive JavaScript visualization dashboard demonstrating complex market dynamics and regulatory policy impact analysis
-- **Statistical Analysis:** Conducted rigorous statistical analysis of police intervention effects on marketplace behavior, revealing no significant long-term market disruption
-
-_Statistical Modeling, Data Engineering, PySpark, Distributed Computing, Big Data Analytics, ETL Pipelines, Data Quality, Exploratory Data Analysis, Time Series Analysis, A/B Testing, Data Visualization, D3.js, Behavioral Analytics, Causal Inference_
+_Statistical Modeling, Data Engineering, PySpark, Distributed Computing, Big Data Analytics, Data Quality, Exploratory Data Analysis, Time Series Analysis, Data Visualization, Behavioral Analytics, Causal Inference_
 
 
 

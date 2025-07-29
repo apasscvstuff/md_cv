@@ -243,24 +243,24 @@
   /* Header underline (2px for thicker, none for no line) */
 
   /* 🎨 QUICK THEME SWITCHING - Uncomment one of these preset themes */
-  
+
   /* PRESET 1: Modern Professional (Current - Dark Green) */
   /* Already active above */
-  
+
   /* PRESET 2: Corporate Blue - Uncomment to activate */
   /*
   --color-accent: #2563eb;
   --color-primary: #1e40af;
   --color-secondary: #1f2937;
   */
-  
+
   /* PRESET 3: Creative Red - Uncomment to activate */
   /*
   --color-accent: #dc2626;
   --color-primary: #b91c1c;
   --color-secondary: #374151;
   */
-  
+
   /* PRESET 4: Elegant Purple - Uncomment to activate */
   /*
   --color-accent: #7c3aed;
@@ -269,10 +269,10 @@
   */
 
   /* 📐 DENSITY PRESETS - Uncomment one to change overall spacing */
-  
+
   /* DENSITY 1: Compact (Current) - Good for longer CVs */
   /* Already active above */
-  
+
   /* DENSITY 2: Standard - More breathing room, uncomment to activate */
   /*
   --space-section: 2rem;
@@ -281,7 +281,7 @@
   --section-top-margin: 2rem;
   --experience-item-spacing: 0.75rem;
   */
-  
+
   /* DENSITY 3: Spacious - Maximum readability, uncomment to activate */
   /*
   --space-section: 2.5rem;
@@ -824,6 +824,7 @@ h3+p a {
    ============================================================================= */
 
 @media print {
+
   /* 🎯 PRINT VARIABLES - Mathematical precision for PDF */
   :root {
     --size-name: clamp(22pt, 4vw, 24pt);
@@ -835,12 +836,13 @@ h3+p a {
     --size-tiny: clamp(6pt, 1.2vw, 7pt);
     --margin-page: 12mm;
     --line-height-print: 1.5;
-    
+
     /* Print-optimized spacing - SINGLE SOURCE OF TRUTH */
-    --space-section: 2.5rem;  /* Increased for better separation */
+    --space-section: 0.8rem;
+    /* Small value since it gets doubled (top+bottom) */
     --space-subsection: 0.75rem;
     --space-item: 0.5rem;
-    
+
     /* Scaled elements for print */
     --profile-pic-size: calc(var(--profile-pic-size) * 0.8);
     --bullet-spacing: calc(var(--bullet-spacing) * 0.8);
@@ -877,8 +879,9 @@ h3+p a {
   .cv-section {
     margin-bottom: var(--space-section);
     margin-top: var(--space-section);
+    /* Both margins needed to prevent overlap, but using smaller value */
   }
-  
+
   /* First section no top margin */
   .cv-main-content .cv-section:first-child {
     margin-top: 0;
@@ -931,7 +934,7 @@ h3+p a {
     margin-bottom: var(--space-subsection);
     /* Allow natural breaking to prevent overlaps */
   }
-  
+
   /* Keep project title with first 2 bullets */
   .cv-project-item h3,
   .cv-project-item .cv-project-links,
@@ -1536,23 +1539,7 @@ h3+p a {
    ✅ SOLUTION: François uses subtle contact styling - this is intentional for elegance
 */
 
-/* =============================================================================
-   📐 SECTION SPACING FIXES - Prevent overlap between sections
-   These rules ensure proper spacing between all CV sections, especially
-   between Projects and Education/Certifications sections in PDF output
-   ============================================================================= */
-
-/* CLEAN VERTICAL SEPARATION - Eliminate overlap with predictable spacing */
-.cv-section {
-  margin-bottom: var(--space-section);
-  margin-top: var(--space-section);
-  /* Consistent top and bottom margins for predictable PDF spacing */
-}
-
-/* First section doesn't need top margin */
-.cv-main-content .cv-section:first-child {
-  margin-top: 0;
-}
+/* REMOVED - Section spacing is now handled in consolidated @media print block */
 
 /* PDF-OPTIMIZED VERTICAL SPACING */
 /* REMOVED - Will be consolidated into main print block below */
