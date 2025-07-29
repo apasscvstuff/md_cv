@@ -103,7 +103,7 @@ experiences:
         priority: 2
         type: "leadmetric"
         
-      - text: "**Technical Documentation System:** Designed and prototyped RAG-based technical documentation search system for complex medical device specifications, implementing intelligent document retrieval to improve engineering team efficiency"
+      - text: "**Systems Architecture Leadership:** Led technical architecture decisions for safety-critical medical device, applying systems-level design thinking to complex hardware-software integration challenges across multiple interdisciplinary development teams"
         versions: ["ai"]
         priority: 1
         type: "ai_focus"
@@ -118,19 +118,19 @@ experiences:
         priority: 1
         type: "ai_focus"
         
-      - text: "**Cross-functional Leadership:** Organized and facilitated Scrum ceremonies (standups, sprint planning, retrospectives, demos) while coordinating with hardware, QA, regulatory affairs, and clinical teams across multiple time zones"
+      - text: "**Research-Style Technical Coordination:** Coordinated technical development across hardware, QA, regulatory, and clinical teams, demonstrating research environment collaboration skills in fast-paced, multi-stakeholder technical projects"
+        versions: ["ai"]
+        priority: 2
+        type: "ai_focus"
+        
+      - text: "**Technical Prototyping & Validation:** Designed and demonstrated 6 proof-of-concept systems, translating complex clinical requirements into feasible technical architectures through systematic prototyping methodology and stakeholder validation"
         versions: ["ai"]
         priority: 1
         type: "ai_focus"
         
-      - text: "**Technical Infrastructure:** Developed comprehensive HIL (Hardware-in-the-Loop) test infrastructure achieving 96% code coverage, enabling automated firmware validation and accelerating development cycles by 40%"
+      - text: "**Technical Systems Integration:** Designed and implemented embedded system architectures combining third-party components with custom safety algorithms, demonstrating research-style technical problem-solving in constrained environments"
         versions: ["ai"]
-        priority: 1
-        type: "ai_focus"
-        
-      - text: "**Embedded Architecture:** Designed and implemented embedded software architecture for medical device combining Bluetooth communication stack with real-time insulin delivery protocols and safety-critical algorithms"
-        versions: ["ai"]
-        priority: 1
+        priority: 2
         type: "ai_focus"
         
       - text: "**Strategic Project Management:** Translated clinical trial roadmap requirements into concrete technical strategies, managing multiple parallel projects under tight regulatory deadlines while ensuring ethical technology development"
@@ -219,7 +219,7 @@ experiences:
     # Skills tags by version
     skills_tags:
       firmware: "Software Architecture, System Engineering, C/C++, Python, FreeRTOS, Safety-Critical Systems, Sensor Fusion, Statistical Algorithms, Technical Leadership, Cross-functional Team Coordination, CI/CD Implementation, GitHub Actions, Grafana, Real-time Monitoring, Git Version Control, Stakeholder Communication, JTAG, STM32, Nordic, HIL Testing, Power Optimization, Agile/Scrum"
-      ai: "Signal Processing , Statistical Analysis , Production Systems , Team Leadership , Software Architecture , Testing Infrastructure , CI/CD , QMS, Grafana , Real-time Monitoring , Medical Device Development"
+      ai: "Systems Architecture, Technical Leadership, Cross-functional Coordination, Proof-of-Concept Development, Research Methodology, Safety-Critical Systems, Hardware-Software Integration, Technical Communication, Interdisciplinary Collaboration"
       ds: "Statistical Analysis, Signal Processing, Medical Device Development, Cross-functional Collaboration, Python, Data Analysis, Quality Systems, Regulatory Compliance"
       consulting: "Technical Strategy, Cross-functional Coordination, Regulatory Compliance, Stakeholder Communication, Strategic Consulting, Proof-of-Concept Development, Technical Training, Team Development, Change Management, Innovation Leadership, Client Presentations, Ethical Technology Development"
       executive: "Strategic Technical Leadership, Cross-functional Coordination, Regulatory Compliance, $2M+ Project Impact"
@@ -324,7 +324,7 @@ experiences:
         priority: 1
         type: "ds_focus"
         
-      - text: "**Neural Signal Processing:** Performed time series analysis on 300+ parallel neural signals at 50-60Hz for epilepsy onset detection, implementing feature extraction algorithms for medical diagnostic applications"
+      - text: "**Heterogeneous Systems Architecture:** Designed hardware-software integration architecture for ASIC-enabled neural electrodes, applying systematic design methodology to complex multi-component system challenges"
         versions: ["ai"]
         priority: 1
         type: "ai_focus"
@@ -339,17 +339,12 @@ experiences:
         priority: 1
         type: "ds_focus"
         
-      - text: "**Signal Processing Pipelines:** Developed signal processing pipelines using Python visualization libraries for ASIC-based neural electrode data acquisition and analysis"
+      - text: "**Multi-channel Signal Processing:** Developed signal processing architecture handling 300+ parallel channels at 50-60Hz, demonstrating large-scale data processing system design for real-time applications"
         versions: ["ai"]
         priority: 2
         type: "ai_focus"
         
-      - text: "**Medical AI Algorithms:** Developed machine learning-based seizure detection algorithms achieving 87% accuracy with <100ms real-time processing latency"
-        versions: ["ai"]
-        priority: 1
-        type: "ai_focus"
-        
-      - text: "**High-Frequency Processing:** Processed neural signals at 30kHz sampling rate contributing to 2 patent applications for novel electrode technology"
+      - text: "**Startup R&D Environment:** Worked independently in fast-paced medical device startup environment at EPFL Innovation Park, demonstrating adaptability to research-intensive innovation settings"
         versions: ["ai"]
         priority: 2
         type: "ai_focus"
@@ -388,7 +383,7 @@ experiences:
     
     skills_tags:
       firmware: "Hardware-Software Integration, C/C++, Python, VHDL, ASIC Integration, Embedded Drivers, Medical Device Development, Regulatory Compliance, R&D Prototyping, Signal Processing, EPFL Innovation Park"
-      ai: "Neural Signal Processing, Python, Machine Learning, Signal Processing Pipelines, Medical AI, Feature Extraction, Time Series Analysis, Seizure Detection, High-Frequency Processing, Data Visualization, Medical Diagnostics"
+      ai: "Research Methodology, Heterogeneous Systems, Hardware-Software Integration, Signal Processing, Research Project Management, Technical Documentation, Multi-disciplinary Collaboration"
       ds: "Neural Signal Processing, Python, Machine Learning, Time Series Analysis, Feature Extraction, Medical Diagnostics, Statistical Pattern Recognition"
       consulting: "Medical Device R&D, Regulatory Compliance, Research Prototyping, Technical Documentation, Multidisciplinary Collaboration, Quality Systems, Ethical Technology Development"
       general: "System Integration, Python, FPGA, Medical Device Development, R&D Collaboration, Regulatory Standards, Prototype Development"
@@ -414,7 +409,7 @@ experiences:
         priority: 1
         type: "ds_focus"
         
-      - text: "**ML Curriculum:** Designed 40-hour hands-on curriculum covering supervised learning, neural networks, and PyTorch, achieving 4.8/5.0 rating from 100+ international executives"
+      - text: "**Technical Curriculum Development:** Designed comprehensive 40-hour ML curriculum for 100+ international executives, demonstrating ability to structure complex technical content for diverse professional audiences"
         versions: ["ai"]
         priority: 1
         type: "ai_focus"
@@ -434,7 +429,7 @@ experiences:
         priority: 1
         type: "ds_focus"
         
-      - text: "**Technical Translation:** Developed innovative methods to explain backpropagation, attention mechanisms, and gradient descent to non-technical business leaders"
+      - text: "**Technical Team Leadership:** Led team of 7 assistants in delivering AI/ML education program, achieving 4.8/5.0 satisfaction rating through systematic coordination and quality management"
         versions: ["ai"]
         priority: 1
         type: "ai_focus"
@@ -444,12 +439,7 @@ experiences:
         priority: 2
         type: "consulting_focus"
         
-      - text: "**Applied Projects:** Led implementation of business-focused ML projects including demand forecasting and sentiment analysis, with students presenting to C-suite"
-        versions: ["ai"]
-        priority: 1
-        type: "ai_focus"
-        
-      - text: "**Advanced Pedagogical Skills:** Demonstrated advanced pedagogical skills in technical education, successfully translating complex ML algorithms into actionable business insights for diverse international professional backgrounds"
+      - text: "**Cross-cultural Technical Translation:** Successfully adapted complex ML algorithms and concepts for international business leaders from 25+ countries, demonstrating research-to-application communication skills"
         versions: ["ai"]
         priority: 2
         type: "ai_focus"
@@ -497,7 +487,7 @@ experiences:
         type: "base"
     
     skills_tags:
-      ai: "PyTorch , Teaching , Neural Networks , Python , Curriculum Design , Technical Communication , Training Development , Cross-cultural Communication , Educational Content Creation"
+      ai: "Technical Communication, Curriculum Design, Research Translation, Cross-cultural Collaboration, Technical Training, AI/ML Education, Team Leadership"
       ds: "Python, Machine Learning, Statistical Learning, Curriculum Design, Technical Communication, Cross-cultural Training, Business Analytics"
       consulting: "Technical Training Design, Stakeholder Communication, Cross-cultural Management, Educational Content Creation, Team Leadership, Business Impact Analysis"
       general: "Technical Training, Team Leadership, Cross-cultural Communication, Python Programming, Educational Content Creation"
@@ -509,13 +499,14 @@ experiences:
     location: "Lausanne, Switzerland"
     period: "December 2020 - March 2021"
     reference: "(Ref. Pr. M.Stojilovic)"
-    versions: ["firmware", "consulting", "general"]
+    versions: ["firmware", "consulting", "general", "ai"]
     
     position_base: "Research Project Student Assistant"
     position_variants:
       firmware: "Research Project Student Assistant"
       consulting: "Research Project Student Assistant"
       general: "Research Project Student Assistant"
+      ai: "Research Project Student Assistant"
     
     achievements:
       # Firmware version - detailed technical implementation
@@ -570,11 +561,23 @@ experiences:
         versions: ["general"]
         priority: 2
         type: "base"
+        
+      # AI version - research methodology and systems focus
+      - text: "**Side-Channel Security Research:** Designed and implemented heterogeneous system architecture (FPGA + CPU) for security research, studying feasibility of inferring ARM instructions from power side-channel leakage in shared power systems"
+        versions: ["ai"]
+        priority: 1
+        type: "ai_focus"
+        
+      - text: "**High-Performance Computing Systems:** Developed optimized communication systems achieving 2Mbps data transfer rates for real-time processing applications, relevant to large-scale research computing infrastructure"
+        versions: ["ai"]
+        priority: 2
+        type: "ai_focus"
     
     skills_tags:
       firmware: "FPGA Development, Hardware-Software Integration, Embedded Systems Design, UART/Serial Interfaces, Technical Documentation, Linux Kernel Integration, C/C++, Signal Processing, VHDL, System Architecture, Research Methodology"
       consulting: "System Architecture, Technical Research, Documentation, Knowledge Transfer, Academic Collaboration"
       general: "FPGA Development, Hardware-Software Integration, Embedded Systems, UART, Technical Documentation, Linux"
+      ai: "Research Infrastructure, Heterogeneous Computing, High-Performance Systems, Technical Documentation, Research Support, FPGA Development, System Architecture"
 
 # Version configuration for conditional logic
 version_config:
