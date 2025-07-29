@@ -484,11 +484,7 @@ h2.cv-section-header::after {
   /* Red bar color matching François design */
 }
 
-/* Handle Pandoc section wrapper elements - Ensure proper spacing */
-section.cv-section {
-  margin-bottom: var(--space-subsection);
-  /* Ensure proper section separation in PDF */
-}
+/* REMOVED - Section spacing now handled in consolidated print block */
 
 /* First section should not have top margin */
 .cv-main-content section:first-child h2,
@@ -840,7 +836,7 @@ h3+p a {
     /* Print-optimized spacing - SINGLE SOURCE OF TRUTH */
     --space-section: 0.8rem;
     /* Small value since it gets doubled (top+bottom) */
-    --space-subsection: 0.75rem;
+    --space-subsection: 0.3rem;
     --space-item: 0.5rem;
 
     /* Scaled elements for print */
@@ -876,13 +872,15 @@ h3+p a {
   }
 
   /* 🎯 SECTION SPACING - UNIFIED APPROACH */
+  section.cv-section,
   .cv-section {
-    margin-bottom: var(--space-section);
-    margin-top: var(--space-section);
-    /* Both margins needed to prevent overlap, but using smaller value */
+    margin-bottom: var(--space-subsection);
+    margin-top: var(--space-subsection);
+    /* Both margins needed to prevent overlap, using subsection spacing */
   }
 
   /* First section no top margin */
+  .cv-main-content section.cv-section:first-child,
   .cv-main-content .cv-section:first-child {
     margin-top: 0;
   }
