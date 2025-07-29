@@ -108,19 +108,14 @@ experiences:
         priority: 1
         type: "ai_focus"
         
-      - text: "**Data Pipeline Development:** Implemented Hall effect signal modeling and data analysis pipelines using Python for simulation experiments and sensor validation in medical device applications"
+      - text: "**Telemetry Pipeline Architecture:** Built end-to-end data pipeline from insulin pumps through gateway servers to Grafana dashboards, plus Python-based signal analysis tools for Hall effect sensor validation"
         versions: ["ai"]
         priority: 2
         type: "ai_focus"
         
-      - text: "**Production Systems:** Architected safety-critical software with 99.9% uptime, implementing comprehensive testing (96% coverage) and real-time monitoring"
+      - text: "**Cross-functional Technical Leadership:** Coordinated firmware, mobile development, quality assurance, clinical, and regulatory teams for FIH trial delivery"
         versions: ["ai"]
         priority: 1
-        type: "ai_focus"
-        
-      - text: "**Research-Style Technical Coordination:** Coordinated technical development across hardware, QA, regulatory, and clinical teams, demonstrating research environment collaboration skills in fast-paced, multi-stakeholder technical projects"
-        versions: ["ai"]
-        priority: 2
         type: "ai_focus"
         
       - text: "**Technical Prototyping & Validation:** Designed and demonstrated 6 proof-of-concept systems, translating complex clinical requirements into feasible technical architectures through systematic prototyping methodology and stakeholder validation"
@@ -128,7 +123,7 @@ experiences:
         priority: 1
         type: "ai_focus"
         
-      - text: "**Technical Systems Integration:** Designed and implemented embedded system architectures combining third-party components with custom safety algorithms, demonstrating research-style technical problem-solving in constrained environments"
+      - text: "**Safety-Critical Architecture:** Implemented embedded architectures integrating third-party Bluetooth stacks with custom safety algorithms using systematic validation approaches"
         versions: ["ai"]
         priority: 2
         type: "ai_focus"
@@ -324,7 +319,7 @@ experiences:
         priority: 1
         type: "ds_focus"
         
-      - text: "**Heterogeneous Systems Architecture:** Designed hardware-software integration architecture for ASIC-enabled neural electrodes, applying systematic design methodology to complex multi-component system challenges"
+      - text: "**End-to-End System Development:** Led complete development of heterogeneous FPGA + Python platform for neural signal acquisition - from hardware selection and architecture design through implementation, testing, validation, and technical documentation. System integrated custom ASICs with FPGA control logic and Python processing pipeline for 300+ channel neural data"
         versions: ["ai"]
         priority: 1
         type: "ai_focus"
@@ -339,12 +334,12 @@ experiences:
         priority: 1
         type: "ds_focus"
         
-      - text: "**Multi-channel Signal Processing:** Developed signal processing architecture handling 300+ parallel channels at 50-60Hz, demonstrating large-scale data processing system design for real-time applications"
+      - text: "**Multi-channel Signal Processing:** Developed signal processing architecture handling 300+ parallel channels at 50-60Hz, demonstrating feasibility of large-scale data processing system design for real-time applications"
         versions: ["ai"]
         priority: 2
         type: "ai_focus"
         
-      - text: "**Startup R&D Environment:** Worked independently in fast-paced medical device startup environment at EPFL Innovation Park, demonstrating adaptability to research-intensive innovation settings"
+      - text: "**Startup R&D Environment:** Worked independently in fast-paced medical device startup at EPFL Innovation Park, adapting quickly to evolving technical requirements"
         versions: ["ai"]
         priority: 2
         type: "ai_focus"
@@ -409,7 +404,7 @@ experiences:
         priority: 1
         type: "ds_focus"
         
-      - text: "**Technical Curriculum Development:** Designed comprehensive 40-hour ML curriculum for 100+ international executives, demonstrating ability to structure complex technical content for diverse professional audiences"
+      - text: "**Technical Curriculum Development:** Created comprehensive 40-hour ML curriculum for 100+ international executives, structuring complex technical concepts for diverse professional audiences"
         versions: ["ai"]
         priority: 1
         type: "ai_focus"
@@ -566,6 +561,11 @@ experiences:
       - text: "**Side-Channel Security Research:** Designed and implemented heterogeneous system architecture (FPGA + CPU) for security research, studying feasibility of inferring ARM instructions from power side-channel leakage in shared power systems"
         versions: ["ai"]
         priority: 1
+        type: "ai_focus"
+        
+      - text: "**FPGA-CPU Communication:** Implemented heterogeneous FPGA+CPU platform with 2Mbps UART interface for real-time data processing"
+        versions: ["ai"]
+        priority: 2
         type: "ai_focus"
         
       - text: "**High-Performance Computing Systems:** Developed optimized communication systems achieving 2Mbps data transfer rates for real-time processing applications, relevant to large-scale research computing infrastructure"

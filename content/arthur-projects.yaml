@@ -18,7 +18,7 @@ projects:
         - "**Hybrid RAG System Implementation:** Built functional RAG system with FAISS and Weaviate vector database support, backend switching between local LLMs and APIs, comprehensive document processing pipeline, and neural reranking achieving <100ms query response times"
         - "**Multi-Model Architecture Enhancement:** Currently extending existing system with intelligent query routing and multi-LLM integration based on detailed technical specifications for cost optimization and performance scaling"
         - "**Scalable Infrastructure Design:** Designed comprehensive cloud-native architecture specifications including microservices decomposition, Kubernetes orchestration, and observability stack integration for deployment scaling"
-        - "**Advanced ML Pipeline Integration:** Implementing model adapter patterns and containerized deployment strategies to enhance working RAG system with multi-provider LLM support and improved scalability"
+        - "**Containerized Deployment:** Deployed Docker-based solution with Weaviate vector database integration and LLM pipeline supporting local and cloud deployment"
       ds:
         - "**Hybrid Search Implementation**: Built production RAG system combining FAISS vector search, BM25 sparse retrieval, and Reciprocal Rank Fusion (RRF) with optimized parameter tuning."
         - "**Neural Reranking Pipeline**: Implemented cross-encoder reranking using Sentence Transformers with batch processing, lazy initialization, and caching mechanisms for improved relevance scoring"
@@ -99,7 +99,7 @@ projects:
     # Version-specific descriptions
     descriptions:
       ai:
-        - "**Large-Scale Data Processing:** Implemented distributed computing system processing 1TB+ historical dataset using PySpark and distributed databases, demonstrating capability to handle LLM-training-scale data volumes with robust data processing pipelines"
+        - "**Large-Scale Data Processing:** Built distributed computing pipeline handling 1TB+ datasets using PySpark on standard hardware"
         - "**Scalable Data Pipeline Architecture:** Built comprehensive data extraction and cleaning pipeline processing mixed HTML content using custom parsing algorithms, showing systematic approach to preparing large-scale datasets for model consumption"
         - "**Statistical Analysis Framework:** Conducted rigorous statistical modeling and policy impact analysis on massive behavioral datasets, demonstrating scientific experiment design and analytical methodology relevant to LLM research evaluation"
         - "**Research Infrastructure Development:** Created interactive visualization dashboard and scalable processing system achieving excellent performance on standard hardware through distributed computing optimization, showing research tooling development capabilities"

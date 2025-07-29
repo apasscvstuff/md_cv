@@ -83,7 +83,7 @@ personal:
   executive_summaries:
     firmware: "Senior embedded systems engineer with 3+ years of medical device development experience, specializing in safety-critical firmware architecture and regulatory compliance. Proven track record leading cross-functional teams to deliver FDA-compliant products while implementing robust testing infrastructure and real-time monitoring systems. Expert in ISO-13485/IEC-62304 standards with deep technical leadership capabilities."
     
-    ai: "Embedded systems engineer transitioning to AI research with proven ability to implement complex theoretical concepts (Constitutional AI, attention mechanisms) in production-ready systems. Unique combination of hardware optimization expertise and AI safety implementation."
+    ai: "Embedded systems engineer with hands-on AI/ML implementation experience through personal research projects. Built transformer architectures and multimodal systems from scratch to understand fundamental principles. Background in safety-critical medical devices with focus on systematic validation and testing."
 
     #ai : "Embedded systems engineer transitioning to AI research with demonstrated capability implementing complex theoretical frameworks from first principles. Experience bridging safety-critical system design with emerging AI architectures, including Constitutional AI frameworks and multimodal attention mechanisms built from scratch. Brings unique hardware-software optimization perspective to AI research and production system development."
 
@@ -112,7 +112,7 @@ personal:
       issuing_organization: "Tandem Diabetes Care Switzerland"
       year: 2024
       description: "Comprehensive training on quality frameworks, design controls, risk management, and regulatory documentation for medical device development"
-      versions: ["firmware", "consulting", "executive"]
+      versions: ["firmware", "ai","consulting", "executive"]
       priority: 1
     
     - name: "IEC 62304 Medical Device Software"
@@ -120,7 +120,7 @@ personal:
       issuing_organization: "Tandem Diabetes Care Switzerland"
       year: 2024
       description: "Software lifecycle processes, safety classification, verification & validation methodologies, and regulatory compliance for safety-critical medical software"
-      versions: ["firmware", "consulting", "executive"]
+      versions: ["firmware", "ai","consulting", "executive"]
       priority: 1
     
     # DS-specific Medical Device Training (combined)
