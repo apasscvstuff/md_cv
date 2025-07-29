@@ -51,19 +51,6 @@ _December 2022 - June 2025_
 
 _Signal Processing , Statistical Analysis , Production Systems , Team Leadership , Software Architecture , Testing Infrastructure , CI/CD , QMS, Grafana , Real-time Monitoring , Medical Device Development_
 
-### IMD Business School
-_Lausanne, Switzerland_<br>
-_July 2018 - August 2021_
-
-**Lead AI/ML Instructor & Curriculum Designer** · _(Ref. Marc Chauvet)_
-
-* **ML Curriculum:** Designed 40-hour hands-on curriculum covering supervised learning, neural networks, and PyTorch, achieving 4.8/5.0 rating from 100+ international executives
-* **Technical Translation:** Developed innovative methods to explain backpropagation, attention mechanisms, and gradient descent to non-technical business leaders
-* **Applied Projects:** Led implementation of business-focused ML projects including demand forecasting and sentiment analysis, with students presenting to C-suite
-* **Advanced Pedagogical Skills:** Demonstrated advanced pedagogical skills in technical education, successfully translating complex ML algorithms into actionable business insights for diverse international professional backgrounds
-
-_PyTorch , Teaching , Neural Networks , Python , Curriculum Design , Technical Communication , Training Development , Cross-cultural Communication , Educational Content Creation_
-
 ### ADEPT Neuro SA
 _Lausanne, Switzerland_<br>
 _September 2021 - March 2022_
@@ -77,11 +64,24 @@ _September 2021 - March 2022_
 
 _Neural Signal Processing, Python, Machine Learning, Signal Processing Pipelines, Medical AI, Feature Extraction, Time Series Analysis, Seizure Detection, High-Frequency Processing, Data Visualization, Medical Diagnostics_
 
+### IMD Business School
+_Lausanne, Switzerland_<br>
+_July 2018 - August 2021_
+
+**Lead AI/ML Instructor & Curriculum Designer** · _(Ref. Marc Chauvet)_
+
+* **ML Curriculum:** Designed 40-hour hands-on curriculum covering supervised learning, neural networks, and PyTorch, achieving 4.8/5.0 rating from 100+ international executives
+* **Technical Translation:** Developed innovative methods to explain backpropagation, attention mechanisms, and gradient descent to non-technical business leaders
+* **Applied Projects:** Led implementation of business-focused ML projects including demand forecasting and sentiment analysis, with students presenting to C-suite
+* **Advanced Pedagogical Skills:** Demonstrated advanced pedagogical skills in technical education, successfully translating complex ML algorithms into actionable business insights for diverse international professional backgrounds
+
+_PyTorch , Teaching , Neural Networks , Python , Curriculum Design , Technical Communication , Training Development , Cross-cultural Communication , Educational Content Creation_
+
 
 
 ## Projects
 
-### Technical Documentation RAG System with Advanced Retrieval
+### Technical Documentation RAG System
 _July 2025_
 
 [Github](https://github.com/apassuello/technical-doc-rag/) | [Demo](https://huggingface.co/spaces/ArthyP/technical-rag-assistant)

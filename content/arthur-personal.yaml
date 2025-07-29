@@ -107,18 +107,27 @@ personal:
     # Medical Device Regulatory Training
     - name: "ISO 13485 Quality Management Systems"
       type: "regulatory_compliance"
-      issuing_organization: "Medical Device Standards"
-      year: null
-      description: "Quality management systems for medical devices - design controls and regulatory compliance"
+      issuing_organization: "Tandem Diabetes Care Switzerland"
+      year: 2024
+      description: "Comprehensive training on quality frameworks, design controls, risk management, and regulatory documentation for medical device development"
       versions: ["firmware", "consulting", "executive"]
       priority: 1
     
     - name: "IEC 62304 Medical Device Software"
       type: "regulatory_compliance" 
-      issuing_organization: "International Electrotechnical Commission"
-      year: null
-      description: "Medical device software lifecycle processes and safety classification"
+      issuing_organization: "Tandem Diabetes Care Switzerland"
+      year: 2024
+      description: "Software lifecycle processes, safety classification, verification & validation methodologies, and regulatory compliance for safety-critical medical software"
       versions: ["firmware", "consulting", "executive"]
+      priority: 1
+    
+    # DS-specific Medical Device Training (combined)
+    - name: "Medical Device Standards Training"
+      type: "regulatory_compliance"
+      issuing_organization: "Tandem Diabetes Care Switzerland"
+      year: 2024
+      description: "**ISO-13485 Quality Management Systems** - Comprehensive training on quality frameworks, design controls, risk management, and regulatory documentation for medical device development<br><br>**IEC-62304 Medical Device Software** - Software lifecycle processes, safety classification, verification & validation methodologies, and regulatory compliance for safety-critical medical software"
+      versions: ["ds"]
       priority: 1
     
     # Technical Leadership Training

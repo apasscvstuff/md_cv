@@ -285,6 +285,114 @@ experiences:
       firmware: "Project Management, Client Relations, Technical Architecture, Documentation, Knowledge Transfer"
 
   # IMD Business School - Different content based on version
+ 
+  # ADEPT - Shows in all except executive
+  - company: "ADEPT Neuro SA"
+    location: "Lausanne, Switzerland"
+    period: "September 2021 - March 2022"
+    reference: "(Ref. Dr. Jason Ruan)"
+    versions: ["ai","ds", "consulting", "general", "firmware"]
+    
+    position_base: "Research Project Student Intern"
+    position_variants:
+      ai: "Research Project Student Intern"
+      ds: "Research Project Student Intern"
+      consulting: "Research Project Student Intern"
+      general: "Research Project Student Intern"
+      firmware: "Research Project Student Intern"
+    
+    achievements:
+      # Firmware version - detailed hardware/software integration
+      - text: "**Hardware-Software Integration:** Developed and integrated software (C & Python)/hardware (VHDL) interfaces and embedded drivers for ASIC-enabled neural electrodes, managing 300+ parallel signal channels at 50-60 Hz sampling rates"
+        versions: ["firmware"]
+        priority: 1
+        type: "firmware_focus"
+        
+      - text: "**Medical Device Prototypes:** Led implementation and documentation of research-grade medical device prototypes in startup R&D environment at EPFL Innovation Park"
+        versions: ["firmware"]
+        priority: 2
+        type: "base"
+        
+      - text: "**Regulatory Compliance:** Collaborated with multidisciplinary R&D team while ensuring compliance with medical device Quality System requirements and regulatory standards"
+        versions: ["firmware"]
+        priority: 2
+        type: "base"
+        
+      # AI version - detailed machine learning and signal processing
+      - text: "**Neural Signal Statistical Analysis**: Performed time series analysis on 300+ parallel neural signal channels at 50-60Hz sampling rates for epilepsy onset detection, implementing feature extraction algorithms and statistical pattern recognition for medical diagnostic applications"
+        versions: ["ds"]
+        priority: 1
+        type: "ds_focus"
+        
+      - text: "**Neural Signal Processing:** Performed time series analysis on 300+ parallel neural signals at 50-60Hz for epilepsy onset detection, implementing feature extraction algorithms for medical diagnostic applications"
+        versions: ["ai"]
+        priority: 1
+        type: "ai_focus"
+        
+      - text: "**Medical Data Processing**: Developed signal processing pipelines using Python for ASIC-based neural electrode data acquisition, focusing on statistical validation of biomedical signal quality and diagnostic accuracy"
+        versions: ["ds"]
+        priority: 1
+        type: "ds_focus"
+        
+      - text: "**Clinical Data Analytics**: Contributed to development of machine learning-based seizure detection algorithms, applying statistical methods to enhance diagnostic sensitivity and specificity in clinical applications"
+        versions: ["ds"]
+        priority: 1
+        type: "ds_focus"
+        
+      - text: "**Signal Processing Pipelines:** Developed signal processing pipelines using Python visualization libraries for ASIC-based neural electrode data acquisition and analysis"
+        versions: ["ai"]
+        priority: 2
+        type: "ai_focus"
+        
+      - text: "**Medical AI Algorithms:** Developed machine learning-based seizure detection algorithms achieving 87% accuracy with <100ms real-time processing latency"
+        versions: ["ai"]
+        priority: 1
+        type: "ai_focus"
+        
+      - text: "**High-Frequency Processing:** Processed neural signals at 30kHz sampling rate contributing to 2 patent applications for novel electrode technology"
+        versions: ["ai"]
+        priority: 2
+        type: "ai_focus"
+        
+      # Consulting version - business and innovation focus
+      - text: "**Medical Device R&D:** Developed and integrated software (Python)/hardware (FPGA) interfaces for novel medical devices, ensuring compliance with Quality System requirements and demonstrating ethical technology development practices"
+        versions: ["consulting"]
+        priority: 1
+        type: "consulting_focus"
+        
+      - text: "**Research Prototype Leadership:** Led implementation and comprehensive documentation of research-grade medical device prototypes, bridging complex technical concepts with regulatory compliance requirements"
+        versions: ["consulting"]
+        priority: 2
+        type: "consulting_focus"
+        
+      - text: "**Compliance Management:** Collaborated with multidisciplinary R&D team while maintaining regulatory standards, demonstrating ability to work within ethical and compliance frameworks"
+        versions: ["consulting"]
+        priority: 2
+        type: "consulting_focus"
+        
+      # General version - balanced technical overview
+      - text: "**System Integration:** Developed and integrated software (Python)/hardware (FPGA) interfaces for analog medical devices, ensuring compliance with Quality System requirements"
+        versions: ["general"]
+        priority: 1
+        type: "base"
+        
+      - text: "**Prototype Development:** Led implementation and documentation of research-grade medical device prototypes"
+        versions: ["general"]
+        priority: 2
+        type: "base"
+        
+      - text: "**Team Collaboration:** Collaborated with R&D team on medical device development projects while maintaining regulatory standards"
+        versions: ["general"]
+        priority: 2
+        type: "base"
+    
+    skills_tags:
+      firmware: "Hardware-Software Integration, C/C++, Python, VHDL, ASIC Integration, Embedded Drivers, Medical Device Development, Regulatory Compliance, R&D Prototyping, Signal Processing, EPFL Innovation Park"
+      ai: "Neural Signal Processing, Python, Machine Learning, Signal Processing Pipelines, Medical AI, Feature Extraction, Time Series Analysis, Seizure Detection, High-Frequency Processing, Data Visualization, Medical Diagnostics"
+      ds: "Neural Signal Processing, Python, Machine Learning, Time Series Analysis, Feature Extraction, Medical Diagnostics, Statistical Pattern Recognition"
+      consulting: "Medical Device R&D, Regulatory Compliance, Research Prototyping, Technical Documentation, Multidisciplinary Collaboration, Quality Systems, Ethical Technology Development"
+      general: "System Integration, Python, FPGA, Medical Device Development, R&D Collaboration, Regulatory Standards, Prototype Development"
+
   - company: "IMD Business School"
     location: "Lausanne, Switzerland"
     period: "July 2018 - August 2021"
@@ -395,112 +503,6 @@ experiences:
       general: "Technical Training, Team Leadership, Cross-cultural Communication, Python Programming, Educational Content Creation"
       firmware: "Technical Training, Team Leadership, Cross-cultural Communication, Python Programming, Educational Content Creation"
 
-  # ADEPT - Shows in all except executive
-  - company: "ADEPT Neuro SA"
-    location: "Lausanne, Switzerland"
-    period: "September 2021 - March 2022"
-    reference: "(Ref. Dr. Jason Ruan)"
-    versions: ["ai","ds", "consulting", "general", "firmware"]
-    
-    position_base: "Research Project Student Intern"
-    position_variants:
-      ai: "Research Project Student Intern"
-      ds: "Research Project Student Intern"
-      consulting: "Research Project Student Intern"
-      general: "Research Project Student Intern"
-      firmware: "Research Project Student Intern"
-    
-    achievements:
-      # Firmware version - detailed hardware/software integration
-      - text: "**Hardware-Software Integration:** Developed and integrated software (C & Python)/hardware (VHDL) interfaces and embedded drivers for ASIC-enabled neural electrodes, managing 300+ parallel signal channels at 50-60 Hz sampling rates"
-        versions: ["firmware"]
-        priority: 1
-        type: "firmware_focus"
-        
-      - text: "**Medical Device Prototypes:** Led implementation and documentation of research-grade medical device prototypes in startup R&D environment at EPFL Innovation Park"
-        versions: ["firmware"]
-        priority: 2
-        type: "base"
-        
-      - text: "**Regulatory Compliance:** Collaborated with multidisciplinary R&D team while ensuring compliance with medical device Quality System requirements and regulatory standards"
-        versions: ["firmware"]
-        priority: 2
-        type: "base"
-        
-      # AI version - detailed machine learning and signal processing
-      - text: "**Neural Signal Statistical Analysis**: Performed time series analysis on 300+ parallel neural signal channels at 50-60Hz sampling rates for epilepsy onset detection, implementing feature extraction algorithms and statistical pattern recognition for medical diagnostic applications"
-        versions: ["ds"]
-        priority: 1
-        type: "ds_focus"
-        
-      - text: "**Neural Signal Processing:** Performed time series analysis on 300+ parallel neural signals at 50-60Hz for epilepsy onset detection, implementing feature extraction algorithms for medical diagnostic applications"
-        versions: ["ai"]
-        priority: 1
-        type: "ai_focus"
-        
-      - text: "**Medical Data Processing**: Developed signal processing pipelines using Python for ASIC-based neural electrode data acquisition, focusing on statistical validation of biomedical signal quality and diagnostic accuracy"
-        versions: ["ds"]
-        priority: 1
-        type: "ds_focus"
-        
-      - text: "**Clinical Data Analytics**: Contributed to development of machine learning-based seizure detection algorithms, applying statistical methods to enhance diagnostic sensitivity and specificity in clinical applications"
-        versions: ["ds"]
-        priority: 1
-        type: "ds_focus"
-        
-      - text: "**Signal Processing Pipelines:** Developed signal processing pipelines using Python visualization libraries for ASIC-based neural electrode data acquisition and analysis"
-        versions: ["ai"]
-        priority: 2
-        type: "ai_focus"
-        
-      - text: "**Medical AI Algorithms:** Developed machine learning-based seizure detection algorithms achieving 87% accuracy with <100ms real-time processing latency"
-        versions: ["ai"]
-        priority: 1
-        type: "ai_focus"
-        
-      - text: "**High-Frequency Processing:** Processed neural signals at 30kHz sampling rate contributing to 2 patent applications for novel electrode technology"
-        versions: ["ai"]
-        priority: 2
-        type: "ai_focus"
-        
-      # Consulting version - business and innovation focus
-      - text: "**Medical Device R&D:** Developed and integrated software (Python)/hardware (FPGA) interfaces for novel medical devices, ensuring compliance with Quality System requirements and demonstrating ethical technology development practices"
-        versions: ["consulting"]
-        priority: 1
-        type: "consulting_focus"
-        
-      - text: "**Research Prototype Leadership:** Led implementation and comprehensive documentation of research-grade medical device prototypes, bridging complex technical concepts with regulatory compliance requirements"
-        versions: ["consulting"]
-        priority: 2
-        type: "consulting_focus"
-        
-      - text: "**Compliance Management:** Collaborated with multidisciplinary R&D team while maintaining regulatory standards, demonstrating ability to work within ethical and compliance frameworks"
-        versions: ["consulting"]
-        priority: 2
-        type: "consulting_focus"
-        
-      # General version - balanced technical overview
-      - text: "**System Integration:** Developed and integrated software (Python)/hardware (FPGA) interfaces for analog medical devices, ensuring compliance with Quality System requirements"
-        versions: ["general"]
-        priority: 1
-        type: "base"
-        
-      - text: "**Prototype Development:** Led implementation and documentation of research-grade medical device prototypes"
-        versions: ["general"]
-        priority: 2
-        type: "base"
-        
-      - text: "**Team Collaboration:** Collaborated with R&D team on medical device development projects while maintaining regulatory standards"
-        versions: ["general"]
-        priority: 2
-        type: "base"
-    
-    skills_tags:
-      firmware: "Hardware-Software Integration, C/C++, Python, VHDL, ASIC Integration, Embedded Drivers, Medical Device Development, Regulatory Compliance, R&D Prototyping, Signal Processing, EPFL Innovation Park"
-      ai: "Neural Signal Processing, Python, Machine Learning, Signal Processing Pipelines, Medical AI, Feature Extraction, Time Series Analysis, Seizure Detection, High-Frequency Processing, Data Visualization, Medical Diagnostics"
-      ds: "Neural Signal Processing, Python, Machine Learning, Time Series Analysis, Feature Extraction, Medical Diagnostics, Statistical Pattern Recognition"
-      consulting: "Medical Device R&D, Regulatory Compliance, Research Prototyping, Technical Documentation, Multidisciplinary Collaboration, Quality Systems, Ethical Technology Development"
-      general: "System Integration, Python, FPGA, Medical Device Development, R&D Collaboration, Regulatory Standards, Prototype Development"
 
   # ParSA Laboratory EPFL - Only shows in non-AI versions 
   - company: "ParSA Laboratory, EPFL"

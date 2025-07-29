@@ -584,7 +584,7 @@ skills:
   - firmware
 # DS-specific skills - Programming & Engineering
 - category: programming_engineering
-  name: Python (Expert)
+  name: Python 
   versions:
   - ds
 - category: programming_engineering
