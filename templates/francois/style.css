@@ -758,18 +758,6 @@ li::before {
 }
 
 /* Print optimizations for new sections */
-@media print {
-  .cv-executive-summary-content {
-    background: #f9f9f9;
-    break-inside: avoid;
-    page-break-inside: avoid;
-  }
-  
-  .cv-certification-item {
-    break-inside: avoid;
-    page-break-inside: avoid;
-  }
-}
 
 /* Links in content */
 a {
@@ -809,105 +797,6 @@ h3+p a {
   font-size: var(--size-small);
 }
 
-/* =============================================================================
-   🖨️ ADVANCED PRINT OPTIMIZATION - Swiss Design PDF Quality Enhancement
-   Following toolkit.md SitePoint guide recommendations for print-friendly CSS
-   ============================================================================= */
-
-@media print {
-
-  /* 🎯 SWISS DESIGN PRINT VARIABLES - Mathematical precision for PDF */
-  :root {
-    --size-name: clamp(22pt, 4vw, 24pt);
-    --size-tagline: clamp(10pt, 2.5vw, 12pt);
-    --size-section: clamp(12pt, 3vw, 14pt);
-    --size-subsection: clamp(10pt, 2vw, 11pt);
-    --size-body: clamp(8pt, 1.8vw, 9pt);
-    --size-small: clamp(7pt, 1.5vw, 8pt);
-    --size-tiny: clamp(6pt, 1.2vw, 7pt);
-    --margin-page: 12mm;
-    /* Optimized print margins for professional presentation */
-    --line-height-print: 1.5;
-    /* Increased line height to prevent text overlap in PDF */
-    
-    /* 📐 PRINT-OPTIMIZED CUSTOMIZATION OVERRIDES */
-    /* These automatically scale your customizations for better PDF output */
-    --profile-pic-size: calc(var(--profile-pic-size) * 0.8);
-    /* Slightly smaller profile for print */
-    --bullet-spacing: calc(var(--bullet-spacing) * 0.8);
-    /* Tighter bullet spacing for print density */
-    --header-vertical-spacing: calc(var(--header-vertical-spacing) * 0.8);
-    /* Compressed header spacing */
-    --section-top-margin: calc(var(--section-top-margin) * 0.9);
-    /* Slightly reduced section spacing */
-    --experience-item-spacing: calc(var(--experience-item-spacing) * 0.8);
-    /* More compact experience items */
-  }
-
-  /* 📄 PDF BODY OPTIMIZATION - Following guide.md recommendations */
-  body {
-    max-width: none;
-    line-height: var(--line-height-print) !important;
-    font-size: var(--size-body);
-    /* Ensure color accuracy in PDF generation */
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-  
-  /* Force consistent line heights to prevent overlap */
-  * {
-    line-height: var(--line-height-print) !important;
-  }
-
-  /* 🖨️ GRID-AWARE PRINT LAYOUT - Toolkit.md SitePoint method */
-  .cv-header {
-    grid-template-columns: 2fr 120px;
-    gap: var(--space-small);
-    page-break-after: avoid;
-    break-after: avoid;
-  }
-
-  /* Fix for print - handle section wrapper around header info */
-  .cv-header section.cv-header-info,
-  .cv-header .cv-header-info {
-    grid-area: header-info;
-  }
-
-  .profile-pic {
-    width: 110px;
-    height: 110px;
-  }
-
-  h2 {
-    margin-top: 18px;
-    margin-bottom: 12px;
-    page-break-after: avoid;
-  }
-
-  h3 {
-    margin-top: 14px;
-    page-break-after: avoid;
-  }
-
-  ul,
-  .skills-tags {
-    page-break-inside: avoid;
-  }
-
-  li {
-    margin-bottom: 4px;
-  }
-
-  table {
-    page-break-inside: avoid;
-  }
-
-  /* Ensure consistent font rendering */
-  * {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-}
 
 /* =============================================================================
    📜 SWISS DESIGN @PAGE RULES - Professional PDF page control
@@ -929,69 +818,149 @@ h3+p a {
   }
 }
 
-/* 🎯 GRID-AWARE PAGE BREAK MANAGEMENT - Enhanced from toolkit.md */
-@media print {
+/* =============================================================================
+   🖨️ CONSOLIDATED PRINT OPTIMIZATION - All print rules organized
+   Swiss Design PDF Quality Enhancement with conflict-free spacing
+   ============================================================================= */
 
-  /* Grid container break control */
+@media print {
+  /* 🎯 PRINT VARIABLES - Mathematical precision for PDF */
+  :root {
+    --size-name: clamp(22pt, 4vw, 24pt);
+    --size-tagline: clamp(10pt, 2.5vw, 12pt);
+    --size-section: clamp(12pt, 3vw, 14pt);
+    --size-subsection: clamp(10pt, 2vw, 11pt);
+    --size-body: clamp(8pt, 1.8vw, 9pt);
+    --size-small: clamp(7pt, 1.5vw, 8pt);
+    --size-tiny: clamp(6pt, 1.2vw, 7pt);
+    --margin-page: 12mm;
+    --line-height-print: 1.5;
+    
+    /* Print-optimized spacing - SINGLE SOURCE OF TRUTH */
+    --space-section: 2.5rem;  /* Increased for better separation */
+    --space-subsection: 0.75rem;
+    --space-item: 0.5rem;
+    
+    /* Scaled elements for print */
+    --profile-pic-size: calc(var(--profile-pic-size) * 0.8);
+    --bullet-spacing: calc(var(--bullet-spacing) * 0.8);
+  }
+
+  /* 📄 PDF BODY OPTIMIZATION */
+  body {
+    max-width: none;
+    line-height: var(--line-height-print);
+    font-size: var(--size-body);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* 🖨️ LAYOUT OPTIMIZATION */
+  .cv-header {
+    grid-template-columns: 2fr 120px;
+    gap: var(--space-small);
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  .cv-header section.cv-header-info,
+  .cv-header .cv-header-info {
+    grid-area: header-info;
+  }
+
+  .profile-pic {
+    width: 110px;
+    height: 110px;
+  }
+
+  /* 🎯 SECTION SPACING - UNIFIED APPROACH */
+  .cv-section {
+    margin-bottom: var(--space-section);
+    margin-top: var(--space-section);
+  }
+  
+  /* First section no top margin */
+  .cv-main-content .cv-section:first-child {
+    margin-top: 0;
+  }
+
+  /* 📋 PAGE BREAK MANAGEMENT */
+  /* Grid containers */
   .cv-header,
   .cv-main-content {
     page-break-inside: avoid;
     break-inside: avoid;
   }
 
-  /* Section-level break control - handle both semantic classes and Pandoc sections */
-  /* Allow sections to break across pages for better flow */
-  .cv-section,
-  section.cv-section {
-    /* Removed page-break-inside: avoid to allow sections to span pages */
+  /* Section headers */
+  h2.cv-section-header,
+  h2 {
+    page-break-after: avoid;
+    break-after: avoid;
+    orphans: 2;
+    widows: 2;
+    margin-top: 18px;
+    margin-bottom: 12px;
   }
 
-  /* INTELLIGENT PAGE BREAKING: Optimized for AI version content density */
-  
+  h3 {
+    page-break-after: avoid;
+    break-after: avoid;
+    margin-top: 14px;
+  }
+
+  /* 🎯 ITEM-SPECIFIC RULES */
   /* Keep shorter entries together */
   .cv-experience-item,
   .cv-education-item,
   .cv-certification-item {
     break-inside: avoid;
+    page-break-inside: avoid;
     margin-bottom: var(--space-subsection);
   }
 
-  /* ANTI-ORPHAN PROJECT RULES: Prevent title orphaning */
-  .cv-project-item {
-    margin-bottom: var(--space-subsection);
+  /* Executive summary */
+  .cv-executive-summary-content {
+    background: #f9f9f9;
     break-inside: avoid;
     page-break-inside: avoid;
-    /* Prevent project entries from splitting across pages */
+  }
+
+  /* 📝 PROJECT ITEMS - NATURAL BREAKING APPROACH */
+  .cv-project-item {
+    margin-bottom: var(--space-subsection);
+    /* Allow natural breaking to prevent overlaps */
   }
   
-  /* Keep project header with first content */
+  /* Keep project title with first 2 bullets */
   .cv-project-item h3,
   .cv-project-item .cv-project-links,
   .cv-project-item ul li:first-child,
   .cv-project-item ul li:nth-child(2) {
     break-after: avoid;
     page-break-after: avoid;
-    /* Keep title with first 2 bullets to prevent orphaning */
   }
-  
-  /* Prevent widow lines in project descriptions */
-  .cv-project-item li {
-    orphans: 2;
-    widows: 2;
-    break-inside: avoid;
+
+  /* 📃 LIST AND TABLE OPTIMIZATION */
+  ul,
+  .skills-tags {
     page-break-inside: avoid;
   }
 
-  /* Keep section headers with their content */
-  h2.cv-section-header {
-    page-break-after: avoid;
-    break-after: avoid;
-  }
-  
-  /* Keep individual list items together */
   li {
+    margin-bottom: 4px;
+    orphans: 2;
+    widows: 2;
+  }
+
+  table {
     page-break-inside: avoid;
-    break-inside: avoid;
+  }
+
+  /* 🎨 FONT RENDERING */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 }
 
@@ -1586,30 +1555,4 @@ h3+p a {
 }
 
 /* PDF-OPTIMIZED VERTICAL SPACING */
-@media print {
-  /* Maintain consistent section spacing in PDF */
-  .cv-section {
-    margin-bottom: var(--space-section);
-    margin-top: var(--space-section);
-    /* Force consistent vertical separation */
-  }
-  
-  /* First section still no top margin */
-  .cv-main-content .cv-section:first-child {
-    margin-top: 0;
-  }
-  
-  /* Prevent widows and orphans */
-  .cv-section h2 {
-    orphans: 2;
-    widows: 2;
-    break-after: avoid;
-    page-break-after: avoid;
-  }
-  
-  /* Additional Projects-Education separation */
-  .cv-projects {
-    margin-bottom: calc(var(--space-section) * 1.5);
-    /* Extra spacing to prevent overlap */
-  }
-}
+/* REMOVED - Will be consolidated into main print block below */
