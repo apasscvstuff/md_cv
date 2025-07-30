@@ -113,7 +113,7 @@ experiences:
         priority: 2
         type: "ai_focus"
         
-      - text: "**Cross-functional Technical Leadership:** Coordinated firmware, mobile development, quality assurance, clinical, and regulatory teams for FIH trial delivery"
+      - text: "**Cross-functional Technical Leadership:**  Led firmware development from risk assessment through regulatory approval for FIH trials where patient safety was paramount. Implemented comprehensive risk control measures and exhaustive V&V protocols, created full traceability matrices, and delivered complete documentation package meeting ISO-13485/IEC-62304 standards. Zero safety incidents during trials."
         versions: ["ai"]
         priority: 1
         type: "ai_focus"
@@ -127,7 +127,18 @@ experiences:
         versions: ["ai"]
         priority: 2
         type: "ai_focus"
+
+      - text: "**Critical System Debugging:** Led multi-week Root Cause Analysis to identify and resolve Bluetooth connectivity issue blocking clinical trial, applying systematic debugging methodology to safety-critical communications"
+        versions: ["ai"]
+        priority: 2
+        type: "ai_focus"
         
+  # Detailed research enablement achievement
+      - text: "**Custom Research Firmware Development:** Gathered requirements from clinical researchers and designed specialized firmware systems for internal trials. For Insulin Compatibility Testing, redesigned data models for long-term measurements, implemented autonomous pumping protocols for 2-week unattended operation, and developed accompanying tools for real-time remote monitoring and log analysis"
+        versions: ["ai"]
+        priority: 2
+        type: "ai_focus"
+
       - text: "**Strategic Project Management:** Translated clinical trial roadmap requirements into concrete technical strategies, managing multiple parallel projects under tight regulatory deadlines while ensuring ethical technology development"
         versions: ["consulting"]
         priority: 2
