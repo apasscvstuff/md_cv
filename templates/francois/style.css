@@ -208,6 +208,10 @@
   --profile-pic-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   /* Shadow (none=no shadow, increase numbers for stronger shadow) */
   --profile-pic-margin: var(--space-item);
+  --profile-pic-zoom: 1.15;
+  /* Zoom level (1.0=no zoom, 1.5=150% zoom, 2.0=200% zoom) */
+  --profile-pic-position: center center;
+  /* Crop position (center center, center top, center bottom, left center, right center) */
   /* Spacing around picture */
 
   /* 📏 GRANULAR SPACING CONTROLS - Fine-tune layout density */
@@ -360,15 +364,28 @@ body {
   /* Remove gap - use pure margin-based spacing for PDF compatibility */
 }
 
-.profile-pic {
+/* Profile picture container - fixed size with border/shadow */
+.cv-profile-container {
   width: var(--profile-pic-size);
   height: var(--profile-pic-size);
   border-radius: var(--profile-pic-border-radius);
   border: var(--profile-pic-border-width) solid var(--color-border);
-  object-fit: cover;
   box-shadow: var(--profile-pic-shadow);
-  display: block;
   margin: var(--profile-pic-margin);
+  overflow: hidden;
+  /* Container stays fixed size */
+}
+
+/* Profile picture image - scales inside container */
+.profile-pic {
+  width: calc(var(--profile-pic-size) * var(--profile-pic-zoom));
+  height: calc(var(--profile-pic-size) * var(--profile-pic-zoom));
+  object-fit: cover;
+  object-position: var(--profile-pic-position);
+  display: block;
+  /* Position the scaled image to center it in container */
+  margin-left: calc((var(--profile-pic-size) - var(--profile-pic-size) * var(--profile-pic-zoom)) / 2);
+  margin-top: calc((var(--profile-pic-size) - var(--profile-pic-size) * var(--profile-pic-zoom)) / 2);
 }
 
 /* 🎯 GRID SPACING CONTROL - No float clearing needed with Grid */
