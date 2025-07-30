@@ -335,8 +335,9 @@ skills:
   - ai
   - firmware
 - category: embedded
-  level: SPI/I2C/UART/BLE
-  name: Communication Protocols
+  level: BLE 5.0/SPI/I2C/UART
+  name: Communication Protocols & Interfaces
+  description: Bluetooth Low Energy (BLE 5.0), SPI, I2C, UART/Serial Interfaces, Wireless Medical Telemetry, Ethernet, WiFi, Debugging Tools (JTAG, Logic Analyzers), Protocol Integration & Optimization
   versions:
   - firmware
 - category: embedded
@@ -441,29 +442,41 @@ skills:
   versions:
   - general
 - category: medical_device
-  name: consulting
+  name: Regulatory Standards & Compliance (ISO-13485, IEC-62304, IEC-60601)
   versions:
-  - exclude_versions
+  - firmware
 - category: medical_device
-  name: ISO-13485/IEC-62304 Compliance
+  name: FDA 21 CFR Part 820
   versions:
-  - skills
+  - firmware
 - category: medical_device
-  name: Quality Systems
+  name: Quality System Implementation
   versions:
-  - skills
+  - firmware
 - category: medical_device
-  name: Risk Management
+  name: Design Controls, V&V
   versions:
-  - skills
+  - firmware
 - category: medical_device
-  name: Design Controls & V&V
+  name: Risk Management & Safety
   versions:
-  - skills
+  - firmware
 - category: medical_device
-  name: Safety-Critical Design
+  name: Cybersecurity
   versions:
-  - skills
+  - firmware
+- category: medical_device
+  name: Implantable Device Firmware
+  versions:
+  - firmware
+- category: medical_device
+  name: Wireless Medical Device Protocols
+  versions:
+  - firmware
+- category: medical_device
+  name: Battery Management Systems
+  versions:
+  - firmware
 - category: tools
   name: JIRA
   versions:
@@ -790,15 +803,15 @@ version_layouts:
     - leadership
   firmware:
     categories:
-    - programming
-    - embedded
-    - leadership
     - medical_device
+    - embedded
+    - programming
+    - leadership
     category_order:
-    - programming
-    - embedded
-    - leadership
     - medical_device
+    - embedded
+    - programming
+    - leadership
   general:
     categories:
     - programming

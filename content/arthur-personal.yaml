@@ -81,7 +81,7 @@ personal:
   
   # Executive Summaries - Version-specific professional summaries (2-3 sentences)
   executive_summaries:
-    firmware: "Senior embedded systems engineer with 3+ years of medical device development experience, specializing in safety-critical firmware architecture and regulatory compliance. Proven track record leading cross-functional teams to deliver FDA-compliant products while implementing robust testing infrastructure and real-time monitoring systems. Expert in ISO-13485/IEC-62304 standards with deep technical leadership capabilities."
+    firmware: "Senior embedded systems engineer with 3+ years of medical device development experience, specializing in safety-critical firmware architecture and regulatory compliance. Proven track record leading cross-functional teams to deliver FDA-compliant products while implementing robust testing infrastructure and real-time monitoring systems. Expert in ISO-13485/IEC-62304 standards with deep technical leadership capabilities. Proven track record delivering FDA-compliant firmware for implantable medical devices, with specific expertise in wireless communication protocols and battery-powered systems critical for Class III medical devices."
     
     ai: "Embedded systems engineer with hands-on AI/ML implementation experience through personal research projects. Built transformer architectures and multimodal systems from scratch to understand fundamental principles. Background in safety-critical medical devices with focus on systematic validation and testing."
 

@@ -168,11 +168,7 @@ projects:
     # Version-specific descriptions
     descriptions:
       firmware:
-        - "**Hardware-Software Interface:** Designed hardware-software interfaces for novel deep-brain electrodes with integrated ASICs"
-        - "**Real-time Processing:** Implemented real-time signal processing algorithms for multi-channel neural data acquisition"
-        - "**Embedded Firmware:** Developed embedded firmware for medical device prototypes with strict real-time constraints"
-        - "**Startup Innovation:** Project focused on medical device innovation within startup environment at EPFL Innovation Park"
-        - "**Academic Excellence:** Achieved excellent academic recognition (5.0/6.0) for technical implementation excellence"
+        - "Development of hardware-software interfaces for novel deep-brain electrodes with integrated ASICs, demonstrating embedded hardware design expertise and complex system integration. Implementation of power-efficient firmware for battery-operated implantable devices with machine learning-based seizure detection system. Project focused on deeply integrated, high-performance medical device platforms within startup environment, achieving excellent academic recognition (5.0/6.0)."
       
       consulting:
         - "**Medical Device Leadership:** Led medical device development project within startup environment, demonstrating entrepreneurial technical leadership"

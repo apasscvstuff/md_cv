@@ -47,7 +47,12 @@ experiences:
         priority: 1
         type: "base"
         
-      - text: "**Testing Infrastructure:** achieving 96% test coverage through HIL system implementation"
+      - text: "**Testing Infrastructure:** Established test infrastructure for medical-grade firmware verification — e.g. led the development of a HIL system"
+        versions: ["firmware"]
+        priority: 1
+        type: "techmetric"
+        
+      - text: "**Embedded Architecture:** Developed proprietary embedded software combining third-party Bluetooth Low Energy (BLE 5.0) stack with custom safety algorithms and real-time insulin delivery protocols"
         versions: ["firmware"]
         priority: 1
         type: "techmetric"
@@ -73,10 +78,6 @@ experiences:
         priority: 2
         type: "leadmetric"
         
-      - text: "**Embedded Architecture:** Developed proprietary embedded software combining third-party Bluetooth stack with custom safety algorithms and real-time insulin delivery protocols"
-        versions: ["firmware"]
-        priority: 2
-        type: "techmetric"
         
       - text: "**Sensor Fusion Platform:** Implemented sensor fusion system combining accelerometer and Hall effect sensors achieving 100% detection accuracy through statistical calibration algorithms and dynamic threshold adjustment"
         versions: ["firmware"]
