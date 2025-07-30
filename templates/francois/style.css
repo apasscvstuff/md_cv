@@ -199,7 +199,7 @@
      ========================================================================== */
 
   /* 🖼️ PROFILE PICTURE CONTROLS - Easy size and styling adjustments */
-  --profile-pic-size: 130px;
+  --profile-pic-size: 140px;
   /* Profile picture size (120px=smaller, 180px=larger) */
   --profile-pic-border-width: 3px;
   /* Border thickness (1px=thin, 5px=thick, 0px=no border) */
@@ -208,7 +208,7 @@
   --profile-pic-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   /* Shadow (none=no shadow, increase numbers for stronger shadow) */
   --profile-pic-margin: var(--space-item);
-  --profile-pic-zoom: 1.15;
+  --profile-pic-zoom: 1.2;
   /* Zoom level (1.0=no zoom, 1.5=150% zoom, 2.0=200% zoom) */
   --profile-pic-position: center center;
   /* Crop position (center center, center top, center bottom, left center, right center) */
@@ -383,9 +383,11 @@ body {
   object-fit: cover;
   object-position: var(--profile-pic-position);
   display: block;
-  /* Position the scaled image to center it in container */
-  margin-left: calc((var(--profile-pic-size) - var(--profile-pic-size) * var(--profile-pic-zoom)) / 2);
-  margin-top: calc((var(--profile-pic-size) - var(--profile-pic-size) * var(--profile-pic-zoom)) / 2);
+  /* Center the scaled image in container using transform */
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* 🎯 GRID SPACING CONTROL - No float clearing needed with Grid */
