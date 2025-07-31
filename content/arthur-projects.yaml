@@ -15,7 +15,7 @@ projects:
     # Version-specific descriptions
     descriptions:
       ai:
-        - "**Hybrid RAG System Implementation:** Built functional RAG system with FAISS and Weaviate vector database support, backend switching between local LLMs and APIs, comprehensive document processing pipeline, and neural reranking achieving <100ms query response times"
+        - "**Hybrid RAG System Implementation:** Built functional RAG system with FAISS and Weaviate vector database support, backend switching between local LLMs and APIs, comprehensive document processing pipeline, and neural reranking"
         - "**Multi-Model Architecture Enhancement:** Currently extending existing system with intelligent query routing and multi-LLM integration based on detailed technical specifications for cost optimization and performance scaling"
         - "**Scalable Infrastructure Design:** Designed comprehensive cloud-native architecture specifications including microservices decomposition, Kubernetes orchestration, and observability stack integration for deployment scaling"
         - "**Containerized Deployment:** Deployed Docker-based solution with Weaviate vector database integration and LLM pipeline supporting local and cloud deployment"
@@ -59,8 +59,8 @@ projects:
       ai:
         - "**Transformer Architecture Implementation:** Built complete transformer encoder-decoder with multiple attention variants from scratch, including scaled dot-product attention, rotary positional embeddings, and flash attention optimizations, directly relevant to optimizing novel attention mechanisms"
         - "**Multimodal System Integration:** Implemented CLIP and ViT architectures for vision-language tasks with cross-modal attention mechanisms and progressive training stages, directly aligned with team focus on multimodal capabilities for LLMs"
-        - "**Performance Optimization Engineering:** Achieved 6x inference speedup through custom MPS kernels and 40% memory reduction via magnitude-based pruning, INT8/INT4 quantization, and mixed precision training, demonstrating training infrastructure optimization thinking"
-        - "**AI Safety Framework Implementation:** Developed Constitutional AI safety evaluation system with comprehensive red teaming suite testing adversarial cases, showing systematic approach to AI safety methodology and evaluation frameworks"
+        - "**Performance Optimization Engineering:** Achieved 6x inference speedup through custom MPS kernels and 40% memory reduction via magnitude-based pruning, INT8/INT4 quantization, and mixed precision training, implementing training infrastructure optimization approach"
+        - "**AI Safety Framework Implementation:** Developed a baseline Constitutional AI safety evaluation system with comprehensive red teaming suite testing adversarial cases, aiming for a systematic approach to AI safety methodology and evaluation frameworks"
       ds:
         - "**Transformer Architecture from Scratch**: Implemented complete transformer encoder-decoder with multiple attention variants, rotary positional embeddings, and Vision Transformer (ViT) with patch embedding"
         - "**Statistical Learning Framework**: Developed comprehensive testing infrastructure with 172 test functions, implementing 15+ loss functions including VICReg, contrastive learning, and Barlow Twins"

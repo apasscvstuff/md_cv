@@ -23,7 +23,7 @@ education:
     
     # Concise one-liner technical focus per version (François style)
     technical_highlight:
-      ai: "Data Science specialization with Machine Learning research and production deployment experience"
+      ai: "Data Science and Embedded Systems specialization with Machine Learning research and heterogeneous systems security research"
       ds: "Data Science specialization with Machine Learning research and production deployment experience"
       firmware: "Hardware-Software Co-design with Computer Systems architecture and embedded programming"
       consulting: "Data Science and ML methodology with proven business impact and stakeholder communication"
@@ -99,7 +99,7 @@ education:
     # Concise one-liner technical focus per version (François style)
     technical_highlight:
       firmware: "Embedded Systems major with FPGA/SoC development and Linux kernel programming expertise"
-      ai: "High-performance computing foundation with hardware acceleration and parallel processing experience"
+      ai: "High-performance computing with hardware acceleration, parallel processing projects, and research-oriented bachelor's thesis"
       ds: "High-performance computing foundation with hardware acceleration and parallel processing experience"
       consulting: "Strong technical foundation with embedded systems and performance optimization experience"
       executive: "Technical engineering degree with hands-on systems development and optimization expertise"
