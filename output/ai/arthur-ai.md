@@ -8,7 +8,7 @@ _Chemin du Parc-de-Valency 1, 1004 Lausanne, Switzerland_
 📞 +41 79 176 24 84 | ✉️ [apassuello@proton.me](mailto:apassuello@proton.me) | 🔗 [GitHub](https://github.com/apassuello) | 💼 [LinkedIn](https://linkedin.com/in/arthur-passuello/)
 
 **French (Native) • English (Fluent) • German (Basics)**
-_Embedded systems engineer with hands-on AI/ML implementation experience through personal research projects. Built transformer architectures and multimodal systems from scratch to understand fundamental principles. Background in safety-critical medical devices with focus on systematic validation and testing._
+_Systems engineer applying embedded software principles to AI research and implementation. Combines deep understanding of production constraints from safety-critical medical devices with hands-on multimodal AI development (transformers, CLIP, ViT implemented from scratch). Unique perspective to bridge theoretical research with emerging AI architecture through systematic validation methodologies and cross-functional technical leadership._
 
 
 ## Skills
