@@ -1,7 +1,7 @@
 ![Arthur PASSUELLO](assets/profile.jpeg)
 
 # **Arthur PASSUELLO**
-### Applied AI/ML Engineer | Production Systems & Education
+### Senior Software Engineer | Data Science & Machine Learning Focus
 
 _Chemin du Parc-de-Valency 1, 1004 Lausanne, Switzerland_
 

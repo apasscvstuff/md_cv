@@ -163,7 +163,7 @@
      ========================================================================== */
 
   /* 🎯 SWISS DESIGN SPACING - François reference proportions (optimized for AI version) */
-  --space-section: 1.2rem;
+  --space-section: 0.2rem;
   /* Between major sections - optimized for content density and page flow */
   --space-subsection: 0.5rem;
   /* Between companies/projects - maintains hierarchy */
@@ -190,7 +190,7 @@
   /* 📋 PAGE SETUP - Optimized for international A4 format */
   --max-width: 210mm;
   /* A4 width (8.5in for US Letter) */
-  --margin-page: 20mm;
+  --margin-page: 2mm;
   /* Page margins (15mm=tighter, 25mm=more space) */
 
   /* ==========================================================================
@@ -199,7 +199,7 @@
      ========================================================================== */
 
   /* 🖼️ PROFILE PICTURE CONTROLS - Easy size and styling adjustments */
-  --profile-pic-size: 150px;
+  --profile-pic-size: 140px;
   /* Profile picture size (120px=smaller, 180px=larger) */
   --profile-pic-border-width: 3px;
   /* Border thickness (1px=thin, 5px=thick, 0px=no border) */
@@ -208,6 +208,10 @@
   --profile-pic-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   /* Shadow (none=no shadow, increase numbers for stronger shadow) */
   --profile-pic-margin: var(--space-item);
+  --profile-pic-zoom: 1.2;
+  /* Zoom level (1.0=no zoom, 1.5=150% zoom, 2.0=200% zoom) */
+  --profile-pic-position: center center;
+  /* Crop position (center center, center top, center bottom, left center, right center) */
   /* Spacing around picture */
 
   /* 📏 GRANULAR SPACING CONTROLS - Fine-tune layout density */
@@ -274,13 +278,11 @@
   /* Already active above */
 
   /* DENSITY 2: Standard - More breathing room, uncomment to activate */
-  /*
   --space-section: 2rem;
   --space-subsection: 0.75rem;
   --space-item: 0.5rem;
   --section-top-margin: 2rem;
   --experience-item-spacing: 0.75rem;
-  */
 
   /* DENSITY 3: Spacious - Maximum readability, uncomment to activate */
   /*
@@ -360,15 +362,30 @@ body {
   /* Remove gap - use pure margin-based spacing for PDF compatibility */
 }
 
-.profile-pic {
+/* Profile picture container - fixed size with border/shadow */
+.cv-profile-container {
   width: var(--profile-pic-size);
   height: var(--profile-pic-size);
   border-radius: var(--profile-pic-border-radius);
   border: var(--profile-pic-border-width) solid var(--color-border);
-  object-fit: cover;
   box-shadow: var(--profile-pic-shadow);
-  display: block;
   margin: var(--profile-pic-margin);
+  overflow: hidden;
+  /* Container stays fixed size */
+}
+
+/* Profile picture image - scales inside container */
+.profile-pic {
+  width: calc(var(--profile-pic-size) * var(--profile-pic-zoom));
+  height: calc(var(--profile-pic-size) * var(--profile-pic-zoom));
+  object-fit: cover;
+  object-position: var(--profile-pic-position);
+  display: block;
+  /* Center the scaled image in container using transform */
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* 🎯 GRID SPACING CONTROL - No float clearing needed with Grid */
@@ -484,11 +501,7 @@ h2.cv-section-header::after {
   /* Red bar color matching François design */
 }
 
-/* Handle Pandoc section wrapper elements - Ensure proper spacing */
-section.cv-section {
-  margin-bottom: var(--space-subsection);
-  /* Ensure proper section separation in PDF */
-}
+/* REMOVED - Section spacing now handled in consolidated print block */
 
 /* First section should not have top margin */
 .cv-main-content section:first-child h2,
@@ -700,7 +713,7 @@ li::before {
    ============================================================================= */
 
 .cv-certifications {
-  margin-bottom: var(--space-section);
+  /* Bottom margin handled by section spacing rules */
 }
 
 .cv-certification-item {
@@ -840,11 +853,11 @@ h3+p a {
     /* Print-optimized spacing - SINGLE SOURCE OF TRUTH */
     --space-section: 0.8rem;
     /* Small value since it gets doubled (top+bottom) */
-    --space-subsection: 0.75rem;
+    --space-subsection: 0.3rem;
     --space-item: 0.5rem;
 
     /* Scaled elements for print */
-    --profile-pic-size: calc(var(--profile-pic-size) * 0.8);
+    /* Profile pic size now uses regular CSS variable without scaling */
     --bullet-spacing: calc(var(--bullet-spacing) * 0.8);
   }
 
@@ -871,20 +884,28 @@ h3+p a {
   }
 
   .profile-pic {
-    width: 110px;
-    height: 110px;
+    width: var(--profile-pic-size);
+    height: var(--profile-pic-size);
   }
 
   /* 🎯 SECTION SPACING - UNIFIED APPROACH */
+  section.cv-section,
   .cv-section {
-    margin-bottom: var(--space-section);
-    margin-top: var(--space-section);
-    /* Both margins needed to prevent overlap, but using smaller value */
+    margin-bottom: var(--space-subsection);
+    margin-top: var(--space-subsection);
+    /* Both margins needed to prevent overlap, using subsection spacing */
   }
 
   /* First section no top margin */
+  .cv-main-content section.cv-section:first-child,
   .cv-main-content .cv-section:first-child {
     margin-top: 0;
+  }
+
+  /* Last section no bottom margin to prevent empty page */
+  .cv-main-content section.cv-section:last-child,
+  .cv-main-content .cv-section:last-child {
+    margin-bottom: 0;
   }
 
   /* 📋 PAGE BREAK MANAGEMENT */

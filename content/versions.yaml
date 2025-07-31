@@ -31,7 +31,7 @@ versions:
 
   ai:
     name: "AI"
-    tagline: "Applied AI/ML Engineer | Production Systems & Education"
+    tagline: "SeniorSoftware Engineer | Data Science & Machine Learning Focus"
     
     toggles:
       - ai

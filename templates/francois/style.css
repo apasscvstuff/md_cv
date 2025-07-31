@@ -278,13 +278,11 @@
   /* Already active above */
 
   /* DENSITY 2: Standard - More breathing room, uncomment to activate */
-  /*
   --space-section: 2rem;
   --space-subsection: 0.75rem;
   --space-item: 0.5rem;
   --section-top-margin: 2rem;
   --experience-item-spacing: 0.75rem;
-  */
 
   /* DENSITY 3: Spacious - Maximum readability, uncomment to activate */
   /*
